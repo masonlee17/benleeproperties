@@ -1,0 +1,314 @@
+[
+  {
+    "id": "nl-2026-05",
+    "label": "May 2026",
+    "year": 2026,
+    "month": 5,
+    "pdf": "documents/Ben-Lee-050126-BEVERLYWOOD_8.5x11-digital.pdf",
+    "cover": "images/Screenshot-2026-04-30-at-11.38.50-AM.png"
+  },
+  {
+    "id": "nl-2026-04",
+    "label": "April 2026",
+    "year": 2026,
+    "month": 4,
+    "pdf": "documents/Ben-Lee-030126-CHEVIOT_8.5x11-digital-1.pdf",
+    "cover": "images/Screenshot-2026-03-26-at-12.52.07-PM.png"
+  },
+  {
+    "id": "nl-2026-03",
+    "label": "March 2026",
+    "year": 2026,
+    "month": 3,
+    "pdf": "documents/Ben-Lee-030126-CHEVIOT_8.5x11-digital-1.pdf",
+    "cover": "images/Screenshot-2026-03-12-at-12.13.51-PM.png"
+  },
+  {
+    "id": "nl-2026-02",
+    "label": "February 2026",
+    "year": 2026,
+    "month": 2,
+    "pdf": "documents/Ben-Lee-020126-CHEVIOT_8.5x11-digital-2.pdf",
+    "cover": "images/Screenshot-2026-02-11-at-8.50.30-AM.png"
+  },
+  {
+    "id": "nl-2026-01",
+    "label": "January 2026",
+    "year": 2026,
+    "month": 1,
+    "pdf": "documents/Ben-Lee-110125-CHEVIOT_8.5x11-digital.pdf",
+    "cover": "images/Screenshot-2026-01-28-at-8.51.34-PM.png"
+  },
+  {
+    "id": "nl-2025-11",
+    "label": "November 2025",
+    "year": 2025,
+    "month": 11,
+    "pdf": "documents/Ben-Lee-110125-CHEVIOT_8.5x11-digital.pdf",
+    "cover": "images/Screenshot-2025-10-30-at-2.04.34-AM.png"
+  },
+  {
+    "id": "nl-2025-10",
+    "label": "October 2025",
+    "year": 2025,
+    "month": 10,
+    "pdf": "documents/october-newsletter-2025.pdf",
+    "cover": "images/Screenshot-2025-11-02-at-3.36.46-PM.png"
+  },
+  {
+    "id": "nl-2025-09",
+    "label": "September 2025",
+    "year": 2025,
+    "month": 9,
+    "pdf": "documents/09-2025.pdf",
+    "cover": "images/Screenshot-2025-10-16-at-8.15.32-PM.png"
+  },
+  {
+    "id": "nl-2025-08",
+    "label": "August 2025",
+    "year": 2025,
+    "month": 8,
+    "pdf": "documents/08-2025.pdf",
+    "cover": "images/8-25.png"
+  },
+  {
+    "id": "nl-2025-06",
+    "label": "June 2025",
+    "year": 2025,
+    "month": 6,
+    "pdf": "documents/06-2025.pdf",
+    "cover": "images/6-25.png"
+  },
+  {
+    "id": "nl-2025-05",
+    "label": "May 2025",
+    "year": 2025,
+    "month": 5,
+    "pdf": "documents/05-2025.pdf",
+    "cover": "images/5-25.png"
+  },
+  {
+    "id": "nl-2025-04",
+    "label": "April 2025",
+    "year": 2025,
+    "month": 4,
+    "pdf": "documents/04-2025.pdf",
+    "cover": "images/4-25.png"
+  },
+  {
+    "id": "nl-2025-03",
+    "label": "March 2025",
+    "year": 2025,
+    "month": 3,
+    "pdf": "documents/03-2025.pdf",
+    "cover": "images/3-25.png"
+  },
+  {
+    "id": "nl-2025-02",
+    "label": "February 2025",
+    "year": 2025,
+    "month": 2,
+    "pdf": "documents/02-2025.pdf",
+    "cover": "images/2-25.png"
+  },
+  {
+    "id": "nl-2025-01",
+    "label": "January 2025",
+    "year": 2025,
+    "month": 1,
+    "pdf": "documents/01-2025.pdf",
+    "cover": "images/1-25.png"
+  },
+  {
+    "id": "nl-2024-12",
+    "label": "December 2024",
+    "year": 2024,
+    "month": 12,
+    "pdf": "documents/12-2024.pdf",
+    "cover": "images/12-24.png"
+  },
+  {
+    "id": "nl-2024-11",
+    "label": "November 2024",
+    "year": 2024,
+    "month": 11,
+    "pdf": "documents/11-2024.pdf",
+    "cover": "images/11-24.png"
+  },
+  {
+    "id": "nl-2024-10",
+    "label": "October 2024",
+    "year": 2024,
+    "month": 10,
+    "pdf": "",
+    "cover": "images/9-24.png"
+  },
+  {
+    "id": "nl-2024-09",
+    "label": "September 2024",
+    "year": 2024,
+    "month": 9,
+    "pdf": "documents/09-2024.pdf",
+    "cover": "images/7-24.png"
+  },
+  {
+    "id": "nl-2024-08",
+    "label": "August 2024",
+    "year": 2024,
+    "month": 8,
+    "pdf": "documents/08-2024.pdf",
+    "cover": "images/8-24-min.png"
+  },
+  {
+    "id": "nl-2024-07",
+    "label": "July 2024",
+    "year": 2024,
+    "month": 7,
+    "pdf": "documents/07-2024.pdf",
+    "cover": "images/7-24.png"
+  },
+  {
+    "id": "nl-2024-06",
+    "label": "June 2024",
+    "year": 2024,
+    "month": 6,
+    "pdf": "documents/06-2024.pdf",
+    "cover": "images/6-24.png"
+  },
+  {
+    "id": "nl-2024-05",
+    "label": "May 2024",
+    "year": 2024,
+    "month": 5,
+    "pdf": "documents/05-2024.pdf",
+    "cover": "images/5-24.png"
+  },
+  {
+    "id": "nl-2024-04",
+    "label": "April 2024",
+    "year": 2024,
+    "month": 4,
+    "pdf": "documents/04-2024.pdf",
+    "cover": "images/4-24.png"
+  },
+  {
+    "id": "nl-2024-03",
+    "label": "March 2024",
+    "year": 2024,
+    "month": 3,
+    "pdf": "documents/03-2024.pdf",
+    "cover": "images/3-24.png"
+  },
+  {
+    "id": "nl-2024-02",
+    "label": "February 2024",
+    "year": 2024,
+    "month": 2,
+    "pdf": "documents/02-2024.pdf",
+    "cover": "images/2-24.png"
+  },
+  {
+    "id": "nl-2024-01",
+    "label": "January 2024",
+    "year": 2024,
+    "month": 1,
+    "pdf": "documents/01-2024.pdf",
+    "cover": "images/1-24.png"
+  },
+  {
+    "id": "nl-2023-12",
+    "label": "December 2023",
+    "year": 2023,
+    "month": 12,
+    "pdf": "documents/12-2023.pdf",
+    "cover": "images/Screenshot-2025-10-16-at-8.15.32-PM.png"
+  },
+  {
+    "id": "nl-2023-11",
+    "label": "November 2023",
+    "year": 2023,
+    "month": 11,
+    "pdf": "documents/11-2023.pdf",
+    "cover": "images/Screenshot-2025-10-16-at-8.15.32-PM.png"
+  },
+  {
+    "id": "nl-2023-10",
+    "label": "October 2023",
+    "year": 2023,
+    "month": 10,
+    "pdf": "",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-09",
+    "label": "September 2023",
+    "year": 2023,
+    "month": 9,
+    "pdf": "documents/09-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-08",
+    "label": "August 2023",
+    "year": 2023,
+    "month": 8,
+    "pdf": "documents/08-2023_compressed.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-07",
+    "label": "July 2023",
+    "year": 2023,
+    "month": 7,
+    "pdf": "documents/07-2023_compressed.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-06",
+    "label": "June 2023",
+    "year": 2023,
+    "month": 6,
+    "pdf": "documents/06-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-05",
+    "label": "May 2023",
+    "year": 2023,
+    "month": 5,
+    "pdf": "documents/05-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-04",
+    "label": "April 2023",
+    "year": 2023,
+    "month": 4,
+    "pdf": "documents/04-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-03",
+    "label": "March 2023",
+    "year": 2023,
+    "month": 3,
+    "pdf": "documents/03-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-02",
+    "label": "February 2023",
+    "year": 2023,
+    "month": 2,
+    "pdf": "documents/02-2023.pdf",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  },
+  {
+    "id": "nl-2023-01",
+    "label": "January 2023",
+    "year": 2023,
+    "month": 1,
+    "pdf": "",
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.png"
+  }
+]
