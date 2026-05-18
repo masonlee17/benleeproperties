@@ -388,6 +388,22 @@ def delete_property(pid):
     return jsonify({'ok': True})
 
 
+# ── Image upload ───────────────────────────────────────────────────────────────
+
+@app.route('/api/upload/image', methods=['POST'])
+@login_required
+def upload_image():
+    f = request.files.get('image')
+    if not f or not f.filename:
+        return jsonify({'error': 'No file'}), 400
+    if not allowed(f.filename, ALLOWED_IMG):
+        return jsonify({'error': 'Invalid file type'}), 400
+    fn = secure_filename(f.filename)
+    os.makedirs(VOL_IMGS_DIR, exist_ok=True)
+    f.save(os.path.join(VOL_IMGS_DIR, fn))
+    return jsonify({'path': f'images/{fn}'})
+
+
 # ── Listings API (for-buyers-3.html) ──────────────────────────────────────────
 
 @app.route('/api/listings', methods=['GET'])
@@ -819,13 +835,24 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           </div>
         </div>
         <div class="frow">
-          <label for="p-image1">Primary Image URL <span style="color:#dc2626">*</span></label>
-          <input id="p-image1" type="text" placeholder="https://cdn.prod.website-files.com/...">
-          <div class="hint">Paste the CDN URL of the main property photo</div>
+          <label>Primary Photo <span style="color:#dc2626">*</span></label>
+          <div class="dropzone" id="dz-p-img1">
+            <input type="file" id="p-img1-file" accept="image/*">
+            <div class="dz-icon">📷</div>
+            <div class="dz-text">Drop photo here or <strong>click to browse</strong></div>
+          </div>
+          <div id="p-img1-preview" style="margin-top:10px;min-height:20px"></div>
+          <input type="hidden" id="p-image1">
         </div>
         <div class="frow">
-          <label for="p-image2">Secondary Image URL <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional — shows on hover)</span></label>
-          <input id="p-image2" type="text" placeholder="https://cdn.prod.website-files.com/...">
+          <label>Secondary Photo <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional — shows on hover)</span></label>
+          <div class="dropzone" id="dz-p-img2">
+            <input type="file" id="p-img2-file" accept="image/*">
+            <div class="dz-icon">📷</div>
+            <div class="dz-text">Drop photo here or <strong>click to browse</strong></div>
+          </div>
+          <div id="p-img2-preview" style="margin-top:10px;min-height:20px"></div>
+          <input type="hidden" id="p-image2">
         </div>
       </form>
     </div>
@@ -1099,16 +1126,19 @@ function openEditListing(id) {
   ['address','city','state','price','rent','beds','baths','sqft','status','image1','image2'].forEach(k => {
     const el = $(`#p-${k}`); if (el) el.value = p[k] || '';
   });
+  showImgPreview('p-img1-preview', p.image1);
+  showImgPreview('p-img2-preview', p.image2);
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 }
 
 $('#add-listing-btn').addEventListener('click', () => {
-  editingListingId = null;
-  editingPropId = null;
+  editingListingId = null; editingPropId = null;
   $('#prop-modal-title').textContent = 'Add Listing';
   $('#prop-form').reset();
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
+  $('#p-image1').value = ''; $('#p-image2').value = '';
+  $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 });
@@ -1187,19 +1217,21 @@ function openEditProp(id) {
   $('#p-baths').value    = p.baths    || '';
   $('#p-sqft').value     = p.sqft     || '';
   $('#p-status').value   = p.status   || 'FOR SALE';
-  $('#p-image1').value   = p.image1   || '';
-  $('#p-image2').value   = p.image2   || '';
+  $('#p-image1').value = p.image1 || '';
+  $('#p-image2').value = p.image2 || '';
+  showImgPreview('p-img1-preview', p.image1);
+  showImgPreview('p-img2-preview', p.image2);
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 }
 
 $('#add-prop-btn').addEventListener('click', () => {
-  editingPropId = null;
+  editingListingId = null; editingPropId = null;
   $('#prop-modal-title').textContent = 'Add Property';
   $('#prop-form').reset();
-  $('#p-city').value   = 'Los Angeles';
-  $('#p-state').value  = 'CA';
-  $('#p-status').value = 'FOR SALE';
+  $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
+  $('#p-image1').value = ''; $('#p-image2').value = '';
+  $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 });
@@ -1211,7 +1243,7 @@ $('#prop-modal').addEventListener('click', e => { if (e.target === $('#prop-moda
 
 $('#save-prop').addEventListener('click', async () => {
   if (!$('#p-address').value.trim()) { toast('Address is required', true); return; }
-  if (!$('#p-image1').value.trim()) { toast('Primary image URL is required', true); return; }
+  if (!$('#p-image1').value.trim()) { toast('Please upload a primary photo first', true); return; }
 
   const data = {
     address: $('#p-address').value.trim(),
@@ -1263,6 +1295,58 @@ function deleteProp(id, addr) {
     else toast('Failed to delete', true);
   });
 }
+
+// ── Property / Listing image uploads ──────────────────────────────────────────
+
+function showImgPreview(previewId, path) {
+  const el = $('#' + previewId);
+  if (!path) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div style="display:flex;align-items:center;gap:10px;background:#f0f4f8;border-radius:8px;padding:8px 12px">
+    <img src="/${path}" style="height:56px;width:72px;object-fit:cover;border-radius:5px;flex-shrink:0">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#0a223f">Photo uploaded</div>
+      <div style="font-size:11px;color:#9ca3af;margin-top:2px">${path.split('/').pop()}</div>
+    </div>
+    <button onclick="clearImg('${previewId}','${previewId.replace('preview','file').replace('p-img','p-img').replace('-preview','').replace('p-img1','p-image1').replace('p-img2','p-image2')}')"
+      style="margin-left:auto;background:#fee2e2;border:none;border-radius:6px;padding:5px 10px;color:#dc2626;font-size:11px;font-weight:700;cursor:pointer">Remove</button>
+  </div>`;
+}
+
+function clearImg(previewId, hiddenId) {
+  // map previewId back to hidden input id
+  const num = previewId.includes('img1') ? '1' : '2';
+  $('#p-image' + num).value = '';
+  $('#' + previewId).innerHTML = '';
+}
+
+async function uploadPropertyImage(file, num) {
+  showImgPreview(`p-img${num}-preview`, null);
+  $('#p-img' + num + '-preview').innerHTML = `<div style="padding:8px 12px;font-size:12px;color:#9ca3af">Uploading…</div>`;
+  const fd = new FormData(); fd.append('image', file);
+  const r = await api('POST', '/api/upload/image', fd, true);
+  if (r?.path) {
+    $('#p-image' + num).value = r.path;
+    showImgPreview(`p-img${num}-preview`, r.path);
+  } else {
+    $('#p-img' + num + '-preview').innerHTML = `<div style="padding:8px;color:#dc2626;font-size:12px">Upload failed — try again</div>`;
+  }
+}
+
+function setupPropImgDZ(dzId, fileInputId, num) {
+  const dz = $('#' + dzId), input = $('#' + fileInputId);
+  dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('over'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('over'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); dz.classList.remove('over');
+    if (e.dataTransfer.files.length) uploadPropertyImage(e.dataTransfer.files[0], num);
+  });
+  input.addEventListener('change', () => {
+    if (input.files.length) uploadPropertyImage(input.files[0], num);
+  });
+}
+
+setupPropImgDZ('dz-p-img1', 'p-img1-file', 1);
+setupPropImgDZ('dz-p-img2', 'p-img2-file', 2);
 
 // Boot
 init();
