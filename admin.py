@@ -67,6 +67,34 @@ def render_dynamic(filename, marker, section_html):
 
 # ── HTML generation ────────────────────────────────────────────────────────────
 
+def price_block_html(status, price, rent, indent):
+    """Return property-detail-block-2 HTML line(s) for the status+price row."""
+    sold    = 'SOLD' in status.upper()
+    is_dual = not sold and 'LEASE' in status.upper() and 'SALE' in status.upper()
+    if sold:
+        ps = f'${price}' if price else ''
+        return (f'{indent}<div class="property-detail-block-2">'
+                f'<div class="property-status-2 is-sold">{status}</div>'
+                f'<div class="text-block-12">{ps}</div></div>')
+    if is_dual:
+        sale_str  = f'${price}' if price else ''
+        lease_str = f'${rent}/mo' if rent else ''
+        r1 = (f'{indent}<div class="property-detail-block-2">'
+              f'<div class="property-status-2">FOR SALE</div>'
+              f'<div class="text-block-12">{sale_str}</div></div>')
+        r2 = (f'{indent}<div class="property-detail-block-2 blp-lease-row">'
+              f'<div class="property-status-2">FOR LEASE</div>'
+              f'<div class="text-block-12">{lease_str}</div></div>')
+        return r1 + '\n' + r2
+    if 'LEASE' in status.upper():
+        ps = f'${rent}/mo' if rent else ''
+    else:
+        ps = f'${price}' if price else ''
+    return (f'{indent}<div class="property-detail-block-2">'
+            f'<div class="property-status-2">{status}</div>'
+            f'<div class="text-block-12">{ps}</div></div>')
+
+
 def build_newsletter_sections(newsletters):
     by_year = {}
     for n in sorted(newsletters, key=lambda x: (x['year'], x['month']), reverse=True):
@@ -144,17 +172,6 @@ def build_property_items(properties):
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
 
-        sold       = 'SOLD' in status.upper()
-        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
-        if sold:
-            price_str = f'${price}' if price else ''
-        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
-            price_str = f'${price}&nbsp;|&nbsp;${rent}/mo' if price and rent else (f'${price}' if price else f'${rent}/mo')
-        elif 'LEASE' in status.upper():
-            price_str = f'${rent}/mo' if rent else ''
-        else:
-            price_str = f'${price}' if price else ''
-
         card = [
             '                      <div role="listitem" class="property-grid-item-2 w-dyn-item">',
             '                        <div class="property-link with-radius">',
@@ -174,9 +191,7 @@ def build_property_items(properties):
             f'                            <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                          </a>',
             '                          <div class="property-details">',
-            f'                            <div class="property-detail-block-2">'
-            f'<div class="{status_cls}">{status}</div>'
-            f'<div class="text-block-12">{price_str}</div></div>',
+            price_block_html(status, price, rent, '                            '),
             '                          </div>',
             '                          <div class="property-details">',
             '                            <div class="property-detail-block-3">',
@@ -218,18 +233,6 @@ def build_listing_items(listings):
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
 
-        sold = 'SOLD' in status.upper()
-        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
-
-        if sold:
-            price_str = f'${price}' if price else ''
-        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
-            price_str = f'${price}&nbsp;|&nbsp;${rent}/mo' if price and rent else (f'${price}' if price else f'${rent}/mo')
-        elif 'LEASE' in status.upper():
-            price_str = f'${rent}/mo' if rent else ''
-        else:
-            price_str = f'${price}' if price else ''
-
         card = [
             '                        <div role="listitem" class="property-grid-item w-dyn-item">',
             '                          <div class="property-link with-radius">',
@@ -249,9 +252,7 @@ def build_listing_items(listings):
             f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
             '                            </a>',
             '                            <div class="property-details">',
-            f'                              <div class="property-detail-block-2">'
-            f'<div class="{status_cls}">{status}</div>'
-            f'<div class="text-block-12">{price_str}</div></div>',
+            price_block_html(status, price, rent, '                              '),
             '                            </div>',
             '                            <div class="property-details">',
             '                              <div class="property-detail-block-3">',
@@ -294,17 +295,6 @@ def build_index_listing_items(listings):
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
 
-        sold       = 'SOLD' in status.upper()
-        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
-        if sold:
-            price_str = f'${price}' if price else ''
-        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
-            price_str = f'${price}&nbsp;|&nbsp;${rent}/mo' if price and rent else (f'${price}' if price else f'${rent}/mo')
-        elif 'LEASE' in status.upper():
-            price_str = f'${rent}/mo' if rent else ''
-        else:
-            price_str = f'${price}' if price else ''
-
         card = [
             '                    <div role="listitem" class="property-grid-item-2 w-dyn-item">',
             '                      <div class="property-link with-radius">',
@@ -324,9 +314,7 @@ def build_index_listing_items(listings):
             f'                          <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                        </a>',
             '                        <div class="property-details">',
-            f'                          <div class="property-detail-block-2">'
-            f'<div class="{status_cls}">{status}</div>'
-            f'<div class="text-block-12">{price_str}</div></div>',
+            price_block_html(status, price, rent, '                          '),
             '                        </div>',
             '                        <div class="property-details">',
             '                          <div class="property-detail-block-3">',

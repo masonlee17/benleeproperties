@@ -9150,6 +9150,16 @@ figcaption {
   margin-left: .65em;
   border-left: 1px solid rgba(0,0,0,0.18);
 }
+/* Second row for dual FOR SALE / FOR LEASE cards */
+.property-detail-block-2.blp-lease-row {
+  margin-top: .35em;
+}
+/* Stack the two rows vertically when both exist */
+.property-details:has(.blp-lease-row) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 /* ── current-listings cards use same grid-item-2 wrapper but standard inner HTML */
 .property-grid-item-2 .property-link.with-radius {
