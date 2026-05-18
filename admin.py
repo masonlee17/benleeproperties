@@ -129,29 +129,36 @@ def build_newsletter_sections(newsletters):
 
 
 def build_property_items(properties):
+    """Card generator for current-listings.html — standard template matching all other listing pages."""
     cards = []
     for p in sorted(properties, key=lambda x: x.get('order', 999)):
-        addr  = p.get('address', '')
-        city  = p.get('city', 'Los Angeles')
-        state = p.get('state', 'CA')
-        price = p.get('price', '')
-        rent  = p.get('rent', '')
-        beds  = p.get('beds', '')
-        baths = p.get('baths', '')
-        sqft  = p.get('sqft', '')
+        addr   = p.get('address', '')
+        city   = p.get('city', 'Los Angeles')
+        state  = p.get('state', 'CA')
+        price  = p.get('price', '')
+        rent   = p.get('rent', '')
+        beds   = p.get('beds', '')
+        baths  = p.get('baths', '')
+        sqft   = p.get('sqft', '')
         status = p.get('status', 'FOR SALE')
-        img1  = p.get('image1', '')
-        img2  = p.get('image2', '')
+        img1   = p.get('image1', '')
+        img2   = p.get('image2', '')
 
-        sold        = 'SOLD' in status.upper()
-        status_cls  = 'property-status-2 is-sold' if sold else 'property-status-2'
-        price_disp  = f'${price}' if price else ''
-        price_line  = f'{price_disp} / ${rent} mo' if (rent and not sold) else price_disp
+        sold       = 'SOLD' in status.upper()
+        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
+        if sold:
+            price_str = f'${price}' if price else ''
+        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
+            price_str = f'${price}&nbsp;|&nbsp;${rent}/mo' if price and rent else (f'${price}' if price else f'${rent}/mo')
+        elif 'LEASE' in status.upper():
+            price_str = f'${rent}/mo' if rent else ''
+        else:
+            price_str = f'${price}' if price else ''
 
         card = [
             '                      <div role="listitem" class="property-grid-item-2 w-dyn-item">',
-            '                        <div class="property-grid-link-2">',
-            '                          <div class="property-image-grid-2">',
+            '                        <div class="property-link with-radius">',
+            '                          <div class="property-image-grid">',
             '                            <a href="contact.html" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
             '                              <div class="ciricle-outline is-white"></div>'
             '<img loading="lazy" src="images/arrow_forward_white_24dp.svg" alt="Contact" class="ciricle-icon">',
@@ -162,34 +169,32 @@ def build_property_items(properties):
         if img2:
             card.append(f'                            <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
         card += [
-            '                            <div class="property-details-in-grid">',
-            f'                              <div class="property-detail-block-5">'
+            '                          </div>',
+            '                          <a href="contact.html" class="property-inner w-inline-block">',
+            f'                            <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
+            '                          </a>',
+            '                          <div class="property-details">',
+            f'                            <div class="property-detail-block-2">'
             f'<div class="{status_cls}">{status}</div>'
-            f'<div class="text-block-8">{price_disp}</div></div>',
-            '                            </div>',
+            f'<div class="text-block-12">{price_str}</div></div>',
             '                          </div>',
-            '                          <div class="property-inner-2">',
-            '                            <div class="property-address-block">',
-            f'                              <a href="contact.html" class="property-address-title-3">{addr}</a>',
-            f'                              <a href="contact.html" class="property-address-title-3">{city}, {state}</a>',
-            '                            </div>',
-            f'                            <a href="contact.html" class="property-address-title-2">{price_line}</a>',
-            '                          </div>',
-            '                          <div class="property-detail-block-4">',
+            '                          <div class="property-details">',
+            '                            <div class="property-detail-block-3">',
         ]
         if beds:
-            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+            card.append(f'                              <div class="property-detail-amenity with-tooltip">'
                         f'<img alt="" loading="lazy" src="images/bed_black_24dp.svg" class="property-detail-amenity-icon">'
                         f'<div>{beds}</div><p class="tooltip">Bedrooms</p></div>')
         if baths:
-            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+            card.append(f'                              <div class="property-detail-amenity with-tooltip">'
                         f'<img alt="" loading="lazy" src="images/shower_black_24dp.svg" class="property-detail-amenity-icon">'
                         f'<div>{baths}</div><p class="tooltip">Bathrooms</p></div>')
         if sqft:
-            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+            card.append(f'                              <div class="property-detail-amenity with-tooltip">'
                         f'<img alt="" loading="lazy" src="images/select_all_black_24dp.svg" class="property-detail-amenity-icon">'
                         f'<div>{sqft} sqft</div><p class="tooltip">Interior size</p></div>')
         card += [
+            '                            </div>',
             '                          </div>',
             '                        </div>',
             '                      </div>',

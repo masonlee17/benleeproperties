@@ -9119,13 +9119,13 @@ figcaption {
 .property-status-2 {
   z-index: 5;
   color: #fff;
-  letter-spacing: .08em;
+  letter-spacing: .07em;
   text-transform: uppercase;
   background-color: rgba(10, 22, 40, 0.82);
   border-radius: 2px;
   align-items: center;
-  padding: .4em .85em;
-  font-size: .62em;
+  padding: .45em 1em;
+  font-size: .78em;
   font-weight: 600;
   line-height: 1em;
   display: inline-flex;
