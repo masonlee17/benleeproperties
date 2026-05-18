@@ -285,6 +285,21 @@
   }
 
   /* ─────────────────────────────────────────
+     RECENT TRANSACTIONS PAGE — show 9, reveal rest on All click
+  ───────────────────────────────────────── */
+  var soldAll = document.getElementById('blp-sold-all');
+  if (soldAll) {
+    soldAll.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.blp-tx-hidden').forEach(function (el) {
+        el.style.display = '';
+      });
+      var pag = document.getElementById('blp-sold-pagination');
+      if (pag) pag.style.display = 'none';
+    });
+  }
+
+  /* ─────────────────────────────────────────
      CONTACT FORM SUCCESS DISPLAY
      Flask redirects back with ?sent=1 on successful submission
   ───────────────────────────────────────── */
