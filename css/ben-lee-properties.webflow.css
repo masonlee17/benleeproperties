@@ -9061,12 +9061,18 @@ figcaption {
 
 /* ── Ben Lee Audit Fixes ───────────────────────────────────────────────── */
 
-/* Agency logo — white version on red navbar, darken on hover (light bg) */
+/* Agency logo + BEN LEE text — white on red navbar, dark on hover */
 .brand.is-2nd .image-2 {
   filter: none;
 }
 .brand.is-2nd:hover .image-2 {
   filter: brightness(0);
+}
+.brand.is-2nd .text-block._2.name {
+  color: #ffffff;
+}
+.brand.is-2nd:hover .text-block._2.name {
+  color: #0a223f;
 }
 
 /* Social icons in footer — consistent size */
