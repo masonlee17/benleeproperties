@@ -270,6 +270,20 @@
   }
 
   /* ─────────────────────────────────────────
+     CONTACT FORM SUCCESS DISPLAY
+     Flask redirects back with ?sent=1 on successful submission
+  ───────────────────────────────────────── */
+  if (window.location.search.indexOf('sent=1') !== -1) {
+    var formWrap = document.querySelector('.w-form');
+    var formTag = formWrap && formWrap.querySelector('form');
+    var formDone = formWrap && formWrap.querySelector('.w-form-done');
+    if (formTag) formTag.style.display = 'none';
+    if (formDone) formDone.style.display = 'block';
+    // Clean the URL without reloading
+    history.replaceState(null, '', window.location.pathname);
+  }
+
+  /* ─────────────────────────────────────────
      SMOOTH SCROLL for anchor links
   ───────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

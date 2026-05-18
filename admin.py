@@ -13,7 +13,8 @@ Env vars:
 import json, os, re, uuid
 from functools import wraps
 from werkzeug.utils import secure_filename
-from flask import Flask, request, jsonify, session, send_from_directory, Response
+import datetime
+from flask import Flask, request, jsonify, session, send_from_directory, Response, redirect
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -571,6 +572,43 @@ def admin_ui():
 def homepage():
     return render_dynamic('index.html', 'INDEX_LISTINGS',
                           build_index_listing_items(load('listings.json')))
+
+# ── Contact form submission ────────────────────────────────────────────────────
+
+@app.route('/contact-submit', methods=['POST'])
+def contact_submit():
+    source = request.form.get('_source', 'contact')
+    entry = {
+        'id': str(uuid.uuid4()),
+        'timestamp': datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
+        'source': source,
+        'name': (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
+        'phone': request.form.get('Your-Phone', ''),
+        'email': request.form.get('Your-Email', ''),
+        'message': request.form.get('Message', ''),
+    }
+    contacts_path = os.path.join(DATA_DIR, 'contacts.json')
+    try:
+        contacts = json.load(open(contacts_path)) if os.path.exists(contacts_path) else []
+    except Exception:
+        contacts = []
+    contacts.insert(0, entry)
+    os.makedirs(DATA_DIR, exist_ok=True)
+    json.dump(contacts, open(contacts_path, 'w'), indent=2)
+
+    back = '/contact-2.html?sent=1' if source == 'contact-2' else ('/detail_property.html?sent=1' if source == 'tour' else '/contact.html?sent=1')
+    return redirect(back)
+
+
+@app.route('/api/contacts', methods=['GET'])
+@login_required
+def get_contacts():
+    contacts_path = os.path.join(DATA_DIR, 'contacts.json')
+    try:
+        return jsonify(json.load(open(contacts_path)) if os.path.exists(contacts_path) else [])
+    except Exception:
+        return jsonify([])
+
 
 # ── Catch-all static ───────────────────────────────────────────────────────────
 
