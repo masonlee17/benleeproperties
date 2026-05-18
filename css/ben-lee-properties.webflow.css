@@ -9075,36 +9075,66 @@ figcaption {
   color: #0a223f;
 }
 
-/* Social icons in footer — consistent size */
+/* Social icons — inline SVG version */
 .footer-social-links {
   display: flex;
-  gap: 1em;
+  gap: 1.2em;
   align-items: center;
-  margin-top: 1em;
+  justify-content: center;
+  margin-top: 1.5em;
 }
-.footer-social-links .social-button,
-.menu-socials .menu-social-button {
+.footer-social-links .social-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: .85;
-  transition: opacity .2s;
+  color: rgba(255,255,255,0.75);
+  transition: color .2s;
+  width: auto;
+  height: auto;
 }
-.footer-social-links .social-button:hover,
-.menu-socials .menu-social-button:hover {
-  opacity: 1;
+.footer-social-links .social-button:hover {
+  color: #ffffff;
 }
 .footer-social-links .social-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+  display: block;
+}
+.menu-socials .menu-social-button {
+  color: rgba(255,255,255,0.8);
+  transition: color .2s;
+}
+.menu-socials .menu-social-button:hover {
+  color: #ffffff;
 }
 .menu-socials .social-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  display: block;
+}
+
+/* ── "For Sale" / status badge — clean pill style ─────────────────────── */
+.property-status-2 {
+  z-index: 5;
+  color: #fff;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background-color: rgba(10, 22, 40, 0.82);
+  border-radius: 2px;
+  align-items: center;
+  padding: .4em .85em;
+  font-size: .62em;
+  font-weight: 600;
+  line-height: 1em;
+  display: inline-flex;
+}
+.property-status-2.is-avalaible {
+  background-color: rgba(10, 92, 63, 0.88);
+}
+.property-status-2.is-sold {
+  background-color: rgba(60, 60, 60, 0.82);
 }
 
 /* ── Hover glitch fix on listings pages ────────────────────────────────── */
