@@ -9129,12 +9129,63 @@ figcaption {
   font-weight: 600;
   line-height: 1em;
   display: inline-flex;
+  flex-shrink: 0;
 }
 .property-status-2.is-avalaible {
   background-color: rgba(10, 92, 63, 0.88);
 }
 .property-status-2.is-sold {
   background-color: rgba(60, 60, 60, 0.82);
+}
+
+/* ── Status + price row — separator and alignment ─────────────────────── */
+.property-detail-block-2 {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+.property-detail-block-2 .text-block-12 {
+  padding-left: .75em;
+  margin-left: .65em;
+  border-left: 1px solid rgba(0,0,0,0.18);
+}
+
+/* ── current-listings cards use same grid-item-2 wrapper but standard inner HTML */
+.property-grid-item-2 .property-link.with-radius {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px 0 rgba(5,18,34,.07);
+  transition: box-shadow .25s, transform .25s;
+}
+.property-grid-item-2 .property-link.with-radius:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px 0 rgba(5,18,34,.14);
+}
+.property-grid-item-2 .property-image-grid {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.property-grid-item-2 .property-image-grid .property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.property-grid-item-2 .property-inner {
+  padding: 1em 1.1em .3em;
+  display: block;
+  text-decoration: none;
+}
+.property-grid-item-2 .property-details {
+  padding: .2em 1.1em;
+}
+.property-grid-item-2 .property-detail-block-3 {
+  padding-bottom: .8em;
 }
 
 /* ── Hover glitch fix on listings pages ────────────────────────────────── */
