@@ -9187,15 +9187,53 @@ figcaption {
   object-fit: cover;
 }
 .property-grid-item-2 .property-inner {
-  padding: 1em 1.1em .3em;
+  padding: 1.1em 1.4em .35em;
   display: block;
   text-decoration: none;
 }
 .property-grid-item-2 .property-details {
-  padding: .2em 1.1em;
+  padding: .25em 1.4em;
 }
 .property-grid-item-2 .property-detail-block-3 {
-  padding-bottom: .8em;
+  padding-bottom: 1.1em;
+}
+
+/* ── Listings page (property-grid-item) — same inner spacing ──────────── */
+.property-grid-item .property-link.with-radius {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px 0 rgba(5,18,34,.07);
+  transition: box-shadow .25s, transform .25s;
+}
+.property-grid-item .property-link.with-radius:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px 0 rgba(5,18,34,.14);
+}
+.property-grid-item .property-image-grid {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.property-grid-item .property-image-grid .property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.property-grid-item .property-inner {
+  padding: 1.1em 1.4em .35em;
+  display: block;
+  text-decoration: none;
+}
+.property-grid-item .property-details {
+  padding: .25em 1.4em;
+  border-top: 1px solid var(--light-grey);
+}
+.property-grid-item .property-detail-block-3 {
+  padding-bottom: 1.1em;
 }
 
 /* ── Hover glitch fix on listings pages ────────────────────────────────── */
