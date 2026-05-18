@@ -9061,15 +9061,10 @@ figcaption {
 
 /* ── Ben Lee Audit Fixes ───────────────────────────────────────────────── */
 
-/* Nav brand text — white on red, dark on hover */
-.brand.is-2nd .text-block._2.name {
-  color: #ffffff;
+/* Agency logo — white version on red navbar, darken on hover (light bg) */
+.brand.is-2nd .image-2 {
+  filter: none;
 }
-.brand.is-2nd:hover .text-block._2.name {
-  color: #0a223f;
-}
-
-/* Nav brand logo icon — invert to dark on white hover background */
 .brand.is-2nd:hover .image-2 {
   filter: brightness(0);
 }

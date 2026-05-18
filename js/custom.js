@@ -270,6 +270,61 @@
   }
 
   /* ─────────────────────────────────────────
+     LISTING PAGINATION
+     Show 6 cards per page on property grid pages; inject prev/next controls.
+  ───────────────────────────────────────── */
+  (function () {
+    var PAGE_SIZE = 6;
+    var grids = document.querySelectorAll('.property-grid-list, .property-grid-list-2');
+    grids.forEach(function (grid) {
+      var allItems = Array.from(grid.querySelectorAll('.property-grid-item, .property-grid-item-2')).filter(function (el) {
+        return el.style.display !== 'none';
+      });
+      if (allItems.length <= PAGE_SIZE) return;
+
+      var currentPage = 1;
+      var totalPages = Math.ceil(allItems.length / PAGE_SIZE);
+
+      function showPage(page) {
+        currentPage = page;
+        allItems.forEach(function (el, i) {
+          el.style.display = (i >= (page - 1) * PAGE_SIZE && i < page * PAGE_SIZE) ? '' : 'none';
+        });
+        prevBtn.disabled = page <= 1;
+        nextBtn.disabled = page >= totalPages;
+        pageInfo.textContent = 'Page ' + page + ' of ' + totalPages;
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      var controls = document.createElement('div');
+      controls.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:1em;margin:2.5em 0 1em;flex-wrap:wrap;';
+
+      var btnStyle = 'background:#0a1628;color:#fff;border:none;padding:.7em 1.6em;border-radius:4px;font-family:Montserrat,sans-serif;font-size:.8em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;';
+      var btnDisabledStyle = 'opacity:.35;cursor:default;';
+
+      var prevBtn = document.createElement('button');
+      prevBtn.textContent = '← Prev';
+      prevBtn.style.cssText = btnStyle;
+      prevBtn.onclick = function () { if (currentPage > 1) showPage(currentPage - 1); };
+
+      var pageInfo = document.createElement('span');
+      pageInfo.style.cssText = 'font-size:.85em;color:#888;font-family:Montserrat,sans-serif;min-width:90px;text-align:center;';
+
+      var nextBtn = document.createElement('button');
+      nextBtn.textContent = 'Next →';
+      nextBtn.style.cssText = btnStyle;
+      nextBtn.onclick = function () { if (currentPage < totalPages) showPage(currentPage + 1); };
+
+      controls.appendChild(prevBtn);
+      controls.appendChild(pageInfo);
+      controls.appendChild(nextBtn);
+      grid.parentNode.insertBefore(controls, grid.nextSibling);
+
+      showPage(1);
+    });
+  }());
+
+  /* ─────────────────────────────────────────
      CONTACT FORM SUCCESS DISPLAY
      Flask redirects back with ?sent=1 on successful submission
   ───────────────────────────────────────── */
