@@ -138,30 +138,22 @@
     menuClose.addEventListener('click', closeMenu);
   }
 
+  /* PROPERTY CARD CLICK-TO-EXPAND: removed — conflicted with CSS hover
+     transforms causing a visible jump. Cards use CSS :hover + direct links. */
+
   /* ─────────────────────────────────────────
-     PROPERTY CARD CLICK-TO-EXPAND
-     Clicking a card expands it slightly — mirrors the original Webflow IX2
+     HIDE EMPTY WEBFLOW CMS PLACEHOLDER CARDS
+     Static Webflow export shows template items even when CMS is empty.
+     Hide any property card whose images all have no src.
   ───────────────────────────────────────── */
-  document.addEventListener('click', function (e) {
-    var card = e.target.closest('.property-grid-item, .property-grid-item-2');
-    if (!card) return;
-
-    var wasExpanded = card.classList.contains('is-expanded');
-
-    // Collapse any other expanded cards
-    document.querySelectorAll('.property-grid-item.is-expanded, .property-grid-item-2.is-expanded')
-      .forEach(function (c) {
-        c.classList.remove('is-expanded');
-        c.style.transform = '';
-        c.style.zIndex = '';
-      });
-
-    if (!wasExpanded) {
-      card.classList.add('is-expanded');
-      card.style.transform = 'scale(1.04) translateY(-8px)';
-      card.style.zIndex = '10';
-      card.style.transition = 'transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), z-index 0s';
-    }
+  document.querySelectorAll('.property-grid-item-2, .property-grid-item').forEach(function (card) {
+    var imgs = card.querySelectorAll('img');
+    if (!imgs.length) return;
+    var allEmpty = Array.from(imgs).every(function (img) {
+      var src = img.getAttribute('src');
+      return !src || img.classList.contains('w-dyn-bind-empty');
+    });
+    if (allEmpty) card.style.display = 'none';
   });
 
   /* ─────────────────────────────────────────

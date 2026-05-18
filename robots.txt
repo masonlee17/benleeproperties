@@ -6,5 +6,4 @@ Sitemap: https://www.benleeproperties.com/sitemap.xml
 
 # Block utility/template pages
 Disallow: /utility-pages/
-Disallow: /old-home.html
 Disallow: /401.html

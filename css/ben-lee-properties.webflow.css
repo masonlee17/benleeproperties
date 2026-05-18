@@ -9058,3 +9058,64 @@ figcaption {
 }
 
 
+
+/* ── Ben Lee Audit Fixes ───────────────────────────────────────────────── */
+
+/* Nav brand text — white on red, dark on hover */
+.brand.is-2nd .text-block._2.name {
+  color: #ffffff;
+}
+.brand.is-2nd:hover .text-block._2.name {
+  color: #0a223f;
+}
+
+/* Nav brand logo icon — invert to dark on white hover background */
+.brand.is-2nd:hover .image-2 {
+  filter: brightness(0);
+}
+
+/* Social icons in footer — consistent size */
+.footer-social-links {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin-top: 1em;
+}
+.footer-social-links .social-button,
+.menu-socials .menu-social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .85;
+  transition: opacity .2s;
+}
+.footer-social-links .social-button:hover,
+.menu-socials .menu-social-button:hover {
+  opacity: 1;
+}
+.footer-social-links .social-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.menu-socials .social-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* ── Hover glitch fix on listings pages ────────────────────────────────── */
+
+/* Reduce lift from 1em (16px) to 6px — prevents cards from overlapping
+   neighbours in the grid and eliminates the jump when JS expand was active */
+.property-grid-item:hover {
+  transform: translate(0, -6px);
+}
+
+/* Tone down the inner card shadow — 35px blur + 15px spread was clipping
+   through the 1px border and creating a visible ring artefact */
+.property-grid-link-2:hover {
+  box-shadow: 0 8px 24px 0 rgba(5, 18, 34, 0.18);
+}

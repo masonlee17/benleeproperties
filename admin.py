@@ -272,6 +272,84 @@ def build_listing_items(listings):
     return '\n'.join(cards)
 
 
+def build_index_listing_items(listings):
+    """Homepage card generator — same visual structure as Built by Ben but links to for-buyers-3.html."""
+    cards = []
+    for p in sorted(listings, key=lambda x: x.get('order', 999)):
+        addr   = p.get('address', '')
+        city   = p.get('city', 'Los Angeles')
+        state  = p.get('state', 'CA')
+        price  = p.get('price', '')
+        rent   = p.get('rent', '')
+        beds   = p.get('beds', '')
+        baths  = p.get('baths', '')
+        sqft   = p.get('sqft', '')
+        status = p.get('status', 'FOR SALE')
+        img1   = p.get('image1', '')
+        img2   = p.get('image2', '')
+
+        sold = 'SOLD' in status.upper()
+        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
+        price_disp = f'${price}' if price else ''
+        if sold:
+            price_line = price_disp
+        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
+            price_line = f'{price_disp} / ${rent} mo' if (price and rent) else (price_disp or f'${rent}/mo')
+        elif 'LEASE' in status.upper():
+            price_line = f'${rent}/mo' if rent else ''
+        else:
+            price_line = price_disp
+
+        card = [
+            '                      <div role="listitem" class="property-grid-item-2 w-dyn-item">',
+            '                        <div class="property-grid-link-2">',
+            '                          <div class="property-image-grid-2">',
+            '                            <a href="for-buyers-3.html" class="circle-button in-property-2 w-inline-block">',
+            '                              <div class="ciricle-outline is-white"></div>'
+            '<img loading="lazy" src="images/arrow_forward_white_24dp.svg" alt="" class="ciricle-icon">',
+            '                            </a>',
+        ]
+        if img1:
+            card.append(f'                            <img alt="{addr}" loading="lazy" src="{img1}" class="property-image is-1st">')
+        if img2:
+            card.append(f'                            <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
+        card += [
+            '                            <div class="property-details-in-grid">',
+            f'                              <div class="property-detail-block-5">'
+            f'<div class="{status_cls}">{status}</div>'
+            f'<div class="text-block-8">{price_disp}</div></div>',
+            '                            </div>',
+            '                          </div>',
+            '                          <div class="property-inner-2">',
+            '                            <div class="property-address-block">',
+            f'                              <a href="for-buyers-3.html" class="property-address-title-3">{addr}</a>',
+            f'                              <a href="for-buyers-3.html" class="property-address-title-3">{city}, {state}</a>',
+            '                            </div>',
+            f'                            <a href="for-buyers-3.html" class="property-address-title-2">{price_line}</a>',
+            '                          </div>',
+            '                          <div class="property-detail-block-4">',
+        ]
+        if beds:
+            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/bed_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{beds}</div><p class="tooltip">Bedrooms</p></div>')
+        if baths:
+            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/shower_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{baths}</div><p class="tooltip">Bathrooms</p></div>')
+        if sqft:
+            card.append(f'                            <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/select_all_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{sqft} sqft</div><p class="tooltip">Interior size</p></div>')
+        card += [
+            '                          </div>',
+            '                        </div>',
+            '                      </div>',
+        ]
+        cards.append('\n'.join(card))
+    return '\n'.join(cards)
+
+
 # ── Auth ───────────────────────────────────────────────────────────────────────
 
 def login_required(f):
@@ -488,11 +566,16 @@ def serve_image(filename):
 def admin_ui():
     return ADMIN_HTML, 200, {'Content-Type': 'text/html; charset=utf-8'}
 
+@app.route('/')
+@app.route('/index.html')
+def homepage():
+    return render_dynamic('index.html', 'INDEX_LISTINGS',
+                          build_index_listing_items(load('listings.json')))
+
 # ── Catch-all static ───────────────────────────────────────────────────────────
 
-@app.route('/')
 @app.route('/<path:filename>')
-def serve_static(filename='index.html'):
+def serve_static(filename):
     return send_from_directory(BASE_DIR, filename)
 
 
