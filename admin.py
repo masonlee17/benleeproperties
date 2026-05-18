@@ -197,6 +197,79 @@ def build_property_items(properties):
     return '\n'.join(cards)
 
 
+def build_listing_items(listings):
+    """HTML generator for for-buyers-3.html — different card structure from Built by Ben."""
+    cards = []
+    for p in sorted(listings, key=lambda x: x.get('order', 999)):
+        addr   = p.get('address', '')
+        city   = p.get('city', 'Los Angeles')
+        price  = p.get('price', '')
+        rent   = p.get('rent', '')
+        beds   = p.get('beds', '')
+        baths  = p.get('baths', '')
+        sqft   = p.get('sqft', '')
+        status = p.get('status', 'FOR SALE')
+        img1   = p.get('image1', '')
+        img2   = p.get('image2', '')
+
+        sold = 'SOLD' in status.upper()
+        status_cls = 'property-status-2 is-sold' if sold else 'property-status-2'
+
+        if sold:
+            price_str = f'${price}' if price else ''
+        elif 'LEASE' in status.upper() and 'SALE' in status.upper():
+            price_str = f'${price}&nbsp;|&nbsp;${rent}/mo' if price and rent else (f'${price}' if price else f'${rent}/mo')
+        elif 'LEASE' in status.upper():
+            price_str = f'${rent}/mo' if rent else ''
+        else:
+            price_str = f'${price}' if price else ''
+
+        card = [
+            '                        <div role="listitem" class="property-grid-item w-dyn-item">',
+            '                          <div class="property-link with-radius">',
+            '                            <div class="property-image-grid">',
+            '                              <a href="contact.html" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
+            '                                <div class="ciricle-outline is-white"></div>'
+            '<img loading="lazy" src="images/arrow_right_white_24dp.svg" alt="Contact" class="ciricle-icon">',
+            '                              </a>',
+        ]
+        if img1:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="{img1}" class="property-image is-1st">')
+        if img2:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
+        card += [
+            '                            </div>',
+            '                            <a href="contact.html" class="property-inner w-inline-block">',
+            f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
+            '                            </a>',
+            '                            <div class="property-details">',
+            f'                              <div class="property-detail-block-2">'
+            f'<div class="{status_cls}">{status}</div>'
+            f'<div class="text-block-12">{price_str}</div></div>',
+            '                            </div>',
+            '                            <div class="property-details">',
+            '                              <div class="property-detail-block-3">',
+        ]
+        if beds:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/bed_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{beds}</div><p class="tooltip">Bedrooms</p></div>')
+        if baths:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/shower_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{baths}</div><p class="tooltip">Bathrooms</p></div>')
+        if sqft:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/select_all_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{sqft} sqft</div><p class="tooltip">Interior size</p></div>')
+        card += [
+            '                              </div>',
+            '                            </div>',
+            '                          </div>',
+            '                        </div>',
+        ]
+        cards.append('\n'.join(card))
+    return '\n'.join(cards)
 
 
 # ── Auth ───────────────────────────────────────────────────────────────────────
@@ -315,6 +388,46 @@ def delete_property(pid):
     return jsonify({'ok': True})
 
 
+# ── Listings API (for-buyers-3.html) ──────────────────────────────────────────
+
+@app.route('/api/listings', methods=['GET'])
+@login_required
+def get_listings():
+    return jsonify(load('listings.json'))
+
+@app.route('/api/listings', methods=['POST'])
+@login_required
+def add_listing():
+    data  = request.json or {}
+    items = load('listings.json')
+    max_order = max((p.get('order', 0) for p in items), default=0)
+    entry = {'id': str(uuid.uuid4()), 'order': max_order + 1, **data}
+    items.append(entry)
+    save('listings.json', items)
+    return jsonify(entry), 201
+
+@app.route('/api/listings/<lid>', methods=['PUT'])
+@login_required
+def update_listing(lid):
+    data  = request.json or {}
+    items = load('listings.json')
+    for i, p in enumerate(items):
+        if p['id'] == lid:
+            items[i] = {**p, **data}
+            break
+    save('listings.json', items)
+    return jsonify({'ok': True})
+
+@app.route('/api/listings/<lid>', methods=['DELETE'])
+@login_required
+def delete_listing(lid):
+    items = [p for p in load('listings.json') if p['id'] != lid]
+    for i, p in enumerate(items):
+        p['order'] = i + 1
+    save('listings.json', items)
+    return jsonify({'ok': True})
+
+
 # ── Dynamic pages ──────────────────────────────────────────────────────────────
 # These two pages are rendered live so admin edits are instant without redeploying.
 
@@ -329,6 +442,12 @@ def blog():
 def current_listings():
     return render_dynamic('current-listings.html', 'PROPERTIES',
                           build_property_items(load('properties.json')))
+
+@app.route('/for-buyers-3')
+@app.route('/for-buyers-3.html')
+def for_buyers():
+    return render_dynamic('for-buyers-3.html', 'LISTINGS',
+                          build_listing_items(load('listings.json')))
 
 # ── File serving — Volume takes priority over repo copies ──────────────────────
 
@@ -529,7 +648,8 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="newsletters">Newsletters</button>
-    <button class="tab-btn" data-tab="properties">Built by Ben Properties</button>
+    <button class="tab-btn" data-tab="listings">Current Listings</button>
+    <button class="tab-btn" data-tab="properties">Built by Ben</button>
   </div>
 
   <div class="main">
@@ -546,6 +666,21 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
         </button>
       </div>
       <div id="nl-grid" class="nl-grid"></div>
+    </div>
+
+    <!-- Current Listings tab -->
+    <div id="tab-listings" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <span class="section-title">Current Listings</span>
+          <span class="section-meta" id="listing-count"></span>
+        </div>
+        <button class="add-btn" id="add-listing-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Listing
+        </button>
+      </div>
+      <div id="listings-table" class="prop-table"></div>
     </div>
 
     <!-- Properties tab -->
@@ -781,9 +916,9 @@ $$('.tab-btn').forEach(btn => {
     $$('.tab-btn').forEach(b => b.classList.remove('active'));
     $$('.tab-pane').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    const pane = $('#tab-' + btn.dataset.tab);
-    pane.classList.add('active');
+    $('#tab-' + btn.dataset.tab).classList.add('active');
     if (btn.dataset.tab === 'newsletters') loadNewsletters();
+    else if (btn.dataset.tab === 'listings') loadListings();
     else loadProperties();
   });
 });
@@ -912,6 +1047,80 @@ $('#save-nl').addEventListener('click', async () => {
   }
 });
 
+// ── Current Listings ───────────────────────────────────────────────────────────
+let listings = [];
+let editingListingId = null;
+
+async function loadListings() {
+  listings = await api('GET', '/api/listings') || [];
+  listings.sort((a, b) => (a.order || 0) - (b.order || 0));
+  renderListings();
+}
+
+function renderListings() {
+  $('#listing-count').textContent = `· ${listings.length} total`;
+  const table = $('#listings-table');
+  if (!listings.length) {
+    table.innerHTML = `<div class="empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <p>No listings yet — add the first one above.</p></div>`;
+    return;
+  }
+  table.innerHTML = `
+    <div class="prop-thead">
+      <div>Property</div><div>Price</div><div>Beds / Baths</div><div>Sqft</div><div>Status</div><div></div>
+    </div>
+    ${listings.map(p => `
+      <div class="prop-row">
+        <div>
+          <div class="prop-addr">${p.address || '—'}</div>
+          <div class="prop-city">${p.city || 'Los Angeles'}, ${p.state || 'CA'}</div>
+        </div>
+        <div class="prop-price">${p.price ? '$' + p.price : ''}${p.rent ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
+        <div class="prop-detail">${p.beds || '—'} bd &nbsp;/&nbsp; ${p.baths || '—'} ba</div>
+        <div class="prop-detail">${p.sqft ? p.sqft + ' sqft' : '—'}</div>
+        <div>${statusBadge(p.status)}</div>
+        <div class="row-actions">
+          <button class="icon-btn btn-edit" onclick="openEditListing('${p.id}')" title="Edit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+          <button class="icon-btn btn-del" onclick="deleteListing('${p.id}','${(p.address||'').replace(/'/g,"\\'")}')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+          </button>
+        </div>
+      </div>`).join('')}`;
+}
+
+function openEditListing(id) {
+  const p = listings.find(x => x.id === id);
+  if (!p) return;
+  editingListingId = id;
+  $('#prop-modal-title').textContent = 'Edit Listing';
+  ['address','city','state','price','rent','beds','baths','sqft','status','image1','image2'].forEach(k => {
+    const el = $(`#p-${k}`); if (el) el.value = p[k] || '';
+  });
+  $('#prop-modal').style.display = 'flex';
+  setTimeout(() => $('#p-address').focus(), 80);
+}
+
+$('#add-listing-btn').addEventListener('click', () => {
+  editingListingId = null;
+  editingPropId = null;
+  $('#prop-modal-title').textContent = 'Add Listing';
+  $('#prop-form').reset();
+  $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
+  $('#prop-modal').style.display = 'flex';
+  setTimeout(() => $('#p-address').focus(), 80);
+});
+
+function deleteListing(id, addr) {
+  if (!confirm(`Delete "${addr}"?\n\nThis will remove it from the website immediately.`)) return;
+  api('DELETE', `/api/listings/${id}`).then(r => {
+    if (r && r.ok) { toast('Listing deleted — site updated'); loadListings(); }
+    else toast('Failed to delete', true);
+  });
+}
+
 // ── Properties ─────────────────────────────────────────────────────────────────
 let properties = [];
 let editingPropId = null;
@@ -995,7 +1204,7 @@ $('#add-prop-btn').addEventListener('click', () => {
   setTimeout(() => $('#p-address').focus(), 80);
 });
 
-function closePropModal() { $('#prop-modal').style.display = 'none'; editingPropId = null; }
+function closePropModal() { $('#prop-modal').style.display = 'none'; editingPropId = null; editingListingId = null; }
 $('#close-prop-modal').addEventListener('click', closePropModal);
 $('#cancel-prop').addEventListener('click', closePropModal);
 $('#prop-modal').addEventListener('click', e => { if (e.target === $('#prop-modal')) closePropModal(); });
@@ -1023,18 +1232,27 @@ $('#save-prop').addEventListener('click', async () => {
   btn.disabled = true;
 
   let r;
-  if (editingPropId) r = await api('PUT',  `/api/properties/${editingPropId}`, data);
-  else               r = await api('POST', '/api/properties', data);
+  if (editingListingId) {
+    r = await api('PUT', `/api/listings/${editingListingId}`, data);
+  } else if (editingPropId) {
+    r = await api('PUT', `/api/properties/${editingPropId}`, data);
+  } else if ($('#tab-listings').classList.contains('active')) {
+    r = await api('POST', '/api/listings', data);
+  } else {
+    r = await api('POST', '/api/properties', data);
+  }
 
   btn.textContent = 'Save & Publish';
   btn.disabled = false;
 
   if (r && (r.ok || r.id)) {
-    toast((editingPropId ? 'Property updated' : 'Property added') + ' — site updated! ✓');
+    const isListing = editingListingId || $('#tab-listings').classList.contains('active');
+    const verb = (editingListingId || editingPropId) ? 'updated' : 'added';
+    toast(`${isListing ? 'Listing' : 'Property'} ${verb} — site updated! ✓`);
     closePropModal();
-    loadProperties();
+    if (isListing) loadListings(); else loadProperties();
   } else {
-    toast('Error saving property', true);
+    toast('Error saving', true);
   }
 });
 
