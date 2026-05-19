@@ -127,23 +127,9 @@ def build_newsletter_sections(newsletters):
                     f'                <h2 class="blog-heading">{label}</h2>',
                     '              </a>',
                 ]
-            elif idx == 0 and j < 5:
-                lines += [
-                    f'              <a href="{pdf}"{target} class="blog-link-block side w-inline-block">',
-                    f'                <div class="blog-image">{img_side}</div>',
-                    f'                <h2 class="blog-heading">{label}</h2>',
-                    '              </a>',
-                ]
-            elif j < 2:
-                lines += [
-                    f'              <a href="{pdf}"{target} class="blog-link-block side w-inline-block">',
-                    f'                <div class="blog-image">{img_side}</div>',
-                    f'                <h2 class="blog-heading">{label}</h2>',
-                    '              </a>',
-                ]
             else:
                 lines += [
-                    f'              <a href="{pdf}"{target} class="blog-link-block w-inline-block">',
+                    f'              <a href="{pdf}"{target} class="blog-link-block side w-inline-block">',
                     f'                <div class="blog-image">{img_side}</div>',
                     f'                <h2 class="blog-heading">{label}</h2>',
                     '              </a>',

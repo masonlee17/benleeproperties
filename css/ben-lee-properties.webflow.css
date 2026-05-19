@@ -9262,13 +9262,15 @@ figcaption {
   letter-spacing: -.01em;
 }
 
-/* ── Newsletter month label: left-aligned at all breakpoints ── */
+/* ── Newsletter card: left-align labels, uniform layout at all breakpoints ── */
+.blog-link-block,
 .blog-link-block.side,
 .blog-link-block.feat {
-  align-items: flex-start;
+  align-items: flex-start !important;
 }
 .blog-heading {
   text-align: left;
+  width: 100%;
 }
 
 /* ── Uniform newsletter card image size (16:9 matches landscape covers) ── */
