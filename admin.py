@@ -534,6 +534,12 @@ def for_buyers():
     return render_dynamic('for-buyers-3.html', 'LISTINGS',
                           build_listing_items(load('listings.json')))
 
+@app.route('/valuation')
+@app.route('/valuation.html')
+def valuation():
+    return render_dynamic('valuation.html', 'VAL_LISTINGS',
+                          build_index_listing_items(load('listings.json')))
+
 # ── File serving — Volume takes priority over repo copies ──────────────────────
 
 @app.route('/documents/<path:filename>')

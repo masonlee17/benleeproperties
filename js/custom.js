@@ -19,12 +19,12 @@
     preloader.style.display = 'flex';
     window.addEventListener('load', function () {
       setTimeout(function () {
-        preloader.style.transition = 'opacity 0.7s ease';
+        preloader.style.transition = 'opacity 0.35s ease';
         preloader.style.opacity = '0';
         setTimeout(function () {
           preloader.style.display = 'none';
-        }, 750);
-      }, 800);
+        }, 380);
+      }, 250);
     });
   }
 
@@ -39,9 +39,8 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var el = entry.target;
-          el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+          el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
           el.style.opacity = '1';
-          // If element has an inline translate transform, slide it in
           var currentStyle = el.getAttribute('style') || '';
           if (currentStyle.indexOf('translate3d') !== -1) {
             el.style.transform = 'translate3d(0, 0, 0) scale3d(1, 1, 1)';
@@ -50,8 +49,8 @@
         }
       });
     }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
     });
 
     fadeTargets.forEach(function (el) {

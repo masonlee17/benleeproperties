@@ -4847,6 +4847,7 @@ figcaption {
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 0;
+  padding-top: 3em;
   padding-bottom: 8em;
   display: flex;
 }
@@ -6572,9 +6573,10 @@ figcaption {
   }
 
   .dropdown-link, .dropdown-link-2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: .06em;
   }
 
   .text-block-10 {
