@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: benleeproperties
+    runtime: docker
+    healthCheckPath: /
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
