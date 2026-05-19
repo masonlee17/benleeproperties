@@ -112,7 +112,7 @@ def build_newsletter_sections(newsletters):
         lines.append('            <div class="w-layout-grid grid">')
 
         img_box  = 'position:relative;width:100%;padding-bottom:75%;height:0;overflow:hidden;margin:0 0 0.75em 0;flex-shrink:0;display:block;'
-        img_self = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;'
+        img_self = 'position:absolute;top:0;left:0;width:100%;height:118%;object-fit:cover;object-position:top center;display:block;'
         card_box = 'display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:100%;box-sizing:border-box;text-decoration:none;'
 
         for j, n in enumerate(items):
