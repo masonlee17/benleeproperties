@@ -9261,3 +9261,15 @@ figcaption {
   margin-bottom: 1.2em;
   letter-spacing: -.01em;
 }
+
+/* ── Uniform newsletter card image height (overrides 1440px+ height:auto) ── */
+.blog-image {
+  height: 20em !important;
+  overflow: hidden;
+}
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
