@@ -123,7 +123,8 @@ def build_newsletter_sections(newsletters):
             if idx == 0 and j == 0:
                 lines += [
                     f'              <a href="{pdf}"{target} class="blog-link-block feat w-inline-block">',
-                    f'                <h2 class="blog-heading feat news">{label}</h2>{img_feat}',
+                    f'                <div class="blog-image">{img_feat}</div>',
+                    f'                <h2 class="blog-heading">{label}</h2>',
                     '              </a>',
                 ]
             elif idx == 0 and j < 5:
