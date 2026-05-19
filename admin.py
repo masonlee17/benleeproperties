@@ -10,7 +10,7 @@ Env vars:
   PORT            port to bind (set automatically by Railway)
 """
 
-import json, os, re, uuid
+import json, os, re, uuid, calendar
 from functools import wraps
 from werkzeug.utils import secure_filename
 import datetime
@@ -369,6 +369,35 @@ def check_auth():
 
 # ── Newsletter API ─────────────────────────────────────────────────────────────
 
+def extract_pdf_cover(pdf_rel, nid):
+    """Render first PDF page as JPEG, save to images/nl-covers/{nid}.jpg.
+    Returns relative path on success, '' on failure."""
+    try:
+        import fitz
+    except ImportError:
+        return ''
+    pdf_name = pdf_rel.replace('documents/', '', 1)
+    pdf_abs = None
+    for d in [VOL_DOCS_DIR, REPO_DOCS_DIR]:
+        c = os.path.join(d, pdf_name)
+        if os.path.exists(c):
+            pdf_abs = c
+            break
+    if not pdf_abs:
+        return ''
+    cover_dir = os.path.join(VOL_IMGS_DIR, 'nl-covers')
+    os.makedirs(cover_dir, exist_ok=True)
+    cover_abs = os.path.join(cover_dir, f'{nid}.jpg')
+    try:
+        doc = fitz.open(pdf_abs)
+        pix = doc[0].get_pixmap(matrix=fitz.Matrix(2.0, 2.0))
+        pix.save(cover_abs)
+        doc.close()
+        return f'images/nl-covers/{nid}.jpg'
+    except Exception:
+        return ''
+
+
 @app.route('/api/newsletters', methods=['GET'])
 @login_required
 def get_newsletters():
@@ -377,30 +406,24 @@ def get_newsletters():
 @app.route('/api/newsletters', methods=['POST'])
 @login_required
 def add_newsletter():
-    label     = request.form.get('label', '').strip()
-    year      = int(request.form.get('year', 2026))
-    month     = int(request.form.get('month', 1))
-    pdf_url   = request.form.get('pdf_url', '').strip()
-    cover_url = request.form.get('cover_url', '').strip()
+    year  = int(request.form.get('year', datetime.date.today().year))
+    month = int(request.form.get('month', 1))
+    nid   = f'nl-{year}-{month:02d}'
 
-    pdf_file   = request.files.get('pdf')
-    cover_file = request.files.get('cover')
-
+    pdf_url  = ''
+    pdf_file = request.files.get('pdf')
     if pdf_file and pdf_file.filename and allowed(pdf_file.filename, ALLOWED_PDF):
         fn = secure_filename(pdf_file.filename)
         os.makedirs(VOL_DOCS_DIR, exist_ok=True)
         pdf_file.save(os.path.join(VOL_DOCS_DIR, fn))
         pdf_url = f'documents/{fn}'
 
-    if cover_file and cover_file.filename and allowed(cover_file.filename, ALLOWED_IMG):
-        fn = secure_filename(cover_file.filename)
-        os.makedirs(VOL_IMGS_DIR, exist_ok=True)
-        cover_file.save(os.path.join(VOL_IMGS_DIR, fn))
-        cover_url = f'images/{fn}'
+    cover_url = extract_pdf_cover(pdf_url, nid) if pdf_url else ''
+    label     = f'{calendar.month_name[month]} {year}'
 
     newsletters = load('newsletters.json')
     entry = {
-        'id': str(uuid.uuid4()),
+        'id': nid,
         'label': label, 'year': year, 'month': month,
         'pdf': pdf_url, 'cover': cover_url,
     }
@@ -411,8 +434,15 @@ def add_newsletter():
 @app.route('/api/newsletters/<nid>', methods=['DELETE'])
 @login_required
 def delete_newsletter(nid):
-    data = [n for n in load('newsletters.json') if n['id'] != nid]
-    save('newsletters.json', data)
+    newsletters = load('newsletters.json')
+    entry = next((n for n in newsletters if n['id'] == nid), None)
+    if entry:
+        cover = entry.get('cover', '')
+        if cover and 'nl-covers' in cover:
+            cover_abs = os.path.join(VOL_IMGS_DIR, 'nl-covers', os.path.basename(cover))
+            if os.path.exists(cover_abs):
+                os.remove(cover_abs)
+    save('newsletters.json', [n for n in newsletters if n['id'] != nid])
     return jsonify({'ok': True})
 
 
@@ -841,11 +871,6 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
     </div>
     <div class="modal-body">
       <form id="nl-form" enctype="multipart/form-data">
-        <div class="frow">
-          <label for="nl-label">Display Label <span style="color:#dc2626">*</span></label>
-          <input id="nl-label" name="label" type="text" placeholder="e.g. June 2026" required>
-          <div class="hint">This is the text shown on the newsletter card (e.g. "June 2026")</div>
-        </div>
         <div class="frow-2">
           <div>
             <label for="nl-month">Month <span style="color:#dc2626">*</span></label>
@@ -860,7 +885,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           </div>
           <div>
             <label for="nl-year">Year <span style="color:#dc2626">*</span></label>
-            <select id="nl-year" name="year" required id="nl-year"></select>
+            <select id="nl-year" name="year" required></select>
           </div>
         </div>
 
@@ -872,16 +897,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             <div class="dz-text">Drop PDF here or <strong>click to browse</strong></div>
             <div class="dz-file" id="pdf-file-name"></div>
           </div>
-        </div>
-
-        <div class="frow">
-          <label>Cover Image <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(screenshot of front page)</span></label>
-          <div class="dropzone" id="dz-cover">
-            <input type="file" name="cover" id="nl-cover" accept="image/*">
-            <div class="dz-icon">🖼️</div>
-            <div class="dz-text">Drop image here or <strong>click to browse</strong></div>
-            <div class="dz-file" id="cover-file-name"></div>
-          </div>
+          <div class="hint">Cover image is automatically extracted from the first page of the PDF.</div>
         </div>
       </form>
     </div>
@@ -1116,12 +1132,10 @@ function deleteNewsletter(id, label) {
 $('#add-nl-btn').addEventListener('click', () => {
   $('#nl-form').reset();
   $('#pdf-file-name').textContent = '';
-  $('#cover-file-name').textContent = '';
   const now = new Date();
   $('#nl-month').value = now.getMonth() + 1;
   populateYears(now.getFullYear());
   $('#nl-modal').style.display = 'flex';
-  setTimeout(() => $('#nl-label').focus(), 80);
 });
 
 function populateYears(current) {
@@ -1165,7 +1179,6 @@ function setupDZ(dzId, inputId, previewId) {
 }
 
 setupDZ('dz-pdf', 'nl-pdf', 'pdf-file-name');
-setupDZ('dz-cover', 'nl-cover', 'cover-file-name');
 
 $('#save-nl').addEventListener('click', async () => {
   const form = $('#nl-form');
@@ -1174,7 +1187,7 @@ $('#save-nl').addEventListener('click', async () => {
 
   const fd = new FormData(form);
   const btn = $('#save-nl');
-  btn.textContent = 'Saving…';
+  btn.textContent = 'Uploading & extracting cover…';
   btn.disabled = true;
 
   const r = await api('POST', '/api/newsletters', fd, true);
