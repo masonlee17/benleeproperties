@@ -3881,6 +3881,7 @@ figcaption {
   margin-bottom: 2em;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
 }
 
 .blog-link-block {
