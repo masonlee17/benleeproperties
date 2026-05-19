@@ -108,7 +108,7 @@ def build_newsletter_sections(newsletters):
             '        <div class="container w-container">',
             '          <div class="padding-8em">',
         ]
-        lines.append(f'            <div class="text-block-10">ALL NEWSLETTERS {year}</div>')
+        lines.append(f'            <div class="text-block-10">{year}</div>')
         lines.append('            <div class="w-layout-grid grid">')
 
         for j, n in enumerate(items):

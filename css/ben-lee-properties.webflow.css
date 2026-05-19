@@ -9251,3 +9251,13 @@ figcaption {
 .property-grid-link-2:hover {
   box-shadow: 0 8px 24px 0 rgba(5, 18, 34, 0.18);
 }
+
+/* ── Newsletter year section heading ── */
+.text-block-10 {
+  color: var(--midnight-blue);
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
+  letter-spacing: -.01em;
+}
