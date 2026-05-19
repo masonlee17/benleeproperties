@@ -944,15 +944,15 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           </div>
         </div>
         <div class="frow-2">
-          <div>
-            <label for="p-price">Sale Price</label>
+          <div id="p-price-wrap">
+            <label for="p-price" id="p-price-label">Sale Price</label>
             <input id="p-price" type="text" placeholder="4,825,000">
             <div class="hint">Numbers only, no $ sign (e.g. 4,825,000)</div>
           </div>
-          <div>
-            <label for="p-rent">Monthly Rent <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <div id="p-rent-wrap">
+            <label for="p-rent">Monthly Rent</label>
             <input id="p-rent" type="text" placeholder="20,500">
-            <div class="hint">Leave blank if not for lease</div>
+            <div class="hint">Numbers only, no $ sign (e.g. 20,500)</div>
           </div>
         </div>
         <div class="frow-3">
@@ -1159,7 +1159,7 @@ $('#add-nl-btn').addEventListener('click', () => {
 function populateYears(current) {
   const sel = $('#nl-year');
   sel.innerHTML = '';
-  for (let y = current + 1; y >= 2020; y--) {
+  for (let y = current + 1; y >= 2012; y--) {
     const opt = document.createElement('option');
     opt.value = y;
     opt.textContent = y;
@@ -1275,6 +1275,7 @@ function openEditListing(id) {
   });
   showImgPreview('p-img1-preview', p.image1);
   showImgPreview('p-img2-preview', p.image2);
+  syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 }
@@ -1286,6 +1287,7 @@ $('#add-listing-btn').addEventListener('click', () => {
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
   $('#p-image1').value = ''; $('#p-image2').value = '';
   $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
+  syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 });
@@ -1368,6 +1370,7 @@ function openEditProp(id) {
   $('#p-image2').value = p.image2 || '';
   showImgPreview('p-img1-preview', p.image1);
   showImgPreview('p-img2-preview', p.image2);
+  syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 }
@@ -1379,9 +1382,26 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
   $('#p-image1').value = ''; $('#p-image2').value = '';
   $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
+  syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 });
+
+function syncPriceFields() {
+  const s = $('#p-status').value;
+  const priceWrap = $('#p-price-wrap');
+  const rentWrap  = $('#p-rent-wrap');
+  const priceLabel = $('#p-price-label');
+  const forLease = s === 'FOR LEASE';
+  const forSale  = s === 'FOR SALE' || s === 'SOLD';
+  const dual     = s === 'FOR SALE / LEASE';
+  priceWrap.style.display = forLease ? 'none' : '';
+  rentWrap.style.display  = forSale  ? 'none' : '';
+  if (priceLabel) priceLabel.textContent = s === 'SOLD' ? 'Sold Price' : 'Sale Price';
+  if (forLease) { $('#p-price').value = ''; }
+  if (forSale)  { $('#p-rent').value  = ''; }
+}
+$('#p-status').addEventListener('change', syncPriceFields);
 
 function closePropModal() { $('#prop-modal').style.display = 'none'; editingPropId = null; editingListingId = null; }
 $('#close-prop-modal').addEventListener('click', closePropModal);

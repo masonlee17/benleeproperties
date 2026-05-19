@@ -5071,7 +5071,6 @@ figcaption {
 
 .property-grid-item-2 {
   z-index: 1;
-  border: 1px solid var(--silver);
   align-self: stretch;
   margin-top: -1px;
   margin-left: -1px;
@@ -9287,3 +9286,5 @@ figcaption {
     grid-template-columns: 1fr !important;
   }
 }
+
+.w-lightbox-count { display: none !important; }
