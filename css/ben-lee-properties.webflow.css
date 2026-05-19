@@ -9262,9 +9262,10 @@ figcaption {
   letter-spacing: -.01em;
 }
 
-/* ── Uniform newsletter card image height (overrides 1440px+ height:auto) ── */
+/* ── Uniform newsletter card image size (16:9 matches landscape covers) ── */
 .blog-image {
-  height: 20em !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
   overflow: hidden;
 }
 .blog-image img {
