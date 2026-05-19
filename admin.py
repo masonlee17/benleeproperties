@@ -111,29 +111,24 @@ def build_newsletter_sections(newsletters):
         lines.append(f'            <div class="text-block-10">{year}</div>')
         lines.append('            <div class="w-layout-grid grid">')
 
+        img_box  = 'position:relative;width:100%;padding-bottom:75%;height:0;overflow:hidden;margin:0 0 0.75em 0;flex-shrink:0;display:block;'
+        img_self = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;'
+        card_box = 'display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:100%;box-sizing:border-box;text-decoration:none;'
+
         for j, n in enumerate(items):
             pdf   = n.get('pdf') or '#'
             cover = n.get('cover', '')
             raw_label = n.get('label', '')
             label = raw_label.replace(str(year), '').strip()
             target = ' target="_blank"' if pdf != '#' else ''
-            img_feat = f'<img src="{cover}" loading="lazy" alt="" class="cover-image _2">' if cover else ''
-            img_side = f'<img src="{cover}" loading="lazy" alt="" class="cover-image">'    if cover else ''
+            img_tag = f'<img src="{cover}" loading="lazy" alt="" style="{img_self}">' if cover else ''
 
-            if idx == 0 and j == 0:
-                lines += [
-                    f'              <a href="{pdf}"{target} class="blog-link-block feat w-inline-block">',
-                    f'                <div class="blog-image">{img_feat}</div>',
-                    f'                <h2 class="blog-heading">{label}</h2>',
-                    '              </a>',
-                ]
-            else:
-                lines += [
-                    f'              <a href="{pdf}"{target} class="blog-link-block side w-inline-block">',
-                    f'                <div class="blog-image">{img_side}</div>',
-                    f'                <h2 class="blog-heading">{label}</h2>',
-                    '              </a>',
-                ]
+            lines += [
+                f'              <a href="{pdf}"{target} class="blog-link-block w-inline-block" style="{card_box}">',
+                f'                <div class="blog-image" style="{img_box}">{img_tag}</div>',
+                f'                <h2 class="blog-heading" style="text-align:left;width:100%;margin:0;">{label}</h2>',
+                '              </a>',
+            ]
 
         lines += ['            </div>', '          </div>', '        </div>', '      </section>']
         sections.append('\n'.join(lines))
