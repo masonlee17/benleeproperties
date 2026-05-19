@@ -587,43 +587,43 @@ def upload_image():
     return jsonify({'path': f'images/{fn}'})
 
 
-# ── Listings API (for-buyers-3.html) ──────────────────────────────────────────
+# ── Listings API (redirected to properties.json) ───────────────────────────────
 
 @app.route('/api/listings', methods=['GET'])
 @login_required
 def get_listings():
-    return jsonify(load('listings.json'))
+    return jsonify([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])])
 
 @app.route('/api/listings', methods=['POST'])
 @login_required
 def add_listing():
     data  = request.json or {}
-    items = load('listings.json')
-    max_order = max((p.get('order', 0) for p in items), default=0)
+    props = load('properties.json')
+    max_order = max((p.get('order', 0) for p in props), default=0)
     entry = {'id': str(uuid.uuid4()), 'order': max_order + 1, **data}
-    items.append(entry)
-    save('listings.json', items)
+    props.append(entry)
+    save('properties.json', props)
     return jsonify(entry), 201
 
 @app.route('/api/listings/<lid>', methods=['PUT'])
 @login_required
 def update_listing(lid):
     data  = request.json or {}
-    items = load('listings.json')
-    for i, p in enumerate(items):
+    props = load('properties.json')
+    for i, p in enumerate(props):
         if p['id'] == lid:
-            items[i] = {**p, **data}
+            props[i] = {**p, **data}
             break
-    save('listings.json', items)
+    save('properties.json', props)
     return jsonify({'ok': True})
 
 @app.route('/api/listings/<lid>', methods=['DELETE'])
 @login_required
 def delete_listing(lid):
-    items = [p for p in load('listings.json') if p['id'] != lid]
-    for i, p in enumerate(items):
+    props = [p for p in load('properties.json') if p['id'] != lid]
+    for i, p in enumerate(props):
         p['order'] = i + 1
-    save('listings.json', items)
+    save('properties.json', props)
     return jsonify({'ok': True})
 
 
@@ -640,19 +640,19 @@ def blog():
 @app.route('/current-listings.html')
 def current_listings():
     return render_dynamic('current-listings.html', 'PROPERTIES',
-                          build_property_items(load('properties.json')))
+                          build_property_items([p for p in load('properties.json') if 'built_by_ben' in p.get('sections', [])]))
 
 @app.route('/for-buyers-3')
 @app.route('/for-buyers-3.html')
 def for_buyers():
     return render_dynamic('for-buyers-3.html', 'LISTINGS',
-                          build_listing_items(load('listings.json')))
+                          build_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
 
 @app.route('/valuation')
 @app.route('/valuation.html')
 def valuation():
     return render_dynamic('valuation.html', 'VAL_LISTINGS',
-                          build_index_listing_items(load('listings.json')))
+                          build_index_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
 
 @app.route('/property-prop-1')
 @app.route('/property-prop-1.html')
@@ -696,7 +696,7 @@ def admin_ui():
 @app.route('/index.html')
 def homepage():
     return render_dynamic('index.html', 'INDEX_LISTINGS',
-                          build_index_listing_items(load('listings.json')))
+                          build_index_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
 
 # ── Contact form submission ────────────────────────────────────────────────────
 
@@ -910,8 +910,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="newsletters">Newsletters</button>
-    <button class="tab-btn" data-tab="listings">Current Listings</button>
-    <button class="tab-btn" data-tab="properties">Built by Ben</button>
+    <button class="tab-btn" data-tab="properties">Properties</button>
   </div>
 
   <div class="main">
@@ -933,26 +932,11 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
       <div id="nl-grid" class="nl-grid"></div>
     </div>
 
-    <!-- Current Listings tab -->
-    <div id="tab-listings" class="tab-pane">
-      <div class="section-header">
-        <div>
-          <span class="section-title">Current Listings</span>
-          <span class="section-meta" id="listing-count"></span>
-        </div>
-        <button class="add-btn" id="add-listing-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Listing
-        </button>
-      </div>
-      <div id="listings-table" class="prop-table"></div>
-    </div>
-
     <!-- Properties tab -->
     <div id="tab-properties" class="tab-pane">
       <div class="section-header">
         <div>
-          <span class="section-title">Built by Ben Properties</span>
+          <span class="section-title">Properties</span>
           <span class="section-meta" id="prop-count"></span>
         </div>
         <button class="add-btn" id="add-prop-btn">
@@ -1112,6 +1096,18 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           <label>Property Description <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(for detail page)</span></label>
           <textarea id="p-desc" rows="5" placeholder="Describe the property for the detail page..."></textarea>
         </div>
+        <div class="frow" style="margin-top:4px">
+          <label>Display on Site <span style="color:#dc2626">*</span></label>
+          <div style="display:flex;gap:1.8em;flex-wrap:wrap;margin-top:6px">
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-section-live" style="width:16px;height:16px;cursor:pointer;accent-color:#07264b"> Live Listings
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-section-bbb" style="width:16px;height:16px;cursor:pointer;accent-color:#07264b"> Built by Ben
+            </label>
+          </div>
+          <div class="hint">Controls which pages this property appears on.</div>
+        </div>
         <div class="frow" style="background:#f0f4ff;border-radius:6px;padding:14px 16px;border:1px solid #c7d6f5;margin-top:4px">
           <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#07264b;letter-spacing:.04em;text-transform:uppercase">
             <input type="checkbox" id="p-has-detail" style="width:17px;height:17px;cursor:pointer;accent-color:#07264b">
@@ -1179,6 +1175,7 @@ function showApp() {
   $('#login-screen').style.display = 'none';
   $('#app').style.display = 'flex';
   loadNewsletters();
+  loadProperties();
 }
 
 $('#login-form').addEventListener('submit', async e => {
@@ -1210,7 +1207,6 @@ $$('.tab-btn').forEach(btn => {
     btn.classList.add('active');
     $('#tab-' + btn.dataset.tab).classList.add('active');
     if (btn.dataset.tab === 'newsletters') loadNewsletters();
-    else if (btn.dataset.tab === 'listings') loadListings();
     else loadProperties();
   });
 });
@@ -1351,85 +1347,6 @@ $('#save-nl').addEventListener('click', async () => {
   }
 });
 
-// ── Current Listings ───────────────────────────────────────────────────────────
-let listings = [];
-let editingListingId = null;
-
-async function loadListings() {
-  listings = await api('GET', '/api/listings') || [];
-  listings.sort((a, b) => (a.order || 0) - (b.order || 0));
-  renderListings();
-}
-
-function renderListings() {
-  $('#listing-count').textContent = `· ${listings.length} total`;
-  const table = $('#listings-table');
-  if (!listings.length) {
-    table.innerHTML = `<div class="empty">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <p>No listings yet — add the first one above.</p></div>`;
-    return;
-  }
-  table.innerHTML = `
-    <div class="prop-thead">
-      <div>Property</div><div>Price</div><div>Beds / Baths</div><div>Sqft</div><div>Status</div><div></div>
-    </div>
-    ${listings.map(p => `
-      <div class="prop-row">
-        <div>
-          <div class="prop-addr">${p.address || '—'}</div>
-          <div class="prop-city">${p.city || 'Los Angeles'}, ${p.state || 'CA'}</div>
-        </div>
-        <div class="prop-price">${p.price ? '$' + p.price : ''}${p.rent ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
-        <div class="prop-detail">${p.beds || '—'} bd &nbsp;/&nbsp; ${p.baths || '—'} ba</div>
-        <div class="prop-detail">${p.sqft ? p.sqft + ' sqft' : '—'}</div>
-        <div>${statusBadge(p.status)}</div>
-        <div class="row-actions">
-          <button class="icon-btn btn-edit" onclick="openEditListing('${p.id}')" title="Edit">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          </button>
-          <button class="icon-btn btn-del" onclick="deleteListing('${p.id}','${(p.address||'').replace(/'/g,"\\'")}')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
-          </button>
-        </div>
-      </div>`).join('')}`;
-}
-
-function openEditListing(id) {
-  const p = listings.find(x => x.id === id);
-  if (!p) return;
-  editingListingId = id;
-  $('#prop-modal-title').textContent = 'Edit Listing';
-  ['address','city','state','price','rent','beds','baths','sqft','status','image1','image2'].forEach(k => {
-    const el = $(`#p-${k}`); if (el) el.value = p[k] || '';
-  });
-  showImgPreview('p-img1-preview', p.image1);
-  showImgPreview('p-img2-preview', p.image2);
-  syncPriceFields();
-  $('#prop-modal').style.display = 'flex';
-  setTimeout(() => $('#p-address').focus(), 80);
-}
-
-$('#add-listing-btn').addEventListener('click', () => {
-  editingListingId = null; editingPropId = null;
-  $('#prop-modal-title').textContent = 'Add Listing';
-  $('#prop-form').reset();
-  $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
-  $('#p-image1').value = ''; $('#p-image2').value = '';
-  $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
-  syncPriceFields();
-  $('#prop-modal').style.display = 'flex';
-  setTimeout(() => $('#p-address').focus(), 80);
-});
-
-function deleteListing(id, addr) {
-  if (!confirm(`Delete "${addr}"?\n\nThis will remove it from the website immediately.`)) return;
-  api('DELETE', `/api/listings/${id}`).then(r => {
-    if (r && r.ok) { toast('Listing deleted — site updated'); loadListings(); }
-    else toast('Failed to delete', true);
-  });
-}
-
 // ── Properties ─────────────────────────────────────────────────────────────────
 let properties = [];
 let editingPropId = null;
@@ -1466,7 +1383,11 @@ function renderProperties() {
         <div>
           <div class="prop-addr">${p.address || '—'}</div>
           <div class="prop-city">${p.city || 'Los Angeles'}, ${p.state || 'CA'}</div>
-          ${p.has_detail_page ? '<div style="display:inline-block;margin-top:5px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#07264b;color:#fff;padding:2px 9px;border-radius:2em">✦ Detail Page</div>' : ''}
+          <div style="margin-top:5px">
+            ${(p.sections||[]).includes('live_listings') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#059669;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Live</span>' : ''}
+            ${(p.sections||[]).includes('built_by_ben') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#07264b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Built by Ben</span>' : ''}
+            ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em">Detail Page</span>' : ''}
+          </div>
         </div>
         <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
         <div class="prop-detail">${p.beds || '—'} bd &nbsp;/&nbsp; ${p.baths || '—'} ba</div>
@@ -1505,6 +1426,8 @@ function openEditProp(id) {
   $('#p-image4').value = p.image4 || '';
   $('#p-desc').value   = p.description || '';
   $('#p-has-detail').checked = !!p.has_detail_page;
+  $('#p-section-live').checked = (p.sections || []).includes('live_listings');
+  $('#p-section-bbb').checked  = (p.sections || []).includes('built_by_ben');
   showImgPreview('p-img3-preview', p.image3);
   showImgPreview('p-img4-preview', p.image4);
   syncPriceFields();
@@ -1513,7 +1436,7 @@ function openEditProp(id) {
 }
 
 $('#add-prop-btn').addEventListener('click', () => {
-  editingListingId = null; editingPropId = null;
+  editingPropId = null;
   $('#prop-modal-title').textContent = 'Add Property';
   $('#prop-form').reset();
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
@@ -1522,6 +1445,8 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-image3').value = ''; $('#p-image4').value = '';
   $('#p-img3-preview').innerHTML = ''; $('#p-img4-preview').innerHTML = '';
   $('#p-desc').value = ''; $('#p-has-detail').checked = false;
+  $('#p-section-live').checked = false;
+  $('#p-section-bbb').checked  = false;
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1543,7 +1468,7 @@ function syncPriceFields() {
 }
 $('#p-status').addEventListener('change', syncPriceFields);
 
-function closePropModal() { $('#prop-modal').style.display = 'none'; editingPropId = null; editingListingId = null; }
+function closePropModal() { $('#prop-modal').style.display = 'none'; editingPropId = null; }
 $('#close-prop-modal').addEventListener('click', closePropModal);
 $('#cancel-prop').addEventListener('click', closePropModal);
 $('#prop-modal').addEventListener('click', e => { if (e.target === $('#prop-modal')) closePropModal(); });
@@ -1568,6 +1493,10 @@ $('#save-prop').addEventListener('click', async () => {
     image4:          $('#p-image4').value.trim(),
     description:     $('#p-desc').value.trim(),
     has_detail_page: $('#p-has-detail').checked,
+    sections: [
+      ...($('#p-section-live').checked ? ['live_listings'] : []),
+      ...($('#p-section-bbb').checked  ? ['built_by_ben']  : []),
+    ],
   };
 
   const btn = $('#save-prop');
@@ -1575,12 +1504,8 @@ $('#save-prop').addEventListener('click', async () => {
   btn.disabled = true;
 
   let r;
-  if (editingListingId) {
-    r = await api('PUT', `/api/listings/${editingListingId}`, data);
-  } else if (editingPropId) {
+  if (editingPropId) {
     r = await api('PUT', `/api/properties/${editingPropId}`, data);
-  } else if ($('#tab-listings').classList.contains('active')) {
-    r = await api('POST', '/api/listings', data);
   } else {
     r = await api('POST', '/api/properties', data);
   }
@@ -1589,11 +1514,10 @@ $('#save-prop').addEventListener('click', async () => {
   btn.disabled = false;
 
   if (r && (r.ok || r.id)) {
-    const isListing = editingListingId || $('#tab-listings').classList.contains('active');
-    const verb = (editingListingId || editingPropId) ? 'updated' : 'added';
-    toast(`${isListing ? 'Listing' : 'Property'} ${verb} — site updated! ✓`);
+    const verb = editingPropId ? 'updated' : 'added';
+    toast(`Property ${verb} — site updated! ✓`);
     closePropModal();
-    if (isListing) loadListings(); else loadProperties();
+    loadProperties();
   } else {
     toast('Error saving', true);
   }
