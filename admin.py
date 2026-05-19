@@ -446,6 +446,25 @@ def delete_newsletter(nid):
     return jsonify({'ok': True})
 
 
+@app.route('/api/newsletters/sync-covers', methods=['POST'])
+@login_required
+def sync_covers():
+    """Update cover paths in the live data to point at extracted nl-covers images.
+    Needed when the Railway volume has a stale newsletters.json from before extraction."""
+    newsletters = load('newsletters.json')
+    updated = 0
+    for n in newsletters:
+        nid = n.get('id', '')
+        expected = f'images/nl-covers/{nid}.jpg'
+        # Check if the extracted cover exists in the repo
+        if os.path.exists(os.path.join(REPO_IMGS_DIR, 'nl-covers', f'{nid}.jpg')):
+            if n.get('cover') != expected:
+                n['cover'] = expected
+                updated += 1
+    save('newsletters.json', newsletters)
+    return jsonify({'ok': True, 'updated': updated})
+
+
 # ── Property API ───────────────────────────────────────────────────────────────
 
 @app.route('/api/properties', methods=['GET'])
@@ -822,10 +841,13 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           <span class="section-title">Newsletters</span>
           <span class="section-meta" id="nl-count"></span>
         </div>
-        <button class="add-btn" id="add-nl-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Newsletter
-        </button>
+        <div style="display:flex;gap:8px">
+          <button class="btn-secondary" id="sync-covers-btn" style="font-size:12px;padding:6px 12px">Sync Covers</button>
+          <button class="add-btn" id="add-nl-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Newsletter
+          </button>
+        </div>
       </div>
       <div id="nl-grid" class="nl-grid"></div>
     </div>
@@ -1129,6 +1151,21 @@ function deleteNewsletter(id, label) {
 }
 
 // Newsletter modal
+$('#sync-covers-btn').addEventListener('click', async () => {
+  const btn = $('#sync-covers-btn');
+  btn.textContent = 'Syncing…';
+  btn.disabled = true;
+  const r = await api('POST', '/api/newsletters/sync-covers');
+  btn.textContent = 'Sync Covers';
+  btn.disabled = false;
+  if (r && r.ok) {
+    toast(`Covers synced — ${r.updated} updated`);
+    loadNewsletters();
+  } else {
+    toast('Sync failed', true);
+  }
+});
+
 $('#add-nl-btn').addEventListener('click', () => {
   $('#nl-form').reset();
   $('#pdf-file-name').textContent = '';
