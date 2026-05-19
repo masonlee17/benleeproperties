@@ -151,12 +151,13 @@ def build_property_items(properties):
         status = p.get('status', 'FOR SALE')
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
+        detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
 
         card = [
             '                      <div role="listitem" class="property-grid-item-2 w-dyn-item">',
             '                        <div class="property-link with-radius">',
             '                          <div class="property-image-grid">',
-            '                            <a href="contact.html" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
+            f'                            <a href="{detail_url}" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
             '                              <div class="ciricle-outline is-white"></div>'
             '<img loading="lazy" src="images/arrow_forward_white_24dp.svg" alt="Contact" class="ciricle-icon">',
             '                            </a>',
@@ -167,7 +168,7 @@ def build_property_items(properties):
             card.append(f'                            <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
         card += [
             '                          </div>',
-            '                          <a href="contact.html" class="property-inner w-inline-block">',
+            f'                          <a href="{detail_url}" class="property-inner w-inline-block">',
             f'                            <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                          </a>',
             '                          <div class="property-details">',
@@ -257,6 +258,90 @@ def build_listing_items(listings):
         ]
         cards.append('\n'.join(card))
     return '\n'.join(cards)
+
+
+def build_property_detail_html(p):
+    """Generate a complete detail page HTML string for a property."""
+    prop_id  = p.get('id', '')
+    addr     = p.get('address', '')
+    city     = p.get('city', 'Los Angeles')
+    state    = p.get('state', 'CA')
+    status   = p.get('status', 'FOR SALE')
+    price    = p.get('price', '')
+    rent     = p.get('rent', '')
+    beds     = p.get('beds', '')
+    baths    = p.get('baths', '')
+    sqft     = p.get('sqft', '')
+    desc     = p.get('description', '')
+    images   = [p[k] for k in ('image1','image2','image3','image4') if p.get(k)]
+
+    title    = f'{addr} | Ben Lee Properties'
+    og_img   = images[0] if images else ''
+
+    slides_html = '\n'.join(
+        f'            <div class="blp-pd-slide"><img src="{img}" alt="{addr}" loading="lazy"></div>'
+        for img in images
+    ) or f'            <div class="blp-pd-slide" style="background:#07264b;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:1.2em">No photos yet</div>'
+
+    slide_count = max(len(images), 1)
+
+    # Stats
+    is_sold  = 'SOLD' in status.upper()
+    is_lease = 'LEASE' in status.upper() and 'SALE' not in status.upper()
+    is_dual  = 'LEASE' in status.upper() and 'SALE' in status.upper()
+    stats_parts = []
+    if price and not is_lease:
+        label = 'Sold' if is_sold else 'Sale'
+        stats_parts.append(f'<div class="blp-pd-stat"><div class="blp-pd-stat-val">${price}</div><div class="blp-pd-stat-lbl">{label}</div></div>')
+    if rent and not is_sold:
+        stats_parts.append('<div class="blp-pd-stat-divider"></div>' if stats_parts else '')
+        stats_parts.append(f'<div class="blp-pd-stat"><div class="blp-pd-stat-val">${rent}/mo</div><div class="blp-pd-stat-lbl">Lease</div></div>')
+    if beds:
+        stats_parts.append('<div class="blp-pd-stat-divider"></div>' if stats_parts else '')
+        stats_parts.append(f'<div class="blp-pd-stat"><div class="blp-pd-stat-val">{beds}</div><div class="blp-pd-stat-lbl">Beds</div></div>')
+    if baths:
+        stats_parts.append('<div class="blp-pd-stat-divider"></div>' if stats_parts else '')
+        stats_parts.append(f'<div class="blp-pd-stat"><div class="blp-pd-stat-val">{baths}</div><div class="blp-pd-stat-lbl">Baths</div></div>')
+    if sqft:
+        stats_parts.append('<div class="blp-pd-stat-divider"></div>' if stats_parts else '')
+        stats_parts.append(f'<div class="blp-pd-stat"><div class="blp-pd-stat-val">{sqft}</div><div class="blp-pd-stat-lbl">Sq Ft</div></div>')
+    stats_html = '\n'.join(s for s in stats_parts if s)
+
+    # Description paragraphs
+    desc_html = ''.join(f'<p>{para.strip()}</p>' for para in desc.split('\n') if para.strip()) if desc else '<p><em>Description coming soon.</em></p>'
+
+    # Fact rows
+    fact_rows = []
+    fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Status</span><span class="blp-pd-fact-value">{status}</span></div>')
+    if price and not is_lease:
+        fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">{"Sold Price" if is_sold else "Sale Price"}</span><span class="blp-pd-fact-value">${price}</span></div>')
+    if rent and not is_sold:
+        fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Monthly Lease</span><span class="blp-pd-fact-value">${rent}/mo</span></div>')
+    if beds:
+        fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Bedrooms</span><span class="blp-pd-fact-value">{beds}</span></div>')
+    if baths:
+        fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Bathrooms</span><span class="blp-pd-fact-value">{baths}</span></div>')
+    if sqft:
+        fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Interior</span><span class="blp-pd-fact-value">{sqft} sq ft</span></div>')
+    facts_html = '\n'.join(fact_rows)
+
+    # Read the template file
+    tpl_path = os.path.join(BASE_DIR, 'property_detail_template.html')
+    tpl = open(tpl_path, encoding='utf-8').read()
+
+    return (tpl
+        .replace('BLPTOKEN_TITLE',       title)
+        .replace('BLPTOKEN_OG_IMAGE',    og_img)
+        .replace('BLPTOKEN_SLIDES_HTML', slides_html)
+        .replace('BLPTOKEN_SLIDE_COUNT', str(slide_count))
+        .replace('BLPTOKEN_STATUS',      status)
+        .replace('BLPTOKEN_ADDRESS',     addr)
+        .replace('BLPTOKEN_CITY_STATE',  f'{city}, {state}')
+        .replace('BLPTOKEN_STATS_HTML',  stats_html)
+        .replace('BLPTOKEN_DESC_HTML',   desc_html)
+        .replace('BLPTOKEN_FACTS_HTML',  facts_html)
+        .replace('BLPTOKEN_PROP_ID',     prop_id)
+    )
 
 
 def build_index_listing_items(listings):
@@ -568,6 +653,21 @@ def for_buyers():
 def valuation():
     return render_dynamic('valuation.html', 'VAL_LISTINGS',
                           build_index_listing_items(load('listings.json')))
+
+@app.route('/property-prop-1')
+@app.route('/property-prop-1.html')
+def property_prop1():
+    return send_from_directory(BASE_DIR, 'property-prop-1.html')
+
+@app.route('/property/<prop_id>')
+@app.route('/property/<prop_id>.html')
+def property_detail(prop_id):
+    props = load('properties.json')
+    p = next((x for x in props if x['id'] == prop_id), None)
+    if not p or not p.get('has_detail_page'):
+        from flask import redirect
+        return redirect('/contact.html')
+    return Response(build_property_detail_html(p), mimetype='text/html')
 
 # ── File serving — Volume takes priority over repo copies ──────────────────────
 
@@ -989,6 +1089,36 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           <div id="p-img2-preview" style="margin-top:10px;min-height:20px"></div>
           <input type="hidden" id="p-image2">
         </div>
+        <div class="frow">
+          <label>Additional Photos <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional — for detail page gallery)</span></label>
+          <div class="dropzone" id="dz-p-img3">
+            <input type="file" id="p-img3-file" accept="image/*">
+            <div class="dz-icon">📷</div>
+            <div class="dz-text">Photo 3 — <strong>click to browse</strong></div>
+          </div>
+          <div id="p-img3-preview" style="margin-top:10px;min-height:20px"></div>
+          <input type="hidden" id="p-image3">
+        </div>
+        <div class="frow">
+          <div class="dropzone" id="dz-p-img4">
+            <input type="file" id="p-img4-file" accept="image/*">
+            <div class="dz-icon">📷</div>
+            <div class="dz-text">Photo 4 — <strong>click to browse</strong></div>
+          </div>
+          <div id="p-img4-preview" style="margin-top:10px;min-height:20px"></div>
+          <input type="hidden" id="p-image4">
+        </div>
+        <div class="frow">
+          <label>Property Description <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(for detail page)</span></label>
+          <textarea id="p-desc" rows="5" placeholder="Describe the property for the detail page..."></textarea>
+        </div>
+        <div class="frow" style="background:#f0f4ff;border-radius:6px;padding:14px 16px;border:1px solid #c7d6f5;margin-top:4px">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#07264b;letter-spacing:.04em;text-transform:uppercase">
+            <input type="checkbox" id="p-has-detail" style="width:17px;height:17px;cursor:pointer;accent-color:#07264b">
+            Enable Detail Page
+          </label>
+          <div class="hint" style="margin-top:6px">When enabled, clicking this property card opens a dedicated detail page instead of the contact form.</div>
+        </div>
       </form>
     </div>
     <div class="modal-ft">
@@ -1337,7 +1467,8 @@ function renderProperties() {
           <div class="prop-addr">${p.address || '—'}</div>
           <div class="prop-city">${p.city || 'Los Angeles'}, ${p.state || 'CA'}</div>
         </div>
-        <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
+        <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}
+        ${p.has_detail_page ? '<div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#07264b;color:#fff;padding:2px 8px;border-radius:2em">Detail Page</div>' : ''}</div>
         <div class="prop-detail">${p.beds || '—'} bd &nbsp;/&nbsp; ${p.baths || '—'} ba</div>
         <div class="prop-detail">${p.sqft ? p.sqft + ' sqft' : '—'}</div>
         <div>${statusBadge(p.status)}</div>
@@ -1370,6 +1501,12 @@ function openEditProp(id) {
   $('#p-image2').value = p.image2 || '';
   showImgPreview('p-img1-preview', p.image1);
   showImgPreview('p-img2-preview', p.image2);
+  $('#p-image3').value = p.image3 || '';
+  $('#p-image4').value = p.image4 || '';
+  $('#p-desc').value   = p.description || '';
+  $('#p-has-detail').checked = !!p.has_detail_page;
+  showImgPreview('p-img3-preview', p.image3);
+  showImgPreview('p-img4-preview', p.image4);
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1382,6 +1519,9 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
   $('#p-image1').value = ''; $('#p-image2').value = '';
   $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
+  $('#p-image3').value = ''; $('#p-image4').value = '';
+  $('#p-img3-preview').innerHTML = ''; $('#p-img4-preview').innerHTML = '';
+  $('#p-desc').value = ''; $('#p-has-detail').checked = false;
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1424,6 +1564,10 @@ $('#save-prop').addEventListener('click', async () => {
     status:  $('#p-status').value,
     image1:  $('#p-image1').value.trim(),
     image2:  $('#p-image2').value.trim(),
+    image3:          $('#p-image3').value.trim(),
+    image4:          $('#p-image4').value.trim(),
+    description:     $('#p-desc').value.trim(),
+    has_detail_page: $('#p-has-detail').checked,
   };
 
   const btn = $('#save-prop');
@@ -1474,14 +1618,15 @@ function showImgPreview(previewId, path) {
       <div style="font-size:12px;font-weight:700;color:#0a223f">Photo uploaded</div>
       <div style="font-size:11px;color:#9ca3af;margin-top:2px">${path.split('/').pop()}</div>
     </div>
-    <button onclick="clearImg('${previewId}','${previewId.replace('preview','file').replace('p-img','p-img').replace('-preview','').replace('p-img1','p-image1').replace('p-img2','p-image2')}')"
+    <button onclick="clearImg('${previewId}','')"
       style="margin-left:auto;background:#fee2e2;border:none;border-radius:6px;padding:5px 10px;color:#dc2626;font-size:11px;font-weight:700;cursor:pointer">Remove</button>
   </div>`;
 }
 
 function clearImg(previewId, hiddenId) {
   // map previewId back to hidden input id
-  const num = previewId.includes('img1') ? '1' : '2';
+  const m = previewId.match(/img(\d+)/);
+  const num = m ? m[1] : '1';
   $('#p-image' + num).value = '';
   $('#' + previewId).innerHTML = '';
 }
@@ -1514,6 +1659,8 @@ function setupPropImgDZ(dzId, fileInputId, num) {
 
 setupPropImgDZ('dz-p-img1', 'p-img1-file', 1);
 setupPropImgDZ('dz-p-img2', 'p-img2-file', 2);
+setupPropImgDZ('dz-p-img3', 'p-img3-file', 3);
+setupPropImgDZ('dz-p-img4', 'p-img4-file', 4);
 
 // Boot
 init();
