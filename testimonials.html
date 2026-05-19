@@ -147,13 +147,7 @@
         </div>
       </div>
     </div>
-    <div class="embed-code w-embed">
-      <style>
-/* You can paste your custom css code here */
-.eapps-widget-bar, .eapps-link, .eapp-youtube-gallery-footer, [class*="eapps-link"] { display: none !important; }
-a[href*="elfsight.com"], a[title*="elfsight.com"] { display: none !important; }
-</style>
-    </div>
+    <div class="embed-code w-embed"></div>
     <main class="main">
       <section class="section overflow-hidden">
         <div class="page-hero">
@@ -358,11 +352,26 @@ a[href*="elfsight.com"], a[title*="elfsight.com"] { display: none !important; }
       </section>
 
       <!-- VIDEO TESTIMONIALS -->
-      <section class="section grey-background" style="padding-top:4em;">
+      <section class="section grey-background" style="padding-top:5em; padding-bottom:5em;">
         <div class="container w-container">
-          <div class="w-embed w-script"><!--  Elfsight YouTube Gallery | Untitled YouTube Gallery  -->
-            <script src="https://elfsightcdn.com/platform.js" async=""></script>
-            <div class="elfsight-app-fc284d56-b9ba-48f6-b8b3-6eafe0c8ced8" data-elfsight-app-lazy=""></div>
+          <p class="toptitle-paragraph" style="text-align:center; margin-bottom:.5em;">Video Testimonials</p>
+          <h2 style="text-align:center; font-size:2.2em; font-weight:500; margin-bottom:2.5em; max-width:700px; margin-left:auto; margin-right:auto;">Hear directly from Ben&#8217;s clients</h2>
+          <style>
+            .blp-tv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5em; }
+            .blp-tv-item { aspect-ratio:16/9; border-radius:10px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.12); }
+            .blp-tv-item iframe { width:100%; height:100%; border:0; display:block; }
+            @media (max-width:900px) { .blp-tv-grid { grid-template-columns:1fr; } }
+          </style>
+          <div class="blp-tv-grid">
+            <div class="blp-tv-item">
+              <iframe src="https://www.youtube.com/embed/FOapa2eNS0M?rel=0&controls=1" allow="encrypted-media" allowfullscreen title="Ben Lee Properties — Client Video"></iframe>
+            </div>
+            <div class="blp-tv-item">
+              <iframe src="https://www.youtube.com/embed/QY_s3vTC-Tw?rel=0&controls=1" allow="encrypted-media" allowfullscreen title="Ben Lee Properties — Client Video"></iframe>
+            </div>
+            <div class="blp-tv-item">
+              <iframe src="https://www.youtube.com/embed/lh8EB4gVSdU?rel=0&controls=1" allow="encrypted-media" allowfullscreen title="Ben Lee Properties — Client Video"></iframe>
+            </div>
           </div>
         </div>
       </section>

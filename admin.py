@@ -214,11 +214,13 @@ def build_listing_items(listings):
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
 
+        detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
+
         card = [
             '                        <div role="listitem" class="property-grid-item w-dyn-item">',
             '                          <div class="property-link with-radius">',
             '                            <div class="property-image-grid">',
-            '                              <a href="contact.html" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
+            f'                              <a href="{detail_url}" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
             '                                <div class="ciricle-outline is-white"></div>'
             '<img loading="lazy" src="images/arrow_right_white_24dp.svg" alt="Contact" class="ciricle-icon">',
             '                              </a>',
@@ -229,7 +231,7 @@ def build_listing_items(listings):
             card.append(f'                              <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
         card += [
             '                            </div>',
-            '                            <a href="contact.html" class="property-inner w-inline-block">',
+            f'                            <a href="{detail_url}" class="property-inner w-inline-block">',
             f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
             '                            </a>',
             '                            <div class="property-details">',
@@ -600,7 +602,7 @@ def add_listing():
     data  = request.json or {}
     props = load('properties.json')
     max_order = max((p.get('order', 0) for p in props), default=0)
-    entry = {'id': str(uuid.uuid4()), 'order': max_order + 1, **data}
+    entry = {'id': str(uuid.uuid4()), 'order': max_order + 1, 'sections': ['live_listings'], **data}
     props.append(entry)
     save('properties.json', props)
     return jsonify(entry), 201
@@ -653,11 +655,6 @@ def for_buyers():
 def valuation():
     return render_dynamic('valuation.html', 'VAL_LISTINGS',
                           build_index_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
-
-@app.route('/property-prop-1')
-@app.route('/property-prop-1.html')
-def property_prop1():
-    return send_from_directory(BASE_DIR, 'property-prop-1.html')
 
 @app.route('/property/<prop_id>')
 @app.route('/property/<prop_id>.html')
