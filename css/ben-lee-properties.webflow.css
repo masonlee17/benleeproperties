@@ -5061,8 +5061,8 @@ figcaption {
 }
 
 .property-grid-list-2 {
-  grid-column-gap: 0em;
-  grid-row-gap: 0em;
+  grid-column-gap: 2.5em;
+  grid-row-gap: 2.5em;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
@@ -6375,7 +6375,7 @@ figcaption {
   }
 
   .preloader-background {
-    background-color: #ff2020;
+    background-color: #07264b !important;
   }
 
   .nav-contact.is-2nd {
