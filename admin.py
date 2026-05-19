@@ -108,16 +108,14 @@ def build_newsletter_sections(newsletters):
             '        <div class="container w-container">',
             '          <div class="padding-8em">',
         ]
-        if idx == 0:
-            lines.append('            <img src="placeholder.svg" loading="lazy" alt="">')
-        else:
-            lines.append(f'            <div class="text-block-10">ALL NEWSLETTERS {year}</div>')
+        lines.append(f'            <div class="text-block-10">ALL NEWSLETTERS {year}</div>')
         lines.append('            <div class="w-layout-grid grid">')
 
         for j, n in enumerate(items):
             pdf   = n.get('pdf') or '#'
             cover = n.get('cover', '')
-            label = n.get('label', '')
+            raw_label = n.get('label', '')
+            label = raw_label.replace(str(year), '').strip()
             target = ' target="_blank"' if pdf != '#' else ''
             img_feat = f'<img src="{cover}" loading="lazy" alt="" class="cover-image _2">' if cover else ''
             img_side = f'<img src="{cover}" loading="lazy" alt="" class="cover-image">'    if cover else ''
