@@ -1466,9 +1466,9 @@ function renderProperties() {
         <div>
           <div class="prop-addr">${p.address || '—'}</div>
           <div class="prop-city">${p.city || 'Los Angeles'}, ${p.state || 'CA'}</div>
+          ${p.has_detail_page ? '<div style="display:inline-block;margin-top:5px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#07264b;color:#fff;padding:2px 9px;border-radius:2em">✦ Detail Page</div>' : ''}
         </div>
-        <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}
-        ${p.has_detail_page ? '<div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#07264b;color:#fff;padding:2px 8px;border-radius:2em">Detail Page</div>' : ''}</div>
+        <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
         <div class="prop-detail">${p.beds || '—'} bd &nbsp;/&nbsp; ${p.baths || '—'} ba</div>
         <div class="prop-detail">${p.sqft ? p.sqft + ' sqft' : '—'}</div>
         <div>${statusBadge(p.status)}</div>
