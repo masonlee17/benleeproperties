@@ -9262,26 +9262,57 @@ figcaption {
   letter-spacing: -.01em;
 }
 
-/* ── Newsletter card: left-align labels, uniform layout at all breakpoints ── */
-.blog-link-block,
-.blog-link-block.side,
-.blog-link-block.feat {
+/* ══════════════════════════════════════════════════════════
+   Newsletter grid — strict 4-column layout, identical cards
+   ══════════════════════════════════════════════════════════ */
+.section.white-border-bottom .w-layout-grid.grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: auto !important;
+  column-gap: 1.5em !important;
+  row-gap: 2em !important;
+  align-items: start !important;
+}
+.section.white-border-bottom .blog-link-block {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
   align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 0.6em !important;
 }
-.blog-heading {
-  text-align: left;
-  width: 100%;
-}
-
-/* ── Uniform newsletter card image size (16:9 matches landscape covers) ── */
-.blog-image {
+.section.white-border-bottom .blog-image {
+  width: 100% !important;
   aspect-ratio: 16 / 9 !important;
   height: auto !important;
-  overflow: hidden;
+  overflow: hidden !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
 }
-.blog-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+.section.white-border-bottom .blog-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+}
+.section.white-border-bottom .blog-heading {
+  text-align: left !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+@media screen and (max-width: 991px) {
+  .section.white-border-bottom .w-layout-grid.grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.white-border-bottom .w-layout-grid.grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.white-border-bottom .w-layout-grid.grid {
+    grid-template-columns: 1fr !important;
+  }
 }
