@@ -2,6 +2,7 @@
 builder = "DOCKERFILE"
 
 [deploy]
+startCommand = "gunicorn admin:app --config gunicorn.conf.py"
 healthcheckPath = "/admin/check"
 healthcheckTimeout = 30
 restartPolicyType = "ON_FAILURE"
