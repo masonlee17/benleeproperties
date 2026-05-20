@@ -5,7 +5,8 @@
     "year": 2026,
     "month": 5,
     "pdf": "documents/Ben-Lee-050126-BEVERLYWOOD_8.5x11-digital.pdf",
-    "cover": "images/nl-covers/nl-2026-05.jpg"
+    "cover": "images/nl-covers/nl-2026-05.jpg",
+    "html_url": "/market-updates/may-2026"
   },
   {
     "id": "nl-2026-04",
@@ -13,7 +14,8 @@
     "year": 2026,
     "month": 4,
     "pdf": "documents/Ben-Lee-030126-CHEVIOT_8.5x11-digital-1.pdf",
-    "cover": "images/nl-covers/nl-2026-04.jpg"
+    "cover": "images/nl-covers/nl-2026-04.jpg",
+    "html_url": "/market-updates/april-2026"
   },
   {
     "id": "nl-2026-03",
@@ -21,7 +23,8 @@
     "year": 2026,
     "month": 3,
     "pdf": "documents/Ben-Lee-030126-CHEVIOT_8.5x11-digital-1.pdf",
-    "cover": "images/nl-covers/nl-2026-03.jpg"
+    "cover": "images/nl-covers/nl-2026-03.jpg",
+    "html_url": "/market-updates/march-2026"
   },
   {
     "id": "nl-2026-02",
@@ -29,7 +32,8 @@
     "year": 2026,
     "month": 2,
     "pdf": "documents/Ben-Lee-020126-CHEVIOT_8.5x11-digital-2.pdf",
-    "cover": "images/nl-covers/nl-2026-02.jpg"
+    "cover": "images/nl-covers/nl-2026-02.jpg",
+    "html_url": "/market-updates/february-2026"
   },
   {
     "id": "nl-2026-01",
@@ -37,7 +41,8 @@
     "year": 2026,
     "month": 1,
     "pdf": "documents/Ben-Lee-110125-CHEVIOT_8.5x11-digital.pdf",
-    "cover": "images/nl-covers/nl-2026-01.jpg"
+    "cover": "images/nl-covers/nl-2026-01.jpg",
+    "html_url": "/market-updates/january-2026"
   },
   {
     "id": "nl-2025-11",
@@ -45,7 +50,8 @@
     "year": 2025,
     "month": 11,
     "pdf": "documents/Ben-Lee-110125-CHEVIOT_8.5x11-digital.pdf",
-    "cover": "images/nl-covers/nl-2025-11.jpg"
+    "cover": "images/nl-covers/nl-2025-11.jpg",
+    "html_url": "/market-updates/november-2025"
   },
   {
     "id": "nl-2025-10",
@@ -53,7 +59,8 @@
     "year": 2025,
     "month": 10,
     "pdf": "documents/october-newsletter-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-10.jpg"
+    "cover": "images/nl-covers/nl-2025-10.jpg",
+    "html_url": "/market-updates/october-2025"
   },
   {
     "id": "nl-2025-09",
@@ -61,7 +68,8 @@
     "year": 2025,
     "month": 9,
     "pdf": "documents/09-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-09.jpg"
+    "cover": "images/nl-covers/nl-2025-09.jpg",
+    "html_url": "/market-updates/september-2025"
   },
   {
     "id": "nl-2025-08",
@@ -69,7 +77,8 @@
     "year": 2025,
     "month": 8,
     "pdf": "documents/08-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-08.jpg"
+    "cover": "images/nl-covers/nl-2025-08.jpg",
+    "html_url": "/market-updates/august-2025"
   },
   {
     "id": "nl-2025-06",
@@ -77,7 +86,8 @@
     "year": 2025,
     "month": 6,
     "pdf": "documents/06-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-06.jpg"
+    "cover": "images/nl-covers/nl-2025-06.jpg",
+    "html_url": "/market-updates/june-2025"
   },
   {
     "id": "nl-2025-05",
@@ -85,7 +95,8 @@
     "year": 2025,
     "month": 5,
     "pdf": "documents/05-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-05.jpg"
+    "cover": "images/nl-covers/nl-2025-05.jpg",
+    "html_url": "/market-updates/may-2025"
   },
   {
     "id": "nl-2025-04",
@@ -93,7 +104,8 @@
     "year": 2025,
     "month": 4,
     "pdf": "documents/04-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-04.jpg"
+    "cover": "images/nl-covers/nl-2025-04.jpg",
+    "html_url": "/market-updates/april-2025"
   },
   {
     "id": "nl-2025-03",
@@ -101,7 +113,8 @@
     "year": 2025,
     "month": 3,
     "pdf": "documents/03-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-03.jpg"
+    "cover": "images/nl-covers/nl-2025-03.jpg",
+    "html_url": "/market-updates/march-2025"
   },
   {
     "id": "nl-2025-02",
@@ -109,7 +122,8 @@
     "year": 2025,
     "month": 2,
     "pdf": "documents/02-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-02.jpg"
+    "cover": "images/nl-covers/nl-2025-02.jpg",
+    "html_url": "/market-updates/february-2025"
   },
   {
     "id": "nl-2025-01",
@@ -117,7 +131,8 @@
     "year": 2025,
     "month": 1,
     "pdf": "documents/01-2025.pdf",
-    "cover": "images/nl-covers/nl-2025-01.jpg"
+    "cover": "images/nl-covers/nl-2025-01.jpg",
+    "html_url": "/market-updates/january-2025"
   },
   {
     "id": "nl-2024-12",
@@ -125,7 +140,8 @@
     "year": 2024,
     "month": 12,
     "pdf": "documents/12-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-12.jpg"
+    "cover": "images/nl-covers/nl-2024-12.jpg",
+    "html_url": "/market-updates/december-2024"
   },
   {
     "id": "nl-2024-11",
@@ -133,7 +149,8 @@
     "year": 2024,
     "month": 11,
     "pdf": "documents/11-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-11.jpg"
+    "cover": "images/nl-covers/nl-2024-11.jpg",
+    "html_url": "/market-updates/november-2024"
   },
   {
     "id": "nl-2024-10",
@@ -141,7 +158,8 @@
     "year": 2024,
     "month": 10,
     "pdf": "",
-    "cover": "images/9-24.jpg"
+    "cover": "images/9-24.jpg",
+    "html_url": "/market-updates/october-2024"
   },
   {
     "id": "nl-2024-09",
@@ -149,7 +167,8 @@
     "year": 2024,
     "month": 9,
     "pdf": "documents/09-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-09.jpg"
+    "cover": "images/nl-covers/nl-2024-09.jpg",
+    "html_url": "/market-updates/september-2024"
   },
   {
     "id": "nl-2024-08",
@@ -157,7 +176,8 @@
     "year": 2024,
     "month": 8,
     "pdf": "documents/08-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-08.jpg"
+    "cover": "images/nl-covers/nl-2024-08.jpg",
+    "html_url": "/market-updates/august-2024"
   },
   {
     "id": "nl-2024-07",
@@ -165,7 +185,8 @@
     "year": 2024,
     "month": 7,
     "pdf": "documents/07-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-07.jpg"
+    "cover": "images/nl-covers/nl-2024-07.jpg",
+    "html_url": "/market-updates/july-2024"
   },
   {
     "id": "nl-2024-06",
@@ -173,7 +194,8 @@
     "year": 2024,
     "month": 6,
     "pdf": "documents/06-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-06.jpg"
+    "cover": "images/nl-covers/nl-2024-06.jpg",
+    "html_url": "/market-updates/june-2024"
   },
   {
     "id": "nl-2024-05",
@@ -181,7 +203,8 @@
     "year": 2024,
     "month": 5,
     "pdf": "documents/05-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-05.jpg"
+    "cover": "images/nl-covers/nl-2024-05.jpg",
+    "html_url": "/market-updates/may-2024"
   },
   {
     "id": "nl-2024-04",
@@ -189,7 +212,8 @@
     "year": 2024,
     "month": 4,
     "pdf": "documents/04-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-04.jpg"
+    "cover": "images/nl-covers/nl-2024-04.jpg",
+    "html_url": "/market-updates/april-2024"
   },
   {
     "id": "nl-2024-03",
@@ -197,7 +221,8 @@
     "year": 2024,
     "month": 3,
     "pdf": "documents/03-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-03.jpg"
+    "cover": "images/nl-covers/nl-2024-03.jpg",
+    "html_url": "/market-updates/march-2024"
   },
   {
     "id": "nl-2024-02",
@@ -205,7 +230,8 @@
     "year": 2024,
     "month": 2,
     "pdf": "documents/02-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-02.jpg"
+    "cover": "images/nl-covers/nl-2024-02.jpg",
+    "html_url": "/market-updates/february-2024"
   },
   {
     "id": "nl-2024-01",
@@ -213,7 +239,8 @@
     "year": 2024,
     "month": 1,
     "pdf": "documents/01-2024.pdf",
-    "cover": "images/nl-covers/nl-2024-01.jpg"
+    "cover": "images/nl-covers/nl-2024-01.jpg",
+    "html_url": "/market-updates/january-2024"
   },
   {
     "id": "nl-2023-12",
@@ -221,7 +248,8 @@
     "year": 2023,
     "month": 12,
     "pdf": "documents/12-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-12.jpg"
+    "cover": "images/nl-covers/nl-2023-12.jpg",
+    "html_url": "/market-updates/december-2023"
   },
   {
     "id": "nl-2023-11",
@@ -229,7 +257,8 @@
     "year": 2023,
     "month": 11,
     "pdf": "documents/11-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-11.jpg"
+    "cover": "images/nl-covers/nl-2023-11.jpg",
+    "html_url": "/market-updates/november-2023"
   },
   {
     "id": "nl-2023-10",
@@ -237,7 +266,8 @@
     "year": 2023,
     "month": 10,
     "pdf": "",
-    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.jpg"
+    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.jpg",
+    "html_url": "/market-updates/october-2023"
   },
   {
     "id": "nl-2023-09",
@@ -245,7 +275,8 @@
     "year": 2023,
     "month": 9,
     "pdf": "documents/09-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-09.jpg"
+    "cover": "images/nl-covers/nl-2023-09.jpg",
+    "html_url": "/market-updates/september-2023"
   },
   {
     "id": "nl-2023-08",
@@ -253,7 +284,8 @@
     "year": 2023,
     "month": 8,
     "pdf": "documents/08-2023_compressed.pdf",
-    "cover": "images/nl-covers/nl-2023-08.jpg"
+    "cover": "images/nl-covers/nl-2023-08.jpg",
+    "html_url": "/market-updates/august-2023"
   },
   {
     "id": "nl-2023-07",
@@ -261,7 +293,8 @@
     "year": 2023,
     "month": 7,
     "pdf": "documents/07-2023_compressed.pdf",
-    "cover": "images/nl-covers/nl-2023-07.jpg"
+    "cover": "images/nl-covers/nl-2023-07.jpg",
+    "html_url": "/market-updates/july-2023"
   },
   {
     "id": "nl-2023-06",
@@ -269,7 +302,8 @@
     "year": 2023,
     "month": 6,
     "pdf": "documents/06-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-06.jpg"
+    "cover": "images/nl-covers/nl-2023-06.jpg",
+    "html_url": "/market-updates/june-2023"
   },
   {
     "id": "nl-2023-05",
@@ -277,7 +311,8 @@
     "year": 2023,
     "month": 5,
     "pdf": "documents/05-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-05.jpg"
+    "cover": "images/nl-covers/nl-2023-05.jpg",
+    "html_url": "/market-updates/may-2023"
   },
   {
     "id": "nl-2023-04",
@@ -285,7 +320,8 @@
     "year": 2023,
     "month": 4,
     "pdf": "documents/04-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-04.jpg"
+    "cover": "images/nl-covers/nl-2023-04.jpg",
+    "html_url": "/market-updates/april-2023"
   },
   {
     "id": "nl-2023-03",
@@ -293,7 +329,8 @@
     "year": 2023,
     "month": 3,
     "pdf": "documents/03-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-03.jpg"
+    "cover": "images/nl-covers/nl-2023-03.jpg",
+    "html_url": "/market-updates/march-2023"
   },
   {
     "id": "nl-2023-02",
@@ -301,7 +338,8 @@
     "year": 2023,
     "month": 2,
     "pdf": "documents/02-2023.pdf",
-    "cover": "images/nl-covers/nl-2023-02.jpg"
+    "cover": "images/nl-covers/nl-2023-02.jpg",
+    "html_url": "/market-updates/february-2023"
   },
   {
     "id": "nl-2023-01",
