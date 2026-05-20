@@ -4902,6 +4902,10 @@ figcaption {
   top: 2.4em;
 }
 
+.with-tooltip:hover .tooltip {
+  display: block;
+}
+
 .featured-padding-2 {
   width: 100%;
   padding: 4em;
