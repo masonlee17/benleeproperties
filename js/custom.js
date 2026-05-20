@@ -294,18 +294,43 @@
   }
 
   /* ─────────────────────────────────────────
-     CONTACT FORM SUCCESS DISPLAY
-     Flask redirects back with ?sent=1 on successful submission
+     CONTACT FORM HANDLER
+     Intercepts all Webflow forms in capture phase before Webflow.js
+     can reroute them to its own API. Submits via fetch to our Flask
+     endpoint and shows the native .w-form-done / .w-form-fail states.
   ───────────────────────────────────────── */
-  if (window.location.search.indexOf('sent=1') !== -1) {
-    var formWrap = document.querySelector('.w-form');
-    var formTag = formWrap && formWrap.querySelector('form');
-    var formDone = formWrap && formWrap.querySelector('.w-form-done');
-    if (formTag) formTag.style.display = 'none';
-    if (formDone) formDone.style.display = 'block';
-    // Clean the URL without reloading
-    history.replaceState(null, '', window.location.pathname);
-  }
+  document.querySelectorAll('form[action="/contact-submit"]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      var wrap = form.closest('.w-form');
+      var done = wrap && wrap.querySelector('.w-form-done');
+      var fail = wrap && wrap.querySelector('.w-form-fail');
+      var btn  = form.querySelector('[type="submit"]');
+
+      if (btn) { btn.disabled = true; btn.value = btn.getAttribute('data-wait') || 'Sending…'; }
+      if (fail) fail.style.display = 'none';
+
+      fetch('/contact-submit', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'X-Requested-With': 'fetch' }
+      })
+      .then(function (r) {
+        if (r.ok || r.redirected) {
+          form.style.display = 'none';
+          if (done) { done.style.display = 'block'; }
+        } else {
+          throw new Error('server error');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.value = 'Send message'; }
+        if (fail) fail.style.display = 'block';
+      });
+    }, true); // capture:true — runs before Webflow's jQuery handler
+  });
 
   /* ─────────────────────────────────────────
      SMOOTH SCROLL for anchor links

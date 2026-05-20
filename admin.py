@@ -786,7 +786,9 @@ def contact_submit():
     contacts.insert(0, entry)
     _save_contacts(contacts)
 
-    back = '/contact-2.html?sent=1' if source == 'contact-2' else ('/contact.html?sent=1')
+    if request.headers.get('X-Requested-With') == 'fetch':
+        return jsonify({'ok': True}), 200
+    back = '/contact-2.html?sent=1' if source == 'contact-2' else '/contact.html?sent=1'
     return redirect(back)
 
 
