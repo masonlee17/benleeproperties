@@ -143,6 +143,8 @@ def build_newsletter_sections(newsletters):
 
         for j, n in enumerate(items):
             pdf   = n.get('pdf') or '#'
+            if pdf == '#':
+                continue  # skip empty slots on public blog
             html_url = n.get('html_url', '')
             href  = html_url if html_url else ('/' + pdf if pdf != '#' else '#')
             cover = n.get('cover', '')
@@ -520,12 +522,21 @@ def add_newsletter():
     label     = f'{calendar.month_name[month]} {year}'
 
     newsletters = load('newsletters.json')
-    entry = {
-        'id': nid,
-        'label': label, 'year': year, 'month': month,
-        'pdf': pdf_url, 'cover': cover_url,
-    }
-    newsletters.append(entry)
+    existing = next((n for n in newsletters if n['id'] == nid), None)
+    if existing:
+        if pdf_url:
+            existing['pdf'] = pdf_url
+        if cover_url:
+            existing['cover'] = cover_url
+        existing['label'] = label
+        entry = existing
+    else:
+        entry = {
+            'id': nid,
+            'label': label, 'year': year, 'month': month,
+            'pdf': pdf_url, 'cover': cover_url,
+        }
+        newsletters.append(entry)
     save('newsletters.json', newsletters)
     return jsonify(entry), 201
 
