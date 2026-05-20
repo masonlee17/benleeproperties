@@ -143,14 +143,16 @@ def build_newsletter_sections(newsletters):
 
         for j, n in enumerate(items):
             pdf   = n.get('pdf') or '#'
+            html_url = n.get('html_url', '')
+            href  = html_url if html_url else ('/' + pdf if pdf != '#' else '#')
             cover = n.get('cover', '')
             raw_label = n.get('label', '')
             label = raw_label.replace(str(year), '').strip()
-            target = ' target="_blank"' if pdf != '#' else ''
+            target = ' target="_blank"' if (not html_url and pdf != '#') else ''
             img_tag = f'<img src="{cover}" loading="lazy" alt="" style="{img_self}">' if cover else ''
 
             lines += [
-                f'              <a href="{pdf}"{target} class="blog-link-block w-inline-block" style="{card_box}">',
+                f'              <a href="{href}"{target} class="blog-link-block w-inline-block" style="{card_box}">',
                 f'                <div class="blog-image" style="{img_box}">{img_tag}</div>',
                 f'                <h2 class="blog-heading" style="text-align:left;width:100%;margin:0;">{label}</h2>',
                 '              </a>',
@@ -659,6 +661,13 @@ def delete_listing(lid):
 
 # ── Dynamic pages ──────────────────────────────────────────────────────────────
 # These two pages are rendered live so admin edits are instant without redeploying.
+
+@app.route('/market-updates/<slug>')
+def market_update(slug):
+    path = os.path.join(BASE_DIR, 'market-updates', f'{slug}.html')
+    if os.path.exists(path):
+        return open(path, encoding='utf-8').read()
+    return 'Not found', 404
 
 @app.route('/blog')
 @app.route('/blog.html')
