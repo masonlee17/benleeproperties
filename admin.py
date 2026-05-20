@@ -43,33 +43,31 @@ app.config['MAX_CONTENT_LENGTH'] = 64 * 1024 * 1024  # 64 MB
 def allowed(filename, exts):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in exts
 
+def seed_volume_if_needed():
+    """Seed volume from repo on first deploy or after a format upgrade.
+
+    Runs once at startup. After seeding, the volume is fully authoritative —
+    all fields (including sections and has_detail_page) are owned by the volume
+    and editable through the admin panel.
+    """
+    vol_path  = os.path.join(DATA_DIR, 'properties.json')
+    repo_path = os.path.join(REPO_DATA_DIR, 'properties.json')
+    if not os.path.exists(repo_path):
+        return
+    repo_data = json.load(open(repo_path))
+    needs_seed = False
+    if not os.path.exists(vol_path):
+        needs_seed = True
+    else:
+        vol_data = json.load(open(vol_path))
+        # Seed if the volume has no entry with a 'sections' key — old format
+        if isinstance(vol_data, list) and vol_data and not any('sections' in p for p in vol_data):
+            needs_seed = True
+    if needs_seed:
+        save('properties.json', repo_data)
+
 def load(name):
-    # For properties.json: merge volume content with repo structure.
-    # Volume provides user-edited fields (price, images, description).
-    # Repo is authoritative for structural flags (sections, has_detail_page)
-    # since those are set by code, not through the admin panel.
-    if name == 'properties.json':
-        vol_path  = os.path.join(DATA_DIR, name)
-        repo_path = os.path.join(REPO_DATA_DIR, name)
-        repo_data = json.load(open(repo_path)) if os.path.exists(repo_path) else []
-        vol_data  = json.load(open(vol_path))  if os.path.exists(vol_path)  else []
-        vol_by_id  = {p['id']: p for p in vol_data}
-        repo_by_id = {p['id']: p for p in repo_data}
-        merged = []
-        for rp in repo_data:
-            vp = vol_by_id.get(rp['id'])
-            if vp:
-                entry = {**vp}                          # volume content wins
-                entry['sections']       = rp.get('sections', [])
-                entry['has_detail_page'] = rp.get('has_detail_page', False)
-            else:
-                entry = rp                              # repo-only property
-            merged.append(entry)
-        for vp in vol_data:                            # admin-added, not in repo
-            if vp['id'] not in repo_by_id:
-                merged.append(vp)
-        return merged
-    # All other files: volume takes priority, repo is fallback
+    # Volume takes priority; repo is the read-only fallback (or seed source)
     for base in (DATA_DIR, REPO_DATA_DIR):
         p = os.path.join(base, name)
         if os.path.exists(p):
@@ -79,6 +77,9 @@ def load(name):
 def save(name, data):
     os.makedirs(DATA_DIR, exist_ok=True)
     json.dump(data, open(os.path.join(DATA_DIR, name), 'w'), indent=2)
+
+# Run at import time (works for both `python admin.py` and gunicorn)
+seed_volume_if_needed()
 
 def render_dynamic(filename, marker, section_html):
     """Return an HTML file with the admin-managed section replaced live."""
