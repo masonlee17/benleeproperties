@@ -362,11 +362,13 @@ def build_index_listing_items(listings):
         img1   = p.get('image1', '')
         img2   = p.get('image2', '')
 
+        detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
+
         card = [
             '                    <div role="listitem" class="property-grid-item-2 w-dyn-item">',
             '                      <div class="property-link with-radius">',
             '                        <div class="property-image-grid">',
-            '                          <a href="for-buyers-3.html" aria-label="View listing" class="circle-button in-property-2 w-inline-block">',
+            f'                          <a href="{detail_url}" aria-label="View listing" class="circle-button in-property-2 w-inline-block">',
             '                            <div class="ciricle-outline is-white"></div>'
             '<img loading="lazy" src="images/arrow_forward_white_24dp.svg" alt="" class="ciricle-icon">',
             '                          </a>',
@@ -377,7 +379,7 @@ def build_index_listing_items(listings):
             card.append(f'                          <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
         card += [
             '                        </div>',
-            '                        <a href="for-buyers-3.html" class="property-inner w-inline-block">',
+            f'                        <a href="{detail_url}" class="property-inner w-inline-block">',
             f'                          <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                        </a>',
             '                        <div class="property-details">',

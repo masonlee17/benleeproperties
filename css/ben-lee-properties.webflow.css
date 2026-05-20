@@ -2992,6 +2992,12 @@ figcaption {
   display: none;
   position: fixed;
   inset: 0%;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+.aside-menu.is-open {
+  display: flex !important;
+  transform: translateX(0);
 }
 
 .menu-background {

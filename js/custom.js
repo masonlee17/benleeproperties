@@ -93,12 +93,10 @@
 
   function openMenu() {
     if (asideMenu) {
-      asideMenu.classList.add('is-open');
       asideMenu.style.display = 'flex';
-      asideMenu.style.transition = 'transform 0.4s ease';
-      // small delay to allow display:flex to apply before transition
+      // small delay so display:flex renders before CSS transition fires
       setTimeout(function () {
-        asideMenu.style.transform = 'translateX(0)';
+        asideMenu.classList.add('is-open');
       }, 10);
     }
     if (pageWrapper) pageWrapper.classList.add('menu-open');
@@ -106,13 +104,10 @@
 
   function closeMenu() {
     if (asideMenu) {
-      asideMenu.style.transition = 'transform 0.4s ease';
-      asideMenu.style.transform = 'translateX(100%)';
       asideMenu.classList.remove('is-open');
       setTimeout(function () {
-        // only hide if webflow.js hasn't taken back control
         if (!asideMenu.classList.contains('is-open')) {
-          // don't force display:none - let webflow.js handle it
+          asideMenu.style.display = 'none';
         }
       }, 420);
     }
@@ -121,9 +116,9 @@
 
   if (menuButton) {
     menuButton.addEventListener('click', function (e) {
-      // Only fire if webflow.js hasn't handled this nav
-      if (asideMenu && !document.querySelector('.w-nav-overlay')) {
-        e.stopPropagation();
+      e.stopPropagation();
+      e.preventDefault();
+      if (asideMenu) {
         if (asideMenu.classList.contains('is-open')) {
           closeMenu();
         } else {
