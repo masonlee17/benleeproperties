@@ -301,7 +301,7 @@ def build_property_detail_html(p):
     baths    = p.get('baths', '')
     sqft     = p.get('sqft', '')
     desc     = p.get('description', '')
-    images   = [p[k] for k in ('image1','image2','image3','image4') if p.get(k)]
+    images   = [p[k] for k in [f'image{i}' for i in range(1, 21)] if p.get(k)]
 
     title    = f'{addr} | Ben Lee Properties'
     og_img   = images[0] if images else ''
@@ -1100,22 +1100,9 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
         </div>
         <div class="frow">
           <label>Additional Photos <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional — for detail page gallery)</span></label>
-          <div class="dropzone" id="dz-p-img3">
-            <input type="file" id="p-img3-file" accept="image/*">
-            <div class="dz-icon">📷</div>
-            <div class="dz-text">Photo 3 — <strong>click to browse</strong></div>
-          </div>
-          <div id="p-img3-preview" style="margin-top:10px;min-height:20px"></div>
-          <input type="hidden" id="p-image3">
-        </div>
-        <div class="frow">
-          <div class="dropzone" id="dz-p-img4">
-            <input type="file" id="p-img4-file" accept="image/*">
-            <div class="dz-icon">📷</div>
-            <div class="dz-text">Photo 4 — <strong>click to browse</strong></div>
-          </div>
-          <div id="p-img4-preview" style="margin-top:10px;min-height:20px"></div>
-          <input type="hidden" id="p-image4">
+          <div id="p-extra-imgs"></div>
+          <button type="button" onclick="addPhotoSlot()" style="margin-top:8px;background:#f0f4ff;border:1.5px dashed #c7d6f5;border-radius:8px;padding:10px 18px;color:#07264b;font-size:13px;font-weight:700;cursor:pointer;width:100%">+ Add Photo</button>
+          <div class="hint" style="margin-top:6px">Up to 20 photos total (including primary and secondary).</div>
         </div>
         <div class="frow">
           <label>Property Description <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(for detail page)</span></label>
@@ -1447,14 +1434,15 @@ function openEditProp(id) {
   $('#p-image2').value = p.image2 || '';
   showImgPreview('p-img1-preview', p.image1);
   showImgPreview('p-img2-preview', p.image2);
-  $('#p-image3').value = p.image3 || '';
-  $('#p-image4').value = p.image4 || '';
+  clearExtraImgs();
+  for (let i = 3; i <= 20; i++) {
+    const val = p[`image${i}`] || '';
+    if (val) addPhotoSlot(val);
+  }
   $('#p-desc').value   = p.description || '';
   $('#p-has-detail').checked = !!p.has_detail_page;
   $('#p-section-live').checked = (p.sections || []).includes('live_listings');
   $('#p-section-bbb').checked  = (p.sections || []).includes('built_by_ben');
-  showImgPreview('p-img3-preview', p.image3);
-  showImgPreview('p-img4-preview', p.image4);
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1467,8 +1455,7 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-city').value = 'Los Angeles'; $('#p-state').value = 'CA'; $('#p-status').value = 'FOR SALE';
   $('#p-image1').value = ''; $('#p-image2').value = '';
   $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
-  $('#p-image3').value = ''; $('#p-image4').value = '';
-  $('#p-img3-preview').innerHTML = ''; $('#p-img4-preview').innerHTML = '';
+  clearExtraImgs();
   $('#p-desc').value = ''; $('#p-has-detail').checked = false;
   $('#p-section-live').checked = false;
   $('#p-section-bbb').checked  = false;
@@ -1514,8 +1501,6 @@ $('#save-prop').addEventListener('click', async () => {
     status:  $('#p-status').value,
     image1:  $('#p-image1').value.trim(),
     image2:  $('#p-image2').value.trim(),
-    image3:          $('#p-image3').value.trim(),
-    image4:          $('#p-image4').value.trim(),
     description:     $('#p-desc').value.trim(),
     has_detail_page: $('#p-has-detail').checked,
     sections: [
@@ -1523,6 +1508,11 @@ $('#save-prop').addEventListener('click', async () => {
       ...($('#p-section-bbb').checked  ? ['built_by_ben']  : []),
     ],
   };
+  // Collect extra photos (slot 3 onward)
+  document.querySelectorAll('#p-extra-imgs .p-extra-image').forEach((inp, idx) => {
+    const val = inp.value.trim();
+    if (val) data[`image${idx + 3}`] = val;
+  });
 
   const btn = $('#save-prop');
   btn.textContent = 'Saving…';
@@ -1608,8 +1598,46 @@ function setupPropImgDZ(dzId, fileInputId, num) {
 
 setupPropImgDZ('dz-p-img1', 'p-img1-file', 1);
 setupPropImgDZ('dz-p-img2', 'p-img2-file', 2);
-setupPropImgDZ('dz-p-img3', 'p-img3-file', 3);
-setupPropImgDZ('dz-p-img4', 'p-img4-file', 4);
+
+let nextImgSlot = 3;
+
+function clearExtraImgs() {
+  document.getElementById('p-extra-imgs').innerHTML = '';
+  nextImgSlot = 3;
+}
+
+function addPhotoSlot(existingVal) {
+  if (nextImgSlot > 20) { toast('Maximum 20 photos reached', true); return; }
+  const num = nextImgSlot++;
+  const container = document.getElementById('p-extra-imgs');
+  const wrap = document.createElement('div');
+  wrap.id = `p-img${num}-wrap`;
+  wrap.style.cssText = 'margin-bottom:12px;';
+  wrap.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+      <span style="font-size:12px;color:#6b7280;font-weight:600">Photo ${num}</span>
+      <button type="button" onclick="removePhotoSlot(${num})" style="background:#fee2e2;border:none;border-radius:5px;padding:3px 9px;color:#dc2626;font-size:11px;font-weight:700;cursor:pointer">Remove</button>
+    </div>
+    <div class="dropzone" id="dz-p-img${num}">
+      <input type="file" id="p-img${num}-file" accept="image/*">
+      <div class="dz-icon">📷</div>
+      <div class="dz-text"><strong>Click to browse</strong></div>
+    </div>
+    <div id="p-img${num}-preview" style="margin-top:8px;min-height:20px"></div>
+    <input type="hidden" id="p-image${num}" class="p-extra-image" value="">
+  `;
+  container.appendChild(wrap);
+  setupPropImgDZ(`dz-p-img${num}`, `p-img${num}-file`, num);
+  if (existingVal) {
+    document.getElementById(`p-image${num}`).value = existingVal;
+    showImgPreview(`p-img${num}-preview`, existingVal);
+  }
+}
+
+function removePhotoSlot(num) {
+  const wrap = document.getElementById(`p-img${num}-wrap`);
+  if (wrap) wrap.remove();
+}
 
 // Boot
 init();
