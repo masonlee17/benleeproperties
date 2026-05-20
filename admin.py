@@ -44,19 +44,36 @@ def allowed(filename, exts):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in exts
 
 def load(name):
-    # Volume copy takes priority; fall back to seeded repo copy on first run.
-    # For properties.json: if the volume copy is old format (no 'sections' on
-    # any entry), it pre-dates the unified data model — skip it and use the
-    # repo copy so sections/has_detail_page are always correct.
+    # For properties.json: merge volume content with repo structure.
+    # Volume provides user-edited fields (price, images, description).
+    # Repo is authoritative for structural flags (sections, has_detail_page)
+    # since those are set by code, not through the admin panel.
+    if name == 'properties.json':
+        vol_path  = os.path.join(DATA_DIR, name)
+        repo_path = os.path.join(REPO_DATA_DIR, name)
+        repo_data = json.load(open(repo_path)) if os.path.exists(repo_path) else []
+        vol_data  = json.load(open(vol_path))  if os.path.exists(vol_path)  else []
+        vol_by_id  = {p['id']: p for p in vol_data}
+        repo_by_id = {p['id']: p for p in repo_data}
+        merged = []
+        for rp in repo_data:
+            vp = vol_by_id.get(rp['id'])
+            if vp:
+                entry = {**vp}                          # volume content wins
+                entry['sections']       = rp.get('sections', [])
+                entry['has_detail_page'] = rp.get('has_detail_page', False)
+            else:
+                entry = rp                              # repo-only property
+            merged.append(entry)
+        for vp in vol_data:                            # admin-added, not in repo
+            if vp['id'] not in repo_by_id:
+                merged.append(vp)
+        return merged
+    # All other files: volume takes priority, repo is fallback
     for base in (DATA_DIR, REPO_DATA_DIR):
         p = os.path.join(base, name)
-        if not os.path.exists(p):
-            continue
-        data = json.load(open(p))
-        if name == 'properties.json' and isinstance(data, list) and data:
-            if not any('sections' in item for item in data):
-                continue  # old format — try repo fallback
-        return data
+        if os.path.exists(p):
+            return json.load(open(p))
     return []
 
 def save(name, data):
