@@ -236,12 +236,12 @@ BLPTOKEN_FACTS_HTML
               <h2 class="blp-pd-tour-heading">Schedule a Showing</h2>
               <p class="blp-pd-tour-sub">Ready to experience this property in person? Leave your contact information below and Ben will reach out to arrange a private showing at your convenience.</p>
               <div class="form w-form">
-                <div class="current-page-in-form w-embed"><input type="hidden" id="current-page-tour" data-name="Property"></div>
-                <form id="wf-form-Take-a-Tour" name="wf-form-Take-a-Tour" method="post" action="/contact-submit" class="form-inner"><input type="hidden" name="_source" value="tour">
-                  <div class="form-block form-100per"><label for="Your-Name-property" class="form-label blp-pd-form-label">Name</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Name" data-name="Your Name" placeholder="e.g. Julia" type="text" id="Your-Name-property" required=""></div>
-                  <div class="form-block form-100per"><label for="Your-Surname-property" class="form-label blp-pd-form-label">Surname</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Surname" data-name="Your Surname" placeholder="e.g. Smith" type="text" id="Your-Surname-property" required=""></div>
-                  <div class="form-block form-100per"><label for="Your-Phone-property" class="form-label blp-pd-form-label">Phone</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Phone" data-name="Your Phone" placeholder="e.g. 637-376-981" type="tel" id="Your-Phone-property" required=""></div>
-                  <div class="form-block form-100per"><label for="Your-Email-property" class="form-label blp-pd-form-label">Email</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Email" data-name="Your Email" placeholder="e.g. julia.smith@gmail.com" type="email" id="Your-Email-property"></div>
+                <div class="current-page-in-form w-embed"><input type="hidden" id="current-page-tour"></div>
+                <form id="blp-tour-form" name="blp-tour-form" method="post" action="/contact-submit" class="form-inner"><input type="hidden" name="_source" value="tour">
+                  <div class="form-block form-100per"><label for="Your-Name-property" class="form-label blp-pd-form-label">Name</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Name" placeholder="e.g. Julia" type="text" id="Your-Name-property" required=""></div>
+                  <div class="form-block form-100per"><label for="Your-Surname-property" class="form-label blp-pd-form-label">Surname</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Surname" placeholder="e.g. Smith" type="text" id="Your-Surname-property" required=""></div>
+                  <div class="form-block form-100per"><label for="Your-Phone-property" class="form-label blp-pd-form-label">Phone</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Phone" placeholder="e.g. 637-376-981" type="tel" id="Your-Phone-property" required=""></div>
+                  <div class="form-block form-100per"><label for="Your-Email-property" class="form-label blp-pd-form-label">Email</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Email" placeholder="e.g. julia.smith@gmail.com" type="email" id="Your-Email-property"></div>
                   <input type="submit" data-wait="Sending..." class="submit-form submit-100per _2 w-button" value="Request a Showing">
                 </form>
                 <div class="form-success w-form-done"><img src="/images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">

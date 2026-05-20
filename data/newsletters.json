@@ -13,8 +13,9 @@
     "label": "April 2026",
     "year": 2026,
     "month": 4,
-    "pdf": "documents/Ben-Lee-030126-CHEVIOT_8.5x11-digital-1.pdf",
-    "cover": "images/nl-covers/nl-2026-04.jpg"
+    "pdf": "",
+    "cover": "",
+    "html_url": ""
   },
   {
     "id": "nl-2026-03",
@@ -39,8 +40,9 @@
     "label": "January 2026",
     "year": 2026,
     "month": 1,
-    "pdf": "documents/Ben-Lee-110125-CHEVIOT_8.5x11-digital.pdf",
-    "cover": "images/nl-covers/nl-2026-01.jpg"
+    "pdf": "",
+    "cover": "",
+    "html_url": ""
   },
   {
     "id": "nl-2025-11",
@@ -156,7 +158,8 @@
     "year": 2024,
     "month": 10,
     "pdf": "",
-    "cover": "images/9-24.jpg"
+    "cover": "",
+    "html_url": ""
   },
   {
     "id": "nl-2024-09",
@@ -263,7 +266,8 @@
     "year": 2023,
     "month": 10,
     "pdf": "",
-    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.jpg"
+    "cover": "",
+    "html_url": ""
   },
   {
     "id": "nl-2023-09",
@@ -343,7 +347,8 @@
     "year": 2023,
     "month": 1,
     "pdf": "",
-    "cover": "images/Screenshot-2025-10-13-at-10.52.36-PM.jpg"
+    "cover": "",
+    "html_url": ""
   },
   {
     "id": "nl-2012-01",
