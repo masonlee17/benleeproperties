@@ -745,6 +745,28 @@ def homepage():
 
 # ── Contact form submission ────────────────────────────────────────────────────
 
+SOURCE_LABELS = {
+    'contact':          'Contact Page',
+    'contact-2':        'Contact Page (alt)',
+    'tour':             'Property Tour Request',
+    'valuation':        'Valuation Page',
+    'current-listings': 'Current Listings Page',
+    'for-sellers':      'For Sellers Page',
+}
+
+def _contacts_path():
+    return os.path.join(DATA_DIR, 'contacts.json')
+
+def _load_contacts():
+    try:
+        return json.load(open(_contacts_path())) if os.path.exists(_contacts_path()) else []
+    except Exception:
+        return []
+
+def _save_contacts(contacts):
+    os.makedirs(DATA_DIR, exist_ok=True)
+    json.dump(contacts, open(_contacts_path(), 'w'), indent=2)
+
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
     source = request.form.get('_source', 'contact')
@@ -752,32 +774,54 @@ def contact_submit():
         'id': str(uuid.uuid4()),
         'timestamp': datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
         'source': source,
+        'source_label': SOURCE_LABELS.get(source, source),
         'name': (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
         'phone': request.form.get('Your-Phone', ''),
         'email': request.form.get('Your-Email', ''),
+        'inquiry_type': request.form.get('Inquiry-type', ''),
         'message': request.form.get('Message', ''),
+        'read': False,
     }
-    contacts_path = os.path.join(DATA_DIR, 'contacts.json')
-    try:
-        contacts = json.load(open(contacts_path)) if os.path.exists(contacts_path) else []
-    except Exception:
-        contacts = []
+    contacts = _load_contacts()
     contacts.insert(0, entry)
-    os.makedirs(DATA_DIR, exist_ok=True)
-    json.dump(contacts, open(contacts_path, 'w'), indent=2)
+    _save_contacts(contacts)
 
-    back = '/contact-2.html?sent=1' if source == 'contact-2' else ('/detail_property.html?sent=1' if source == 'tour' else '/contact.html?sent=1')
+    back = '/contact-2.html?sent=1' if source == 'contact-2' else ('/contact.html?sent=1')
     return redirect(back)
 
 
 @app.route('/api/contacts', methods=['GET'])
 @login_required
 def get_contacts():
-    contacts_path = os.path.join(DATA_DIR, 'contacts.json')
-    try:
-        return jsonify(json.load(open(contacts_path)) if os.path.exists(contacts_path) else [])
-    except Exception:
-        return jsonify([])
+    return jsonify(_load_contacts())
+
+@app.route('/api/contacts/<cid>/read', methods=['PATCH'])
+@login_required
+def mark_contact_read(cid):
+    contacts = _load_contacts()
+    entry = next((c for c in contacts if c['id'] == cid), None)
+    if not entry:
+        return jsonify({'ok': False}), 404
+    entry['read'] = request.json.get('read', True)
+    _save_contacts(contacts)
+    return jsonify({'ok': True})
+
+@app.route('/api/contacts/read-all', methods=['PATCH'])
+@login_required
+def mark_all_read():
+    contacts = _load_contacts()
+    for c in contacts:
+        c['read'] = True
+    _save_contacts(contacts)
+    return jsonify({'ok': True})
+
+@app.route('/api/contacts/<cid>', methods=['DELETE'])
+@login_required
+def delete_contact(cid):
+    contacts = _load_contacts()
+    contacts = [c for c in contacts if c['id'] != cid]
+    _save_contacts(contacts)
+    return jsonify({'ok': True})
 
 
 # ── Catch-all static ───────────────────────────────────────────────────────────
@@ -925,6 +969,26 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
 
 .tab-pane{display:none}
 .tab-pane.active{display:block}
+
+/* ── Inbox ── */
+.inbox-badge{display:inline-flex;align-items:center;justify-content:center;background:#dc2626;color:#fff;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:99px;padding:0 4px;margin-left:6px;vertical-align:middle;line-height:1}
+.inbox-empty{text-align:center;padding:60px 20px;color:#888;font-size:14px}
+.inbox-item{background:#fff;border:1.5px solid #e5e9f0;border-radius:10px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.inbox-item.unread{border-color:#1d3fa0;background:#f5f8ff}
+.inbox-item-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.inbox-dot{width:9px;height:9px;border-radius:50%;background:#1d3fa0;flex-shrink:0;transition:background .2s}
+.inbox-item.read .inbox-dot{background:#d1d5db}
+.inbox-name{font-weight:700;font-size:14px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inbox-meta{font-size:12px;color:#888;white-space:nowrap;flex-shrink:0}
+.inbox-source-chip{display:inline-block;background:#e8edf7;color:#1d3fa0;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;flex-shrink:0}
+.inbox-body{display:none;padding:0 18px 16px;border-top:1px solid #e5e9f0}
+.inbox-item.open .inbox-body{display:block}
+.inbox-field{margin-top:10px;font-size:13px;color:#333;line-height:1.6}
+.inbox-field strong{font-weight:600;color:#555;font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:1px}
+.inbox-actions{display:flex;gap:8px;margin-top:14px}
+.inbox-btn{padding:5px 13px;border-radius:6px;font-size:12px;font-weight:600;border:none;cursor:pointer;letter-spacing:.04em}
+.inbox-btn-toggle{background:#f0f4ff;color:#1d3fa0}
+.inbox-btn-delete{background:#fff1f1;color:#dc2626}
 </style>
 </head>
 <body>
@@ -956,6 +1020,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
   <div class="tabs">
     <button class="tab-btn active" data-tab="newsletters">Newsletters</button>
     <button class="tab-btn" data-tab="properties">Properties</button>
+    <button class="tab-btn" data-tab="inbox">Inbox <span id="inbox-badge" class="inbox-badge" style="display:none"></span></button>
   </div>
 
   <div class="main">
@@ -990,6 +1055,18 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
         </button>
       </div>
       <div id="prop-table" class="prop-table"></div>
+    </div>
+
+    <!-- Inbox tab -->
+    <div id="tab-inbox" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <span class="section-title">Inbox</span>
+          <span class="section-meta" id="inbox-count"></span>
+        </div>
+        <button class="btn-secondary" id="mark-all-read-btn" style="font-size:12px;padding:6px 14px">Mark all read</button>
+      </div>
+      <div id="inbox-list"></div>
     </div>
   </div>
 </div>
@@ -1208,6 +1285,7 @@ function showApp() {
   $('#app').style.display = 'flex';
   loadNewsletters();
   loadProperties();
+  refreshInboxBadge();
 }
 
 $('#login-form').addEventListener('submit', async e => {
@@ -1239,6 +1317,7 @@ $$('.tab-btn').forEach(btn => {
     btn.classList.add('active');
     $('#tab-' + btn.dataset.tab).classList.add('active');
     if (btn.dataset.tab === 'newsletters') loadNewsletters();
+    else if (btn.dataset.tab === 'inbox') loadInbox();
     else loadProperties();
   });
 });
@@ -1657,6 +1736,117 @@ function addPhotoSlot(existingVal) {
 function removePhotoSlot(num) {
   const wrap = document.getElementById(`p-img${num}-wrap`);
   if (wrap) wrap.remove();
+}
+
+// ── Inbox ─────────────────────────────────────────────────────────────────────
+let inboxItems = [];
+
+async function loadInbox() {
+  inboxItems = await api('GET', '/api/contacts') || [];
+  renderInbox();
+}
+
+function renderInbox() {
+  const unread = inboxItems.filter(c => !c.read).length;
+  const badge = $('#inbox-badge');
+  if (unread > 0) {
+    badge.textContent = unread;
+    badge.style.display = 'inline-flex';
+  } else {
+    badge.style.display = 'none';
+  }
+  $('#inbox-count').textContent = `· ${inboxItems.length} total, ${unread} unread`;
+
+  const list = $('#inbox-list');
+  if (!inboxItems.length) {
+    list.innerHTML = '<div class="inbox-empty">No submissions yet.</div>';
+    return;
+  }
+
+  list.innerHTML = inboxItems.map(c => `
+    <div class="inbox-item ${c.read ? 'read' : 'unread'}" id="inbox-${c.id}">
+      <div class="inbox-item-hd" onclick="toggleInboxItem('${c.id}')">
+        <div class="inbox-dot"></div>
+        <div class="inbox-name">${c.name || c.email || 'Anonymous'}</div>
+        <div class="inbox-source-chip">${c.source_label || c.source || 'Contact'}</div>
+        <div class="inbox-meta">${c.timestamp}</div>
+      </div>
+      <div class="inbox-body">
+        ${c.name ? `<div class="inbox-field"><strong>Name</strong>${c.name}</div>` : ''}
+        ${c.email ? `<div class="inbox-field"><strong>Email</strong><a href="mailto:${c.email}" style="color:#1d3fa0">${c.email}</a></div>` : ''}
+        ${c.phone ? `<div class="inbox-field"><strong>Phone</strong><a href="tel:${c.phone.replace(/\D/g,'')}" style="color:#1d3fa0">${c.phone}</a></div>` : ''}
+        ${c.inquiry_type ? `<div class="inbox-field"><strong>Inquiry Type</strong>${c.inquiry_type}</div>` : ''}
+        ${c.message ? `<div class="inbox-field"><strong>Message</strong>${c.message}</div>` : ''}
+        <div class="inbox-field"><strong>Source</strong>${c.source_label || c.source}</div>
+        <div class="inbox-actions">
+          <button class="inbox-btn inbox-btn-toggle" onclick="toggleRead('${c.id}', ${c.read})">
+            ${c.read ? 'Mark unread' : 'Mark read'}
+          </button>
+          <button class="inbox-btn inbox-btn-delete" onclick="deleteContact('${c.id}')">Delete</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleInboxItem(id) {
+  const el = document.getElementById('inbox-' + id);
+  const isOpen = el.classList.contains('open');
+  // Close all others
+  $$('.inbox-item.open').forEach(e => e.classList.remove('open'));
+  if (!isOpen) {
+    el.classList.add('open');
+    // Auto-mark as read on open
+    const item = inboxItems.find(c => c.id === id);
+    if (item && !item.read) toggleRead(id, false, true);
+  }
+}
+
+async function toggleRead(id, currentlyRead, silent) {
+  const r = await api('PATCH', `/api/contacts/${id}/read`, { read: !currentlyRead }, false);
+  if (r && r.ok) {
+    const item = inboxItems.find(c => c.id === id);
+    if (item) item.read = !currentlyRead;
+    renderInbox();
+    // Re-open the item after re-render if not silent
+    if (!silent) {
+      const el = document.getElementById('inbox-' + id);
+      if (el) el.classList.add('open');
+    }
+  }
+}
+
+async function deleteContact(id) {
+  const item = inboxItems.find(c => c.id === id);
+  const name = item ? (item.name || item.email || 'this submission') : 'this submission';
+  if (!confirm(`Delete message from ${name}?`)) return;
+  const r = await api('DELETE', `/api/contacts/${id}`);
+  if (r && r.ok) {
+    inboxItems = inboxItems.filter(c => c.id !== id);
+    renderInbox();
+    toast('Message deleted');
+  }
+}
+
+$('#mark-all-read-btn').addEventListener('click', async () => {
+  const r = await api('PATCH', '/api/contacts/read-all');
+  if (r && r.ok) {
+    inboxItems.forEach(c => c.read = true);
+    renderInbox();
+    toast('All messages marked read');
+  }
+});
+
+// Load inbox badge count on every page load
+async function refreshInboxBadge() {
+  const items = await api('GET', '/api/contacts') || [];
+  const unread = items.filter(c => !c.read).length;
+  const badge = $('#inbox-badge');
+  if (unread > 0) {
+    badge.textContent = unread;
+    badge.style.display = 'inline-flex';
+  } else {
+    badge.style.display = 'none';
+  }
 }
 
 // Boot
