@@ -44,11 +44,19 @@ def allowed(filename, exts):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in exts
 
 def load(name):
-    # Volume copy takes priority; fall back to seeded repo copy on first run
+    # Volume copy takes priority; fall back to seeded repo copy on first run.
+    # For properties.json: if the volume copy is old format (no 'sections' on
+    # any entry), it pre-dates the unified data model — skip it and use the
+    # repo copy so sections/has_detail_page are always correct.
     for base in (DATA_DIR, REPO_DATA_DIR):
         p = os.path.join(base, name)
-        if os.path.exists(p):
-            return json.load(open(p))
+        if not os.path.exists(p):
+            continue
+        data = json.load(open(p))
+        if name == 'properties.json' and isinstance(data, list) and data:
+            if not any('sections' in item for item in data):
+                continue  # old format — try repo fallback
+        return data
     return []
 
 def save(name, data):
