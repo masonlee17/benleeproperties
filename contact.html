@@ -320,7 +320,7 @@
             <div class="max-width-50em">
               <h3 class="less-margin white-color">Send a message</h3>
               <p class="inquiry-paragraph">Leave your details and what you're looking for — Ben will get back to you as soon as possible.</p>
-              <div class="form w-form">
+              <div class="form blp-form-wrap">
                 <form id="blp-contact-form" name="blp-contact-form" method="post" action="/contact-submit" class="form-inner"><input type="hidden" name="_source" value="contact">
                   <div class="form-block"><label for="Your-Name-2" class="form-label">Name</label><input class="form-field w-input" maxlength="256" name="Your-Name" placeholder="e.g. Julia Smith" type="text" id="Your-Name-2" required=""></div>
                   <div class="form-block"><label for="Your-Phone-2" class="form-label">Phone <span style="font-weight:400;opacity:0.6">(optional)</span></label><input class="form-field w-input" maxlength="256" name="Your-Phone" placeholder="(310) 000-0000" type="tel" id="Your-Phone-2"></div>
@@ -338,10 +338,10 @@
                   </label>
                   <input type="submit" data-wait="Sending..." class="submit-form w-button" value="Send message">
                 </form>
-                <div class="form-success w-form-done"><img src="images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">
+                <div class="form-success blp-form-done" style="display:none"><img src="images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">
                   <div class="form-success-title">Sent! Thank you for your message.</div>
                 </div>
-                <div class="form-error w-form-fail">
+                <div class="form-error blp-form-fail" style="display:none">
                   <p class="form-error-paragraph"><strong>Something went wrong.</strong> Please try again or email ben@benleeproperties.com directly.</p>
                 </div>
               </div>

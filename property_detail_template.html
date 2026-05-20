@@ -235,7 +235,7 @@ BLPTOKEN_FACTS_HTML
             <div class="blp-pd-tour-col">
               <h2 class="blp-pd-tour-heading">Schedule a Showing</h2>
               <p class="blp-pd-tour-sub">Ready to experience this property in person? Leave your contact information below and Ben will reach out to arrange a private showing at your convenience.</p>
-              <div class="form w-form">
+              <div class="form blp-form-wrap">
                 <div class="current-page-in-form w-embed"><input type="hidden" id="current-page-tour"></div>
                 <form id="blp-tour-form" name="blp-tour-form" method="post" action="/contact-submit" class="form-inner"><input type="hidden" name="_source" value="tour">
                   <div class="form-block form-100per"><label for="Your-Name-property" class="form-label blp-pd-form-label">Name</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Name" placeholder="e.g. Julia" type="text" id="Your-Name-property" required=""></div>
@@ -244,10 +244,10 @@ BLPTOKEN_FACTS_HTML
                   <div class="form-block form-100per"><label for="Your-Email-property" class="form-label blp-pd-form-label">Email</label><input class="form-field form-blue w-input" maxlength="256" name="Your-Email" placeholder="e.g. julia.smith@gmail.com" type="email" id="Your-Email-property"></div>
                   <input type="submit" data-wait="Sending..." class="submit-form submit-100per _2 w-button" value="Request a Showing">
                 </form>
-                <div class="form-success w-form-done"><img src="/images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">
+                <div class="form-success blp-form-done" style="display:none"><img src="/images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">
                   <div class="form-success-title">Message has been sent! Thank you.</div>
                 </div>
-                <div class="form-error w-form-fail">
+                <div class="form-error blp-form-fail" style="display:none">
                   <p class="form-error-paragraph">An error has occurred and the form could not be submitted. Please try again or <a href="contact.html" class="form-error-link">contact us directly</a>.</p>
                 </div>
               </div>
