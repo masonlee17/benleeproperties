@@ -769,24 +769,33 @@ def _save_contacts(contacts):
 
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
-    source = request.form.get('_source', 'contact')
-    entry = {
-        'id': str(uuid.uuid4()),
-        'timestamp': datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
-        'source': source,
-        'source_label': SOURCE_LABELS.get(source, source),
-        'name': (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
-        'phone': request.form.get('Your-Phone', ''),
-        'email': request.form.get('Your-Email', ''),
-        'inquiry_type': request.form.get('Inquiry-type', ''),
-        'message': request.form.get('Message', ''),
-        'read': False,
-    }
-    contacts = _load_contacts()
-    contacts.insert(0, entry)
-    _save_contacts(contacts)
+    is_fetch = request.headers.get('X-Requested-With') == 'fetch'
+    try:
+        source = request.form.get('_source', 'contact')
+        entry = {
+            'id': str(uuid.uuid4()),
+            'timestamp': datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
+            'source': source,
+            'source_label': SOURCE_LABELS.get(source, source),
+            'name': (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
+            'phone': request.form.get('Your-Phone', ''),
+            'email': request.form.get('Your-Email', ''),
+            'inquiry_type': request.form.get('Inquiry-Type', request.form.get('Inquiry-type', '')),
+            'message': request.form.get('Message', ''),
+            'read': False,
+        }
+        contacts = _load_contacts()
+        contacts.insert(0, entry)
+        _save_contacts(contacts)
+        print(f'[contact] saved submission from {entry["email"] or entry["name"] or "unknown"} ({source})', flush=True)
+    except Exception as e:
+        print(f'[contact] ERROR saving submission: {e}', flush=True)
+        import traceback; traceback.print_exc()
+        if is_fetch:
+            return jsonify({'ok': False, 'error': str(e)}), 500
+        return redirect('/contact.html?error=1')
 
-    if request.headers.get('X-Requested-With') == 'fetch':
+    if is_fetch:
         return jsonify({'ok': True}), 200
     back = '/contact-2.html?sent=1' if source == 'contact-2' else '/contact.html?sent=1'
     return redirect(back)

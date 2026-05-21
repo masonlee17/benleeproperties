@@ -322,10 +322,14 @@
           form.style.display = 'none';
           if (done) done.style.display = 'block';
         } else {
-          throw new Error('server error');
+          return r.text().then(function(t) {
+            console.error('[BLP] contact-submit error', r.status, t);
+            throw new Error('status ' + r.status);
+          });
         }
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error('[BLP] contact-submit failed:', err);
         if (btn) { btn.disabled = false; btn.value = originalLabel; }
         if (fail) fail.style.display = 'block';
       });

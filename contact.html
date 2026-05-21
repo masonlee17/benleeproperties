@@ -322,21 +322,19 @@
               <p class="inquiry-paragraph">Leave your details and what you're looking for — Ben will get back to you as soon as possible.</p>
               <div class="form blp-form-wrap">
                 <form id="blp-contact-form" name="blp-contact-form" method="post" action="/contact-submit" class="form-inner"><input type="hidden" name="_source" value="contact">
-                  <div class="form-block"><label for="Your-Name-2" class="form-label">Name</label><input class="form-field w-input" maxlength="256" name="Your-Name" placeholder="e.g. Julia Smith" type="text" id="Your-Name-2" required=""></div>
-                  <div class="form-block"><label for="Your-Phone-2" class="form-label">Phone <span style="font-weight:400;opacity:0.6">(optional)</span></label><input class="form-field w-input" maxlength="256" name="Your-Phone" placeholder="(310) 000-0000" type="tel" id="Your-Phone-2"></div>
-                  <div class="form-block"><label for="Your-Email-2" class="form-label">Email</label><input class="form-field w-input" maxlength="256" name="Your-Email" placeholder="you@example.com" type="email" id="Your-Email-2" required=""></div>
-                  <div class="form-block is-option"><select id="Inquiry-Type" name="Inquiry-Type" class="select-field w-select">
+                  <div class="form-block"><label for="Your-Name-2" class="form-label">Name</label><input class="form-field " maxlength="256" name="Your-Name" placeholder="e.g. Julia Smith" type="text" id="Your-Name-2" required=""></div>
+                  <div class="form-block"><label for="Your-Phone-2" class="form-label">Phone <span style="font-weight:400;opacity:0.6">(optional)</span></label><input class="form-field " maxlength="256" name="Your-Phone" placeholder="(310) 000-0000" type="tel" id="Your-Phone-2"></div>
+                  <div class="form-block"><label for="Your-Email-2" class="form-label">Email</label><input class="form-field " maxlength="256" name="Your-Email" placeholder="you@example.com" type="email" id="Your-Email-2" required=""></div>
+                  <div class="form-block is-option"><select id="Inquiry-Type" name="Inquiry-Type" class="select-field ">
                       <option value="">What are you looking for?</option>
                       <option value="Buying">I want to buy a home</option>
                       <option value="Selling">I want to sell my home</option>
                       <option value="Valuation">Home valuation</option>
                       <option value="General Inquiry">General inquiry</option>
                     </select></div>
-                  <div class="form-block is--area"><label for="Message-2" class="form-label">Message</label><textarea id="Message-2" name="Message" maxlength="5000" placeholder="Tell Ben what you have in mind..." class="form-field is--area w-input"></textarea></div>
-                  <label class="privacy-policy w-radio">
-                    <div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button w-radio-input"></div><input type="radio" id="Agreed" name="Use-of-personal-data" required="" style="opacity:0;position:absolute;z-index:-1" value="Agreed"><span for="Agreed" class="privacy-paragraph w-form-label">I agree to the use of <a href="contact.html" class="privacy-link">personal data</a></span>
-                  </label>
-                  <input type="submit" data-wait="Sending..." class="submit-form w-button" value="Send message">
+                  <div class="form-block is--area"><label for="Message-2" class="form-label">Message</label><textarea id="Message-2" name="Message" maxlength="5000" placeholder="Tell Ben what you have in mind..." class="form-field is--area "></textarea></div>
+                  <label class="privacy-policy blp-checkbox-label"><input type="checkbox" id="Agreed" name="Use-of-personal-data" required style="width:18px;height:18px;margin-right:10px;accent-color:#c0392b;cursor:pointer;flex-shrink:0;vertical-align:middle"><span class="privacy-paragraph">I agree to the use of <a href="contact.html" class="privacy-link">personal data</a></span></label>
+                  <input type="submit" data-wait="Sending..." class="submit-form " value="Send message">
                 </form>
                 <div class="form-success blp-form-done" style="display:none"><img src="images/task_alt_black_24dp.svg" loading="lazy" alt="" class="form-success-icon">
                   <div class="form-success-title">Sent! Thank you for your message.</div>
