@@ -691,15 +691,104 @@ def delete_listing(lid):
     return jsonify({'ok': True})
 
 
+def build_city_listing_items(listings):
+    """Return a full <section> of property cards for a city page, or '' if no listings."""
+    if not listings:
+        return ''
+    cards = []
+    for p in sorted(listings, key=lambda x: x.get('order', 999)):
+        addr       = p.get('address', '')
+        city       = p.get('city', 'Los Angeles')
+        price      = p.get('price', '')
+        rent       = p.get('rent', '')
+        beds       = p.get('beds', '')
+        baths      = p.get('baths', '')
+        sqft       = p.get('sqft', '')
+        status     = p.get('status', 'FOR SALE')
+        img1       = p.get('image1', '')
+        img2       = p.get('image2', '')
+        detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else '/contact.html'
+
+        card = [
+            '                        <div role="listitem" class="property-grid-item w-dyn-item">',
+            '                          <div class="property-link with-radius">',
+            '                            <div class="property-image-grid">',
+            f'                              <a href="{detail_url}" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
+            '                                <div class="ciricle-outline is-white"></div>'
+            '<img loading="lazy" src="/images/arrow_right_white_24dp.svg" alt="Contact" class="ciricle-icon">',
+            '                              </a>',
+        ]
+        if img1:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="/{img1}" class="property-image is-1st">')
+        if img2:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="/{img2}" class="property-image is-2nd">')
+        card += [
+            '                            </div>',
+            f'                            <a href="{detail_url}" class="property-inner w-inline-block">',
+            f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
+            '                            </a>',
+            '                            <div class="property-details">',
+            price_block_html(status, price, rent, '                              '),
+            '                            </div>',
+            '                            <div class="property-details">',
+            '                              <div class="property-detail-block-3">',
+        ]
+        if beds:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="/images/bed_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{beds}</div><p class="tooltip">Bedrooms</p></div>')
+        if baths:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="/images/shower_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{baths}</div><p class="tooltip">Bathrooms</p></div>')
+        if sqft:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="/images/select_all_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{sqft} sqft</div><p class="tooltip">Interior size</p></div>')
+        card += [
+            '                              </div>',
+            '                            </div>',
+            '                          </div>',
+            '                        </div>',
+        ]
+        cards.append('\n'.join(card))
+
+    cards_html = '\n'.join(cards)
+    return (
+        '      <section class="section white-border-bottom">\n'
+        '        <div class="container w-container">\n'
+        '          <div class="padding-8em">\n'
+        '            <p class="city-section-label" style="text-align:center;">Active Listings</p>\n'
+        '            <h2 class="heading-sellers-process" style="opacity:1;">Currently Listed in This Neighborhood</h2>\n'
+        '            <div class="grid-listing-symbol" style="margin-top:2.5em;">\n'
+        '              <div class="property-grid-2 current w-dyn-list">\n'
+        '                <div role="list" class="property-grid-list-2 w-dyn-items">\n'
+        f'{cards_html}\n'
+        '                </div>\n'
+        '              </div>\n'
+        '            </div>\n'
+        '          </div>\n'
+        '        </div>\n'
+        '      </section>'
+    )
+
+
 # ── Dynamic pages ──────────────────────────────────────────────────────────────
 # These two pages are rendered live so admin edits are instant without redeploying.
 
 @app.route('/cities/<slug>')
 def city_page(slug):
     path = os.path.join(BASE_DIR, 'cities', f'{slug}.html')
-    if os.path.exists(path):
-        return open(path, encoding='utf-8').read()
-    return 'Not found', 404
+    if not os.path.exists(path):
+        return 'Not found', 404
+    html = open(path, encoding='utf-8').read()
+    city_listings = [
+        p for p in load('properties.json')
+        if 'live_listings' in p.get('sections', [])
+        and slug in p.get('neighborhoods', [])
+    ]
+    html = html.replace('<!-- CITY_LISTINGS_PLACEHOLDER -->', build_city_listing_items(city_listings))
+    return Response(html, mimetype='text/html')
 
 @app.route('/market-updates/<slug>')
 def market_update(slug):
@@ -729,8 +818,8 @@ def for_buyers():
 @app.route('/valuation')
 @app.route('/valuation.html')
 def valuation():
-    return render_dynamic('valuation.html', 'VAL_LISTINGS',
-                          build_index_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
+    path = os.path.join(BASE_DIR, 'valuation.html')
+    return open(path, encoding='utf-8').read()
 
 @app.route('/property/<prop_id>')
 @app.route('/property/<prop_id>.html')
@@ -1259,6 +1348,33 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           </div>
           <div class="hint">Controls which pages this property appears on. Homepage shows it in the featured section on the front page.</div>
         </div>
+        <div class="frow" style="margin-top:4px">
+          <label>City Pages <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 1.8em;margin-top:6px">
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-cheviot-hills" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Cheviot Hills
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-beverlywood" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Beverlywood
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-beverly-hills" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Beverly Hills
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-west-los-angeles" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> West Los Angeles
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-bel-air" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Bel Air
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-brentwood" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Brentwood
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-santa-monica" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Santa Monica
+            </label>
+          </div>
+          <div class="hint">Also show this listing on specific neighborhood pages. A property can appear on multiple city pages.</div>
+        </div>
         <div class="frow" style="background:#f0f4ff;border-radius:6px;padding:14px 16px;border:1px solid #c7d6f5;margin-top:4px">
           <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#07264b;letter-spacing:.04em;text-transform:uppercase">
             <input type="checkbox" id="p-has-detail" style="width:17px;height:17px;cursor:pointer;accent-color:#07264b">
@@ -1501,6 +1617,7 @@ $('#save-nl').addEventListener('click', async () => {
 });
 
 // ── Properties ─────────────────────────────────────────────────────────────────
+const CITY_SLUGS = ['cheviot-hills','beverlywood','beverly-hills','west-los-angeles','bel-air','brentwood','santa-monica'];
 let properties = [];
 let editingPropId = null;
 
@@ -1540,7 +1657,8 @@ function renderProperties() {
             ${(p.sections||[]).includes('live_listings') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#059669;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Live</span>' : ''}
             ${(p.sections||[]).includes('built_by_ben') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#07264b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Built by Ben</span>' : ''}
             ${(p.sections||[]).includes('homepage') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#be591f;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Homepage</span>' : ''}
-            ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em">Detail Page</span>' : ''}
+            ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Detail Page</span>' : ''}
+            ${(p.neighborhoods||[]).length ? `<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#0891b2;color:#fff;padding:1px 7px;border-radius:2em">${p.neighborhoods.length} City Page${p.neighborhoods.length>1?'s':''}</span>` : ''}
           </div>
         </div>
         <div class="prop-price">${p.price ? '$' + p.price : '—'}${p.rent && p.status !== 'SOLD' ? '<br><span style="font-size:11px;color:#9ca3af;font-weight:500">$' + p.rent + ' /mo</span>' : ''}</div>
@@ -1586,6 +1704,10 @@ function openEditProp(id) {
   $('#p-section-live').checked = (p.sections || []).includes('live_listings');
   $('#p-section-bbb').checked  = (p.sections || []).includes('built_by_ben');
   $('#p-section-home').checked = (p.sections || []).includes('homepage');
+  CITY_SLUGS.forEach(slug => {
+    const el = $(`#p-nbhd-${slug}`);
+    if (el) el.checked = (p.neighborhoods || []).includes(slug);
+  });
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1603,6 +1725,7 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-section-live').checked = false;
   $('#p-section-bbb').checked  = false;
   $('#p-section-home').checked = false;
+  CITY_SLUGS.forEach(slug => { const el = $(`#p-nbhd-${slug}`); if (el) el.checked = false; });
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1652,6 +1775,7 @@ $('#save-prop').addEventListener('click', async () => {
       ...($('#p-section-bbb').checked  ? ['built_by_ben']  : []),
       ...($('#p-section-home').checked ? ['homepage']      : []),
     ],
+    neighborhoods: CITY_SLUGS.filter(slug => { const el = $(`#p-nbhd-${slug}`); return el && el.checked; }),
   };
   // Collect extra photos (slot 3 onward)
   document.querySelectorAll('#p-extra-imgs .p-extra-image').forEach((inp, idx) => {
