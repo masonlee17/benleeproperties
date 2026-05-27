@@ -16,8 +16,8 @@ NEIGHBORHOODS = [
         "zip": "90064",
         "geo_lat": 34.0333,
         "geo_lon": -118.4167,
-        "hero_img": "../images/pexels-max-vakhtbovych-6969828_1pexels-max-vakhtbovych-6969828.avif",
-        "hero_img_alt": "Cheviot Hills home",
+        "hero_img": "https://images.pexels.com/photos/16306377/pexels-photo-16306377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Tree-lined residential street in Cheviot Hills",
         "meta_desc": "Cheviot Hills real estate guide from Ben Lee, the top broker in the neighborhood. Median home price $3M, developed in the 1920s, between Fox and Sony studios. Expert buyer and seller representation.",
         "og_desc": "Ben Lee is the top-producing broker in Cheviot Hills. Get hyper-local market data, school info, and expert representation in this premier West LA neighborhood.",
         "median_price": "$3,000,000",
@@ -73,8 +73,8 @@ NEIGHBORHOODS = [
         "zip": "90034",
         "geo_lat": 34.0472,
         "geo_lon": -118.3986,
-        "hero_img": "../images/pexels-max-vakhtbovych-6058444_1pexels-max-vakhtbovych-6058444.avif",
-        "hero_img_alt": "Beverlywood home",
+        "hero_img": "https://images.pexels.com/photos/16735348/pexels-photo-16735348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Palm-lined residential street in Beverlywood",
         "meta_desc": "Beverlywood real estate guide from Ben Lee Properties. Median sale price $2.6M, tree-lined streets, Beverlywood Homes Association, top-rated elementary schools. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties specializes in Beverlywood real estate. Get current market data, school info, and expert representation in this hidden gem adjacent to Beverly Hills.",
         "median_price": "$2,600,000",
@@ -130,8 +130,8 @@ NEIGHBORHOODS = [
         "zip": "90210",
         "geo_lat": 34.0736,
         "geo_lon": -118.4004,
-        "hero_img": "../images/pexels-vincent-gerbouin-445991-2263683.jpg",
-        "hero_img_alt": "Beverly Hills luxury home",
+        "hero_img": "https://images.pexels.com/photos/19139509/pexels-photo-19139509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Rodeo Drive, Beverly Hills",
         "meta_desc": "Beverly Hills real estate guide from Ben Lee Properties, based at 9454 Wilshire Blvd. Median SFR price $4.85M. Expert buyer and seller representation in 90210 from a licensed broker and attorney.",
         "og_desc": "Ben Lee Properties is based in Beverly Hills. Get expert real estate guidance in 90210, the Flats, and the Platinum Triangle from a licensed broker and attorney with $1B+ in closed deals.",
         "median_price": "$4,850,000",
@@ -187,8 +187,8 @@ NEIGHBORHOODS = [
         "zip": "90064",
         "geo_lat": 34.0367,
         "geo_lon": -118.4472,
-        "hero_img": "../images/pexels-curtis-adams-5353877_1pexels-curtis-adams-5353877.avif",
-        "hero_img_alt": "West Los Angeles home",
+        "hero_img": "https://images.pexels.com/photos/24304586/pexels-photo-24304586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Powell Library at UCLA, West Los Angeles",
         "meta_desc": "West Los Angeles real estate guide from Ben Lee Properties. Median home price $1.4M, 28 days on market, strong walkability in pockets. Ben Lee's second office is at 11500 W Olympic Blvd.",
         "og_desc": "Ben Lee Properties covers West Los Angeles from their office at 11500 W Olympic Blvd. Get current market data and expert representation for West LA buyers and sellers.",
         "median_price": "$1,405,000",
@@ -244,7 +244,7 @@ NEIGHBORHOODS = [
         "zip": "90077",
         "geo_lat": 34.0903,
         "geo_lon": -118.4526,
-        "hero_img": "../images/pexels-alexandr-podvalny-7599735_1pexels-alexandr-podvalny-7599735.avif",
+        "hero_img": "https://images.pexels.com/photos/30587972/pexels-photo-30587972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "hero_img_alt": "Bel Air estate",
         "meta_desc": "Bel Air real estate guide from Ben Lee Properties. Median list price $8.1M, 7+ months of inventory creating buyer leverage. Part of the Platinum Triangle. Expert luxury representation.",
         "og_desc": "Bel Air is entering a buyer-favorable market in 2026 with 7+ months of inventory. Ben Lee provides expert representation in this ultra-luxury Westside neighborhood.",
@@ -301,8 +301,8 @@ NEIGHBORHOODS = [
         "zip": "90049",
         "geo_lat": 34.0572,
         "geo_lon": -118.4767,
-        "hero_img": "../images/pexels-teona-swift-6913825_1pexels-teona-swift-6913825.avif",
-        "hero_img_alt": "Brentwood Los Angeles home",
+        "hero_img": "https://images.pexels.com/photos/18409401/pexels-photo-18409401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Palm-lined street in Brentwood, Los Angeles",
         "meta_desc": "Brentwood Los Angeles real estate guide from Ben Lee Properties. Median home price $3.25M, top private schools, the Getty Center, and San Vicente's coral trees. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties covers Brentwood real estate in Los Angeles. Get current market data, school rankings, and expert representation in 90049 from a licensed broker and attorney.",
         "median_price": "$3,250,000",
@@ -359,8 +359,8 @@ NEIGHBORHOODS = [
         "zip": "90401",
         "geo_lat": 34.0195,
         "geo_lon": -118.4912,
-        "hero_img": "../images/pexels-max-vakhtbovych-6969828_1pexels-max-vakhtbovych-6969828.avif",
-        "hero_img_alt": "Santa Monica home",
+        "hero_img": "https://images.pexels.com/photos/15204334/pexels-photo-15204334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "hero_img_alt": "Santa Monica Pier at sunset",
         "meta_desc": "Santa Monica real estate guide from Ben Lee Properties. Median SFR price $3.85M, beach access, top schools, and strict zoning that limits supply. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties covers Santa Monica real estate. Get current market data, neighborhood breakdowns, and expert representation in this coastal Westside city.",
         "median_price": "$3,850,000",
@@ -565,10 +565,10 @@ def build_page(n):
     )
     faq_html = ""
     for q, a in n["faqs"]:
-        faq_html += f"""              <details class="city-faq-item">
-                <summary class="city-faq-question">{q}</summary>
-                <p class="city-faq-answer">{a}</p>
-              </details>
+        faq_html += f"""              <div class="city-faq-card">
+                <p class="city-faq-q">{q}</p>
+                <p class="city-faq-a">{a}</p>
+              </div>
 """
 
     return f"""<!DOCTYPE html>
@@ -588,16 +588,16 @@ def build_page(n):
   <meta property="og:title" content="{n["name"]} Real Estate | Ben Lee Properties">
   <meta property="og:description" content="{n["og_desc"]}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://www.benleeproperties.com/{n["hero_img"].lstrip('../')}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="{n["hero_img"]}">
+  <meta property="og:image:width" content="1260">
+  <meta property="og:image:height" content="750">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{n["name"]} Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="{n["og_desc"]}">
-  <meta name="twitter:image" content="https://www.benleeproperties.com/{n["hero_img"].lstrip('../')}">
+  <meta name="twitter:image" content="{n["hero_img"]}">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -653,36 +653,57 @@ def build_page(n):
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="../images/webclip.png" rel="apple-touch-icon">
   <style>
+    .city-breadcrumb {{
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 1.2em;
+    }}
+    .city-breadcrumb:hover {{ color: #fff; }}
+    .city-tagline {{
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }}
     .city-stats-grid {{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2em;
-      margin: 2em 0;
+      margin-top: 2.5em;
     }}
     .city-stat-card {{
       background: #fff;
       border-left: 4px solid #be591f;
-      padding: 1.5em;
+      padding: 2em 2em 1.75em;
     }}
     .city-stat-value {{
       font-family: 'Montserrat', sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 700;
       color: #0a223f;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
     }}
     .city-stat-label {{
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 0.85em;
-      color: #666;
+      font-size: 0.8em;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }}
     .city-content-grid {{
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 3em;
+      gap: 4em;
       align-items: start;
+      margin-top: 2.5em;
     }}
     .city-section-label {{
       font-family: 'Montserrat', sans-serif;
@@ -696,49 +717,45 @@ def build_page(n):
     .city-body-text {{
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1.05em;
-      line-height: 1.75;
-      color: #2c2c2c;
+      line-height: 1.8;
+      color: #3a3a3a;
     }}
     .city-list {{
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1em;
-      line-height: 1.9;
-      color: #2c2c2c;
+      line-height: 2;
+      color: #3a3a3a;
       padding-left: 1.2em;
     }}
-    .city-faq-item {{
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1.2em 0;
+    .city-faq-grid {{
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5em;
+      margin-top: 2.5em;
     }}
-    .city-faq-question {{
+    .city-faq-card {{
+      background: #fff;
+      border-top: 3px solid #be591f;
+      padding: 2em;
+    }}
+    .city-faq-q {{
       font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: 600;
       color: #0a223f;
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: 0.75em;
+      line-height: 1.4;
     }}
-    .city-faq-question::-webkit-details-marker {{ display: none; }}
-    .city-faq-question::before {{
-      content: "+ ";
-      color: #be591f;
-      font-weight: 700;
-    }}
-    details[open] .city-faq-question::before {{
-      content: "- ";
-    }}
-    .city-faq-answer {{
+    .city-faq-a {{
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.95em;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 0.75em;
-      padding-left: 1.2em;
+      line-height: 1.75;
+      color: #555;
     }}
     .ben-callout {{
       background: #0a223f;
       color: #fff;
-      padding: 2.5em;
+      padding: 3em;
       border-left: 5px solid #be591f;
     }}
     .ben-callout p {{
@@ -748,9 +765,13 @@ def build_page(n):
       color: #e8edf3;
       margin-bottom: 1.2em;
     }}
+    @media (max-width: 991px) {{
+      .city-stats-grid {{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }}
+    }}
     @media (max-width: 767px) {{
       .city-stats-grid {{ grid-template-columns: 1fr; }}
-      .city-content-grid {{ grid-template-columns: 1fr; }}
+      .city-content-grid {{ grid-template-columns: 1fr; gap: 2em; }}
+      .city-faq-grid {{ grid-template-columns: 1fr; }}
     }}
   </style>
 </head>
@@ -762,17 +783,12 @@ def build_page(n):
 
       <!-- Hero -->
       <section class="section overflow-hidden">
-        <div class="page-hero hero-is-higher">
+        <div class="page-hero">
           <div class="hero-claim">
-            <p style="opacity:1;color:#fff;font-family:Montserrat,sans-serif;font-size:0.85em;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">Westside Neighborhoods</p>
+            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">{n["name"]}</h1>
+            <p class="city-tagline">{n["tagline"]}</p>
             <div class="hero-claim-background"></div>
-          </div>
-          <div class="hero-buttons-wrap">
-            <a href="#about" class="hero-button w-inline-block" style="opacity:1">
-              <p class="button-paragraph">Explore</p>
-              <img src="../images/arrow_drop_down_white_24dp.svg" loading="lazy" width="24" alt="" class="hero-button-icon">
-            </a>
           </div>
         </div>
         <img src="{n["hero_img"]}" loading="lazy" alt="{n["hero_img_alt"]}" class="cover-image-absolute">
@@ -808,14 +824,14 @@ def build_page(n):
       <section id="about" class="section grey-background">
         <div class="container w-container">
           <div class="padding-8em">
+            <p class="city-section-label" style="text-align:center;">About the Neighborhood</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Living in {n["name"]}</h2>
             <div class="city-content-grid">
               <div>
-                <p class="city-section-label">About the Neighborhood</p>
-                <h2 class="heading-sellers-process" style="opacity:1;">Living in {n["name"]}</h2>
                 <p class="city-body-text">{n["about"]}</p>
               </div>
               <div>
-                <p class="city-section-label">What Makes {n["name"]} Stand Out</p>
+                <p class="city-section-label">Highlights</p>
                 <ul class="city-list">
 {features_html}
                 </ul>
@@ -865,12 +881,12 @@ def build_page(n):
       </section>
 
       <!-- FAQ -->
-      <section class="section grey-background">
+      <section class="section">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label">Common Questions</p>
-            <h2 class="heading-sellers-process" style="opacity:1;">{n["name"]} Real Estate FAQ</h2>
-            <div style="max-width:800px;margin-top:2em;">
+            <p class="city-section-label" style="text-align:center;">Common Questions</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">{n["name"]} FAQ</h2>
+            <div class="city-faq-grid">
 {faq_html}
             </div>
           </div>

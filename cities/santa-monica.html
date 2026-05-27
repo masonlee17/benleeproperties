@@ -15,16 +15,16 @@
   <meta property="og:title" content="Santa Monica Real Estate | Ben Lee Properties">
   <meta property="og:description" content="Ben Lee Properties covers Santa Monica real estate. Get current market data, neighborhood breakdowns, and expert representation in this coastal Westside city.">
   <meta property="og:url" content="https://www.benleeproperties.com/cities/santa-monica">
-  <meta property="og:image" content="https://www.benleeproperties.com/images/pexels-max-vakhtbovych-6969828_1pexels-max-vakhtbovych-6969828.avif">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://images.pexels.com/photos/15204334/pexels-photo-15204334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <meta property="og:image:width" content="1260">
+  <meta property="og:image:height" content="750">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Santa Monica Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="Ben Lee Properties covers Santa Monica real estate. Get current market data, neighborhood breakdowns, and expert representation in this coastal Westside city.">
-  <meta name="twitter:image" content="https://www.benleeproperties.com/images/pexels-max-vakhtbovych-6969828_1pexels-max-vakhtbovych-6969828.avif">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/15204334/pexels-photo-15204334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -121,36 +121,57 @@
   <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/images/webclip.png" rel="apple-touch-icon">
   <style>
+    .city-breadcrumb {
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 1.2em;
+    }
+    .city-breadcrumb:hover { color: #fff; }
+    .city-tagline {
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }
     .city-stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2em;
-      margin: 2em 0;
+      margin-top: 2.5em;
     }
     .city-stat-card {
       background: #fff;
       border-left: 4px solid #be591f;
-      padding: 1.5em;
+      padding: 2em 2em 1.75em;
     }
     .city-stat-value {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 700;
       color: #0a223f;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
     }
     .city-stat-label {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 0.85em;
-      color: #666;
+      font-size: 0.8em;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
     .city-content-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 3em;
+      gap: 4em;
       align-items: start;
+      margin-top: 2.5em;
     }
     .city-section-label {
       font-family: 'Montserrat', sans-serif;
@@ -164,49 +185,45 @@
     .city-body-text {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1.05em;
-      line-height: 1.75;
-      color: #2c2c2c;
+      line-height: 1.8;
+      color: #3a3a3a;
     }
     .city-list {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1em;
-      line-height: 1.9;
-      color: #2c2c2c;
+      line-height: 2;
+      color: #3a3a3a;
       padding-left: 1.2em;
     }
-    .city-faq-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1.2em 0;
+    .city-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5em;
+      margin-top: 2.5em;
     }
-    .city-faq-question {
+    .city-faq-card {
+      background: #fff;
+      border-top: 3px solid #be591f;
+      padding: 2em;
+    }
+    .city-faq-q {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: 600;
       color: #0a223f;
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: 0.75em;
+      line-height: 1.4;
     }
-    .city-faq-question::-webkit-details-marker { display: none; }
-    .city-faq-question::before {
-      content: "+ ";
-      color: #be591f;
-      font-weight: 700;
-    }
-    details[open] .city-faq-question::before {
-      content: "- ";
-    }
-    .city-faq-answer {
+    .city-faq-a {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.95em;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 0.75em;
-      padding-left: 1.2em;
+      line-height: 1.75;
+      color: #555;
     }
     .ben-callout {
       background: #0a223f;
       color: #fff;
-      padding: 2.5em;
+      padding: 3em;
       border-left: 5px solid #be591f;
     }
     .ben-callout p {
@@ -216,9 +233,13 @@
       color: #e8edf3;
       margin-bottom: 1.2em;
     }
+    @media (max-width: 991px) {
+      .city-stats-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
     @media (max-width: 767px) {
       .city-stats-grid { grid-template-columns: 1fr; }
-      .city-content-grid { grid-template-columns: 1fr; }
+      .city-content-grid { grid-template-columns: 1fr; gap: 2em; }
+      .city-faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -313,20 +334,15 @@
 
       <!-- Hero -->
       <section class="section overflow-hidden">
-        <div class="page-hero hero-is-higher">
+        <div class="page-hero">
           <div class="hero-claim">
-            <p style="opacity:1;color:#fff;font-family:Montserrat,sans-serif;font-size:0.85em;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">Westside Neighborhoods</p>
+            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">Santa Monica</h1>
+            <p class="city-tagline">Coastal Living, Top Schools, and a Beach-City Lifestyle</p>
             <div class="hero-claim-background"></div>
           </div>
-          <div class="hero-buttons-wrap">
-            <a href="#about" class="hero-button w-inline-block" style="opacity:1">
-              <p class="button-paragraph">Explore</p>
-              <img src="/images/arrow_drop_down_white_24dp.svg" loading="lazy" width="24" alt="" class="hero-button-icon">
-            </a>
-          </div>
         </div>
-        <img src="/images/pexels-max-vakhtbovych-6969828_1pexels-max-vakhtbovych-6969828.avif" loading="lazy" alt="Santa Monica home" class="cover-image-absolute">
+        <img src="https://images.pexels.com/photos/15204334/pexels-photo-15204334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" loading="lazy" alt="Santa Monica Pier at sunset" class="cover-image-absolute">
         <div class="background-reveal"></div>
       </section>
 
@@ -359,14 +375,14 @@
       <section id="about" class="section grey-background">
         <div class="container w-container">
           <div class="padding-8em">
+            <p class="city-section-label" style="text-align:center;">About the Neighborhood</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Living in Santa Monica</h2>
             <div class="city-content-grid">
               <div>
-                <p class="city-section-label">About the Neighborhood</p>
-                <h2 class="heading-sellers-process" style="opacity:1;">Living in Santa Monica</h2>
                 <p class="city-body-text">Santa Monica is an independent coastal city situated just west of Los Angeles, bordered by the Pacific Ocean to the west and Malibu to the north. It combines beach access, a vibrant downtown, top-rated schools, and strict land use controls that permanently cap new housing supply. The result is one of the most consistently high-demand real estate markets in Southern California.<br><br>Santa Monica's neighborhoods each have a distinct character. North of Montana is the city's most expensive pocket, averaging over $4.5M in sales. Sunset Park offers larger lots and more family-friendly pricing. Ocean Park brings an energetic Main Street lifestyle at a lower entry point. Downtown Santa Monica, anchored by the Third Street Promenade, appeals to buyers who prioritize urban walkability.</p>
               </div>
               <div>
-                <p class="city-section-label">What Makes Santa Monica Stand Out</p>
+                <p class="city-section-label">Highlights</p>
                 <ul class="city-list">
               <li>Pacific Ocean beach access and the Santa Monica Pier</li>
               <li>Strict city zoning limits new construction to under 200 units per year</li>
@@ -424,32 +440,32 @@
       </section>
 
       <!-- FAQ -->
-      <section class="section grey-background">
+      <section class="section">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label">Common Questions</p>
-            <h2 class="heading-sellers-process" style="opacity:1;">Santa Monica Real Estate FAQ</h2>
-            <div style="max-width:800px;margin-top:2em;">
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What is the median home price in Santa Monica?</summary>
-                <p class="city-faq-answer">The median sale price for a single-family home in Santa Monica is approximately $3,850,000 as of January 2026. Condos and townhomes have a median closer to $1,250,000. The overall median including all property types sits near $1,565,000. Prices are projected to rise about 3.2% through the end of 2026.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What are the best neighborhoods in Santa Monica?</summary>
-                <p class="city-faq-answer">North of Montana is Santa Monica's most exclusive neighborhood, with average sale prices exceeding $4.5M and top-rated elementary schools. Sunset Park offers more space and family-friendly lots. Ocean Park is popular for its proximity to Main Street. Downtown Santa Monica suits buyers who want walkability and urban energy.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What schools serve Santa Monica?</summary>
-                <p class="city-faq-answer">Santa Monica has its own standalone Santa Monica-Malibu Unified School District. Franklin Elementary and Roosevelt Elementary (both 9/10) are in North of Montana. Santa Monica High School (Samohi) is one of California's most well-known public high schools.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Why is Santa Monica real estate so expensive?</summary>
-                <p class="city-faq-answer">Santa Monica's strict zoning laws limit new construction to fewer than 200 units per year in a city already densely built. Combined with beach access, an excellent school district, and a globally recognized lifestyle, demand consistently outpaces supply. This structural undersupply is the primary driver of long-term price appreciation.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Does Ben Lee cover Santa Monica?</summary>
-                <p class="city-faq-answer">Yes. Ben Lee Properties covers the full Westside including Santa Monica. Ben's extensive database of Westside buyers and his monthly newsletter distribution mean Santa Monica listings get immediate, targeted exposure. Contact Ben at (310) 704-6580 or ben@benleeproperties.com.</p>
-              </details>
+            <p class="city-section-label" style="text-align:center;">Common Questions</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Santa Monica FAQ</h2>
+            <div class="city-faq-grid">
+              <div class="city-faq-card">
+                <p class="city-faq-q">What is the median home price in Santa Monica?</p>
+                <p class="city-faq-a">The median sale price for a single-family home in Santa Monica is approximately $3,850,000 as of January 2026. Condos and townhomes have a median closer to $1,250,000. The overall median including all property types sits near $1,565,000. Prices are projected to rise about 3.2% through the end of 2026.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What are the best neighborhoods in Santa Monica?</p>
+                <p class="city-faq-a">North of Montana is Santa Monica's most exclusive neighborhood, with average sale prices exceeding $4.5M and top-rated elementary schools. Sunset Park offers more space and family-friendly lots. Ocean Park is popular for its proximity to Main Street. Downtown Santa Monica suits buyers who want walkability and urban energy.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What schools serve Santa Monica?</p>
+                <p class="city-faq-a">Santa Monica has its own standalone Santa Monica-Malibu Unified School District. Franklin Elementary and Roosevelt Elementary (both 9/10) are in North of Montana. Santa Monica High School (Samohi) is one of California's most well-known public high schools.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Why is Santa Monica real estate so expensive?</p>
+                <p class="city-faq-a">Santa Monica's strict zoning laws limit new construction to fewer than 200 units per year in a city already densely built. Combined with beach access, an excellent school district, and a globally recognized lifestyle, demand consistently outpaces supply. This structural undersupply is the primary driver of long-term price appreciation.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Does Ben Lee cover Santa Monica?</p>
+                <p class="city-faq-a">Yes. Ben Lee Properties covers the full Westside including Santa Monica. Ben's extensive database of Westside buyers and his monthly newsletter distribution mean Santa Monica listings get immediate, targeted exposure. Contact Ben at (310) 704-6580 or ben@benleeproperties.com.</p>
+              </div>
 
             </div>
           </div>

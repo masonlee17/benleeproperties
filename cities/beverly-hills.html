@@ -15,16 +15,16 @@
   <meta property="og:title" content="Beverly Hills Real Estate | Ben Lee Properties">
   <meta property="og:description" content="Ben Lee Properties is based in Beverly Hills. Get expert real estate guidance in 90210, the Flats, and the Platinum Triangle from a licensed broker and attorney with $1B+ in closed deals.">
   <meta property="og:url" content="https://www.benleeproperties.com/cities/beverly-hills">
-  <meta property="og:image" content="https://www.benleeproperties.com/images/pexels-vincent-gerbouin-445991-2263683.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://images.pexels.com/photos/19139509/pexels-photo-19139509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <meta property="og:image:width" content="1260">
+  <meta property="og:image:height" content="750">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Beverly Hills Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="Ben Lee Properties is based in Beverly Hills. Get expert real estate guidance in 90210, the Flats, and the Platinum Triangle from a licensed broker and attorney with $1B+ in closed deals.">
-  <meta name="twitter:image" content="https://www.benleeproperties.com/images/pexels-vincent-gerbouin-445991-2263683.jpg">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/19139509/pexels-photo-19139509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -121,36 +121,57 @@
   <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/images/webclip.png" rel="apple-touch-icon">
   <style>
+    .city-breadcrumb {
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 1.2em;
+    }
+    .city-breadcrumb:hover { color: #fff; }
+    .city-tagline {
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }
     .city-stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2em;
-      margin: 2em 0;
+      margin-top: 2.5em;
     }
     .city-stat-card {
       background: #fff;
       border-left: 4px solid #be591f;
-      padding: 1.5em;
+      padding: 2em 2em 1.75em;
     }
     .city-stat-value {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 700;
       color: #0a223f;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
     }
     .city-stat-label {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 0.85em;
-      color: #666;
+      font-size: 0.8em;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
     .city-content-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 3em;
+      gap: 4em;
       align-items: start;
+      margin-top: 2.5em;
     }
     .city-section-label {
       font-family: 'Montserrat', sans-serif;
@@ -164,49 +185,45 @@
     .city-body-text {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1.05em;
-      line-height: 1.75;
-      color: #2c2c2c;
+      line-height: 1.8;
+      color: #3a3a3a;
     }
     .city-list {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1em;
-      line-height: 1.9;
-      color: #2c2c2c;
+      line-height: 2;
+      color: #3a3a3a;
       padding-left: 1.2em;
     }
-    .city-faq-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1.2em 0;
+    .city-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5em;
+      margin-top: 2.5em;
     }
-    .city-faq-question {
+    .city-faq-card {
+      background: #fff;
+      border-top: 3px solid #be591f;
+      padding: 2em;
+    }
+    .city-faq-q {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: 600;
       color: #0a223f;
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: 0.75em;
+      line-height: 1.4;
     }
-    .city-faq-question::-webkit-details-marker { display: none; }
-    .city-faq-question::before {
-      content: "+ ";
-      color: #be591f;
-      font-weight: 700;
-    }
-    details[open] .city-faq-question::before {
-      content: "- ";
-    }
-    .city-faq-answer {
+    .city-faq-a {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.95em;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 0.75em;
-      padding-left: 1.2em;
+      line-height: 1.75;
+      color: #555;
     }
     .ben-callout {
       background: #0a223f;
       color: #fff;
-      padding: 2.5em;
+      padding: 3em;
       border-left: 5px solid #be591f;
     }
     .ben-callout p {
@@ -216,9 +233,13 @@
       color: #e8edf3;
       margin-bottom: 1.2em;
     }
+    @media (max-width: 991px) {
+      .city-stats-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
     @media (max-width: 767px) {
       .city-stats-grid { grid-template-columns: 1fr; }
-      .city-content-grid { grid-template-columns: 1fr; }
+      .city-content-grid { grid-template-columns: 1fr; gap: 2em; }
+      .city-faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -313,20 +334,15 @@
 
       <!-- Hero -->
       <section class="section overflow-hidden">
-        <div class="page-hero hero-is-higher">
+        <div class="page-hero">
           <div class="hero-claim">
-            <p style="opacity:1;color:#fff;font-family:Montserrat,sans-serif;font-size:0.85em;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">Westside Neighborhoods</p>
+            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">Beverly Hills</h1>
+            <p class="city-tagline">The Platinum Triangle and the World's Most Famous Address</p>
             <div class="hero-claim-background"></div>
           </div>
-          <div class="hero-buttons-wrap">
-            <a href="#about" class="hero-button w-inline-block" style="opacity:1">
-              <p class="button-paragraph">Explore</p>
-              <img src="/images/arrow_drop_down_white_24dp.svg" loading="lazy" width="24" alt="" class="hero-button-icon">
-            </a>
-          </div>
         </div>
-        <img src="/images/pexels-vincent-gerbouin-445991-2263683.jpg" loading="lazy" alt="Beverly Hills luxury home" class="cover-image-absolute">
+        <img src="https://images.pexels.com/photos/19139509/pexels-photo-19139509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" loading="lazy" alt="Rodeo Drive, Beverly Hills" class="cover-image-absolute">
         <div class="background-reveal"></div>
       </section>
 
@@ -359,14 +375,14 @@
       <section id="about" class="section grey-background">
         <div class="container w-container">
           <div class="padding-8em">
+            <p class="city-section-label" style="text-align:center;">About the Neighborhood</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Living in Beverly Hills</h2>
             <div class="city-content-grid">
               <div>
-                <p class="city-section-label">About the Neighborhood</p>
-                <h2 class="heading-sellers-process" style="opacity:1;">Living in Beverly Hills</h2>
                 <p class="city-body-text">Beverly Hills is one of the most recognized addresses in the world. The city covers approximately 5.7 square miles and is home to around 33,700 residents. Its famous Rodeo Drive shopping district, Platinum Triangle designation alongside Bel Air and Holmby Hills, and world-class dining and hospitality make it a global real estate benchmark.<br><br>The residential heart of Beverly Hills is largely in the Flats, a grid of wide streets bounded by Santa Monica Boulevard, Sunset Boulevard, Doheny Drive, and Whittier Drive. North of Sunset, the estates climb into the hills with increasing privacy and scale. In 2026, the market is shifting toward more balanced conditions as inventory grows modestly and mortgage rates ease, creating better buyer leverage than seen in recent years.</p>
               </div>
               <div>
-                <p class="city-section-label">What Makes Beverly Hills Stand Out</p>
+                <p class="city-section-label">Highlights</p>
                 <ul class="city-list">
               <li>Part of the Platinum Triangle alongside Bel Air and Holmby Hills</li>
               <li>Home to Ben Lee's primary brokerage office at 9454 Wilshire Blvd</li>
@@ -423,32 +439,32 @@
       </section>
 
       <!-- FAQ -->
-      <section class="section grey-background">
+      <section class="section">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label">Common Questions</p>
-            <h2 class="heading-sellers-process" style="opacity:1;">Beverly Hills Real Estate FAQ</h2>
-            <div style="max-width:800px;margin-top:2em;">
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What is the median home price in Beverly Hills?</summary>
-                <p class="city-faq-answer">The median sale price for a single-family residence in Beverly Hills is approximately $4,850,000 as of early 2026. Entry-level properties in the Flats, often needing renovation, start at $7M-$9M for tear-downs. The broader median including condos and all property types sits closer to $3.4M.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">How long do homes take to sell in Beverly Hills?</summary>
-                <p class="city-faq-answer">Homes in Beverly Hills currently average about 117 days on market, up from 54 days the prior year. The luxury segment above $8M is highly strategic and negotiation-driven. Below $3.5M, competition is sharper with multiple offers common.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What schools serve Beverly Hills residents?</summary>
-                <p class="city-faq-answer">Beverly Hills has its own standalone school district, Beverly Hills Unified, serving approximately 3,074 students. The district includes El Rodeo, Hawthorne, Beverly Vista, and Horace Mann (K-8 schools), Moreno High School, and the well-known Beverly Hills High School.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What neighborhoods make up Beverly Hills?</summary>
-                <p class="city-faq-answer">The main residential areas include the Beverly Hills Flats (south of Sunset), the Trousdale Estates, and the hillside areas north of Sunset leading toward Bel Air. Together with Bel Air and Holmby Hills, Beverly Hills forms the Platinum Triangle.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Who is the best real estate broker in Beverly Hills?</summary>
-                <p class="city-faq-answer">Ben Lee is the top-producing broker at Beverly Hills' number one office (9454 Wilshire Blvd). He is a licensed California broker and attorney with over $1 billion in closed transactions. His legal background is a significant advantage in Beverly Hills negotiations, where deal complexity is above average.</p>
-              </details>
+            <p class="city-section-label" style="text-align:center;">Common Questions</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Beverly Hills FAQ</h2>
+            <div class="city-faq-grid">
+              <div class="city-faq-card">
+                <p class="city-faq-q">What is the median home price in Beverly Hills?</p>
+                <p class="city-faq-a">The median sale price for a single-family residence in Beverly Hills is approximately $4,850,000 as of early 2026. Entry-level properties in the Flats, often needing renovation, start at $7M-$9M for tear-downs. The broader median including condos and all property types sits closer to $3.4M.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">How long do homes take to sell in Beverly Hills?</p>
+                <p class="city-faq-a">Homes in Beverly Hills currently average about 117 days on market, up from 54 days the prior year. The luxury segment above $8M is highly strategic and negotiation-driven. Below $3.5M, competition is sharper with multiple offers common.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What schools serve Beverly Hills residents?</p>
+                <p class="city-faq-a">Beverly Hills has its own standalone school district, Beverly Hills Unified, serving approximately 3,074 students. The district includes El Rodeo, Hawthorne, Beverly Vista, and Horace Mann (K-8 schools), Moreno High School, and the well-known Beverly Hills High School.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What neighborhoods make up Beverly Hills?</p>
+                <p class="city-faq-a">The main residential areas include the Beverly Hills Flats (south of Sunset), the Trousdale Estates, and the hillside areas north of Sunset leading toward Bel Air. Together with Bel Air and Holmby Hills, Beverly Hills forms the Platinum Triangle.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Who is the best real estate broker in Beverly Hills?</p>
+                <p class="city-faq-a">Ben Lee is the top-producing broker at Beverly Hills' number one office (9454 Wilshire Blvd). He is a licensed California broker and attorney with over $1 billion in closed transactions. His legal background is a significant advantage in Beverly Hills negotiations, where deal complexity is above average.</p>
+              </div>
 
             </div>
           </div>

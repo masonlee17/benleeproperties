@@ -15,16 +15,16 @@
   <meta property="og:title" content="Bel Air Real Estate | Ben Lee Properties">
   <meta property="og:description" content="Bel Air is entering a buyer-favorable market in 2026 with 7+ months of inventory. Ben Lee provides expert representation in this ultra-luxury Westside neighborhood.">
   <meta property="og:url" content="https://www.benleeproperties.com/cities/bel-air">
-  <meta property="og:image" content="https://www.benleeproperties.com/images/pexels-alexandr-podvalny-7599735_1pexels-alexandr-podvalny-7599735.avif">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://images.pexels.com/photos/30587972/pexels-photo-30587972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <meta property="og:image:width" content="1260">
+  <meta property="og:image:height" content="750">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bel Air Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="Bel Air is entering a buyer-favorable market in 2026 with 7+ months of inventory. Ben Lee provides expert representation in this ultra-luxury Westside neighborhood.">
-  <meta name="twitter:image" content="https://www.benleeproperties.com/images/pexels-alexandr-podvalny-7599735_1pexels-alexandr-podvalny-7599735.avif">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/30587972/pexels-photo-30587972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -121,36 +121,57 @@
   <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/images/webclip.png" rel="apple-touch-icon">
   <style>
+    .city-breadcrumb {
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 1.2em;
+    }
+    .city-breadcrumb:hover { color: #fff; }
+    .city-tagline {
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }
     .city-stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2em;
-      margin: 2em 0;
+      margin-top: 2.5em;
     }
     .city-stat-card {
       background: #fff;
       border-left: 4px solid #be591f;
-      padding: 1.5em;
+      padding: 2em 2em 1.75em;
     }
     .city-stat-value {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 700;
       color: #0a223f;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
     }
     .city-stat-label {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 0.85em;
-      color: #666;
+      font-size: 0.8em;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
     .city-content-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 3em;
+      gap: 4em;
       align-items: start;
+      margin-top: 2.5em;
     }
     .city-section-label {
       font-family: 'Montserrat', sans-serif;
@@ -164,49 +185,45 @@
     .city-body-text {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1.05em;
-      line-height: 1.75;
-      color: #2c2c2c;
+      line-height: 1.8;
+      color: #3a3a3a;
     }
     .city-list {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1em;
-      line-height: 1.9;
-      color: #2c2c2c;
+      line-height: 2;
+      color: #3a3a3a;
       padding-left: 1.2em;
     }
-    .city-faq-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1.2em 0;
+    .city-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5em;
+      margin-top: 2.5em;
     }
-    .city-faq-question {
+    .city-faq-card {
+      background: #fff;
+      border-top: 3px solid #be591f;
+      padding: 2em;
+    }
+    .city-faq-q {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: 600;
       color: #0a223f;
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: 0.75em;
+      line-height: 1.4;
     }
-    .city-faq-question::-webkit-details-marker { display: none; }
-    .city-faq-question::before {
-      content: "+ ";
-      color: #be591f;
-      font-weight: 700;
-    }
-    details[open] .city-faq-question::before {
-      content: "- ";
-    }
-    .city-faq-answer {
+    .city-faq-a {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.95em;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 0.75em;
-      padding-left: 1.2em;
+      line-height: 1.75;
+      color: #555;
     }
     .ben-callout {
       background: #0a223f;
       color: #fff;
-      padding: 2.5em;
+      padding: 3em;
       border-left: 5px solid #be591f;
     }
     .ben-callout p {
@@ -216,9 +233,13 @@
       color: #e8edf3;
       margin-bottom: 1.2em;
     }
+    @media (max-width: 991px) {
+      .city-stats-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
     @media (max-width: 767px) {
       .city-stats-grid { grid-template-columns: 1fr; }
-      .city-content-grid { grid-template-columns: 1fr; }
+      .city-content-grid { grid-template-columns: 1fr; gap: 2em; }
+      .city-faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -313,20 +334,15 @@
 
       <!-- Hero -->
       <section class="section overflow-hidden">
-        <div class="page-hero hero-is-higher">
+        <div class="page-hero">
           <div class="hero-claim">
-            <p style="opacity:1;color:#fff;font-family:Montserrat,sans-serif;font-size:0.85em;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">Westside Neighborhoods</p>
+            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">Bel Air</h1>
+            <p class="city-tagline">Gated Estates and Privacy in the Santa Monica Mountains</p>
             <div class="hero-claim-background"></div>
           </div>
-          <div class="hero-buttons-wrap">
-            <a href="#about" class="hero-button w-inline-block" style="opacity:1">
-              <p class="button-paragraph">Explore</p>
-              <img src="/images/arrow_drop_down_white_24dp.svg" loading="lazy" width="24" alt="" class="hero-button-icon">
-            </a>
-          </div>
         </div>
-        <img src="/images/pexels-alexandr-podvalny-7599735_1pexels-alexandr-podvalny-7599735.avif" loading="lazy" alt="Bel Air estate" class="cover-image-absolute">
+        <img src="https://images.pexels.com/photos/30587972/pexels-photo-30587972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" loading="lazy" alt="Bel Air estate" class="cover-image-absolute">
         <div class="background-reveal"></div>
       </section>
 
@@ -359,14 +375,14 @@
       <section id="about" class="section grey-background">
         <div class="container w-container">
           <div class="padding-8em">
+            <p class="city-section-label" style="text-align:center;">About the Neighborhood</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Living in Bel Air</h2>
             <div class="city-content-grid">
               <div>
-                <p class="city-section-label">About the Neighborhood</p>
-                <h2 class="heading-sellers-process" style="opacity:1;">Living in Bel Air</h2>
                 <p class="city-body-text">Bel Air is one of three neighborhoods that form the Platinum Triangle of Los Angeles, alongside Beverly Hills and Holmby Hills. Nestled in the foothills of the Santa Monica Mountains, it is characterized by gated communities, sweeping canyon and city views, and estates that range from architectural masterpieces to sprawling traditional compounds.<br><br>In 2025-2026, Bel Air has transitioned into a buyer's market with over 7 months of available inventory. A balanced market typically sits between 4 and 6 months, meaning buyers currently have meaningful leverage not seen in recent cycles. The Median List Price for a single-family residence in Bel Air sits at approximately $8,147,000, while properties at the ultra-luxury tier can reach nine figures.</p>
               </div>
               <div>
-                <p class="city-section-label">What Makes Bel Air Stand Out</p>
+                <p class="city-section-label">Highlights</p>
                 <ul class="city-list">
               <li>Part of the Platinum Triangle with Beverly Hills and Holmby Hills</li>
               <li>Gated communities and estates with canyon and city views</li>
@@ -423,32 +439,32 @@
       </section>
 
       <!-- FAQ -->
-      <section class="section grey-background">
+      <section class="section">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label">Common Questions</p>
-            <h2 class="heading-sellers-process" style="opacity:1;">Bel Air Real Estate FAQ</h2>
-            <div style="max-width:800px;margin-top:2em;">
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What is the median home price in Bel Air?</summary>
-                <p class="city-faq-answer">The median list price for a single-family home in Bel Air is approximately $8,147,000 as of 2026. Actual sale prices vary significantly by property, view, condition, and lot size. The market is currently in buyer-favorable territory with over 7 months of inventory.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Is now a good time to buy in Bel Air?</summary>
-                <p class="city-faq-answer">Yes. Bel Air has crossed the 7-month inventory threshold, indicating a buyer's market. A balanced market sits between 4 and 6 months of supply. Buyers in 2026 have more negotiating leverage than at any point in recent years. For qualified buyers, this is a rare window.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What neighborhoods border Bel Air?</summary>
-                <p class="city-faq-answer">Bel Air borders Beverly Hills to the south, Brentwood to the west, and Holmby Hills to the east. Together with Beverly Hills and Holmby Hills, it forms the Platinum Triangle of Los Angeles.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What makes Bel Air different from Beverly Hills?</summary>
-                <p class="city-faq-answer">Bel Air is more secluded and canyon-oriented than Beverly Hills. Properties are often gated and offer more land, privacy, and views. There is no commercial district in Bel Air itself. It tends to attract buyers who prioritize privacy and scale over walkability.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Who handles luxury real estate in Bel Air?</summary>
-                <p class="city-faq-answer">Ben Lee of Ben Lee Properties provides expert representation for Bel Air buyers and sellers. As a licensed broker and attorney, Ben navigates the legal and financial complexity of high-value transactions with precision. His Beverly Hills office at 9454 Wilshire Blvd is minutes from the Bel Air gates.</p>
-              </details>
+            <p class="city-section-label" style="text-align:center;">Common Questions</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Bel Air FAQ</h2>
+            <div class="city-faq-grid">
+              <div class="city-faq-card">
+                <p class="city-faq-q">What is the median home price in Bel Air?</p>
+                <p class="city-faq-a">The median list price for a single-family home in Bel Air is approximately $8,147,000 as of 2026. Actual sale prices vary significantly by property, view, condition, and lot size. The market is currently in buyer-favorable territory with over 7 months of inventory.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Is now a good time to buy in Bel Air?</p>
+                <p class="city-faq-a">Yes. Bel Air has crossed the 7-month inventory threshold, indicating a buyer's market. A balanced market sits between 4 and 6 months of supply. Buyers in 2026 have more negotiating leverage than at any point in recent years. For qualified buyers, this is a rare window.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What neighborhoods border Bel Air?</p>
+                <p class="city-faq-a">Bel Air borders Beverly Hills to the south, Brentwood to the west, and Holmby Hills to the east. Together with Beverly Hills and Holmby Hills, it forms the Platinum Triangle of Los Angeles.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What makes Bel Air different from Beverly Hills?</p>
+                <p class="city-faq-a">Bel Air is more secluded and canyon-oriented than Beverly Hills. Properties are often gated and offer more land, privacy, and views. There is no commercial district in Bel Air itself. It tends to attract buyers who prioritize privacy and scale over walkability.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Who handles luxury real estate in Bel Air?</p>
+                <p class="city-faq-a">Ben Lee of Ben Lee Properties provides expert representation for Bel Air buyers and sellers. As a licensed broker and attorney, Ben navigates the legal and financial complexity of high-value transactions with precision. His Beverly Hills office at 9454 Wilshire Blvd is minutes from the Bel Air gates.</p>
+              </div>
 
             </div>
           </div>

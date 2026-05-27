@@ -15,16 +15,16 @@
   <meta property="og:title" content="West Los Angeles Real Estate | Ben Lee Properties">
   <meta property="og:description" content="Ben Lee Properties covers West Los Angeles from their office at 11500 W Olympic Blvd. Get current market data and expert representation for West LA buyers and sellers.">
   <meta property="og:url" content="https://www.benleeproperties.com/cities/west-los-angeles">
-  <meta property="og:image" content="https://www.benleeproperties.com/images/pexels-curtis-adams-5353877_1pexels-curtis-adams-5353877.avif">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://images.pexels.com/photos/24304586/pexels-photo-24304586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <meta property="og:image:width" content="1260">
+  <meta property="og:image:height" content="750">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Los Angeles Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="Ben Lee Properties covers West Los Angeles from their office at 11500 W Olympic Blvd. Get current market data and expert representation for West LA buyers and sellers.">
-  <meta name="twitter:image" content="https://www.benleeproperties.com/images/pexels-curtis-adams-5353877_1pexels-curtis-adams-5353877.avif">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/24304586/pexels-photo-24304586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -121,36 +121,57 @@
   <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/images/webclip.png" rel="apple-touch-icon">
   <style>
+    .city-breadcrumb {
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 1.2em;
+    }
+    .city-breadcrumb:hover { color: #fff; }
+    .city-tagline {
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }
     .city-stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2em;
-      margin: 2em 0;
+      margin-top: 2.5em;
     }
     .city-stat-card {
       background: #fff;
       border-left: 4px solid #be591f;
-      padding: 1.5em;
+      padding: 2em 2em 1.75em;
     }
     .city-stat-value {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 700;
       color: #0a223f;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
     }
     .city-stat-label {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 0.85em;
-      color: #666;
+      font-size: 0.8em;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
     .city-content-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 3em;
+      gap: 4em;
       align-items: start;
+      margin-top: 2.5em;
     }
     .city-section-label {
       font-family: 'Montserrat', sans-serif;
@@ -164,49 +185,45 @@
     .city-body-text {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1.05em;
-      line-height: 1.75;
-      color: #2c2c2c;
+      line-height: 1.8;
+      color: #3a3a3a;
     }
     .city-list {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 1em;
-      line-height: 1.9;
-      color: #2c2c2c;
+      line-height: 2;
+      color: #3a3a3a;
       padding-left: 1.2em;
     }
-    .city-faq-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1.2em 0;
+    .city-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5em;
+      margin-top: 2.5em;
     }
-    .city-faq-question {
+    .city-faq-card {
+      background: #fff;
+      border-top: 3px solid #be591f;
+      padding: 2em;
+    }
+    .city-faq-q {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: 600;
       color: #0a223f;
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: 0.75em;
+      line-height: 1.4;
     }
-    .city-faq-question::-webkit-details-marker { display: none; }
-    .city-faq-question::before {
-      content: "+ ";
-      color: #be591f;
-      font-weight: 700;
-    }
-    details[open] .city-faq-question::before {
-      content: "- ";
-    }
-    .city-faq-answer {
+    .city-faq-a {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.95em;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 0.75em;
-      padding-left: 1.2em;
+      line-height: 1.75;
+      color: #555;
     }
     .ben-callout {
       background: #0a223f;
       color: #fff;
-      padding: 2.5em;
+      padding: 3em;
       border-left: 5px solid #be591f;
     }
     .ben-callout p {
@@ -216,9 +233,13 @@
       color: #e8edf3;
       margin-bottom: 1.2em;
     }
+    @media (max-width: 991px) {
+      .city-stats-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
     @media (max-width: 767px) {
       .city-stats-grid { grid-template-columns: 1fr; }
-      .city-content-grid { grid-template-columns: 1fr; }
+      .city-content-grid { grid-template-columns: 1fr; gap: 2em; }
+      .city-faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -313,20 +334,15 @@
 
       <!-- Hero -->
       <section class="section overflow-hidden">
-        <div class="page-hero hero-is-higher">
+        <div class="page-hero">
           <div class="hero-claim">
-            <p style="opacity:1;color:#fff;font-family:Montserrat,sans-serif;font-size:0.85em;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">Westside Neighborhoods</p>
+            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">West Los Angeles</h1>
+            <p class="city-tagline">Central Westside Access at a More Approachable Price Point</p>
             <div class="hero-claim-background"></div>
           </div>
-          <div class="hero-buttons-wrap">
-            <a href="#about" class="hero-button w-inline-block" style="opacity:1">
-              <p class="button-paragraph">Explore</p>
-              <img src="/images/arrow_drop_down_white_24dp.svg" loading="lazy" width="24" alt="" class="hero-button-icon">
-            </a>
-          </div>
         </div>
-        <img src="/images/pexels-curtis-adams-5353877_1pexels-curtis-adams-5353877.avif" loading="lazy" alt="West Los Angeles home" class="cover-image-absolute">
+        <img src="https://images.pexels.com/photos/24304586/pexels-photo-24304586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" loading="lazy" alt="Powell Library at UCLA, West Los Angeles" class="cover-image-absolute">
         <div class="background-reveal"></div>
       </section>
 
@@ -359,14 +375,14 @@
       <section id="about" class="section grey-background">
         <div class="container w-container">
           <div class="padding-8em">
+            <p class="city-section-label" style="text-align:center;">About the Neighborhood</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">Living in West Los Angeles</h2>
             <div class="city-content-grid">
               <div>
-                <p class="city-section-label">About the Neighborhood</p>
-                <h2 class="heading-sellers-process" style="opacity:1;">Living in West Los Angeles</h2>
                 <p class="city-body-text">West Los Angeles occupies a strategically central position on the Westside, stretching roughly from the 405 Freeway to the UCLA campus. It offers convenient access to Santa Monica, Culver City, Century City, and the 10 and 405 freeways, making it one of the most practical neighborhoods for professionals who need to move across the region.<br><br>Ben Lee's second office is located at 11500 W Olympic Blvd, placing his team directly in the community. West LA is one of the fastest-moving markets in the portfolio, with homes selling in an average of just 28 days. Pockets like Palms have a Walk Score of 90, and the neighborhood's mix of single-family homes, condos, and smaller apartment buildings appeals to a wide range of buyers and investors.</p>
               </div>
               <div>
-                <p class="city-section-label">What Makes West Los Angeles Stand Out</p>
+                <p class="city-section-label">Highlights</p>
                 <ul class="city-list">
               <li>Ben Lee's second office located at 11500 W Olympic Blvd</li>
               <li>Fastest-moving market in the Ben Lee portfolio, averaging 28 days on market</li>
@@ -423,32 +439,32 @@
       </section>
 
       <!-- FAQ -->
-      <section class="section grey-background">
+      <section class="section">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label">Common Questions</p>
-            <h2 class="heading-sellers-process" style="opacity:1;">West Los Angeles Real Estate FAQ</h2>
-            <div style="max-width:800px;margin-top:2em;">
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What is the median home price in West Los Angeles?</summary>
-                <p class="city-faq-answer">The median sale price in West Los Angeles is approximately $1,405,000 as of early 2026, up 7% year over year. The average sale price, skewed by larger homes, sits closer to $1,650,000. West LA is the most accessible price point among Ben Lee's core Westside neighborhoods.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">How fast do homes sell in West Los Angeles?</summary>
-                <p class="city-faq-answer">Homes in West Los Angeles sell in an average of 28 days, making it one of the fastest-moving markets on the Westside. Well-priced, updated homes in desirable pockets can attract offers within days of listing.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What makes West Los Angeles a good place to buy?</summary>
-                <p class="city-faq-answer">West LA offers central Westside access at prices below Beverly Hills and Brentwood. The Palms pocket has a Walk Score of 90. It is close to UCLA, Santa Monica, Culver City, and Century City. Strong rental demand from university affiliates and tech workers also makes it an attractive investment market.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">Where is Ben Lee's West Los Angeles office?</summary>
-                <p class="city-faq-answer">Ben Lee's West Los Angeles office is located at 11500 W Olympic Blvd, Los Angeles, CA 90064. You can reach Ben directly at (310) 704-6580 or ben@benleeproperties.com.</p>
-              </details>
-              <details class="city-faq-item">
-                <summary class="city-faq-question">What types of properties are available in West LA?</summary>
-                <p class="city-faq-answer">West Los Angeles offers a wide range of property types including single-family homes, condos, townhomes, duplexes, and small apartment buildings. This diversity makes it attractive to both owner-occupants and investors looking for rental income.</p>
-              </details>
+            <p class="city-section-label" style="text-align:center;">Common Questions</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">West Los Angeles FAQ</h2>
+            <div class="city-faq-grid">
+              <div class="city-faq-card">
+                <p class="city-faq-q">What is the median home price in West Los Angeles?</p>
+                <p class="city-faq-a">The median sale price in West Los Angeles is approximately $1,405,000 as of early 2026, up 7% year over year. The average sale price, skewed by larger homes, sits closer to $1,650,000. West LA is the most accessible price point among Ben Lee's core Westside neighborhoods.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">How fast do homes sell in West Los Angeles?</p>
+                <p class="city-faq-a">Homes in West Los Angeles sell in an average of 28 days, making it one of the fastest-moving markets on the Westside. Well-priced, updated homes in desirable pockets can attract offers within days of listing.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What makes West Los Angeles a good place to buy?</p>
+                <p class="city-faq-a">West LA offers central Westside access at prices below Beverly Hills and Brentwood. The Palms pocket has a Walk Score of 90. It is close to UCLA, Santa Monica, Culver City, and Century City. Strong rental demand from university affiliates and tech workers also makes it an attractive investment market.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">Where is Ben Lee's West Los Angeles office?</p>
+                <p class="city-faq-a">Ben Lee's West Los Angeles office is located at 11500 W Olympic Blvd, Los Angeles, CA 90064. You can reach Ben directly at (310) 704-6580 or ben@benleeproperties.com.</p>
+              </div>
+              <div class="city-faq-card">
+                <p class="city-faq-q">What types of properties are available in West LA?</p>
+                <p class="city-faq-a">West Los Angeles offers a wide range of property types including single-family homes, condos, townhomes, duplexes, and small apartment buildings. This diversity makes it attractive to both owner-occupants and investors looking for rental income.</p>
+              </div>
 
             </div>
           </div>
