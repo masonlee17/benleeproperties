@@ -59,9 +59,13 @@ def seed_volume_if_needed():
     if not os.path.exists(vol_path):
         needs_seed = True
     else:
-        vol_data = json.load(open(vol_path))
-        # Seed if the volume has no entry with a 'sections' key — old format
-        if isinstance(vol_data, list) and vol_data and not any('sections' in p for p in vol_data):
+        try:
+            vol_data = json.load(open(vol_path))
+            # Seed if the volume has no entry with a 'sections' key — old format
+            if isinstance(vol_data, list) and vol_data and not any('sections' in p for p in vol_data):
+                needs_seed = True
+        except (json.JSONDecodeError, ValueError):
+            # File is empty or corrupt (e.g. write was interrupted) — re-seed
             needs_seed = True
     if needs_seed:
         save('properties.json', repo_data)
@@ -76,7 +80,10 @@ def load(name):
 
 def save(name, data):
     os.makedirs(DATA_DIR, exist_ok=True)
-    json.dump(data, open(os.path.join(DATA_DIR, name), 'w'), indent=2)
+    path = os.path.join(DATA_DIR, name)
+    tmp  = path + '.tmp'
+    json.dump(data, open(tmp, 'w'), indent=2)
+    os.replace(tmp, path)  # atomic: never leaves a partial/empty file
 
 # Run at import time (works for both `python admin.py` and gunicorn)
 seed_volume_if_needed()
