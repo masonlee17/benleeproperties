@@ -19,9 +19,9 @@ NEIGHBORHOODS = [
         "hero_img": "https://images.pexels.com/photos/16306377/pexels-photo-16306377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "hero_img_alt": "Tree-lined residential street in Cheviot Hills",
         "meta_desc": "Cheviot Hills real estate guide from Ben Lee, the top broker in the neighborhood. Median home price $3M, developed in the 1920s, between Fox and Sony studios. Expert buyer and seller representation.",
-        "og_desc": "Ben Lee is the top-producing broker in Cheviot Hills. Get hyper-local market data, school info, and expert representation in this premier West LA neighborhood.",
+        "og_desc": "Ben Lee Properties specializes in Cheviot Hills real estate. Get hyper-local market data, school info, and expert representation in this premier West LA neighborhood.",
         "median_price": "$3,000,000",
-        "price_trend": "up 0.1% year over year",
+        "price_trend": "Up 0.1% YoY",
         "avg_dom": "36 days",
         "price_note": "Homes range from approximately $1.4M for ranch-style bungalows to $8.5M+ for newer two-story properties.",
         "about": (
@@ -49,9 +49,9 @@ NEIGHBORHOODS = [
             "Strong appreciation history since the 1920s",
         ],
         "ben_note": (
-            "Ben Lee has closed more transactions in Cheviot Hills than any other broker operating in the area. "
+            "Ben Lee has been a fixture in Cheviot Hills for years, living and working on the Westside his entire career. "
             "His deep knowledge of the neighborhood's micro-pockets, pricing dynamics, and off-market opportunities "
-            "is what consistently delivers above-asking results for sellers and below-list deals for buyers."
+            "is what consistently delivers above-asking results for sellers and strong value for buyers."
         ),
         "faqs": [
             ("What is the median home price in Cheviot Hills?",
@@ -63,7 +63,7 @@ NEIGHBORHOODS = [
             ("How long do homes typically stay on the market in Cheviot Hills?",
              "Homes in Cheviot Hills sell in approximately 36 days on average, faster than the prior year average of 43 days. Well-priced homes in desirable pockets can receive multiple offers within the first week of listing."),
             ("Who is the top real estate agent in Cheviot Hills?",
-             "Ben Lee of Ben Lee Properties is the top-producing broker in Cheviot Hills. With over $1 billion in closed transactions across the Westside and a monthly newsletter reaching 9,000+ neighborhood households, Ben provides both market reach and hyper-local expertise that national firms cannot match."),
+             "Ben Lee of Ben Lee Properties has been the go-to broker for Cheviot Hills buyers and sellers for years. His monthly neighborhood newsletter keeps 9,000+ Westside readers informed, and his deep roots in the community give clients access to off-market opportunities that rarely appear on public listings."),
         ],
     },
     {
@@ -78,7 +78,7 @@ NEIGHBORHOODS = [
         "meta_desc": "Beverlywood real estate guide from Ben Lee Properties. Median sale price $2.6M, tree-lined streets, Beverlywood Homes Association, top-rated elementary schools. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties specializes in Beverlywood real estate. Get current market data, school info, and expert representation in this hidden gem adjacent to Beverly Hills.",
         "median_price": "$2,600,000",
-        "price_trend": "up 10% year over year",
+        "price_trend": "Up 10% YoY",
         "avg_dom": "55 days",
         "price_note": "Prices are primarily driven by single-family homes. Condos and townhomes in the 90034 zip trade closer to $975,000.",
         "about": (
@@ -120,7 +120,7 @@ NEIGHBORHOODS = [
             ("Is Beverlywood a good investment?",
              "Beverlywood has shown strong long-term appreciation and is moving from a post-2022 correction into a phase of stabilization and moderate growth in 2026-2028. The combination of constrained supply, central Westside location, and top-rated schools makes it a reliable long-term hold."),
             ("Who is the best real estate agent in Beverlywood?",
-             "Ben Lee of Ben Lee Properties has covered Beverlywood as a primary service area for over 15 years. His monthly newsletter reaches Beverlywood households directly, and his track record of above-asking sales in the neighborhood is backed by over $1 billion in closed Westside transactions."),
+             "Ben Lee of Ben Lee Properties has covered Beverlywood as a primary service area for over 15 years. His monthly newsletter reaches Beverlywood households directly, and his consistent track record of above-asking sales in the neighborhood reflects deep roots in the local market."),
         ],
     },
     {
@@ -133,9 +133,9 @@ NEIGHBORHOODS = [
         "hero_img": "https://images.pexels.com/photos/19139509/pexels-photo-19139509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "hero_img_alt": "Rodeo Drive, Beverly Hills",
         "meta_desc": "Beverly Hills real estate guide from Ben Lee Properties, based at 9454 Wilshire Blvd. Median SFR price $4.85M. Expert buyer and seller representation in 90210 from a licensed broker and attorney.",
-        "og_desc": "Ben Lee Properties is based in Beverly Hills. Get expert real estate guidance in 90210, the Flats, and the Platinum Triangle from a licensed broker and attorney with $1B+ in closed deals.",
+        "og_desc": "Ben Lee Properties is based in Beverly Hills. Get expert real estate guidance in 90210, the Flats, and the Platinum Triangle from a licensed broker and attorney with deep roots in the Beverly Hills market.",
         "median_price": "$4,850,000",
-        "price_trend": "steady, with modest 2-4% annual growth projected",
+        "price_trend": "Steady, 2-4% / Year",
         "avg_dom": "117 days",
         "price_note": "Entry-level tear-downs in the Flats start at $7M-$9M. Fully renovated properties command considerably more. High-end estates above $8M see fewer but highly strategic transactions.",
         "about": (
@@ -162,10 +162,10 @@ NEIGHBORHOODS = [
             "2026 market shifting toward balanced conditions with improved buyer leverage",
         ],
         "ben_note": (
-            "Ben Lee operates his primary brokerage out of Beverly Hills' number one office at 9454 Wilshire Blvd. "
+            "Ben Lee operates his primary brokerage from 9454 Wilshire Blvd in Beverly Hills. "
             "As a licensed attorney and broker, he brings a level of legal expertise to Beverly Hills negotiations "
             "that most agents simply cannot match. Whether you are buying a property in the Flats or listing an estate "
-            "north of Sunset, Ben's track record in this market speaks for itself."
+            "north of Sunset, Ben's familiarity with this market comes from years of representing families here."
         ),
         "faqs": [
             ("What is the median home price in Beverly Hills?",
@@ -177,7 +177,7 @@ NEIGHBORHOODS = [
             ("What neighborhoods make up Beverly Hills?",
              "The main residential areas include the Beverly Hills Flats (south of Sunset), the Trousdale Estates, and the hillside areas north of Sunset leading toward Bel Air. Together with Bel Air and Holmby Hills, Beverly Hills forms the Platinum Triangle."),
             ("Who is the best real estate broker in Beverly Hills?",
-             "Ben Lee is the top-producing broker at Beverly Hills' number one office (9454 Wilshire Blvd). He is a licensed California broker and attorney with over $1 billion in closed transactions. His legal background is a significant advantage in Beverly Hills negotiations, where deal complexity is above average."),
+             "Ben Lee of Ben Lee Properties is based at 9454 Wilshire Blvd in Beverly Hills. He is a licensed California broker and attorney with over 15 years serving Westside families. His legal background is a meaningful advantage in Beverly Hills negotiations, where deal complexity is above average."),
         ],
     },
     {
@@ -192,7 +192,7 @@ NEIGHBORHOODS = [
         "meta_desc": "West Los Angeles real estate guide from Ben Lee Properties. Median home price $1.4M, 28 days on market, strong walkability in pockets. Ben Lee's second office is at 11500 W Olympic Blvd.",
         "og_desc": "Ben Lee Properties covers West Los Angeles from their office at 11500 W Olympic Blvd. Get current market data and expert representation for West LA buyers and sellers.",
         "median_price": "$1,405,000",
-        "price_trend": "up 7% year over year",
+        "price_trend": "Up 7% YoY",
         "avg_dom": "28 days",
         "price_note": "West LA offers the most accessible price point among Ben Lee's core Westside markets, with strong demand from UCLA affiliates, tech workers, and young families.",
         "about": (
@@ -249,8 +249,8 @@ NEIGHBORHOODS = [
         "meta_desc": "Bel Air real estate guide from Ben Lee Properties. Median list price $8.1M, 7+ months of inventory creating buyer leverage. Part of the Platinum Triangle. Expert luxury representation.",
         "og_desc": "Bel Air is entering a buyer-favorable market in 2026 with 7+ months of inventory. Ben Lee provides expert representation in this ultra-luxury Westside neighborhood.",
         "median_price": "$8,147,000",
-        "price_trend": "buyer-favorable, with 7+ months of inventory",
-        "avg_dom": "varies by property tier",
+        "price_trend": "Buyer's Market",
+        "avg_dom": "90-180+ Days",
         "price_note": "Bel Air has entered a buyer's market as of 2025-2026, with inventory above 7 months. Buyers have more leverage than at any point in the last several years.",
         "about": (
             "Bel Air is one of three neighborhoods that form the Platinum Triangle of Los Angeles, alongside Beverly Hills and Holmby Hills. "
@@ -276,16 +276,15 @@ NEIGHBORHOODS = [
             "Proximity to the 405 and Sunset Boulevard",
         ],
         "ben_note": (
-            "In ultra-luxury markets like Bel Air, the difference between a good agent and the right agent is measured in millions. "
-            "Ben Lee's background as a licensed attorney gives him a unique edge in complex negotiations, "
-            "trust structures, and off-market transactions. He brings the same disciplined, data-driven approach "
-            "to an $8M Bel Air estate that he applies to every transaction in his portfolio."
+            "Bel Air transactions are complex, and having an agent who is also a licensed attorney makes a real difference. "
+            "Ben Lee's background in law gives him a practical edge in negotiations, trust structures, and off-market transactions. "
+            "He brings the same disciplined, data-driven approach to an $8M Bel Air estate that he brings to every client relationship."
         ),
         "faqs": [
             ("What is the median home price in Bel Air?",
              "The median list price for a single-family home in Bel Air is approximately $8,147,000 as of 2026. Actual sale prices vary significantly by property, view, condition, and lot size. The market is currently in buyer-favorable territory with over 7 months of inventory."),
             ("Is now a good time to buy in Bel Air?",
-             "Yes. Bel Air has crossed the 7-month inventory threshold, indicating a buyer's market. A balanced market sits between 4 and 6 months of supply. Buyers in 2026 have more negotiating leverage than at any point in recent years. For qualified buyers, this is a rare window."),
+             "Yes. Bel Air has crossed the 7-month inventory threshold, indicating a buyer's market. A balanced market sits between 4 and 6 months of supply. Buyers in 2026 have more negotiating leverage than at any point in recent years. For buyers who are ready to move thoughtfully, this period offers more choices and more time than Bel Air has seen in years."),
             ("What neighborhoods border Bel Air?",
              "Bel Air borders Beverly Hills to the south, Brentwood to the west, and Holmby Hills to the east. Together with Beverly Hills and Holmby Hills, it forms the Platinum Triangle of Los Angeles."),
             ("What makes Bel Air different from Beverly Hills?",
@@ -306,7 +305,7 @@ NEIGHBORHOODS = [
         "meta_desc": "Brentwood Los Angeles real estate guide from Ben Lee Properties. Median home price $3.25M, top private schools, the Getty Center, and San Vicente's coral trees. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties covers Brentwood real estate in Los Angeles. Get current market data, school rankings, and expert representation in 90049 from a licensed broker and attorney.",
         "median_price": "$3,250,000",
-        "price_trend": "stable, with strong long-term appreciation driven by constrained supply",
+        "price_trend": "Stable, Appreciating",
         "avg_dom": "79 days",
         "price_note": "Prices range from $2.5M for standard single-family homes to $20M+ in premier pockets like Brentwood Park and Mandeville Canyon. New construction is limited to teardown-rebuild projects.",
         "about": (
@@ -341,7 +340,7 @@ NEIGHBORHOODS = [
         ),
         "faqs": [
             ("What is the median home price in Brentwood?",
-             "The median home price in Brentwood is approximately $3,250,000 as of late 2025. Prices range from $2.5M for standard single-family homes to $20M+ in Brentwood Park and Mandeville Canyon. Condos range from $800,000 to over $5M for luxury units."),
+             "The median home price in Brentwood is approximately $3,250,000 as of early 2026. Prices range from $2.5M for standard single-family homes to $20M+ in Brentwood Park and Mandeville Canyon. Condos range from $800,000 to over $5M for luxury units."),
             ("What schools serve Brentwood?",
              "Brentwood is served by Kenter Canyon Elementary (rated 9/10) and Paul Revere Middle (rated 8/10), both in the top 10% of LAUSD schools. The neighborhood is also home to two of LA's top five private schools: Brentwood School and Archer School for Girls."),
             ("Why do homes in Brentwood hold their value?",
@@ -349,7 +348,7 @@ NEIGHBORHOODS = [
             ("What is the Brentwood Country Mart?",
              "Brentwood Country Mart is a beloved open-air retail and dining complex on 26th Street and San Vicente Boulevard. It has served as a neighborhood gathering point since 1948 and includes restaurants, boutiques, and farmers market events."),
             ("How does Ben Lee cover the Brentwood market?",
-             "Ben Lee covers Brentwood from his West LA office at 11500 W Olympic Blvd and his Beverly Hills office at 9454 Wilshire Blvd. His monthly newsletter reaches Brentwood households directly, and his database of active Westside buyers gives sellers an immediate audience before hitting the open market."),
+             "Ben Lee covers Brentwood from his West LA office at 11500 W Olympic Blvd and his Beverly Hills office at 9454 Wilshire Blvd. His monthly newsletter reaches Brentwood households directly, and his network of active Westside buyers gives sellers an immediate audience before hitting the open market."),
         ],
     },
     {
@@ -364,7 +363,7 @@ NEIGHBORHOODS = [
         "meta_desc": "Santa Monica real estate guide from Ben Lee Properties. Median SFR price $3.85M, beach access, top schools, and strict zoning that limits supply. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties covers Santa Monica real estate. Get current market data, neighborhood breakdowns, and expert representation in this coastal Westside city.",
         "median_price": "$3,850,000",
-        "price_trend": "projected to rise 3.2% through end of 2026",
+        "price_trend": "Up ~3% in 2026",
         "avg_dom": "52 days",
         "price_note": "Single-family homes range from $1.5M in Sunset Park to $4.5M+ north of Montana. Condos start near $1.25M. Strict zoning limits new construction to under 200 units annually.",
         "about": (
@@ -394,7 +393,7 @@ NEIGHBORHOODS = [
         "ben_note": (
             "Santa Monica requires a broker who understands the nuances of each sub-neighborhood. "
             "North of Montana, Sunset Park, Ocean Park, and Downtown Santa Monica each have distinct price drivers. "
-            "Ben Lee's data-driven pricing approach and his reach into the Westside buyer pool mean Santa Monica "
+            "Ben Lee's data-driven pricing approach and his network of active Westside buyers mean Santa Monica "
             "sellers consistently attract qualified, motivated buyers."
         ),
         "faqs": [
@@ -441,9 +440,9 @@ NAVBAR = """    <div class="aside-menu">
             <div class="menu-main-links">
               <a href="../index.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Home</p></a>
               <a href="../about.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">About</p></a>
-              <a href="../for-buyers-3.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For buyers</p></a>
+              <a href="../for-buyers-3.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For Buyers</p></a>
               <a href="../cities.html" class="menu-link w-inline-block w--current"><p class="menu-link-paragraph">Cities</p></a>
-              <a href="../for-sellers.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For sellers</p></a>
+              <a href="../for-sellers.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For Sellers</p></a>
               <a href="../valuation.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Valuation</p></a>
               <a href="../blog.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Newsletter</p></a>
               <a href="../contact.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Contact</p></a>
@@ -510,6 +509,7 @@ FOOTER = """      <footer id="footer" class="footer blp-footer">
               <a href="../for-buyers-3.html" class="blp-footer-link">Buyer</a>
               <a href="../for-sellers.html" class="blp-footer-link">Seller</a>
               <a href="../about.html" class="blp-footer-link">About</a>
+              <a href="../cities.html" class="blp-footer-link">Cities</a>
               <a href="../blog.html" class="blp-footer-link">Newsletter</a>
               <a href="../contact.html" class="blp-footer-link">Contact</a>
             </nav>
@@ -811,7 +811,7 @@ def build_page(n):
                 <div class="city-stat-label">Avg. Days on Market</div>
               </div>
               <div class="city-stat-card">
-                <div class="city-stat-value" style="font-size:1.2em;">{n["price_trend"].title()}</div>
+                <div class="city-stat-value">{n["price_trend"]}</div>
                 <div class="city-stat-label">Price Trend</div>
               </div>
             </div>
@@ -862,7 +862,7 @@ def build_page(n):
               <p class="city-section-label" style="color:#be591f;">Your Agent in {n["name"]}</p>
               <h2 style="font-family:Montserrat,sans-serif;font-size:1.8em;font-weight:400;color:#fff;margin-bottom:0.8em;">Ben Lee | Broker, Attorney, Westside Specialist</h2>
               <p>{n["ben_note"]}</p>
-              <p>Licensed California Broker (CalRE #01808926) and Attorney. Over $1 billion in closed transactions. Monthly newsletter reaching 9,000+ Westside households.</p>
+              <p>Licensed California Broker (CalRE #01808926) and Attorney. 15+ years serving Westside families. Monthly newsletter reaching 9,000+ neighbors.</p>
               <div style="margin-top:1.5em;display:flex;gap:1em;flex-wrap:wrap;">
                 <a href="../contact.html" class="button w-inline-block" style="display:inline-flex;align-items:center;">
                   <p class="button-paragraph">Get in Touch</p>
