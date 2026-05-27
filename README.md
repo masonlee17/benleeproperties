@@ -54,6 +54,7 @@ css/                         Webflow CSS (do not edit)
 | `/cities` `/cities.html` | 301 redirect to `/neighborhoods` |
 | `/cities/<slug>` | City page — dynamic: injects active listings for that neighborhood |
 | `/for-buyers-3` | Live listings — dynamic: injects all `live_listings` properties |
+| `/deals` `/deals.html` | Former Deals page, dynamic: injects all `former_deals` properties |
 | `/current-listings` | Built by Ben page — dynamic |
 | `/blog` | Newsletter index — dynamic |
 | `/market-updates/<slug>` | Newsletter page — static serve from `market-updates/<slug>.html` |

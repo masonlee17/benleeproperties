@@ -10,7 +10,8 @@ Env vars:
   PORT            port to bind (set automatically by Railway)
 """
 
-import json, os, re, uuid, calendar
+import json, os, re, uuid, calendar, glob
+import html as _html
 from functools import wraps
 from werkzeug.utils import secure_filename
 import datetime
@@ -205,6 +206,250 @@ def build_newsletter_sections(newsletters):
     return '\n'.join(sections)
 
 
+# ── Newsletter search index (BM25) ────────────────────────────────────────────
+
+_nl_docs = []   # [{slug, label, url, cover, text, paragraphs}, ...]
+_bm25    = None # BM25Okapi instance (None if rank_bm25 not installed)
+
+def build_newsletter_search_index():
+    """Scan market-updates/*.html, extract nl-text-body text, build BM25 index.
+    Called once at startup. Re-call after adding new newsletter HTML files."""
+    global _nl_docs, _bm25
+    docs = []
+    mu_dir = os.path.join(BASE_DIR, 'market-updates')
+    if not os.path.isdir(mu_dir):
+        return
+
+    # Pull metadata (label, cover, html_url) from newsletters.json
+    nl_meta = {}
+    for n in load('newsletters.json'):
+        url = n.get('html_url', '')
+        if url:
+            slug = url.replace('/market-updates/', '').strip('/')
+            nl_meta[slug] = {
+                'label': n.get('label', ''),
+                'cover': n.get('cover', ''),
+                'url':   url,
+            }
+
+    for html_file in sorted(glob.glob(os.path.join(mu_dir, '*.html'))):
+        slug = os.path.basename(html_file).replace('.html', '')
+        try:
+            content = open(html_file, encoding='utf-8').read()
+        except Exception:
+            continue
+        # Extract nl-text-body article
+        m = re.search(r'<article[^>]*nl-text-body[^>]*>(.*?)</article>', content, re.DOTALL)
+        if not m:
+            continue
+        article_html = m.group(1)
+        # Extract paragraph text, strip inner tags, unescape HTML entities
+        paras_raw = re.findall(r'<p[^>]*>(.*?)</p>', article_html, re.DOTALL)
+        paras = [_html.unescape(re.sub(r'<[^>]+>', '', p)).strip() for p in paras_raw]
+        paras = [p for p in paras if len(p) > 12]  # drop very short / boilerplate lines
+        # Short property listing lines like "10422 Lorenzo Pl." (18 chars) are valuable —
+        # keep them so address searches find all newsletter mentions.
+        if not paras:
+            continue
+
+        meta  = nl_meta.get(slug, {})
+        label = meta.get('label') or slug.replace('-', ' ').title()
+        url   = meta.get('url')   or f'/market-updates/{slug}'
+        cover = meta.get('cover', '')
+
+        docs.append({
+            'slug':       slug,
+            'label':      label,
+            'url':        url,
+            'cover':      cover,
+            'text':       ' '.join(paras),
+            'paragraphs': paras,
+        })
+
+    _nl_docs = docs
+    if not docs:
+        return
+
+    try:
+        from rank_bm25 import BM25Plus
+        # BM25Plus uses IDF = log((N+1)/df) which is always positive.
+        # BM25Okapi's IDF can go negative when a term appears in >50% of docs
+        # (e.g. Ben's office address "10422 Lorenzo" which is in ~20/34 newsletters).
+        # BM25Plus ensures high-frequency terms still score positively.
+        tokenized = [_tokenize(doc['text']) for doc in docs]
+        _bm25 = BM25Plus(tokenized)
+    except ImportError:
+        _bm25 = None  # graceful fallback to keyword search
+
+
+def _tokenize(text):
+    """Split text into lowercase alphanumeric tokens, stripping punctuation.
+    Keeps numbers so street addresses like '16879 Glenbarr' are fully searchable.
+    '16879 Glenbarr Ave' -> ['16879', 'glenbarr', 'ave']
+    'ice cream!'         -> ['ice', 'cream']
+    Single-character tokens are dropped to avoid noise."""
+    return [t for t in re.findall(r'[a-z0-9]+', text.lower()) if len(t) > 1]
+
+
+def _best_snippet(paragraphs, tokens, max_len=220):
+    """Return (best_paragraph, hit_count).
+    Picks the paragraph with the most whole-word token matches.
+    Uses word-boundary matching so 'ice' does not count inside 'nice' or 'license'."""
+    best_para  = paragraphs[0] if paragraphs else ''
+    best_count = -1
+    for para in paragraphs:
+        pl    = para.lower()
+        count = sum(len(re.findall(r'\b' + re.escape(t) + r'\b', pl)) for t in tokens)
+        if count > best_count:
+            best_count = count
+            best_para  = para
+    if len(best_para) > max_len:
+        cut = best_para[:max_len].rfind(' ')
+        best_para = best_para[:cut if cut > 0 else max_len] + '...'
+    return best_para, best_count
+
+
+def _highlight_snippet(snippet, tokens):
+    """Escape HTML entities in snippet and bold whole-word matches in brand red.
+    Uses word boundaries so 'ice' never highlights inside 'nice' or 'license'."""
+    safe = _html.escape(snippet)
+    for tok in sorted(tokens, key=len, reverse=True):
+        if len(tok) < 3:
+            continue
+        safe = re.sub(
+            r'\b' + re.escape(_html.escape(tok)) + r'\b',
+            lambda m: f'<strong class="blp-hl">{m.group()}</strong>',
+            safe, flags=re.IGNORECASE
+        )
+    return safe
+
+
+def newsletter_search(q, top_n=12):
+    """Return top_n newsletter dicts matching query q, each with a 'snippet' key.
+    Results are filtered to only include newsletters where the best paragraph
+    actually contains at least one query term (whole-word match)."""
+    if not _nl_docs or not q.strip():
+        return []
+    tokens = _tokenize(q)
+    if not tokens:
+        return []
+
+    def _all_tokens_present(doc_text, toks):
+        """Return True only if every query token appears as a whole word in doc_text."""
+        dl = doc_text.lower()
+        return all(re.search(r'\b' + re.escape(t) + r'\b', dl) for t in toks)
+
+    if _bm25 is not None:
+        scores = _bm25.get_scores(tokens)
+        ranked = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)
+        results = []
+        for idx, score in ranked:
+            if len(results) >= top_n:
+                break
+            doc = _nl_docs[idx]
+            # Hard filter: every query token must be present somewhere in the doc.
+            # This prevents "2765 anchor" returning all newsletters that mention
+            # "anchor" without the specific street number.
+            if not _all_tokens_present(doc['text'], tokens):
+                continue
+            snippet, hit_count = _best_snippet(doc['paragraphs'], tokens)
+            if hit_count == 0:
+                continue  # no paragraph contains any token; skip
+            results.append({**doc, 'score': round(score, 3), 'snippet': snippet})
+        return results
+    else:
+        # Simple keyword fallback: all tokens must appear as whole words
+        results = []
+        for doc in _nl_docs:
+            if _all_tokens_present(doc['text'], tokens):
+                snippet, _ = _best_snippet(doc['paragraphs'], tokens)
+                results.append({**doc, 'score': 1, 'snippet': snippet})
+        return results[:top_n]
+
+
+def build_search_bar_html(q=''):
+    """Render the search bar form with optional pre-filled query."""
+    safe_q = _html.escape(q)
+    return (
+        '      <section class="section blp-nl-search-wrap">\n'
+        '        <div class="container w-container">\n'
+        f'          <form action="/blog" method="GET" class="blp-nl-search-form" role="search" aria-label="Search newsletters">\n'
+        f'            <input type="search" name="q" value="{safe_q}" placeholder="Search all newsletters..." '
+        'class="blp-nl-search-input" aria-label="Search newsletters" autocomplete="off">\n'
+        '            <button type="submit" class="blp-nl-search-btn" aria-label="Search">'
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+        'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'
+        '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'
+        '</svg></button>\n'
+        '          </form>\n'
+        '        </div>\n'
+        '      </section>'
+    )
+
+
+def build_search_results_html(q):
+    """Render search results as a newsletter card grid."""
+    results = newsletter_search(q)
+    tokens  = q.lower().split()
+
+    if not results:
+        safe_q = _html.escape(q)
+        return (
+            '      <section class="section white-border-bottom">\n'
+            '        <div class="container w-container">\n'
+            '          <div class="padding-8em">\n'
+            f'            <p class="toptitle-paragraph">No results found for <em>{safe_q}</em>'
+            ' &nbsp;<a href="/blog" style="color:#ed2227;font-size:0.85em;text-decoration:underline;">clear</a></p>\n'
+            '          </div>\n'
+            '        </div>\n'
+            '      </section>'
+        )
+
+    img_box  = 'position:relative;width:100%;padding-bottom:75%;height:0;overflow:hidden;margin:0 0 0.75em 0;flex-shrink:0;display:block;'
+    img_self = 'position:absolute;top:0;left:0;width:100%;height:118%;object-fit:cover;object-position:top center;display:block;'
+    card_box = 'display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:100%;box-sizing:border-box;text-decoration:none;'
+
+    cards = []
+    for r in results:
+        cover   = r.get('cover', '')
+        label   = _html.escape(r.get('label', r['slug']))
+        url     = r.get('url', '#')
+        snippet = _highlight_snippet(r.get('snippet', ''), tokens)
+        img_tag = f'<img src="{cover}" loading="lazy" alt="" style="{img_self}">' if cover else ''
+        cards.append(
+            f'              <a href="{url}" class="blog-link-block w-inline-block blp-search-card" style="{card_box}">\n'
+            f'                <div class="blog-image" style="{img_box}">{img_tag}</div>\n'
+            f'                <h2 class="blog-heading" style="text-align:left;width:100%;margin:0 0 0.4em 0;">{label}</h2>\n'
+            f'                <p class="blp-search-snippet">{snippet}</p>\n'
+            '              </a>'
+        )
+
+    count = len(results)
+    word  = 'result' if count == 1 else 'results'
+    safe_q = _html.escape(q)
+
+    lines = [
+        '      <section class="section white-border-bottom">',
+        '        <div class="container w-container">',
+        '          <div class="padding-8em">',
+        f'            <p class="toptitle-paragraph" style="margin-bottom:1.5em;">'
+        f'{count} {word} for <em>{safe_q}</em>'
+        ' &nbsp;<a href="/blog" style="color:#ed2227;font-size:0.85em;text-decoration:underline;">clear</a></p>',
+        '            <div class="w-layout-grid grid">',
+    ] + cards + [
+        '            </div>',
+        '          </div>',
+        '        </div>',
+        '      </section>',
+    ]
+    return '\n'.join(lines)
+
+
+# Build newsletter search index at startup (< 1s for 34 issues; ~2-3s at 200)
+# Re-call or restart after adding new market-updates/*.html files.
+build_newsletter_search_index()
+
+
 def build_property_items(properties):
     """Card generator for current-listings.html — standard template matching all other listing pages."""
     cards = []
@@ -270,6 +515,69 @@ def build_property_items(properties):
 
 def build_listing_items(listings):
     """HTML generator for for-buyers-3.html — different card structure from Built by Ben."""
+    cards = []
+    for p in sorted(listings, key=lambda x: x.get('order', 999)):
+        addr   = p.get('address', '')
+        city   = p.get('city', 'Los Angeles')
+        price  = p.get('price', '')
+        rent   = p.get('rent', '')
+        beds   = p.get('beds', '')
+        baths  = p.get('baths', '')
+        sqft   = p.get('sqft', '')
+        status = p.get('status', 'FOR SALE')
+        img1   = p.get('image1', '')
+        img2   = p.get('image2', '')
+
+        detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
+
+        card = [
+            '                        <div role="listitem" class="property-grid-item w-dyn-item">',
+            '                          <div class="property-link with-radius">',
+            '                            <div class="property-image-grid">',
+            f'                              <a href="{detail_url}" aria-label="Contact Ben" class="circle-button in-property-2 w-inline-block">',
+            '                                <div class="ciricle-outline is-white"></div>'
+            '<img loading="lazy" src="images/arrow_right_white_24dp.svg" alt="Contact" class="ciricle-icon">',
+            '                              </a>',
+        ]
+        if img1:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="{img1}" class="property-image is-1st">')
+        if img2:
+            card.append(f'                              <img alt="{addr}" loading="lazy" src="{img2}" class="property-image is-2nd">')
+        card += [
+            '                            </div>',
+            f'                            <a href="{detail_url}" class="property-inner w-inline-block">',
+            f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
+            '                            </a>',
+            '                            <div class="property-details">',
+            price_block_html(status, price, rent, '                              '),
+            '                            </div>',
+            '                            <div class="property-details">',
+            '                              <div class="property-detail-block-3">',
+        ]
+        if beds:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/bed_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{beds}</div><p class="tooltip">Bedrooms</p></div>')
+        if baths:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/shower_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{baths}</div><p class="tooltip">Bathrooms</p></div>')
+        if sqft:
+            card.append(f'                                <div class="property-detail-amenity with-tooltip">'
+                        f'<img alt="" loading="lazy" src="images/select_all_black_24dp.svg" class="property-detail-amenity-icon">'
+                        f'<div>{sqft} sqft</div><p class="tooltip">Interior size</p></div>')
+        card += [
+            '                              </div>',
+            '                            </div>',
+            '                          </div>',
+            '                        </div>',
+        ]
+        cards.append('\n'.join(card))
+    return '\n'.join(cards)
+
+
+def build_deals_items(listings):
+    """HTML generator for deals.html — identical card structure to build_listing_items."""
     cards = []
     for p in sorted(listings, key=lambda x: x.get('order', 999)):
         addr   = p.get('address', '')
@@ -829,8 +1137,30 @@ def market_update(slug):
 @app.route('/blog')
 @app.route('/blog.html')
 def blog():
-    return render_dynamic('blog.html', 'NEWSLETTERS',
-                          build_newsletter_sections(load('newsletters.json')))
+    q = request.args.get('q', '').strip()
+    path = os.path.join(BASE_DIR, 'blog.html')
+    text = open(path, encoding='utf-8').read()
+
+    # Replace search bar (pre-fill value when query is present)
+    bar_html = build_search_bar_html(q)
+    text = re.sub(
+        r'<!-- ADMIN:SEARCH_BAR:START -->.*?<!-- ADMIN:SEARCH_BAR:END -->',
+        f'<!-- ADMIN:SEARCH_BAR:START -->\n{bar_html}\n<!-- ADMIN:SEARCH_BAR:END -->',
+        text, flags=re.DOTALL
+    )
+
+    # Replace newsletter grid with search results or full archive
+    if q:
+        grid_html = build_search_results_html(q)
+    else:
+        grid_html = build_newsletter_sections(load('newsletters.json'))
+    text = re.sub(
+        r'<!-- ADMIN:NEWSLETTERS:START -->.*?<!-- ADMIN:NEWSLETTERS:END -->',
+        f'<!-- ADMIN:NEWSLETTERS:START -->\n{grid_html}\n<!-- ADMIN:NEWSLETTERS:END -->',
+        text, flags=re.DOTALL
+    )
+
+    return Response(text, mimetype='text/html')
 
 @app.route('/current-listings')
 @app.route('/current-listings.html')
@@ -843,6 +1173,12 @@ def current_listings():
 def for_buyers():
     return render_dynamic('for-buyers-3.html', 'LISTINGS',
                           build_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
+
+@app.route('/deals')
+@app.route('/deals.html')
+def deals_page():
+    return render_dynamic('deals.html', 'DEALS',
+                          build_deals_items([p for p in load('properties.json') if 'former_deals' in p.get('sections', [])]))
 
 @app.route('/valuation')
 @app.route('/valuation.html')
@@ -1374,6 +1710,9 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
               <input type="checkbox" id="p-section-home" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Homepage
             </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-section-deals" style="width:16px;height:16px;cursor:pointer;accent-color:#ed2227"> Former Deals
+            </label>
           </div>
           <div class="hint">Controls which pages this property appears on. Homepage shows it in the featured section on the front page.</div>
         </div>
@@ -1415,6 +1754,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
     </div>
     <div class="modal-ft">
       <button class="btn-secondary" id="cancel-prop">Cancel</button>
+      <button type="button" id="move-to-deals-btn" style="padding:0.55em 1.2em;background:#0a223f;color:#fff;border:none;border-radius:4px;font-family:Montserrat,sans-serif;font-size:0.8em;font-weight:600;cursor:pointer;letter-spacing:.05em">MOVE TO DEALS</button>
       <button class="btn-primary" id="save-prop">Save &amp; Publish</button>
     </div>
   </div>
@@ -1686,6 +2026,7 @@ function renderProperties() {
             ${(p.sections||[]).includes('live_listings') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#059669;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Live</span>' : ''}
             ${(p.sections||[]).includes('built_by_ben') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#07264b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Built by Ben</span>' : ''}
             ${(p.sections||[]).includes('homepage') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#be591f;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Homepage</span>' : ''}
+            ${(p.sections||[]).includes('former_deals') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#ed2227;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Deals</span>' : ''}
             ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Detail Page</span>' : ''}
             ${(p.neighborhoods||[]).length ? `<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#0891b2;color:#fff;padding:1px 7px;border-radius:2em">${p.neighborhoods.length} City Page${p.neighborhoods.length>1?'s':''}</span>` : ''}
           </div>
@@ -1730,9 +2071,10 @@ function openEditProp(id) {
   }
   $('#p-desc').value   = p.description || '';
   $('#p-has-detail').checked = !!p.has_detail_page;
-  $('#p-section-live').checked = (p.sections || []).includes('live_listings');
-  $('#p-section-bbb').checked  = (p.sections || []).includes('built_by_ben');
-  $('#p-section-home').checked = (p.sections || []).includes('homepage');
+  $('#p-section-live').checked  = (p.sections || []).includes('live_listings');
+  $('#p-section-bbb').checked   = (p.sections || []).includes('built_by_ben');
+  $('#p-section-home').checked  = (p.sections || []).includes('homepage');
+  $('#p-section-deals').checked = (p.sections || []).includes('former_deals');
   CITY_SLUGS.forEach(slug => {
     const el = $(`#p-nbhd-${slug}`);
     if (el) el.checked = (p.neighborhoods || []).includes(slug);
@@ -1751,9 +2093,10 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-img1-preview').innerHTML = ''; $('#p-img2-preview').innerHTML = '';
   clearExtraImgs();
   $('#p-desc').value = ''; $('#p-has-detail').checked = false;
-  $('#p-section-live').checked = false;
-  $('#p-section-bbb').checked  = false;
-  $('#p-section-home').checked = false;
+  $('#p-section-live').checked  = false;
+  $('#p-section-bbb').checked   = false;
+  $('#p-section-home').checked  = false;
+  $('#p-section-deals').checked = false;
   CITY_SLUGS.forEach(slug => { const el = $(`#p-nbhd-${slug}`); if (el) el.checked = false; });
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
@@ -1781,6 +2124,13 @@ $('#close-prop-modal').addEventListener('click', closePropModal);
 $('#cancel-prop').addEventListener('click', closePropModal);
 $('#prop-modal').addEventListener('click', e => { if (e.target === $('#prop-modal')) closePropModal(); });
 
+$('#move-to-deals-btn').addEventListener('click', () => {
+  $('#p-section-deals').checked = true;
+  $('#p-section-live').checked  = false;
+  $('#p-section-home').checked  = false;
+  $('#save-prop').click();
+});
+
 $('#save-prop').addEventListener('click', async () => {
   if (!$('#p-address').value.trim()) { toast('Address is required', true); return; }
   if (!$('#p-image1').value.trim()) { toast('Please upload a primary photo first', true); return; }
@@ -1800,9 +2150,10 @@ $('#save-prop').addEventListener('click', async () => {
     description:     $('#p-desc').value.trim(),
     has_detail_page: $('#p-has-detail').checked,
     sections: [
-      ...($('#p-section-live').checked ? ['live_listings'] : []),
-      ...($('#p-section-bbb').checked  ? ['built_by_ben']  : []),
-      ...($('#p-section-home').checked ? ['homepage']      : []),
+      ...($('#p-section-live').checked  ? ['live_listings'] : []),
+      ...($('#p-section-bbb').checked   ? ['built_by_ben']  : []),
+      ...($('#p-section-home').checked  ? ['homepage']      : []),
+      ...($('#p-section-deals').checked ? ['former_deals']  : []),
     ],
     neighborhoods: CITY_SLUGS.filter(slug => { const el = $(`#p-nbhd-${slug}`); return el && el.checked; }),
   };
