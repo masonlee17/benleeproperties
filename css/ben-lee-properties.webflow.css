@@ -1853,6 +1853,7 @@ figcaption {
 }
 
 .form-field.is--area {
+  width: 100%;
   min-height: 7em;
   padding-top: 1.5em;
 }
@@ -1913,7 +1914,7 @@ figcaption {
 }
 
 .submit-form {
-  background-color: var(--chocolate);
+  background-color: #d62828;
   text-align: center;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1929,7 +1930,7 @@ figcaption {
 }
 
 .submit-form:hover {
-  background-color: #883d11;
+  background-color: #b01e1e;
   background-position: 90%;
 }
 
@@ -9841,6 +9842,12 @@ figcaption {
   flex: 1;
   min-width: 0;
 }
+.blp-pd-tour-form-col {
+  flex: 2.2;
+}
+.blp-pd-half {
+  width: 48%;
+}
 .blp-pd-tour-heading {
   color: #fff;
   font-size: 1.8em;
@@ -9860,54 +9867,74 @@ figcaption {
 .blp-pd-tour-agent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-top: 0.5em;
+  align-items: center;
+  text-align: center;
+  padding-top: 5em;
 }
 .blp-pd-agent-photo {
-  width: 140px;
-  height: 175px;
+  width: 170px;
+  height: 210px;
   object-fit: cover;
-  border-radius: 2px;
-  margin-bottom: 1.2em;
+  border-radius: 4px;
+  margin-bottom: 1.4em;
   flex-shrink: 0;
 }
 .blp-pd-agent-name {
-  font-size: 1.3em;
+  font-size: 1.6em;
   font-weight: 600;
   color: #fff;
   margin-bottom: 0.3em;
 }
 .blp-pd-agent-title {
-  font-size: 0.78em;
+  font-size: 0.88em;
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.04em;
-  margin-bottom: 1.2em;
+  margin-bottom: 1.4em;
   line-height: 1.5;
 }
 .blp-pd-agent-contact {
   display: block;
-  font-size: 0.85em;
+  font-size: 0.95em;
   color: rgba(255,255,255,0.75);
   text-decoration: none;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.5em;
   transition: color 0.18s;
 }
 .blp-pd-agent-contact:hover {
   color: #fff;
 }
 
+.blp-pd-message-area {
+  width: 100%;
+  min-height: 5em;
+  resize: vertical;
+}
+
 /* Tour form — override form-blue for dark background */
 .blp-pd-tour-section .form-field.form-blue {
   background: rgba(255,255,255,0.07);
   border-color: rgba(255,255,255,0.18);
+  border-radius: 4px;
   color: #fff;
+  padding: 1.6em 0.9em 0.6em;
+  min-height: 3.5em;
 }
 .blp-pd-tour-section .form-field.form-blue::placeholder {
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.35);
 }
 .blp-pd-tour-section .form-field.form-blue:focus {
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.55);
   background: rgba(255,255,255,0.11);
+  outline: none;
+}
+.blp-pd-tour-section .form-block {
+  border-bottom: none;
+}
+.blp-pd-tour-section .form-label {
+  top: 0.55em;
+  left: 0.9em;
+  font-size: 0.65em;
+  letter-spacing: 0.12em;
 }
 .blp-pd-tour-section .submit-form {
   background: #fff;

@@ -295,9 +295,6 @@
 
   /* ─────────────────────────────────────────
      CONTACT FORM HANDLER
-     .w-form wrapper and its done/fail divs have been replaced with
-     plain .blp-form-wrap / .blp-form-done / .blp-form-fail classes
-     so Webflow.js never touches these forms.
   ───────────────────────────────────────── */
   document.querySelectorAll('form[action="/contact-submit"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
@@ -318,18 +315,11 @@
         headers: { 'X-Requested-With': 'fetch' }
       })
       .then(function (r) {
-        if (r.ok) {
-          form.style.display = 'none';
-          if (done) done.style.display = 'block';
-        } else {
-          return r.text().then(function(t) {
-            console.error('[BLP] contact-submit error', r.status, t);
-            throw new Error('status ' + r.status);
-          });
-        }
+        if (!r.ok) throw new Error('status ' + r.status);
+        form.style.display = 'none';
+        if (done) done.style.display = 'block';
       })
-      .catch(function (err) {
-        console.error('[BLP] contact-submit failed:', err);
+      .catch(function () {
         if (btn) { btn.disabled = false; btn.value = originalLabel; }
         if (fail) fail.style.display = 'block';
       });

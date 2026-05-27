@@ -81,6 +81,27 @@ def save(name, data):
 # Run at import time (works for both `python admin.py` and gunicorn)
 seed_volume_if_needed()
 
+def migrate_homepage_section():
+    """One-time migration: give every live_listings property the homepage section tag."""
+    vol_path = os.path.join(DATA_DIR, 'properties.json')
+    if not os.path.exists(vol_path):
+        return
+    try:
+        props = json.load(open(vol_path))
+        changed = False
+        for p in props:
+            secs = p.get('sections', [])
+            if 'live_listings' in secs and 'homepage' not in secs:
+                secs.append('homepage')
+                p['sections'] = secs
+                changed = True
+        if changed:
+            save('properties.json', props)
+    except Exception:
+        pass
+
+migrate_homepage_section()
+
 def render_dynamic(filename, marker, section_html):
     """Return an HTML file with the admin-managed section replaced live."""
     path = os.path.join(BASE_DIR, filename)
@@ -741,85 +762,85 @@ def admin_ui():
 @app.route('/index.html')
 def homepage():
     return render_dynamic('index.html', 'INDEX_LISTINGS',
-                          build_index_listing_items([p for p in load('properties.json') if 'live_listings' in p.get('sections', [])]))
+                          build_index_listing_items([p for p in load('properties.json') if 'homepage' in p.get('sections', [])]))
 
-# ── Contact form submission ────────────────────────────────────────────────────
+# ── Contacts ──────────────────────────────────────────────────────────────────
 
-SOURCE_LABELS = {
+_SOURCE_LABELS = {
     'contact':          'Contact Page',
     'contact-2':        'Contact Page (alt)',
     'tour':             'Property Tour Request',
     'valuation':        'Valuation Page',
     'current-listings': 'Current Listings Page',
     'for-sellers':      'For Sellers Page',
+    'homepage':         'Homepage',
+    'about':            'About Page',
+    'sold-properties':  'Sold Properties',
+    'for-buyers':       'For Buyers Page',
 }
 
-def _contacts_path():
-    return os.path.join(DATA_DIR, 'contacts.json')
-
 def _load_contacts():
+    p = os.path.join(DATA_DIR, 'contacts.json')
     try:
-        return json.load(open(_contacts_path())) if os.path.exists(_contacts_path()) else []
+        return json.load(open(p)) if os.path.exists(p) else []
     except Exception:
         return []
 
-def _save_contacts(contacts):
+def _save_contacts(data):
     os.makedirs(DATA_DIR, exist_ok=True)
-    json.dump(contacts, open(_contacts_path(), 'w'), indent=2)
+    json.dump(data, open(os.path.join(DATA_DIR, 'contacts.json'), 'w'), indent=2)
 
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
-    is_fetch = request.headers.get('X-Requested-With') == 'fetch'
+    is_ajax = request.headers.get('X-Requested-With') == 'fetch'
     try:
         source = request.form.get('_source', 'contact')
         entry = {
-            'id': str(uuid.uuid4()),
-            'timestamp': datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
-            'source': source,
-            'source_label': SOURCE_LABELS.get(source, source),
-            'name': (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
-            'phone': request.form.get('Your-Phone', ''),
-            'email': request.form.get('Your-Email', ''),
-            'inquiry_type': request.form.get('Inquiry-Type', request.form.get('Inquiry-type', '')),
-            'message': request.form.get('Message', ''),
-            'read': False,
+            'id':           str(uuid.uuid4()),
+            'timestamp':    datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
+            'source':       source,
+            'source_label': _SOURCE_LABELS.get(source, source),
+            'name':         (request.form.get('Your-Name', '') + ' ' + request.form.get('Your-Surname', '')).strip(),
+            'phone':        request.form.get('Your-Phone', ''),
+            'email':        request.form.get('Your-Email', ''),
+            'inquiry_type':      request.form.get('Inquiry-Type', request.form.get('Inquiry-type', '')),
+            'message':           request.form.get('Message', ''),
+            'property_address':  request.form.get('Property-Address', ''),
+            'read':              False,
         }
         contacts = _load_contacts()
         contacts.insert(0, entry)
         _save_contacts(contacts)
-        print(f'[contact] saved submission from {entry["email"] or entry["name"] or "unknown"} ({source})', flush=True)
     except Exception as e:
-        print(f'[contact] ERROR saving submission: {e}', flush=True)
-        import traceback; traceback.print_exc()
-        if is_fetch:
-            return jsonify({'ok': False, 'error': str(e)}), 500
-        return redirect('/contact.html?error=1')
+        print(f'[contact] save error: {e}', flush=True)
+        if is_ajax:
+            return jsonify({'ok': False}), 500
+        return redirect('/contact.html')
 
-    if is_fetch:
-        return jsonify({'ok': True}), 200
-    back = '/contact-2.html?sent=1' if source == 'contact-2' else '/contact.html?sent=1'
-    return redirect(back)
+    if is_ajax:
+        return jsonify({'ok': True})
+    return redirect('/contact-2.html' if source == 'contact-2' else '/contact.html')
 
 
 @app.route('/api/contacts', methods=['GET'])
 @login_required
-def get_contacts():
+def api_contacts_get():
     return jsonify(_load_contacts())
 
 @app.route('/api/contacts/<cid>/read', methods=['PATCH'])
 @login_required
-def mark_contact_read(cid):
+def api_contacts_read(cid):
     contacts = _load_contacts()
     entry = next((c for c in contacts if c['id'] == cid), None)
     if not entry:
         return jsonify({'ok': False}), 404
-    entry['read'] = request.json.get('read', True)
+    entry['read'] = (request.json or {}).get('read', True)
     _save_contacts(contacts)
     return jsonify({'ok': True})
 
 @app.route('/api/contacts/read-all', methods=['PATCH'])
 @login_required
-def mark_all_read():
+def api_contacts_read_all():
     contacts = _load_contacts()
     for c in contacts:
         c['read'] = True
@@ -828,10 +849,8 @@ def mark_all_read():
 
 @app.route('/api/contacts/<cid>', methods=['DELETE'])
 @login_required
-def delete_contact(cid):
-    contacts = _load_contacts()
-    contacts = [c for c in contacts if c['id'] != cid]
-    _save_contacts(contacts)
+def api_contacts_delete(cid):
+    _save_contacts([c for c in _load_contacts() if c['id'] != cid])
     return jsonify({'ok': True})
 
 
@@ -983,23 +1002,25 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
 
 /* ── Inbox ── */
 .inbox-badge{display:inline-flex;align-items:center;justify-content:center;background:#dc2626;color:#fff;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:99px;padding:0 4px;margin-left:6px;vertical-align:middle;line-height:1}
-.inbox-empty{text-align:center;padding:60px 20px;color:#888;font-size:14px}
-.inbox-item{background:#fff;border:1.5px solid #e5e9f0;border-radius:10px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
-.inbox-item.unread{border-color:#1d3fa0;background:#f5f8ff}
-.inbox-item-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
-.inbox-dot{width:9px;height:9px;border-radius:50%;background:#1d3fa0;flex-shrink:0;transition:background .2s}
-.inbox-item.read .inbox-dot{background:#d1d5db}
-.inbox-name{font-weight:700;font-size:14px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.inbox-meta{font-size:12px;color:#888;white-space:nowrap;flex-shrink:0}
-.inbox-source-chip{display:inline-block;background:#e8edf7;color:#1d3fa0;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;flex-shrink:0}
-.inbox-body{display:none;padding:0 18px 16px;border-top:1px solid #e5e9f0}
-.inbox-item.open .inbox-body{display:block}
-.inbox-field{margin-top:10px;font-size:13px;color:#333;line-height:1.6}
-.inbox-field strong{font-weight:600;color:#555;font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:1px}
-.inbox-actions{display:flex;gap:8px;margin-top:14px}
-.inbox-btn{padding:5px 13px;border-radius:6px;font-size:12px;font-weight:600;border:none;cursor:pointer;letter-spacing:.04em}
-.inbox-btn-toggle{background:#f0f4ff;color:#1d3fa0}
-.inbox-btn-delete{background:#fff1f1;color:#dc2626}
+.inbox-list-wrap{display:flex;flex-direction:column;gap:10px}
+.inbox-empty{text-align:center;padding:60px 20px;color:#9ca3af;font-size:14px}
+.inbox-card{background:#fff;border:1.5px solid #e5e9f0;border-radius:10px;overflow:hidden;transition:border-color .15s}
+.inbox-card.is-unread{border-color:#3b5fc0;background:#f5f8ff}
+.inbox-card-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.inbox-dot{width:9px;height:9px;border-radius:50%;background:#3b5fc0;flex-shrink:0}
+.inbox-card.is-read .inbox-dot{background:#d1d5db}
+.inbox-from{font-weight:700;font-size:14px;color:#0a223f;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inbox-chip{background:#e8edf7;color:#3b5fc0;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;flex-shrink:0}
+.inbox-ts{font-size:12px;color:#9ca3af;white-space:nowrap;flex-shrink:0}
+.inbox-card-body{display:none;padding:4px 18px 16px;border-top:1px solid #e5e9f0}
+.inbox-card.is-open .inbox-card-body{display:block}
+.inbox-field{margin-top:10px;font-size:13px;color:#374151;line-height:1.6}
+.inbox-field strong{display:block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9ca3af;margin-bottom:2px}
+.inbox-field a{color:#3b5fc0;text-decoration:none}
+.inbox-card-actions{display:flex;gap:8px;margin-top:14px}
+.inbox-act-btn{padding:5px 14px;border-radius:6px;font-size:12px;font-weight:600;border:none;cursor:pointer}
+.inbox-act-read{background:#eef2ff;color:#3b5fc0}
+.inbox-act-del{background:#fef2f2;color:#dc2626}
 </style>
 </head>
 <body>
@@ -1075,9 +1096,9 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           <span class="section-title">Inbox</span>
           <span class="section-meta" id="inbox-count"></span>
         </div>
-        <button class="btn-secondary" id="mark-all-read-btn" style="font-size:12px;padding:6px 14px">Mark all read</button>
+        <button class="btn-secondary" id="mark-all-btn" style="font-size:12px;padding:6px 14px">Mark all read</button>
       </div>
-      <div id="inbox-list"></div>
+      <div id="inbox-list" class="inbox-list-wrap"></div>
     </div>
   </div>
 </div>
@@ -1225,8 +1246,11 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
               <input type="checkbox" id="p-section-bbb" style="width:16px;height:16px;cursor:pointer;accent-color:#07264b"> Built by Ben
             </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-section-home" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Homepage
+            </label>
           </div>
-          <div class="hint">Controls which pages this property appears on.</div>
+          <div class="hint">Controls which pages this property appears on. Homepage shows it in the featured section on the front page.</div>
         </div>
         <div class="frow" style="background:#f0f4ff;border-radius:6px;padding:14px 16px;border:1px solid #c7d6f5;margin-top:4px">
           <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#07264b;letter-spacing:.04em;text-transform:uppercase">
@@ -1296,7 +1320,7 @@ function showApp() {
   $('#app').style.display = 'flex';
   loadNewsletters();
   loadProperties();
-  refreshInboxBadge();
+  loadInboxBadge();
 }
 
 $('#login-form').addEventListener('submit', async e => {
@@ -1508,6 +1532,7 @@ function renderProperties() {
           <div style="margin-top:5px">
             ${(p.sections||[]).includes('live_listings') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#059669;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Live</span>' : ''}
             ${(p.sections||[]).includes('built_by_ben') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#07264b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Built by Ben</span>' : ''}
+            ${(p.sections||[]).includes('homepage') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#be591f;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Homepage</span>' : ''}
             ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em">Detail Page</span>' : ''}
           </div>
         </div>
@@ -1553,6 +1578,7 @@ function openEditProp(id) {
   $('#p-has-detail').checked = !!p.has_detail_page;
   $('#p-section-live').checked = (p.sections || []).includes('live_listings');
   $('#p-section-bbb').checked  = (p.sections || []).includes('built_by_ben');
+  $('#p-section-home').checked = (p.sections || []).includes('homepage');
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1569,6 +1595,7 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-desc').value = ''; $('#p-has-detail').checked = false;
   $('#p-section-live').checked = false;
   $('#p-section-bbb').checked  = false;
+  $('#p-section-home').checked = false;
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
@@ -1616,6 +1643,7 @@ $('#save-prop').addEventListener('click', async () => {
     sections: [
       ...($('#p-section-live').checked ? ['live_listings'] : []),
       ...($('#p-section-bbb').checked  ? ['built_by_ben']  : []),
+      ...($('#p-section-home').checked ? ['homepage']      : []),
     ],
   };
   // Collect extra photos (slot 3 onward)
@@ -1750,115 +1778,103 @@ function removePhotoSlot(num) {
 }
 
 // ── Inbox ─────────────────────────────────────────────────────────────────────
-let inboxItems = [];
+let contacts = [];
 
 async function loadInbox() {
-  inboxItems = await api('GET', '/api/contacts') || [];
+  contacts = await api('GET', '/api/contacts') || [];
   renderInbox();
 }
 
-function renderInbox() {
-  const unread = inboxItems.filter(c => !c.read).length;
+async function loadInboxBadge() {
+  const data = await api('GET', '/api/contacts') || [];
+  updateBadge(data.filter(c => !c.read).length);
+}
+
+function updateBadge(count) {
   const badge = $('#inbox-badge');
-  if (unread > 0) {
-    badge.textContent = unread;
-    badge.style.display = 'inline-flex';
-  } else {
-    badge.style.display = 'none';
-  }
-  $('#inbox-count').textContent = `· ${inboxItems.length} total, ${unread} unread`;
+  badge.textContent = count;
+  badge.style.display = count > 0 ? 'inline-flex' : 'none';
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderInbox() {
+  const unread = contacts.filter(c => !c.read).length;
+  updateBadge(unread);
+  $('#inbox-count').textContent = `· ${contacts.length} total, ${unread} unread`;
 
   const list = $('#inbox-list');
-  if (!inboxItems.length) {
-    list.innerHTML = '<div class="inbox-empty">No submissions yet.</div>';
+  if (!contacts.length) {
+    list.innerHTML = '<div class="inbox-empty">No messages yet.</div>';
     return;
   }
 
-  list.innerHTML = inboxItems.map(c => `
-    <div class="inbox-item ${c.read ? 'read' : 'unread'}" id="inbox-${c.id}">
-      <div class="inbox-item-hd" onclick="toggleInboxItem('${c.id}')">
+  list.innerHTML = contacts.map(c => `
+    <div class="inbox-card ${c.read ? 'is-read' : 'is-unread'}" id="msg-${c.id}">
+      <div class="inbox-card-hd" onclick="openMsg('${c.id}')">
         <div class="inbox-dot"></div>
-        <div class="inbox-name">${c.name || c.email || 'Anonymous'}</div>
-        <div class="inbox-source-chip">${c.source_label || c.source || 'Contact'}</div>
-        <div class="inbox-meta">${c.timestamp}</div>
+        <div class="inbox-from">${esc(c.name || c.email || 'Anonymous')}</div>
+        <div class="inbox-chip">${esc(c.source_label || c.source || 'Contact')}</div>
+        <div class="inbox-ts">${esc(c.timestamp)}</div>
       </div>
-      <div class="inbox-body">
-        ${c.name ? `<div class="inbox-field"><strong>Name</strong>${c.name}</div>` : ''}
-        ${c.email ? `<div class="inbox-field"><strong>Email</strong><a href="mailto:${c.email}" style="color:#1d3fa0">${c.email}</a></div>` : ''}
-        ${c.phone ? `<div class="inbox-field"><strong>Phone</strong><a href="tel:${c.phone.replace(/\D/g,'')}" style="color:#1d3fa0">${c.phone}</a></div>` : ''}
-        ${c.inquiry_type ? `<div class="inbox-field"><strong>Inquiry Type</strong>${c.inquiry_type}</div>` : ''}
-        ${c.message ? `<div class="inbox-field"><strong>Message</strong>${c.message}</div>` : ''}
-        <div class="inbox-field"><strong>Source</strong>${c.source_label || c.source}</div>
-        <div class="inbox-actions">
-          <button class="inbox-btn inbox-btn-toggle" onclick="toggleRead('${c.id}', ${c.read})">
-            ${c.read ? 'Mark unread' : 'Mark read'}
-          </button>
-          <button class="inbox-btn inbox-btn-delete" onclick="deleteContact('${c.id}')">Delete</button>
+      <div class="inbox-card-body">
+        ${c.name    ? `<div class="inbox-field"><strong>Name</strong>${esc(c.name)}</div>` : ''}
+        ${c.email   ? `<div class="inbox-field"><strong>Email</strong><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></div>` : ''}
+        ${c.phone   ? `<div class="inbox-field"><strong>Phone</strong><a href="tel:${esc(c.phone.replace(/\D/g,''))}">${esc(c.phone)}</a></div>` : ''}
+        ${c.property_address ? `<div class="inbox-field"><strong>Property</strong>${esc(c.property_address)}</div>` : ''}
+        ${c.inquiry_type ? `<div class="inbox-field"><strong>Inquiry</strong>${esc(c.inquiry_type)}</div>` : ''}
+        ${c.message ? `<div class="inbox-field"><strong>Message</strong>${esc(c.message)}</div>` : ''}
+        <div class="inbox-field"><strong>Source</strong>${esc(c.source_label || c.source)}</div>
+        <div class="inbox-card-actions">
+          <button class="inbox-act-btn inbox-act-read" onclick="toggleRead('${c.id}',${c.read})">${c.read ? 'Mark unread' : 'Mark read'}</button>
+          <button class="inbox-act-btn inbox-act-del" onclick="deleteMsg('${c.id}')">Delete</button>
         </div>
       </div>
     </div>`).join('');
 }
 
-function toggleInboxItem(id) {
-  const el = document.getElementById('inbox-' + id);
-  const isOpen = el.classList.contains('open');
-  // Close all others
-  $$('.inbox-item.open').forEach(e => e.classList.remove('open'));
+function openMsg(id) {
+  const el = document.getElementById('msg-' + id);
+  const isOpen = el.classList.contains('is-open');
+  $$('.inbox-card.is-open').forEach(e => e.classList.remove('is-open'));
   if (!isOpen) {
-    el.classList.add('open');
-    // Auto-mark as read on open
-    const item = inboxItems.find(c => c.id === id);
-    if (item && !item.read) toggleRead(id, false, true);
+    el.classList.add('is-open');
+    const c = contacts.find(x => x.id === id);
+    if (c && !c.read) toggleRead(id, false);
   }
 }
 
-async function toggleRead(id, currentlyRead, silent) {
-  const r = await api('PATCH', `/api/contacts/${id}/read`, { read: !currentlyRead }, false);
-  if (r && r.ok) {
-    const item = inboxItems.find(c => c.id === id);
-    if (item) item.read = !currentlyRead;
-    renderInbox();
-    // Re-open the item after re-render if not silent
-    if (!silent) {
-      const el = document.getElementById('inbox-' + id);
-      if (el) el.classList.add('open');
-    }
-  }
+async function toggleRead(id, currentlyRead) {
+  const r = await api('PATCH', `/api/contacts/${id}/read`, { read: !currentlyRead });
+  if (!r?.ok) return;
+  const c = contacts.find(x => x.id === id);
+  if (c) c.read = !currentlyRead;
+  renderInbox();
+  const el = document.getElementById('msg-' + id);
+  if (el) el.classList.add('is-open');
 }
 
-async function deleteContact(id) {
-  const item = inboxItems.find(c => c.id === id);
-  const name = item ? (item.name || item.email || 'this submission') : 'this submission';
-  if (!confirm(`Delete message from ${name}?`)) return;
+async function deleteMsg(id) {
+  const c = contacts.find(x => x.id === id);
+  if (!confirm(`Delete message from ${c ? esc(c.name || c.email || 'this sender') : 'this sender'}?`)) return;
   const r = await api('DELETE', `/api/contacts/${id}`);
-  if (r && r.ok) {
-    inboxItems = inboxItems.filter(c => c.id !== id);
+  if (r?.ok) {
+    contacts = contacts.filter(x => x.id !== id);
     renderInbox();
     toast('Message deleted');
   }
 }
 
-$('#mark-all-read-btn').addEventListener('click', async () => {
+$('#mark-all-btn').addEventListener('click', async () => {
   const r = await api('PATCH', '/api/contacts/read-all');
-  if (r && r.ok) {
-    inboxItems.forEach(c => c.read = true);
+  if (r?.ok) {
+    contacts.forEach(c => c.read = true);
     renderInbox();
-    toast('All messages marked read');
+    toast('All marked read');
   }
 });
-
-// Load inbox badge count on every page load
-async function refreshInboxBadge() {
-  const items = await api('GET', '/api/contacts') || [];
-  const unread = items.filter(c => !c.read).length;
-  const badge = $('#inbox-badge');
-  if (unread > 0) {
-    badge.textContent = unread;
-    badge.style.display = 'inline-flex';
-  } else {
-    badge.style.display = 'none';
-  }
-}
 
 // Boot
 init();

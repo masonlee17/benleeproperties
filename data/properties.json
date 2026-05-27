@@ -15,7 +15,11 @@
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/697bfeb90e3f0c6097bf6e17_2.jpg",
     "has_detail_page": true,
     "description": "A dazzling, brand new construction on a quarter acre lot south of Ventura Boulevard, this impeccably designed 5 bedroom/6.5 bathroom is luxury living at its finest. This 5,900 square ft home has everything a discerning buyer could want: vast, spacious living spaces; open floor plan, natural light, elegant landscaping, enormous backyard that includes a sparkling swimming pool and spa. The chef's kitchen offers top-of-the-line appliances and an abundance of space for entertaining. In addition to the elegant bedrooms and bathrooms, there is also a state-of-the-art theater, great room, living room, office and elevator to visit each floor with convenient ease. A certified Smart Home that offers all the latest in technological advancements, this isn't just a magnificent estate but a true architectural achievement.",
-    "sections": ["built_by_ben", "live_listings"]
+    "sections": [
+      "built_by_ben",
+      "live_listings",
+      "homepage"
+    ]
   },
   {
     "id": "prop-2",
@@ -31,7 +35,11 @@
     "status": "FOR SALE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/690d32c1dad51e059e20146b_Screenshot%202025-11-06%20at%203.43.30%20PM.png",
     "image2": "",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ],
+    "description": "details",
+    "has_detail_page": false
   },
   {
     "id": "prop-3",
@@ -47,7 +55,9 @@
     "status": "FOR SALE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/6907e9606c5b3049ddf5c291_Screenshot%202025-11-02%20at%203.29.31%20PM.png",
     "image2": "",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ]
   },
   {
     "id": "prop-4",
@@ -63,7 +73,9 @@
     "status": "FOR SALE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/6907e8dea632f23997b8f7ea_Screenshot%202025-11-02%20at%203.27.22%20PM.png",
     "image2": "",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ]
   },
   {
     "id": "prop-5",
@@ -79,7 +91,9 @@
     "status": "SOLD",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/68fd9bc8c9f42a7fef80a485_Screenshot%202025-10-25%20at%208.53.02%20PM-min.png",
     "image2": "",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ]
   },
   {
     "id": "prop-6",
@@ -95,7 +109,9 @@
     "status": "SOLD",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/6907ea722d9d5706862eb71c_Screenshot%202025-11-02%20at%203.34.05%20PM.png",
     "image2": "",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ]
   },
   {
     "id": "prop-7",
@@ -111,7 +127,9 @@
     "status": "SOLD",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/68edef143f85f343c22611e3_Screenshot%202025-10-13%20at%2010.47.02%20PM.png",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/68edef16fc24f88cacc47e8d_Screenshot%202025-10-13%20at%2010.47.07%20PM.png",
-    "sections": ["built_by_ben"]
+    "sections": [
+      "built_by_ben"
+    ]
   },
   {
     "id": "listing-2",
@@ -127,7 +145,10 @@
     "status": "FOR SALE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/69e26a93445d8252ce6c4307_1.jpg",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/69e26a97b8f7d617ff40e173_2.jpg",
-    "sections": ["live_listings"]
+    "sections": [
+      "live_listings",
+      "homepage"
+    ]
   },
   {
     "id": "listing-3",
@@ -143,7 +164,10 @@
     "status": "FOR SALE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/69e15b3ab1118ab80292864c_Screenshot%202026-04-16%20at%202.50.16%20PM.png",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/69e15b408f09e6ac29d9e4e2_Screenshot%202026-04-16%20at%202.55.31%20PM.png",
-    "sections": ["live_listings"]
+    "sections": [
+      "live_listings",
+      "homepage"
+    ]
   },
   {
     "id": "listing-4",
@@ -159,7 +183,10 @@
     "status": "FOR LEASE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/69a0c334672efb51333cbb5e_Screenshot%202026-02-26%20at%202.02.55%20PM.png",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/698f7c871874b02b3f515f2b_Screenshot%202026-02-13%20at%2011.26.50%20AM.png",
-    "sections": ["live_listings"]
+    "sections": [
+      "live_listings",
+      "homepage"
+    ]
   },
   {
     "id": "listing-5",
@@ -175,6 +202,9 @@
     "status": "FOR LEASE",
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/697c4f896f15d82e50cc9d95_Screenshot%202026-01-29%20at%2010.28.21%20PM.png",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/697c4f98f4d83c87643a659a_Screenshot%202026-01-29%20at%2010.28.36%20PM.png",
-    "sections": ["live_listings"]
+    "sections": [
+      "live_listings",
+      "homepage"
+    ]
   }
 ]
