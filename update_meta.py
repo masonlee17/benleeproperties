@@ -164,11 +164,11 @@ PAGES = {
         "h1": None,
         "schema": None,
     },
-    "cities.html": {
+    "neighborhoods.html": {
         "title": "Neighborhoods We Serve | Cheviot Hills, Beverlywood, Bel Air & West LA — Ben Lee Properties",
         "description": "Ben Lee Properties serves the finest neighborhoods on LA's Westside — Cheviot Hills, Beverlywood, Bel Air, Brentwood, Santa Monica, and beyond. Hyper-local expertise that no national firm can match.",
         "keywords": "Cheviot Hills real estate, Beverlywood homes for sale, Bel Air realtor, Brentwood real estate agent, Santa Monica broker, West LA neighborhoods, Ben Lee Properties service area",
-        "canonical": f"{DOMAIN}/cities",
+        "canonical": f"{DOMAIN}/neighborhoods",
         "h1": None,
         "schema": None,
     },
@@ -233,7 +233,7 @@ PAGES = {
         "title": "Neighborhood Guide | Ben Lee Properties — Los Angeles Real Estate by Neighborhood",
         "description": "Discover what makes each Westside neighborhood unique — schools, walkability, market trends, and property values — from Ben Lee, LA's most trusted real estate authority.",
         "keywords": "Los Angeles neighborhood guide, Cheviot Hills community, Beverlywood neighborhood, West LA area guide, Ben Lee Properties",
-        "canonical": f"{DOMAIN}/cities",
+        "canonical": f"{DOMAIN}/neighborhoods",
         "h1": None,
         "schema": None,
     },

@@ -794,6 +794,17 @@ def build_city_listing_items(listings):
 # ── Dynamic pages ──────────────────────────────────────────────────────────────
 # These two pages are rendered live so admin edits are instant without redeploying.
 
+@app.route('/neighborhoods')
+@app.route('/neighborhoods.html')
+def neighborhoods():
+    path = os.path.join(BASE_DIR, 'neighborhoods.html')
+    return open(path, encoding='utf-8').read()
+
+@app.route('/cities')
+@app.route('/cities.html')
+def cities_redirect():
+    return redirect('/neighborhoods', code=301)
+
 @app.route('/cities/<slug>')
 def city_page(slug):
     path = os.path.join(BASE_DIR, 'cities', f'{slug}.html')
@@ -1379,7 +1390,7 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
               <input type="checkbox" id="p-nbhd-beverly-hills" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Beverly Hills
             </label>
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
-              <input type="checkbox" id="p-nbhd-west-los-angeles" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> West Los Angeles
+              <input type="checkbox" id="p-nbhd-westwood" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Westwood
             </label>
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
               <input type="checkbox" id="p-nbhd-bel-air" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Bel Air
@@ -1635,7 +1646,7 @@ $('#save-nl').addEventListener('click', async () => {
 });
 
 // ── Properties ─────────────────────────────────────────────────────────────────
-const CITY_SLUGS = ['cheviot-hills','beverlywood','beverly-hills','west-los-angeles','bel-air','brentwood','santa-monica'];
+const CITY_SLUGS = ['cheviot-hills','beverlywood','beverly-hills','westwood','bel-air','brentwood','santa-monica'];
 let properties = [];
 let editingPropId = null;
 

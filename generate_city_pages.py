@@ -181,60 +181,63 @@ NEIGHBORHOODS = [
         ],
     },
     {
-        "slug": "west-los-angeles",
-        "name": "West Los Angeles",
-        "tagline": "Central Westside Access at a More Approachable Price Point",
-        "zip": "90064",
-        "geo_lat": 34.0367,
-        "geo_lon": -118.4472,
+        "slug": "westwood",
+        "name": "Westwood",
+        "tagline": "UCLA, Westwood Village, and the Wilshire Corridor",
+        "zip": "90024",
+        "geo_lat": 34.0619,
+        "geo_lon": -118.4426,
         "hero_img": "https://images.pexels.com/photos/24304586/pexels-photo-24304586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "hero_img_alt": "Powell Library at UCLA, West Los Angeles",
-        "meta_desc": "West Los Angeles real estate guide from Ben Lee Properties. Median home price $1.4M, 28 days on market, strong walkability in pockets. Ben Lee's second office is at 11500 W Olympic Blvd.",
-        "og_desc": "Ben Lee Properties covers West Los Angeles from their office at 11500 W Olympic Blvd. Get current market data and expert representation for West LA buyers and sellers.",
-        "median_price": "$1,405,000",
-        "price_trend": "Up 7% YoY",
-        "avg_dom": "28 days",
-        "price_note": "West LA offers the most accessible price point among Ben Lee's core Westside markets, with strong demand from UCLA affiliates, tech workers, and young families.",
+        "hero_img_alt": "Powell Library at UCLA, Westwood",
+        "meta_desc": "Westwood real estate guide from Ben Lee Properties. Median home price $1.65M, walkable village, Wilshire Corridor condos, and UCLA campus. Ben Lee's office is minutes away at 11500 W Olympic Blvd.",
+        "og_desc": "Ben Lee Properties covers Westwood real estate from his office near Westwood Village. Get current market data and expert representation for Westwood buyers and sellers.",
+        "median_price": "$1,650,000",
+        "price_trend": "Up 5% YoY",
+        "avg_dom": "32 days",
+        "price_note": "Westwood offers Beverly Hills-adjacent living at a more accessible price point, with strong demand from UCLA affiliates, medical professionals, and families seeking a walkable village lifestyle.",
         "about": (
-            "West Los Angeles occupies a strategically central position on the Westside, stretching roughly from the 405 Freeway "
-            "to the UCLA campus. It offers convenient access to Santa Monica, Culver City, Century City, and the 10 and 405 freeways, "
-            "making it one of the most practical neighborhoods for professionals who need to move across the region."
+            "Westwood is one of the Westside's most distinctive neighborhoods, anchored by the UCLA campus to the north and "
+            "the charming Westwood Village at its core. The Village is one of the few truly walkable commercial districts in "
+            "Los Angeles, with independent restaurants, boutiques, and the historic Village Theatre all within a few blocks."
             "<br><br>"
-            "Ben Lee's second office is located at 11500 W Olympic Blvd, placing his team directly in the community. "
-            "West LA is one of the fastest-moving markets in the portfolio, with homes selling in an average of just 28 days. "
-            "Pockets like Palms have a Walk Score of 90, and the neighborhood's mix of single-family homes, condos, and "
-            "smaller apartment buildings appeals to a wide range of buyers and investors."
+            "Along Wilshire Boulevard, the Westwood Corridor offers some of LA's most prestigious high-rise condominiums, "
+            "drawing buyers who want full-service luxury living steps from Beverly Hills. North of Sunset, hillside streets "
+            "border Bel Air and Holmby Hills, with single-family homes that command significant premiums. Ben Lee's office "
+            "at 11500 W Olympic Blvd places his team minutes from the Village, giving buyers and sellers genuine "
+            "on-the-ground knowledge of the market."
         ),
         "schools": [
-            ("Westwood Elementary School", "A well-regarded public elementary school serving the northern portion of West LA near Westwood Village."),
-            ("Palms Elementary School", "Public elementary school in the walkable Palms pocket of West Los Angeles."),
-            ("Hamilton High School", "A large LAUSD high school with a nationally recognized performing arts magnet program."),
+            ("Westwood Elementary School", "A well-regarded public elementary school serving the heart of the Westwood neighborhood near the Village."),
+            ("Warner Avenue Elementary School", "Highly rated public elementary school in the residential streets north of Santa Monica Blvd."),
+            ("Paul Revere Charter Middle School", "One of the top-rated middle schools in LAUSD, serving Westwood and surrounding Westside communities."),
+            ("University High School", "A large LAUSD high school with strong academics and a notable alumni list, serving the Westwood area."),
         ],
         "features": [
-            "Ben Lee's second office located at 11500 W Olympic Blvd",
-            "Fastest-moving market in the Ben Lee portfolio, averaging 28 days on market",
-            "Palms pocket has a Walk Score of 90",
-            "Strong demand from UCLA affiliates, healthcare workers, and tech professionals",
-            "Access to the 405 and 10 freeways, Santa Monica, and Century City",
-            "Diverse mix of single-family homes, condos, and income properties",
+            "Walkable Westwood Village with independent dining, shops, and the historic Village Theatre",
+            "Wilshire Corridor high-rise condos offering full-service luxury living",
+            "Immediate proximity to UCLA campus, medical center, and cultural programming",
+            "Hillside streets north of Sunset border Bel Air and Holmby Hills",
+            "Ben Lee's office at 11500 W Olympic Blvd is minutes from the Village",
+            "Strong rental demand from UCLA faculty, staff, and medical professionals",
         ],
         "ben_note": (
-            "Ben Lee operates his West Los Angeles office at 11500 W Olympic Blvd. "
-            "His monthly newsletter reaches thousands of West LA households, giving his sellers "
-            "built-in neighborhood exposure before a property ever hits the MLS. "
-            "For buyers, his on-the-ground knowledge of which streets offer the best long-term appreciation is invaluable."
+            "Ben Lee's office at 11500 W Olympic Blvd is just minutes from Westwood Village, giving his team "
+            "genuine day-to-day familiarity with the neighborhood. His monthly newsletter reaches thousands of "
+            "Westwood households, giving sellers built-in local exposure before a listing ever hits the MLS. "
+            "Westwood's range of property types, from Wilshire Corridor condos to hillside single-family homes, "
+            "requires an agent who knows both markets well."
         ),
         "faqs": [
-            ("What is the median home price in West Los Angeles?",
-             "The median sale price in West Los Angeles is approximately $1,405,000 as of early 2026, up 7% year over year. The average sale price, skewed by larger homes, sits closer to $1,650,000. West LA is the most accessible price point among Ben Lee's core Westside neighborhoods."),
-            ("How fast do homes sell in West Los Angeles?",
-             "Homes in West Los Angeles sell in an average of 28 days, making it one of the fastest-moving markets on the Westside. Well-priced, updated homes in desirable pockets can attract offers within days of listing."),
-            ("What makes West Los Angeles a good place to buy?",
-             "West LA offers central Westside access at prices below Beverly Hills and Brentwood. The Palms pocket has a Walk Score of 90. It is close to UCLA, Santa Monica, Culver City, and Century City. Strong rental demand from university affiliates and tech workers also makes it an attractive investment market."),
-            ("Where is Ben Lee's West Los Angeles office?",
-             "Ben Lee's West Los Angeles office is located at 11500 W Olympic Blvd, Los Angeles, CA 90064. You can reach Ben directly at (310) 704-6580 or ben@benleeproperties.com."),
-            ("What types of properties are available in West LA?",
-             "West Los Angeles offers a wide range of property types including single-family homes, condos, townhomes, duplexes, and small apartment buildings. This diversity makes it attractive to both owner-occupants and investors looking for rental income."),
+            ("What is the median home price in Westwood?",
+             "The median sale price in Westwood is approximately $1,650,000 as of early 2026, up 5% year over year. Wilshire Corridor condos can range from $800,000 to over $3,000,000, while single-family homes on the hillside streets north of Sunset often exceed $3,000,000."),
+            ("How fast do homes sell in Westwood?",
+             "Homes in Westwood sell in an average of 32 days. Well-priced single-family homes and move-in ready condos in the Village area can attract multiple offers within the first week of listing."),
+            ("What makes Westwood a good place to buy?",
+             "Westwood offers walkable Village access, proximity to UCLA and its medical center, and Beverly Hills-adjacent pricing. The Wilshire Corridor provides luxury condo options, while residential streets north of Sunset offer larger homes in a quieter setting. Strong rental demand from university and medical professionals also supports long-term investment value."),
+            ("Where is Ben Lee's Westwood office?",
+             "Ben Lee's office is located at 11500 W Olympic Blvd, Los Angeles, CA 90064, minutes from Westwood Village. You can reach Ben directly at (310) 704-6580 or ben@benleeproperties.com."),
+            ("What types of properties are available in Westwood?",
+             "Westwood has one of the most diverse property mixes on the Westside: luxury high-rise condos along Wilshire Boulevard, mid-century single-family homes in the residential flats, and larger hillside estates near Bel Air. This range makes it attractive to first-time buyers, move-up buyers, and investors alike."),
         ],
     },
     {
@@ -441,7 +444,7 @@ NAVBAR = """    <div class="aside-menu">
               <a href="../index.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Home</p></a>
               <a href="../about.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">About</p></a>
               <a href="../for-buyers-3.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For Buyers</p></a>
-              <a href="../cities.html" class="menu-link w-inline-block w--current"><p class="menu-link-paragraph">Cities</p></a>
+              <a href="../neighborhoods.html" class="menu-link w-inline-block w--current"><p class="menu-link-paragraph">Neighborhoods</p></a>
               <a href="../for-sellers.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">For Sellers</p></a>
               <a href="../valuation.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Valuation</p></a>
               <a href="../blog.html" class="menu-link w-inline-block"><p class="menu-link-paragraph">Newsletter</p></a>
@@ -509,7 +512,7 @@ FOOTER = """      <footer id="footer" class="footer blp-footer">
               <a href="../for-buyers-3.html" class="blp-footer-link">Buyer</a>
               <a href="../for-sellers.html" class="blp-footer-link">Seller</a>
               <a href="../about.html" class="blp-footer-link">About</a>
-              <a href="../cities.html" class="blp-footer-link">Cities</a>
+              <a href="../neighborhoods.html" class="blp-footer-link">Neighborhoods</a>
               <a href="../blog.html" class="blp-footer-link">Newsletter</a>
               <a href="../contact.html" class="blp-footer-link">Contact</a>
             </nav>
@@ -598,6 +601,12 @@ def build_page(n):
   <meta name="twitter:title" content="{n["name"]} Real Estate | Ben Lee Properties">
   <meta name="twitter:description" content="{n["og_desc"]}">
   <meta name="twitter:image" content="{n["hero_img"]}">
+
+  <!-- Geo -->
+  <meta name="geo.region" content="US-CA">
+  <meta name="geo.placename" content="{n["name"]}, Los Angeles, CA">
+  <meta name="geo.position" content="{n["geo_lat"]};{n["geo_lon"]}">
+  <meta name="ICBM" content="{n["geo_lat"]}, {n["geo_lon"]}">
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
@@ -785,7 +794,7 @@ def build_page(n):
       <section class="section overflow-hidden">
         <div class="page-hero">
           <div class="hero-claim">
-            <a href="/cities.html" class="city-breadcrumb">← Westside Neighborhoods</a>
+            <a href="/neighborhoods.html" class="city-breadcrumb">← Westside Neighborhoods</a>
             <h1 style="opacity:1" class="hero-heading">{n["name"]}</h1>
             <p class="city-tagline">{n["tagline"]}</p>
             <div class="hero-claim-background"></div>
