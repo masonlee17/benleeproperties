@@ -159,16 +159,28 @@
         font-weight: 700;
         letter-spacing: 0.15em;
         text-transform: uppercase;
-        color: #be591f;
+        color: #ed2227;
         margin-bottom: 0.6em;
+        position: relative;
+        z-index: 5;
       }
       .val-subhead {
         font-family: ‘IBM Plex Sans’, sans-serif;
-        font-size: 1.1em;
+        font-size: 1em;
         line-height: 1.65;
-        color: rgba(255,255,255,0.85);
-        max-width: 34em;
-        margin-top: 0.8em;
+        color: #3a3a3a;
+        max-width: 32em;
+        margin-top: 0.6em;
+        position: relative;
+        z-index: 5;
+      }
+      .val-hero-btn {
+        position: relative;
+        z-index: 10;
+        margin-top: 1.5em;
+        display: inline-flex;
+        align-items: center;
+        width: auto;
       }
       .val-trust-grid {
         display: grid;
@@ -178,13 +190,8 @@
       }
       .val-trust-card {
         background: #fff;
-        border-top: 3px solid #be591f;
+        border-top: 3px solid #ed2227;
         padding: 2em 2em 1.75em;
-      }
-      .val-trust-icon {
-        font-size: 1.8em;
-        margin-bottom: 0.6em;
-        line-height: 1;
       }
       .val-trust-title {
         font-family: ‘Montserrat’, sans-serif;
@@ -206,14 +213,14 @@
         margin-top: 2.5em;
       }
       .val-step-card {
-        border-left: 3px solid #be591f;
+        border-left: 3px solid #ed2227;
         padding-left: 1.5em;
       }
       .val-step-num {
         font-family: ‘Montserrat’, sans-serif;
         font-size: 2.5em;
         font-weight: 800;
-        color: #be591f;
+        color: #ed2227;
         line-height: 1;
         margin-bottom: 0.3em;
       }
@@ -230,7 +237,7 @@
         font-family: ‘IBM Plex Sans’, sans-serif;
         font-size: 0.9em;
         line-height: 1.7;
-        color: #555;
+        color: #3a3a3a;
       }
       @media (max-width: 991px) {
         .val-trust-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
@@ -250,7 +257,7 @@
             <p class="val-eyebrow">Free Home Valuation</p>
             <h1 style="opacity:1" class="hero-heading">What Is Your Home Worth?</h1>
             <p class="val-subhead">Ben Lee has represented Westside families for 15+ years. His valuations are grounded in closed transactions, not algorithms.</p>
-            <a href="#form" class="button w-inline-block" style="display:inline-flex;align-items:center;margin-top:1.5em;">
+            <a href="#form" class="button val-hero-btn w-inline-block">
               <p class="button-paragraph">Get Your Free Valuation</p>
               <img src="images/arrow_right_white_24dp.svg" loading="lazy" alt="" class="button-arrow-right">
               <div class="button-background"></div>
@@ -270,17 +277,14 @@
             <h2 class="heading-sellers-process" style="opacity:1;">Ben Lee’s Approach</h2>
             <div class="val-trust-grid">
               <div class="val-trust-card">
-                <div class="val-trust-icon">⚖️</div>
                 <div class="val-trust-title">Broker and Attorney</div>
-                <p class="val-trust-body">Ben is one of the few agents on the Westside who is also a licensed attorney. That means he understands how deal structure, contingencies, and title issues affect a home’s real market value, not just its list price.</p>
+                <p class="val-trust-body">Ben is one of the few agents in this market who is also a licensed attorney. That means he understands how deal structure, contingencies, and title issues affect a home’s real market value, not just its list price.</p>
               </div>
               <div class="val-trust-card">
-                <div class="val-trust-icon">📍</div>
-                <div class="val-trust-title">15+ Years, Westside Only</div>
-                <p class="val-trust-body">Ben has focused exclusively on Westside neighborhoods for over 15 years. His comps come from relationships and closed files, not just what’s on Zillow. He knows the streets, the micro-pockets, and the buyers who pay premiums for them.</p>
+                <div class="val-trust-title">15+ Years on the Westside</div>
+                <p class="val-trust-body">Ben has built deep roots in Westside neighborhoods over 15 years. His comps come from relationships and closed files, not just what’s on Zillow. He knows the streets, the micro-pockets, and the buyers who pay premiums for them.</p>
               </div>
               <div class="val-trust-card">
-                <div class="val-trust-icon">🤝</div>
                 <div class="val-trust-title">No Pressure, No Obligation</div>
                 <p class="val-trust-body">A valuation from Ben is information. There is no obligation to list, no high-pressure follow-up, and no cost. Many of the families Ben has worked with got a valuation a year or two before they were ready to move. That is fine with him.</p>
               </div>
@@ -290,31 +294,31 @@
       </section>
 
       <!-- The Process -->
-      <section class="section blue-background">
+      <section class="section white-border-bottom">
         <div class="container w-container">
           <div class="padding-8em">
-            <p class="city-section-label" style="text-align:center;color:#be591f;">How It Works</p>
-            <h2 class="heading-sellers" style="color:#fff;">The Valuation Process</h2>
+            <p class="city-section-label" style="text-align:center;">How It Works</p>
+            <h2 class="heading-sellers-process" style="opacity:1;">The Valuation Process</h2>
             <div class="val-step-grid">
               <div class="val-step-card">
                 <div class="val-step-num">01</div>
                 <div class="val-step-title">Tell Us About Your Home</div>
-                <p class="val-step-body" style="color:#c8d4e0;">Share your address, a sense of condition, and any recent updates. The form below takes about two minutes.</p>
+                <p class="val-step-body">Share your address, a sense of condition, and any recent updates. The form below takes about two minutes.</p>
               </div>
               <div class="val-step-card">
                 <div class="val-step-num">02</div>
                 <div class="val-step-title">We Pull the Comps</div>
-                <p class="val-step-body" style="color:#c8d4e0;">Ben reviews recent closed sales on your street and in your micro-neighborhood, adjusting for condition, lot size, views, and finishes.</p>
+                <p class="val-step-body">Ben reviews recent closed sales on your street and in your micro-neighborhood, adjusting for condition, lot size, views, and finishes.</p>
               </div>
               <div class="val-step-card">
                 <div class="val-step-num">03</div>
                 <div class="val-step-title">We Walk the Property</div>
-                <p class="val-step-body" style="color:#c8d4e0;">For homes that are hard to comp or where condition significantly affects value, Ben will visit in person to give you the most accurate read.</p>
+                <p class="val-step-body">For homes that are hard to comp or where condition significantly affects value, Ben will visit in person to give you the most accurate read.</p>
               </div>
               <div class="val-step-card">
                 <div class="val-step-num">04</div>
                 <div class="val-step-title">You Receive a Written Analysis</div>
-                <p class="val-step-body" style="color:#c8d4e0;">Ben delivers a clear, written market analysis with a recommended list price range. Then you decide your next move, on your timeline.</p>
+                <p class="val-step-body">Ben delivers a clear, written market analysis with a recommended list price range. Then you decide your next move, on your timeline.</p>
               </div>
             </div>
           </div>
