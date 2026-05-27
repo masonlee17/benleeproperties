@@ -128,8 +128,10 @@
     "image1": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/68edef143f85f343c22611e3_Screenshot%202025-10-13%20at%2010.47.02%20PM.png",
     "image2": "https://cdn.prod.website-files.com/68edca0ed75d0e01f9bfe408/68edef16fc24f88cacc47e8d_Screenshot%202025-10-13%20at%2010.47.07%20PM.png",
     "sections": [
-      "built_by_ben"
-    ]
+      "built_by_ben",
+      "former_deals"
+    ],
+    "has_detail_page": true
   },
   {
     "id": "listing-2",
@@ -205,6 +207,229 @@
     "sections": [
       "live_listings",
       "homepage"
+    ]
+  },
+  {
+    "id": "deal-3388-manning",
+    "order": 30,
+    "address": "3388 Manning Ct",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "2,595,000",
+    "rent": "",
+    "beds": "4",
+    "baths": "3",
+    "sqft": "2,388",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "Tucked within a tree-lined cul-de-sac on a quiet street in Cheviot Hills, this home is a designer's dream. The property features an awe-inspiring outdoor living extension, including an additional 600 sq ft covered patio with skylights, Basalt flooring, and a fire pit, ideal to enjoy as is or easily enclosed to create an additional room for seamless indoor-outdoor living. A fully remodeled farmhouse with an open floor plan, the home offers warmth and elegance at every turn. Original walnut hardwood floors, a romantic bay window, wood-burning fireplace, custom white oak shelving, and exposed beams create timeless character. The chef's kitchen features oak open shelving, a fire clay tile backsplash, stainless Thermador oven and range, refrigerator, freezer, wine fridge, and is anchored by a stylish eat-in island built from walnut with Caesarstone countertops. The private backyard offers a vast expanse of grass, a hot tub, and a dizzying array of fruit-producing citrus trees including lime and Meyer lemon. Upstairs are generous bedrooms with lovely natural light. The primary bedroom features a vaulted ceiling, an enormous walk-in closet, a large bathroom, and a pretty view. Additional amenities include a new laundry area with stone counters, a converted garage with WiFi and heat/AC used as an artist's studio, new exterior paint, new windows, and a stone's throw to the Griffin Club, Expo Line, and shops of Culver City and Cheviot Hills. Sold over asking. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
+  },
+  {
+    "id": "deal-1716-durango",
+    "order": 31,
+    "address": "1716 S. Durango Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "",
+    "rent": "",
+    "beds": "4",
+    "baths": "3",
+    "sqft": "2,811",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "Affectionately known as Casa Azul, this move-in ready home effortlessly combines the charming aesthetics of an authentic 1930s Spanish style home with the updated style and needs of today's active family. Hardwood floors, rounded archways, built-in home-office nooks, a picturesque bay window, exposed beams and brick gas fireplace are just a few of the original architectural features that make this home feel so warm. A recent expansion and comprehensive remodel allowed for additional space and modernization. Adding to the home's original formal living and dining rooms, new construction created an enormous great room with impossibly high vaulted ceiling and chef's kitchen complete with Caesarstone countertops, stainless top-of-the-line appliances, oversized central island with second sink, ample prep space, new backsplash and designer pendants. Each of the bedrooms are bathed in natural light with generous walk-in closets and the bathrooms have each been remodeled in a simple yet classic fashion. A two-car detached garage, fresh landscaping in the front yard and a stone's throw to award-winning Canfield Elementary School and the shops, restaurants and religious institutions of Pico/Robertson. 2,811 sq ft on a 7,110 sq ft lot in Beverlywood. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": [
+      "beverlywood"
+    ]
+  },
+  {
+    "id": "deal-2831-malcolm",
+    "order": 32,
+    "address": "2831 Malcolm Avenue",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "3,795,000",
+    "rent": "",
+    "beds": "4",
+    "baths": "5",
+    "sqft": "3,450",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 4-bedroom, 5-bathroom home in Rancho Park, 3,450 sq ft on a 6,324 sq ft lot. Closed at $3,795,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": []
+  },
+  {
+    "id": "deal-2700-anchor",
+    "order": 33,
+    "address": "2700 Anchor Avenue",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "2,995,000",
+    "rent": "",
+    "beds": "4",
+    "baths": "3",
+    "sqft": "3,426",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 4-bedroom, 3-bathroom home in Cheviot Hills, 3,426 sq ft. Closed at $2,995,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
+  },
+  {
+    "id": "deal-9124-beverlywood",
+    "order": 34,
+    "address": "9124 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "1,795,000",
+    "rent": "",
+    "beds": "3",
+    "baths": "2",
+    "sqft": "1,513",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 3-bedroom, 2-bathroom home in Beverlywood, 1,513 sq ft. Sold over asking at $1,795,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": [
+      "beverlywood"
+    ]
+  },
+  {
+    "id": "deal-3421-castlewoods",
+    "order": 35,
+    "address": "3421 Castlewoods Place",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "price": "1,995,000",
+    "rent": "",
+    "beds": "4",
+    "baths": "3",
+    "sqft": "2,815",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 4-bedroom, 3-bathroom home in Sherman Oaks, 2,815 sq ft. Closed at $1,995,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": []
+  },
+  {
+    "id": "deal-9028-rangely",
+    "order": 36,
+    "address": "9028 Rangely Ave",
+    "city": "West Hollywood",
+    "state": "CA",
+    "price": "1,750,000",
+    "rent": "",
+    "beds": "4",
+    "baths": "1",
+    "sqft": "",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 4-bedroom home with laundry in unit in West Hollywood. Closed at $1,750,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": []
+  },
+  {
+    "id": "deal-3571-colonial",
+    "order": 37,
+    "address": "3571 Colonial Avenue",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "3,995,000",
+    "rent": "",
+    "beds": "5",
+    "baths": "7",
+    "sqft": "4,225",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A new construction 5-bedroom, 7-bathroom home in Mar Vista, 4,225 sq ft on a 7,500 sq ft lot. Closed at $3,995,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": []
+  },
+  {
+    "id": "deal-2803-cardiff",
+    "order": 38,
+    "address": "2803 Cardiff Avenue",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "4,845,000",
+    "rent": "",
+    "beds": "5",
+    "baths": "6",
+    "sqft": "4,382",
+    "status": "SOLD",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "A 5-bedroom, 6-bathroom home in Beverlywood, 4,382 sq ft on a 6,763 sq ft lot. Priced at $4,845,000. Represented by Ben Lee Properties.",
+    "sections": [
+      "former_deals"
+    ],
+    "neighborhoods": [
+      "beverlywood"
+    ]
+  },
+  {
+    "id": "listing-6",
+    "order": 6,
+    "address": "10359 Monte Mar",
+    "city": "Los Angeles",
+    "state": "CA",
+    "price": "",
+    "rent": "",
+    "beds": "6",
+    "baths": "7.5",
+    "sqft": "6,635",
+    "status": "COMING SOON",
+    "image1": "",
+    "image2": "",
+    "has_detail_page": true,
+    "description": "Set on coveted West Monte Mar Drive in Cheviot Hills, this newly built 6-bedroom, 7.5-bath estate offers sweeping golf course views and exceptional luxury at every turn. Thoughtfully designed in tranquil earth tones, the approximately 6,635-square-foot residence blends warmth and sophistication with soaring ceilings, skylights, and disappearing floor-to-ceiling glass sliders that open seamlessly to the backyard. Built by B Homes Design and Development, the home evokes a serene, spa-like retreat filled with natural light and effortless indoor-outdoor flow. A light-filled foyer welcomes you into expansive living spaces that include a private office, elegant formal living room with fireplace, formal dining room, guest suite, and an impressive great room anchored by a custom state-of-the-art kitchen and breakfast nook with banquette seating crafted from rift white oak millwork. Additional highlights include two laundry rooms, attached two-car garage, privacy fencing, sound and security systems, smart home wiring, and placement within the highly sought-after Overland Avenue Elementary School district. A rare offering of modern elegance, scale, and location in one of Los Angeles' most desirable neighborhoods.",
+    "sections": [
+      "live_listings",
+      "homepage"
+    ],
+    "neighborhoods": [
+      "cheviot-hills"
     ]
   }
 ]
