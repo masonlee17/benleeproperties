@@ -21,7 +21,7 @@ NEIGHBORHOODS = [
         "meta_desc": "Cheviot Hills real estate guide from Ben Lee, the top broker in the neighborhood. Median home price $3M, developed in the 1920s, between Fox and Sony studios. Expert buyer and seller representation.",
         "og_desc": "Ben Lee Properties specializes in Cheviot Hills real estate. Get hyper-local market data, school info, and expert representation in this premier West LA neighborhood.",
         "median_price": "$3,000,000",
-        "price_trend": "Up 0.1% YoY",
+        "price_trend": "Up 4% YoY",
         "avg_dom": "36 days",
         "price_note": "Homes range from approximately $1.4M for ranch-style bungalows to $8.5M+ for newer two-story properties.",
         "about": (
