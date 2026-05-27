@@ -680,7 +680,7 @@ def build_page(n):
     }}
     .city-content-grid {{
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 3em;
       align-items: start;
     }}
@@ -776,7 +776,7 @@ def build_page(n):
           </div>
         </div>
         <img src="{n["hero_img"]}" loading="lazy" alt="{n["hero_img_alt"]}" class="cover-image-absolute">
-        <div style="display:block" class="background-reveal"></div>
+        <div class="background-reveal"></div>
       </section>
 
       <!-- Market Stats -->
@@ -904,6 +904,7 @@ def build_page(n):
 
 for n in NEIGHBORHOODS:
     html = build_page(n)
+    html = html.replace('../', '/')
     path = os.path.join(CITIES_DIR, f"{n['slug']}.html")
     with open(path, 'w') as f:
         f.write(html)
