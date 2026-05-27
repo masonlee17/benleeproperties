@@ -54,10 +54,15 @@ def seed_volume_if_needed():
     repo_path = os.path.join(REPO_DATA_DIR, 'properties.json')
     if not os.path.exists(repo_path):
         return
-    repo_data = json.load(open(repo_path))
+    try:
+        repo_data = json.load(open(repo_path))
+    except (json.JSONDecodeError, ValueError):
+        return  # repo copy is also unreadable — nothing to seed with; skip gracefully
     needs_seed = False
     if not os.path.exists(vol_path):
         needs_seed = True
+    elif vol_path == repo_path:
+        pass  # no separate volume; in-image copy is authoritative, no seed needed
     else:
         try:
             vol_data = json.load(open(vol_path))
@@ -65,17 +70,23 @@ def seed_volume_if_needed():
             if isinstance(vol_data, list) and vol_data and not any('sections' in p for p in vol_data):
                 needs_seed = True
         except (json.JSONDecodeError, ValueError):
-            # File is empty or corrupt (e.g. write was interrupted) — re-seed
+            # Volume file is empty or corrupt (e.g. write was interrupted) — re-seed
             needs_seed = True
     if needs_seed:
         save('properties.json', repo_data)
 
 def load(name):
     # Volume takes priority; repo is the read-only fallback (or seed source)
+    seen = set()
     for base in (DATA_DIR, REPO_DATA_DIR):
         p = os.path.join(base, name)
-        if os.path.exists(p):
+        if p in seen or not os.path.exists(p):
+            continue
+        seen.add(p)
+        try:
             return json.load(open(p))
+        except (json.JSONDecodeError, ValueError):
+            continue  # file is empty or corrupt — try next location
     return []
 
 def save(name, data):
