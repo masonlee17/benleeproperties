@@ -694,6 +694,13 @@ def delete_listing(lid):
 # ── Dynamic pages ──────────────────────────────────────────────────────────────
 # These two pages are rendered live so admin edits are instant without redeploying.
 
+@app.route('/cities/<slug>')
+def city_page(slug):
+    path = os.path.join(BASE_DIR, 'cities', f'{slug}.html')
+    if os.path.exists(path):
+        return open(path, encoding='utf-8').read()
+    return 'Not found', 404
+
 @app.route('/market-updates/<slug>')
 def market_update(slug):
     path = os.path.join(BASE_DIR, 'market-updates', f'{slug}.html')
