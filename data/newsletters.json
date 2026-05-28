@@ -40,8 +40,8 @@
     "label": "January 2026",
     "year": 2026,
     "month": 1,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/01-2026.pdf",
+    "cover": "images/nl-covers/nl-2026-01.jpg",
     "html_url": ""
   },
   {
@@ -49,8 +49,8 @@
     "label": "December 2025",
     "year": 2025,
     "month": 12,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/12-2025.pdf",
+    "cover": "images/nl-covers/nl-2025-12.jpg",
     "html_url": ""
   },
   {
@@ -175,8 +175,8 @@
     "label": "October 2024",
     "year": 2024,
     "month": 10,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/10-2024.pdf",
+    "cover": "images/nl-covers/nl-2024-10.jpg",
     "html_url": ""
   },
   {
