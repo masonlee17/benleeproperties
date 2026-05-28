@@ -639,6 +639,104 @@ def build_deals_items(listings):
     return '\n'.join(cards)
 
 
+def build_deals_map_html(listings):
+    """Build a Leaflet.js map section showing all former deal properties.
+    Each marker shows address, status, and price. New properties auto-appear
+    as long as they have lat/lng in properties.json."""
+    import json as _json
+    markers = []
+    for p in listings:
+        lat = p.get('lat')
+        lng = p.get('lng')
+        if not lat or not lng:
+            continue
+        addr   = p.get('address', '')
+        city   = p.get('city', 'Los Angeles')
+        status = p.get('status', '')
+        price  = p.get('price', '')
+        rent   = p.get('rent', '')
+        prop_id = p.get('id', '')
+        has_detail = p.get('has_detail_page', False)
+        detail_url = f'/property/{prop_id}' if has_detail else '/contact.html'
+        img    = p.get('image1', '')
+        img_src = img if img.startswith('http') else f'/{img}'
+        img_tag = f'<img src="{img_src}" style="width:100%;height:80px;object-fit:cover;border-radius:4px;margin-bottom:6px;" alt="">' if img else ''
+        if price:
+            price_str = f'${price}'
+        elif rent:
+            price_str = f'${rent}/mo'
+        else:
+            price_str = ''
+        status_color = '#27ae60' if status in ('SOLD','LEASED') else '#e74c3c' if 'ESCROW' in status else '#2980b9'
+        popup_html = (
+            f'{img_tag}'
+            f'<strong style="font-size:0.9em;">{addr}</strong><br>'
+            f'<span style="color:{status_color};font-weight:600;">{status}</span>'
+            + (f' &nbsp;·&nbsp; {price_str}' if price_str else '') +
+            f'<br><a href="{detail_url}" style="color:#e74c3c;font-size:0.8em;">View details →</a>'
+        )
+        markers.append({'lat': lat, 'lng': lng, 'popup': popup_html, 'status': status})
+
+    if not markers:
+        return ''
+
+    markers_js = _json.dumps(markers)
+    return f"""      <section class="section" style="background:#f5f5f5;padding:2em 0;">
+        <div class="container w-container">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:1em;">All Deals — Map View</h2>
+          <div id="blp-deals-map" style="width:100%;height:480px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);"></div>
+        </div>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEg=" crossorigin=""></script>
+        <script>
+        (function(){{
+          var map = L.map('blp-deals-map').setView([34.04, -118.42], 11);
+          L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 18
+          }}).addTo(map);
+
+          var soldIcon = L.divIcon({{
+            className: '',
+            html: '<div style="background:#27ae60;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
+            iconSize: [14, 14], iconAnchor: [7, 7]
+          }});
+          var activeIcon = L.divIcon({{
+            className: '',
+            html: '<div style="background:#e74c3c;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
+            iconSize: [14, 14], iconAnchor: [7, 7]
+          }});
+          var escrowIcon = L.divIcon({{
+            className: '',
+            html: '<div style="background:#2980b9;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
+            iconSize: [14, 14], iconAnchor: [7, 7]
+          }});
+
+          var markers = {markers_js};
+          markers.forEach(function(m) {{
+            var icon = (m.status === 'SOLD' || m.status === 'LEASED') ? soldIcon :
+                       (m.status.indexOf('ESCROW') >= 0) ? escrowIcon : activeIcon;
+            L.marker([m.lat, m.lng], {{icon: icon}})
+              .bindPopup(m.popup, {{maxWidth: 220}})
+              .addTo(map);
+          }});
+
+          // Legend
+          var legend = L.control({{position: 'bottomright'}});
+          legend.onAdd = function() {{
+            var d = L.DomUtil.create('div');
+            d.style.cssText = 'background:#fff;padding:8px 12px;border-radius:6px;font-size:0.78em;line-height:1.8;box-shadow:0 1px 6px rgba(0,0,0,.2);';
+            d.innerHTML = '<span style="display:inline-block;background:#27ae60;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Sold / Leased<br>'
+                        + '<span style="display:inline-block;background:#2980b9;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>In Escrow<br>'
+                        + '<span style="display:inline-block;background:#e74c3c;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Active';
+            return d;
+          }};
+          legend.addTo(map);
+        }})();
+        </script>
+      </section>"""
+
+
 def build_property_detail_html(p):
     """Generate a complete detail page HTML string for a property."""
     prop_id  = p.get('id', '')
@@ -1177,8 +1275,17 @@ def for_buyers():
 @app.route('/deals')
 @app.route('/deals.html')
 def deals_page():
-    return render_dynamic('deals.html', 'DEALS',
-                          build_deals_items([p for p in load('properties.json') if 'former_deals' in p.get('sections', [])]))
+    former = [p for p in load('properties.json') if 'former_deals' in p.get('sections', [])]
+    path   = os.path.join(BASE_DIR, 'deals.html')
+    text   = open(path, encoding='utf-8').read()
+    for marker, html in (
+        ('DEALS',     build_deals_items(former)),
+        ('DEALS_MAP', build_deals_map_html(former)),
+    ):
+        pat = rf'<!-- ADMIN:{re.escape(marker)}:START -->.*?<!-- ADMIN:{re.escape(marker)}:END -->'
+        rep = f'<!-- ADMIN:{marker}:START -->\n{html}\n<!-- ADMIN:{marker}:END -->'
+        text = re.sub(pat, lambda _: rep, text, flags=re.DOTALL)
+    return Response(text, mimetype='text/html')
 
 @app.route('/valuation')
 @app.route('/valuation.html')

@@ -19,7 +19,9 @@
       "built_by_ben",
       "live_listings",
       "homepage"
-    ]
+    ],
+    "lat": 34.147307,
+    "lng": -118.501239
   },
   {
     "id": "prop-2",
@@ -39,7 +41,9 @@
       "built_by_ben"
     ],
     "description": "details",
-    "has_detail_page": false
+    "has_detail_page": false,
+    "lat": 34.040374,
+    "lng": -118.411125
   },
   {
     "id": "prop-3",
@@ -57,7 +61,9 @@
     "image2": "",
     "sections": [
       "built_by_ben"
-    ]
+    ],
+    "lat": 34.040396,
+    "lng": -118.399856
   },
   {
     "id": "prop-4",
@@ -75,7 +81,9 @@
     "image2": "",
     "sections": [
       "built_by_ben"
-    ]
+    ],
+    "lat": 34.036493,
+    "lng": -118.398532
   },
   {
     "id": "prop-5",
@@ -93,7 +101,9 @@
     "image2": "",
     "sections": [
       "built_by_ben"
-    ]
+    ],
+    "lat": 34.039341,
+    "lng": -118.404092
   },
   {
     "id": "prop-6",
@@ -111,7 +121,9 @@
     "image2": "",
     "sections": [
       "built_by_ben"
-    ]
+    ],
+    "lat": 34.03677,
+    "lng": -118.404546
   },
   {
     "id": "prop-7",
@@ -131,7 +143,9 @@
       "built_by_ben",
       "former_deals"
     ],
-    "has_detail_page": true
+    "has_detail_page": true,
+    "lat": 34.040171,
+    "lng": -118.411943
   },
   {
     "id": "listing-2",
@@ -150,7 +164,9 @@
     "sections": [
       "live_listings",
       "homepage"
-    ]
+    ],
+    "lat": 34.059473,
+    "lng": -118.542297
   },
   {
     "id": "listing-3",
@@ -169,7 +185,9 @@
     "sections": [
       "live_listings",
       "homepage"
-    ]
+    ],
+    "lat": 34.010623,
+    "lng": -118.48441
   },
   {
     "id": "listing-4",
@@ -188,7 +206,9 @@
     "sections": [
       "live_listings",
       "homepage"
-    ]
+    ],
+    "lat": 34.039414,
+    "lng": -118.406006
   },
   {
     "id": "listing-5",
@@ -207,7 +227,9 @@
     "sections": [
       "live_listings",
       "homepage"
-    ]
+    ],
+    "lat": 34.167406,
+    "lng": -119.230695
   },
   {
     "id": "deal-3388-manning",
@@ -230,7 +252,9 @@
     ],
     "neighborhoods": [
       "cheviot-hills"
-    ]
+    ],
+    "lat": 34.031064,
+    "lng": -118.404624
   },
   {
     "id": "deal-1716-durango",
@@ -253,7 +277,9 @@
     ],
     "neighborhoods": [
       "beverlywood"
-    ]
+    ],
+    "lat": 34.049038,
+    "lng": -118.388373
   },
   {
     "id": "deal-2831-malcolm",
@@ -274,7 +300,9 @@
     "sections": [
       "former_deals"
     ],
-    "neighborhoods": []
+    "neighborhoods": [],
+    "lat": 34.033836,
+    "lng": -118.421223
   },
   {
     "id": "deal-2700-anchor",
@@ -297,7 +325,9 @@
     ],
     "neighborhoods": [
       "cheviot-hills"
-    ]
+    ],
+    "lat": 34.042068,
+    "lng": -118.399188
   },
   {
     "id": "deal-9124-beverlywood",
@@ -320,7 +350,9 @@
     ],
     "neighborhoods": [
       "beverlywood"
-    ]
+    ],
+    "lat": 34.038531,
+    "lng": -118.390947
   },
   {
     "id": "deal-3421-castlewoods",
@@ -341,7 +373,9 @@
     "sections": [
       "former_deals"
     ],
-    "neighborhoods": []
+    "neighborhoods": [],
+    "lat": 34.1535,
+    "lng": -118.4485
   },
   {
     "id": "deal-9028-rangely",
@@ -362,7 +396,9 @@
     "sections": [
       "former_deals"
     ],
-    "neighborhoods": []
+    "neighborhoods": [],
+    "lat": 34.079945,
+    "lng": -118.388662
   },
   {
     "id": "deal-3571-colonial",
@@ -383,7 +419,9 @@
     "sections": [
       "former_deals"
     ],
-    "neighborhoods": []
+    "neighborhoods": [],
+    "lat": 34.008009,
+    "lng": -118.438646
   },
   {
     "id": "deal-2803-cardiff",
@@ -406,7 +444,9 @@
     ],
     "neighborhoods": [
       "beverlywood"
-    ]
+    ],
+    "lat": 34.037876,
+    "lng": -118.395194
   },
   {
     "id": "listing-6",
@@ -430,7 +470,9 @@
     ],
     "neighborhoods": [
       "cheviot-hills"
-    ]
+    ],
+    "lat": 34.041523,
+    "lng": -118.40893
   },
   {
     "id": "deal-2811-oakhurst",
@@ -452,7 +494,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.038012,
+    "lng": -118.393913
   },
   {
     "id": "deal-3380-mandeville",
@@ -474,7 +518,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.105127,
+    "lng": -118.503112
   },
   {
     "id": "deal-3211-castle-heights",
@@ -496,7 +542,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.03325,
+    "lng": -118.399192
   },
   {
     "id": "deal-5025-westwood",
@@ -518,7 +566,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.005247,
+    "lng": -118.398033
   },
   {
     "id": "deal-2852-motor",
@@ -540,7 +590,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.013285,
+    "lng": -118.396937
   },
   {
     "id": "deal-3320-patricia",
@@ -562,7 +614,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.032765,
+    "lng": -118.405684
   },
   {
     "id": "deal-10760-lawler",
@@ -584,7 +638,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.0146,
+    "lng": -118.3901
   },
   {
     "id": "deal-2855-club",
@@ -606,7 +662,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.039118,
+    "lng": -118.403096
   },
   {
     "id": "deal-2990-club",
@@ -628,7 +686,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.036457,
+    "lng": -118.399655
   },
   {
     "id": "deal-740-24th",
@@ -650,7 +710,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.04074,
+    "lng": -118.486277
   },
   {
     "id": "deal-2768-anchor",
@@ -672,7 +734,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.040226,
+    "lng": -118.399376
   },
   {
     "id": "deal-3354-s-beverly",
@@ -694,7 +758,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.030447,
+    "lng": -118.399009
   },
   {
     "id": "deal-10323-monte-mar",
@@ -716,7 +782,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.042115,
+    "lng": -118.407842
   },
   {
     "id": "deal-619-tuallitan",
@@ -738,7 +806,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.069368,
+    "lng": -118.484538
   },
   {
     "id": "deal-1478-roxbury",
@@ -760,7 +830,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.052396,
+    "lng": -118.401556
   },
   {
     "id": "deal-2700-midvale",
@@ -782,7 +854,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.034558,
+    "lng": -118.425185
   },
   {
     "id": "deal-1135-chautaqua",
@@ -804,7 +878,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.0527,
+    "lng": -118.5264
   },
   {
     "id": "deal-2623-s-beverly",
@@ -826,7 +902,9 @@
     "sections": [
       "former_deals"
     ],
-    "images": []
+    "images": [],
+    "lat": 34.039205,
+    "lng": -118.396017
   },
   {
     "id": "deal-664-kingman",
@@ -849,6 +927,8 @@
     ],
     "neighborhoods": [
       "santa-monica"
-    ]
+    ],
+    "lat": 34.0259,
+    "lng": -118.4792
   }
 ]
