@@ -661,8 +661,8 @@
     "label": "April 2020",
     "year": 2020,
     "month": 4,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/04-2020.pdf",
+    "cover": "images/nl-covers/nl-2020-04.jpg",
     "html_url": ""
   },
   {
@@ -670,8 +670,8 @@
     "label": "March 2020",
     "year": 2020,
     "month": 3,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/03-2020.pdf",
+    "cover": "images/nl-covers/nl-2020-03.jpg",
     "html_url": ""
   },
   {
@@ -679,8 +679,8 @@
     "label": "February 2020",
     "year": 2020,
     "month": 2,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/02-2020.pdf",
+    "cover": "images/nl-covers/nl-2020-02.jpg",
     "html_url": ""
   },
   {
