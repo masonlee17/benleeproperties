@@ -663,7 +663,7 @@
     "month": 4,
     "pdf": "documents/04-2020.pdf",
     "cover": "images/nl-covers/nl-2020-04.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/april-2020"
   },
   {
     "id": "nl-2020-03",
@@ -672,7 +672,7 @@
     "month": 3,
     "pdf": "documents/03-2020.pdf",
     "cover": "images/nl-covers/nl-2020-03.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/march-2020"
   },
   {
     "id": "nl-2020-02",
@@ -681,7 +681,7 @@
     "month": 2,
     "pdf": "documents/02-2020.pdf",
     "cover": "images/nl-covers/nl-2020-02.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/february-2020"
   },
   {
     "id": "nl-2020-01",
