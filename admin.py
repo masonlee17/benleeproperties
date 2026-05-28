@@ -94,11 +94,15 @@ def save(name, data):
     os.makedirs(DATA_DIR, exist_ok=True)
     path = os.path.join(DATA_DIR, name)
     tmp  = path + '.tmp'
-    json.dump(data, open(tmp, 'w'), indent=2)
+    with open(tmp, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2)
     os.replace(tmp, path)  # atomic: never leaves a partial/empty file
 
 # Run at import time (works for both `python admin.py` and gunicorn)
-seed_volume_if_needed()
+try:
+    seed_volume_if_needed()
+except OSError:
+    pass  # volume not mounted yet; load() falls back to repo data
 
 def migrate_homepage_section():
     """One-time migration: give every live_listings property the homepage section tag."""
@@ -1356,7 +1360,11 @@ def _load_contacts():
 
 def _save_contacts(data):
     os.makedirs(DATA_DIR, exist_ok=True)
-    json.dump(data, open(os.path.join(DATA_DIR, 'contacts.json'), 'w'), indent=2)
+    path = os.path.join(DATA_DIR, 'contacts.json')
+    tmp  = path + '.tmp'
+    with open(tmp, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2)
+    os.replace(tmp, path)
 
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
