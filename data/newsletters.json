@@ -42,7 +42,7 @@
     "month": 1,
     "pdf": "documents/01-2026.pdf",
     "cover": "images/nl-covers/nl-2026-01.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/january-2026"
   },
   {
     "id": "nl-2025-12",
@@ -51,7 +51,7 @@
     "month": 12,
     "pdf": "documents/12-2025.pdf",
     "cover": "images/nl-covers/nl-2025-12.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/december-2025"
   },
   {
     "id": "nl-2025-11",
@@ -177,7 +177,7 @@
     "month": 10,
     "pdf": "documents/10-2024.pdf",
     "cover": "images/nl-covers/nl-2024-10.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/october-2024"
   },
   {
     "id": "nl-2024-09",
