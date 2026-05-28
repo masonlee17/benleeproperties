@@ -796,8 +796,8 @@
     "label": "January 2019",
     "year": 2019,
     "month": 1,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/01-2019.pdf",
+    "cover": "images/nl-covers/nl-2019-01.jpg",
     "html_url": ""
   },
   {
@@ -805,8 +805,8 @@
     "label": "December 2018",
     "year": 2018,
     "month": 12,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/12-2018.pdf",
+    "cover": "images/nl-covers/nl-2018-12.jpg",
     "html_url": ""
   },
   {
@@ -814,8 +814,8 @@
     "label": "November 2018",
     "year": 2018,
     "month": 11,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/11-2018.pdf",
+    "cover": "images/nl-covers/nl-2018-11.jpg",
     "html_url": ""
   },
   {
