@@ -346,19 +346,46 @@ def _tokenize(text):
 
 def _best_snippet(paragraphs, tokens, max_len=220):
     """Return (best_paragraph, hit_count).
-    Picks the paragraph with the most whole-word token matches.
-    Uses word-boundary matching so 'ice' does not count inside 'nice' or 'license'."""
-    best_para  = paragraphs[0] if paragraphs else ''
-    best_count = -1
+    Scoring priority:
+      1. Most distinct query tokens present (paragraph containing all tokens beats one with one)
+      2. Highest token density (hits / paragraph length) — prefers focused over sprawling text
+    Then centers the excerpt around the first match so the highlighted term is always visible."""
+    best_para    = paragraphs[0] if paragraphs else ''
+    best_score   = (-1, -1.0)
+    best_count   = 0
     for para in paragraphs:
-        pl    = para.lower()
-        count = sum(len(re.findall(r'\b' + re.escape(t) + r'\b', pl)) for t in tokens)
-        if count > best_count:
-            best_count = count
+        pl     = para.lower()
+        counts = [len(re.findall(r'\b' + re.escape(t) + r'\b', pl)) for t in tokens]
+        total  = sum(counts)
+        if total == 0:
+            continue
+        distinct = sum(1 for c in counts if c > 0)
+        density  = total / max(len(para), 1)
+        score    = (distinct, density)
+        if score > best_score:
+            best_score = score
+            best_count = total
             best_para  = para
     if len(best_para) > max_len:
-        cut = best_para[:max_len].rfind(' ')
-        best_para = best_para[:cut if cut > 0 else max_len] + '...'
+        # Find the earliest token match so we can center the excerpt on it
+        first_pos = len(best_para)
+        for t in tokens:
+            m = re.search(r'\b' + re.escape(t) + r'\b', best_para, re.IGNORECASE)
+            if m:
+                first_pos = min(first_pos, m.start())
+        start = max(0, first_pos - 60)
+        if start > 0:
+            snap  = best_para.rfind(' ', 0, start + 1)
+            start = snap + 1 if snap >= 0 else start
+        excerpt = best_para[start : start + max_len]
+        prefix  = '...' if start > 0 else ''
+        has_more = start + max_len < len(best_para)
+        if prefix:
+            excerpt = prefix + excerpt.lstrip()
+        if has_more:
+            cut     = excerpt.rfind(' ')
+            excerpt = (excerpt[:cut] if cut > 0 else excerpt) + '...'
+        best_para = excerpt
     return best_para, best_count
 
 
