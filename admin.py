@@ -690,8 +690,8 @@ def build_deals_map_html(listings):
           <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:1em;">All Deals — Map View</h2>
           <div id="blp-deals-map" style="width:100%;height:480px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);"></div>
         </div>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEg=" crossorigin=""></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
         <script>
         (function(){{
           var map = L.map('blp-deals-map').setView([34.04, -118.42], 11);
@@ -1223,8 +1223,8 @@ def city_page(slug):
     html = open(path, encoding='utf-8').read()
     city_listings = [
         p for p in load('properties.json')
-        if 'live_listings' in p.get('sections', [])
-        and slug in p.get('neighborhoods', [])
+        if slug in p.get('neighborhoods', [])
+        and 'former_deals' not in p.get('sections', [])
     ]
     html = html.replace('<!-- CITY_LISTINGS_PLACEHOLDER -->', build_city_listing_items(city_listings))
     return Response(html, mimetype='text/html')
