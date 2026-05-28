@@ -580,8 +580,8 @@
     "label": "January 2021",
     "year": 2021,
     "month": 1,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/01-2021.pdf",
+    "cover": "images/nl-covers/nl-2021-01.jpg",
     "html_url": ""
   },
   {
@@ -589,8 +589,8 @@
     "label": "December 2020",
     "year": 2020,
     "month": 12,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/12-2020.pdf",
+    "cover": "images/nl-covers/nl-2020-12.jpg",
     "html_url": ""
   },
   {
@@ -598,8 +598,8 @@
     "label": "November 2020",
     "year": 2020,
     "month": 11,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/11-2020.pdf",
+    "cover": "images/nl-covers/nl-2020-11.jpg",
     "html_url": ""
   },
   {
