@@ -1,0 +1,642 @@
+[
+  {
+    "file": "nl-2025-01-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p01-i01.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 1,
+    "w": 2250,
+    "h": 1659
+  },
+  {
+    "file": "nl-2025-01-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p02-i02.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 2,
+    "w": 1100,
+    "h": 779
+  },
+  {
+    "file": "nl-2025-01-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i03.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 510,
+    "h": 342
+  },
+  {
+    "file": "nl-2025-01-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i04.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 519,
+    "h": 335
+  },
+  {
+    "file": "nl-2025-01-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i05.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 439
+  },
+  {
+    "file": "nl-2025-01-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i06.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 448
+  },
+  {
+    "file": "nl-2025-01-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i07.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-01-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i08.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 519,
+    "h": 335
+  },
+  {
+    "file": "nl-2025-01-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i09.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 510,
+    "h": 343
+  },
+  {
+    "file": "nl-2025-01-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i10.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-01-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i11.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-01-p03-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p03-i12.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-01-p04-i13.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p04-i13.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 4,
+    "w": 888,
+    "h": 928
+  },
+  {
+    "file": "nl-2025-01-p04-i14.jpg",
+    "path": "images/newsletter-extracts/nl-2025-01-p04-i14.jpg",
+    "pdf": "01-2025.pdf",
+    "page": 4,
+    "w": 526,
+    "h": 505
+  },
+  {
+    "file": "nl-2025-02-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p01-i01.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 1,
+    "w": 1914,
+    "h": 1406
+  },
+  {
+    "file": "nl-2025-02-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p02-i02.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 2,
+    "w": 1024,
+    "h": 754
+  },
+  {
+    "file": "nl-2025-02-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i03.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 510,
+    "h": 340
+  },
+  {
+    "file": "nl-2025-02-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i04.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 519,
+    "h": 335
+  },
+  {
+    "file": "nl-2025-02-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i05.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 439
+  },
+  {
+    "file": "nl-2025-02-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i06.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 448
+  },
+  {
+    "file": "nl-2025-02-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i07.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-02-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i08.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 519,
+    "h": 335
+  },
+  {
+    "file": "nl-2025-02-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i09.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-02-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i10.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 510,
+    "h": 343
+  },
+  {
+    "file": "nl-2025-02-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i11.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 441
+  },
+  {
+    "file": "nl-2025-02-p03-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p03-i12.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 446
+  },
+  {
+    "file": "nl-2025-02-p04-i13.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p04-i13.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 4,
+    "w": 534,
+    "h": 559
+  },
+  {
+    "file": "nl-2025-02-p04-i14.jpg",
+    "path": "images/newsletter-extracts/nl-2025-02-p04-i14.jpg",
+    "pdf": "02-2025.pdf",
+    "page": 4,
+    "w": 1098,
+    "h": 1300
+  },
+  {
+    "file": "nl-2025-03-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p01-i01.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 1,
+    "w": 2255,
+    "h": 1650
+  },
+  {
+    "file": "nl-2025-03-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p02-i02.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 2,
+    "w": 1446,
+    "h": 2250
+  },
+  {
+    "file": "nl-2025-03-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i03.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-03-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i04.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 397
+  },
+  {
+    "file": "nl-2025-03-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i05.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 400
+  },
+  {
+    "file": "nl-2025-03-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i06.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 393
+  },
+  {
+    "file": "nl-2025-03-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i07.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 439
+  },
+  {
+    "file": "nl-2025-03-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i08.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 404
+  },
+  {
+    "file": "nl-2025-03-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i09.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-03-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i10.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-03-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p03-i11.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 400
+  },
+  {
+    "file": "nl-2025-03-p04-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p04-i12.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 4,
+    "w": 1365,
+    "h": 2200
+  },
+  {
+    "file": "nl-2025-03-p04-i13.jpg",
+    "path": "images/newsletter-extracts/nl-2025-03-p04-i13.jpg",
+    "pdf": "03-2025.pdf",
+    "page": 4,
+    "w": 370,
+    "h": 250
+  },
+  {
+    "file": "nl-2025-04-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p01-i01.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 1,
+    "w": 3000,
+    "h": 1653
+  },
+  {
+    "file": "nl-2025-04-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p02-i02.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 2,
+    "w": 1101,
+    "h": 659
+  },
+  {
+    "file": "nl-2025-04-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i03.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-04-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i04.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-04-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i05.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-04-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i06.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 445
+  },
+  {
+    "file": "nl-2025-04-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i07.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 404
+  },
+  {
+    "file": "nl-2025-04-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i08.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-04-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i09.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-04-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i10.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-04-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p03-i11.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 397
+  },
+  {
+    "file": "nl-2025-04-p04-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-04-p04-i12.jpg",
+    "pdf": "04-2025.pdf",
+    "page": 4,
+    "w": 812,
+    "h": 768
+  },
+  {
+    "file": "nl-2025-05-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p01-i01.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 1,
+    "w": 1376,
+    "h": 754
+  },
+  {
+    "file": "nl-2025-05-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p02-i02.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 2,
+    "w": 1109,
+    "h": 1501
+  },
+  {
+    "file": "nl-2025-05-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i03.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-05-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i04.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 439
+  },
+  {
+    "file": "nl-2025-05-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i05.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-05-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i06.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 448
+  },
+  {
+    "file": "nl-2025-05-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i07.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 404
+  },
+  {
+    "file": "nl-2025-05-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i08.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 405
+  },
+  {
+    "file": "nl-2025-05-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i09.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-05-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i10.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-05-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p03-i11.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 397
+  },
+  {
+    "file": "nl-2025-05-p04-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p04-i12.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 4,
+    "w": 1109,
+    "h": 850
+  },
+  {
+    "file": "nl-2025-05-p04-i13.jpg",
+    "path": "images/newsletter-extracts/nl-2025-05-p04-i13.jpg",
+    "pdf": "05-2025.pdf",
+    "page": 4,
+    "w": 1364,
+    "h": 1510
+  },
+  {
+    "file": "nl-2025-06-p01-i01.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p01-i01.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 1,
+    "w": 4032,
+    "h": 2224
+  },
+  {
+    "file": "nl-2025-06-p02-i02.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p02-i02.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 2,
+    "w": 1101,
+    "h": 1259
+  },
+  {
+    "file": "nl-2025-06-p03-i03.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i03.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 678,
+    "h": 385
+  },
+  {
+    "file": "nl-2025-06-p03-i04.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i04.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-06-p03-i05.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i05.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 597,
+    "h": 386
+  },
+  {
+    "file": "nl-2025-06-p03-i06.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i06.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-06-p03-i07.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i07.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 405
+  },
+  {
+    "file": "nl-2025-06-p03-i08.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i08.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 406
+  },
+  {
+    "file": "nl-2025-06-p03-i09.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i09.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 447
+  },
+  {
+    "file": "nl-2025-06-p03-i10.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i10.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 670,
+    "h": 391
+  },
+  {
+    "file": "nl-2025-06-p03-i11.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p03-i11.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 3,
+    "w": 679,
+    "h": 397
+  },
+  {
+    "file": "nl-2025-06-p04-i12.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p04-i12.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 4,
+    "w": 480,
+    "h": 640
+  },
+  {
+    "file": "nl-2025-06-p04-i13.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p04-i13.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 4,
+    "w": 1100,
+    "h": 1150
+  },
+  {
+    "file": "nl-2025-06-p04-i14.jpg",
+    "path": "images/newsletter-extracts/nl-2025-06-p04-i14.jpg",
+    "pdf": "06-2025.pdf",
+    "page": 4,
+    "w": 534,
+    "h": 601
+  }
+]
