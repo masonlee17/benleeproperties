@@ -644,11 +644,36 @@ def build_deals_items(listings):
 
 
 def build_deals_map_html(listings):
-    """Build a Leaflet.js map section showing all former deal properties.
-    Each marker shows address, status, and price. New properties auto-appear
-    as long as they have lat/lng in properties.json."""
+    """Build a Leaflet.js map showing featured former deals + full sold history.
+    Featured deals (properties.json former_deals) get large markers with detail popups.
+    Historical sales (sold-history.json) get small dots with price only."""
     import json as _json
     markers = []
+
+    # Layer 1: historical sold properties (small dots, no detail page)
+    hist_path = os.path.join(DATA_DIR, 'sold-history.json')
+    if not os.path.exists(hist_path):
+        hist_path = os.path.join(BASE_DIR, 'data', 'sold-history.json')
+    if os.path.exists(hist_path):
+        try:
+            hist = json.load(open(hist_path, encoding='utf-8'))
+            for h in hist:
+                lat, lng = h.get('lat'), h.get('lng')
+                if not lat or not lng: continue
+                addr  = h.get('address', '')
+                city  = h.get('city', '')
+                price = h.get('price', '')
+                beds  = h.get('beds', '')
+                popup = (f'<strong style="font-size:0.85em;">{addr}</strong><br>'
+                         f'<span style="font-size:0.78em;color:#555;">{city}, CA</span><br>'
+                         + (f'<span style="color:#27ae60;font-weight:600;font-size:0.82em;">Sold ${price}</span>' if price else '')
+                         + (f'<br><span style="font-size:0.76em;color:#888;">{beds} bd</span>' if beds else ''))
+                markers.append({'lat': lat, 'lng': lng, 'popup': popup,
+                                'status': 'SOLD', 'layer': 'hist'})
+        except Exception:
+            pass
+
+    # Layer 2: featured former deals (large markers with full detail)
     for p in listings:
         lat = p.get('lat')
         lng = p.get('lng')
@@ -687,8 +712,9 @@ def build_deals_map_html(listings):
     markers_js = _json.dumps(markers)
     return f"""      <section class="section" style="background:#f5f5f5;padding:2em 0;">
         <div class="container w-container">
-          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:1em;">All Deals — Map View</h2>
-          <div id="blp-deals-map" style="width:100%;height:480px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);"></div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:0.3em;">404 Transactions — Map View</h2>
+          <p style="text-align:center;color:#777;font-size:0.85em;margin-bottom:1em;">Every single-family property Ben Lee has sold, mapped.</p>
+          <div id="blp-deals-map" style="width:100%;height:520px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);"></div>
         </div>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -700,28 +726,43 @@ def build_deals_map_html(listings):
             maxZoom: 18
           }}).addTo(map);
 
+          // Small dot for historical sales
+          var histIcon = L.divIcon({{
+            className: '',
+            html: '<div style="background:#27ae60;border:1.5px solid rgba(255,255,255,.8);width:8px;height:8px;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.35);opacity:0.85;"></div>',
+            iconSize: [8, 8], iconAnchor: [4, 4]
+          }});
+          // Larger icons for featured former deals
           var soldIcon = L.divIcon({{
             className: '',
-            html: '<div style="background:#27ae60;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
-            iconSize: [14, 14], iconAnchor: [7, 7]
+            html: '<div style="background:#27ae60;border:2px solid #fff;width:16px;height:16px;border-radius:50%;box-shadow:0 1px 5px rgba(0,0,0,.45);"></div>',
+            iconSize: [16, 16], iconAnchor: [8, 8]
           }});
           var activeIcon = L.divIcon({{
             className: '',
-            html: '<div style="background:#e74c3c;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
-            iconSize: [14, 14], iconAnchor: [7, 7]
+            html: '<div style="background:#e74c3c;border:2px solid #fff;width:16px;height:16px;border-radius:50%;box-shadow:0 1px 5px rgba(0,0,0,.45);"></div>',
+            iconSize: [16, 16], iconAnchor: [8, 8]
           }});
           var escrowIcon = L.divIcon({{
             className: '',
-            html: '<div style="background:#2980b9;border:2px solid #fff;width:14px;height:14px;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
-            iconSize: [14, 14], iconAnchor: [7, 7]
+            html: '<div style="background:#2980b9;border:2px solid #fff;width:16px;height:16px;border-radius:50%;box-shadow:0 1px 5px rgba(0,0,0,.45);"></div>',
+            iconSize: [16, 16], iconAnchor: [8, 8]
           }});
 
           var markers = {markers_js};
           markers.forEach(function(m) {{
-            var icon = (m.status === 'SOLD' || m.status === 'LEASED') ? soldIcon :
-                       (m.status.indexOf('ESCROW') >= 0) ? escrowIcon : activeIcon;
+            var icon;
+            if (m.layer === 'hist') {{
+              icon = histIcon;
+            }} else if (m.status === 'SOLD' || m.status === 'LEASED') {{
+              icon = soldIcon;
+            }} else if (m.status.indexOf('ESCROW') >= 0) {{
+              icon = escrowIcon;
+            }} else {{
+              icon = activeIcon;
+            }}
             L.marker([m.lat, m.lng], {{icon: icon}})
-              .bindPopup(m.popup, {{maxWidth: 220}})
+              .bindPopup(m.popup, {{maxWidth: 240}})
               .addTo(map);
           }});
 
@@ -729,10 +770,11 @@ def build_deals_map_html(listings):
           var legend = L.control({{position: 'bottomright'}});
           legend.onAdd = function() {{
             var d = L.DomUtil.create('div');
-            d.style.cssText = 'background:#fff;padding:8px 12px;border-radius:6px;font-size:0.78em;line-height:1.8;box-shadow:0 1px 6px rgba(0,0,0,.2);';
-            d.innerHTML = '<span style="display:inline-block;background:#27ae60;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Sold / Leased<br>'
-                        + '<span style="display:inline-block;background:#2980b9;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>In Escrow<br>'
-                        + '<span style="display:inline-block;background:#e74c3c;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Active';
+            d.style.cssText = 'background:#fff;padding:8px 12px;border-radius:6px;font-size:0.78em;line-height:1.9;box-shadow:0 1px 6px rgba(0,0,0,.2);';
+            d.innerHTML = '<span style="display:inline-block;background:#27ae60;width:8px;height:8px;border-radius:50%;margin-right:5px;opacity:.85;"></span>Historical sale<br>'
+                        + '<span style="display:inline-block;background:#27ae60;width:12px;height:12px;border-radius:50%;margin-right:5px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);"></span>Featured sold / leased<br>'
+                        + '<span style="display:inline-block;background:#2980b9;width:12px;height:12px;border-radius:50%;margin-right:5px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);"></span>In escrow<br>'
+                        + '<span style="display:inline-block;background:#e74c3c;width:12px;height:12px;border-radius:50%;margin-right:5px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);"></span>Active listing';
             return d;
           }};
           legend.addTo(map);

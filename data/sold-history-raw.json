@@ -1,0 +1,4042 @@
+[
+  {
+    "address": "17463 Covello St",
+    "city": "Lake Balboa",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "955",
+    "price": "455,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8951 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1310",
+    "price": "505,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2641 S Harcourt Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "1.00",
+    "sqft": "1624",
+    "price": "500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "7168 Willoughby Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "799",
+    "price": "485,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9124 W 25Th St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "",
+    "price": "539,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2481 Wellesley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1200",
+    "price": "510,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2734 Veteran Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "738",
+    "price": "701,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8902 Guthrie Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "904",
+    "price": "641,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8821 David Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1194",
+    "price": "660,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9048 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1206",
+    "price": "655,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "4140 Harter Ave",
+    "city": "Culver City",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "864",
+    "price": "685,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3558 Barry Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1670",
+    "price": "725,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10306 Seabury Ln",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1350",
+    "price": "650,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1829 S Wooster St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.50",
+    "sqft": "1391",
+    "price": "720,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1523 S Orange Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1989",
+    "price": "735,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "7168 Willoughby Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "799",
+    "price": "675,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8951 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1092",
+    "price": "758,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9309 Cattaraugus Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.75",
+    "sqft": "1646",
+    "price": "715,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2723 S Westgate Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "928",
+    "price": "740,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3988 Beverly Glen",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1338",
+    "price": "749,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2701 4Th St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "1",
+    "baths": "1.00",
+    "sqft": "927",
+    "price": "735,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1435 Roxbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.50",
+    "sqft": "1505",
+    "price": "735,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2601 S Halm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.75",
+    "sqft": "1350",
+    "price": "740,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2713 Granville Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1302",
+    "price": "755,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8504 Walnut Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1374",
+    "price": "718,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "12531 Rubens Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.75",
+    "sqft": "1323",
+    "price": "775,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2526 S Westgate Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1700",
+    "price": "799,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2708 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1449",
+    "price": "799,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8963 W 25Th St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1523",
+    "price": "825,250",
+    "status": "SOLD"
+  },
+  {
+    "address": "2514 S Bundy Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "",
+    "price": "799,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2601 S Halm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.00",
+    "sqft": "1132",
+    "price": "811,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1784 S Wooster St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1621",
+    "price": "820,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10501 Northvale Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1631",
+    "price": "750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8954 Helms Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1771",
+    "price": "850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3047 Oakhurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "883",
+    "price": "875,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9825 Altman Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.50",
+    "sqft": "2316",
+    "price": "882,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9044 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1408",
+    "price": "925,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2713 Granville Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1302",
+    "price": "870,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3354 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2394",
+    "price": "850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9007 Larke Ellen Cir",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2146",
+    "price": "910,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1909 S Crest Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "1644",
+    "price": "1,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11804 Washington Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1755",
+    "price": "924,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2731 Castle Heights Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1278",
+    "price": "1,020,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9032 David Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1809",
+    "price": "975,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "815 Coeur D Alene Ave",
+    "city": "Venice",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1396",
+    "price": "859,405",
+    "status": "SOLD"
+  },
+  {
+    "address": "10707 Esther Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.00",
+    "sqft": "1014",
+    "price": "850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9415 Kramerwood Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1418",
+    "price": "1,080,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10636 Rountree Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1564",
+    "price": "950,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9114 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1444",
+    "price": "1,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11437 Clover Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.75",
+    "sqft": "2018",
+    "price": "1,052,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10317 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "1820",
+    "price": "1,039,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2119 Linnington Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1723",
+    "price": "1,130,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1415 N Kenter Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1869",
+    "price": "1,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10570 Tennessee Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2175",
+    "price": "1,085,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10314 Rossbury Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1434",
+    "price": "1,070,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9402 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.00",
+    "sqft": "1192",
+    "price": "1,105,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9714 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2188",
+    "price": "990,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3131 Shelby Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2151",
+    "price": "1,075,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2417 S Canfield Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1668",
+    "price": "1,085,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9720 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1724",
+    "price": "1,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3257 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1851",
+    "price": "1,095,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3232 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1356",
+    "price": "1,162,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "2823 Wigtown Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1528",
+    "price": "1,030,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "24745 Robert Guy Rd",
+    "city": "Hidden Hills",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3092",
+    "price": "1,160,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2904 Oakhurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1260",
+    "price": "1,141,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "2801 Dunleer Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2426",
+    "price": "1,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3380 Mandeville Canyon Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1852",
+    "price": "1,170,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9029 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "1.00",
+    "sqft": "1626",
+    "price": "1,150,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "6404 W 85Th St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1158",
+    "price": "1,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9031 David Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1985",
+    "price": "1,175,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9711 Cisco St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1857",
+    "price": "1,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2912 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1279",
+    "price": "1,261,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1952 S Garth Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "1.00",
+    "sqft": "1231",
+    "price": "1,225,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10525 Ayres Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.50",
+    "sqft": "2010",
+    "price": "1,160,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "13441 Cheltenham Dr",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "beds": "3",
+    "baths": "5.00",
+    "sqft": "2630",
+    "price": "1,160,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9436 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1680",
+    "price": "1,365,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9112 Gibson St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1264",
+    "price": "1,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2801 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3650",
+    "price": "1,260,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "620 Tuallitan Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "3245",
+    "price": "1,405,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3122 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1370",
+    "price": "1,299,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3043 Oakhurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2163",
+    "price": "1,275,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2562 Kelton Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2544",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3036 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1260",
+    "price": "1,452,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3013 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1775",
+    "price": "1,299,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9032 David Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1809",
+    "price": "1,451,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9720 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1724",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9110 David Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "1512",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1921 6Th St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1215",
+    "price": "1,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10126 Lovelane Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "2000",
+    "price": "1,319,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9544 Cresta Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "2604",
+    "price": "1,305,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2209 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2536",
+    "price": "1,215,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2922 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1405",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9408 Kramerwood Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1459",
+    "price": "1,455,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "6582 Kentwood Bluffs Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2521",
+    "price": "1,378,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2407 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2245",
+    "price": "1,410,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10860 Whitburn St",
+    "city": "Culver City",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1914",
+    "price": "1,450,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2661 S Bedford St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1514",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9906 Girla Way",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2481",
+    "price": "1,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3216 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1795",
+    "price": "1,395,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1578 Benedict Canyon Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1330",
+    "price": "1,249,235",
+    "status": "SOLD"
+  },
+  {
+    "address": "3100 Queensbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2768",
+    "price": "1,380,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10371 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "",
+    "price": "1,360,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11805 Hartsook St",
+    "city": "Valley Village",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2438",
+    "price": "1,420,505",
+    "status": "SOLD"
+  },
+  {
+    "address": "3009 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1546",
+    "price": "1,420,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2218 Malcolm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1535",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2245 Hillsboro Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1983",
+    "price": "1,410,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2235 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1916",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2041 Desford Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.50",
+    "sqft": "3219",
+    "price": "1,230,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3350 Barbydell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2004",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10436 Troon Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1995",
+    "price": "1,325,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9914 Girla Way",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "3194",
+    "price": "1,275,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9540 Bolton Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2507",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11656 Ricasoli Way",
+    "city": "Porter Ranch",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2917",
+    "price": "1,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "6632 Bedford Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "2896",
+    "price": "1,475,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9726 Holcomb St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "2820",
+    "price": "1,460,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3155 Shelby Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "2577",
+    "price": "1,392,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3083 Patricia Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1939",
+    "price": "1,670,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10552 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2300",
+    "price": "1,499,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9100 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1370",
+    "price": "1,650,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3101 Barbara Ct",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2940",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10290 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1512",
+    "price": "1,512,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "912 Rose Ave",
+    "city": "Venice",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "1930",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9044 Gibson St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1428",
+    "price": "1,539,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2349 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "",
+    "price": "1,510,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2222 Malcolm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1397",
+    "price": "1,775,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2637 Midvale Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1934",
+    "price": "1,521,130",
+    "status": "SOLD"
+  },
+  {
+    "address": "5025 Westwood",
+    "city": "Culver City",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "2115",
+    "price": "1,707,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3354 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2394",
+    "price": "1,420,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10101 Rossbury Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2977",
+    "price": "1,420,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10538 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1608",
+    "price": "1,520,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3015 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2437",
+    "price": "1,535,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9120 Gibson St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1440",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10560 Ayres Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "1962",
+    "price": "3,190,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3232 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1356",
+    "price": "1,625,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9124 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1513",
+    "price": "1,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "643 Muskingum Ave",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1566",
+    "price": "2,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2700 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "1878",
+    "price": "1,625,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3060 Danalda Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3066",
+    "price": "1,430,141",
+    "status": "SOLD"
+  },
+  {
+    "address": "16572 Chattanooga Pl",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2133",
+    "price": "1,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3002 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "1866",
+    "price": "1,750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10726 Cushdon Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "2144",
+    "price": "1,701,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "441 Westmount Dr",
+    "city": "West Hollywood",
+    "state": "CA",
+    "beds": "3",
+    "baths": "1.75",
+    "sqft": "1644",
+    "price": "1,599,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3119 Queensbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2223",
+    "price": "1,560,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9626 Oakmore Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1891",
+    "price": "1,790,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10595 Esther Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2004",
+    "price": "1,537,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3043 Oakhurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2163",
+    "price": "1,615,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10428 Lorenzo Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.50",
+    "sqft": "",
+    "price": "1,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10289 Bannockburn Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "4.00",
+    "sqft": "3301",
+    "price": "1,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2801 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3650",
+    "price": "1,680,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2526 5Th St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1092",
+    "price": "1,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1954 1/2 Manning Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "1964",
+    "price": "1,649,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1111 Berkeley Dr",
+    "city": "Marina Del Rey",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1964",
+    "price": "1,697,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2366 N Beverly Glen Blvd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "3250",
+    "price": "1,766,430",
+    "status": "SOLD"
+  },
+  {
+    "address": "3635 Inglewood",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2440",
+    "price": "1,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1565 Reeves St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2046",
+    "price": "1,675,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2801 Dunleer Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2426",
+    "price": "1,777,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3064 Manning Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2637",
+    "price": "1,575,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2351 N Mariscal Ln",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2254",
+    "price": "1,690,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9224 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "0",
+    "baths": "0.00",
+    "sqft": "",
+    "price": "1,695,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1478 Roxbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "2.00",
+    "sqft": "1435",
+    "price": "1,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3123 Queensbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.75",
+    "sqft": "2294",
+    "price": "1,765,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10645 Esther Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1730",
+    "price": "1,720,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2750 Manning Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2422",
+    "price": "1,580,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10271 Bannockburn Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2323",
+    "price": "1,625,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9832 Vicar St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1612",
+    "price": "1,750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "951 S Victoria Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2488",
+    "price": "1,590,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2430 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "2650",
+    "price": "1,650,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2256 Guthrie Cir",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3095",
+    "price": "1,740,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2852 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.50",
+    "sqft": "3255",
+    "price": "1,749,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9600 Bolton Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2590",
+    "price": "1,680,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9413 Sawyer St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3305",
+    "price": "1,602,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "3128 Barbydell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.50",
+    "sqft": "3191",
+    "price": "1,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "483 Dalehurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.50",
+    "sqft": "3771",
+    "price": "1,872,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3257 Provon Ln",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1702",
+    "price": "1,750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9124 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1513",
+    "price": "1,942,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3064 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1595",
+    "price": "1,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10756 Ashby Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1920",
+    "price": "1,725,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11460 Thurston Cir",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.50",
+    "sqft": "3931",
+    "price": "1,675,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "24745 Robert Guy Rd",
+    "city": "Hidden Hills",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3092",
+    "price": "1,750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2907 Beverwil Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2280",
+    "price": "1,945,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9030 Olin St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2113",
+    "price": "1,860,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10728 Tabor St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2006",
+    "price": "1,809,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9833 Vicar St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2199",
+    "price": "1,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3015 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "2904",
+    "price": "1,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3036 Danalda Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2067",
+    "price": "1,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2700 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3426",
+    "price": "1,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "906 Nowita Pl",
+    "city": "Venice",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "1803",
+    "price": "1,820,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "13236 Dewey St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1627",
+    "price": "1,815,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9447 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2400",
+    "price": "1,740,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2939 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "2777",
+    "price": "1,854,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2400 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "",
+    "price": "1,849,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10546 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "3.00",
+    "sqft": "2425",
+    "price": "1,890,800",
+    "status": "SOLD"
+  },
+  {
+    "address": "3660 Beethoven St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3272",
+    "price": "1,870,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10342 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3100",
+    "price": "1,915,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2407 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2245",
+    "price": "1,848,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3217 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2041",
+    "price": "1,895,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10313 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "3228",
+    "price": "1,740,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "4170 Commonwealth Ave",
+    "city": "Culver City",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "1935",
+    "price": "2,088,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "2780 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "2",
+    "baths": "3.00",
+    "sqft": "1992",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10801 Ashby Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2555",
+    "price": "1,899,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2629 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2467",
+    "price": "1,887,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10559 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3610",
+    "price": "1,950,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "12035 Dewey St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2908",
+    "price": "1,935,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9991 Liebe Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "6",
+    "baths": "4.50",
+    "sqft": "4099",
+    "price": "2,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2782 Monte Mar Ter",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "5.00",
+    "sqft": "",
+    "price": "1,995,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3148 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "2740",
+    "price": "1,785,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2229 Castilian Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2805",
+    "price": "1,975,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1929 Hillsboro Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2303",
+    "price": "1,848,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10513 Blythe Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2885",
+    "price": "2,105,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9319 Cattaraugus Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2434",
+    "price": "1,945,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "5571 Onacrest Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "4112",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2030 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1980",
+    "price": "2,550,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3126 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2096",
+    "price": "2,325,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3421 Castlewoods Pl",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2807",
+    "price": "1,885,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10585 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3122",
+    "price": "2,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10581 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "2688",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2213 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2550",
+    "price": "1,864,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9000 Phyllis Ave",
+    "city": "West Hollywood",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "2705",
+    "price": "1,930,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9417 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2754",
+    "price": "1,985,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2407 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2245",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10832 Lawler St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2118",
+    "price": "2,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10366 Lorenzo Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2419",
+    "price": "2,095,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10367 Cheviot Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "4647",
+    "price": "2,160,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2927 Danalda Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "3318",
+    "price": "2,062,498",
+    "status": "SOLD"
+  },
+  {
+    "address": "403 22Nd St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.50",
+    "sqft": "2523",
+    "price": "2,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3026 Kelton Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2844",
+    "price": "2,075,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10585 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3000",
+    "price": "2,055,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9139 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2500",
+    "price": "2,149,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3017 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "3116",
+    "price": "2,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9700 Lockford St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1998",
+    "price": "2,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2751 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2648",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3216 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1795",
+    "price": "2,175,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3388 Manning Ct",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2388",
+    "price": "2,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9500 Sawyer St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3342",
+    "price": "2,215,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9402 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3043",
+    "price": "2,150,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "4275 Corinth Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3763",
+    "price": "2,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10523 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2799",
+    "price": "2,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9601 Cattaraugus Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1941",
+    "price": "1,959,750",
+    "status": "SOLD"
+  },
+  {
+    "address": "5025 Westwood Blvd",
+    "city": "Culver City",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2350",
+    "price": "2,417,675",
+    "status": "SOLD"
+  },
+  {
+    "address": "3062 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2815",
+    "price": "2,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10575 Cushdon Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2949",
+    "price": "2,180,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10575 Bradbury Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2458",
+    "price": "2,296,580",
+    "status": "SOLD"
+  },
+  {
+    "address": "140 N Carson Rd",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1462",
+    "price": "2,325,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10759 Rochester Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2024",
+    "price": "2,510,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10353 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3000",
+    "price": "2,349,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10542 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2158",
+    "price": "2,275,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9906 Girla Way",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2481",
+    "price": "2,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3380 Mandeville Canyon Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2112",
+    "price": "2,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10336 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2792",
+    "price": "2,150,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2070 Kinclair Dr",
+    "city": "Pasadena",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4953",
+    "price": "2,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1027 Ashland Ave",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1518",
+    "price": "2,431,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2066 Prosser Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2286",
+    "price": "2,648,125",
+    "status": "SOLD"
+  },
+  {
+    "address": "1027 Ashland Ave",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "1518",
+    "price": "2,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10538 Bradbury Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2565",
+    "price": "2,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10565 Bradbury Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.50",
+    "sqft": "4132",
+    "price": "2,195,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1710 Crisler Way",
+    "city": "West Hollywood",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2583",
+    "price": "2,071,250",
+    "status": "SOLD"
+  },
+  {
+    "address": "527 Muskingum Ave",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "2148",
+    "price": "2,337,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "9724 Oakmore Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2669",
+    "price": "2,374,190",
+    "status": "SOLD"
+  },
+  {
+    "address": "10269 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3292",
+    "price": "2,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "515 Muskingum Ave",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "4100",
+    "price": "2,325,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9029 Hargis St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2432",
+    "price": "2,561,250",
+    "status": "SOLD"
+  },
+  {
+    "address": "3161 Ivy Glen Way",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "1920",
+    "price": "2,475,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9701 Oakmore Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2086",
+    "price": "2,710,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2700 Midvale Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2630",
+    "price": "2,435,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10316 Bannockburn Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "4244",
+    "price": "2,459,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10540 Tennessee Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3033",
+    "price": "2,537,576",
+    "status": "SOLD"
+  },
+  {
+    "address": "2026 Malcolm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2700",
+    "price": "2,585,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "6305 Para Way",
+    "city": "Playa Vista",
+    "state": "CA",
+    "beds": "4",
+    "baths": "6.00",
+    "sqft": "3233",
+    "price": "2,600,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3225 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2940",
+    "price": "2,499,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2816 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2222",
+    "price": "2,125,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1627 S Corning St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2600",
+    "price": "2,499,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9826 Burgen Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3945",
+    "price": "2,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "6617 Maryland Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2825",
+    "price": "2,487,381",
+    "status": "SOLD"
+  },
+  {
+    "address": "9833 Vicar St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "2686",
+    "price": "2,436,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "220 Larsson St",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3356",
+    "price": "2,560,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "868 Leonard Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "3008",
+    "price": "2,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3024 Glenn Ave",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "1950",
+    "price": "2,825,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3388 Manning Ct",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2388",
+    "price": "2,805,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2238 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3859",
+    "price": "2,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3029 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2592",
+    "price": "2,377,886",
+    "status": "SOLD"
+  },
+  {
+    "address": "9820 Burgen Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2942",
+    "price": "2,570,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2742 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3842",
+    "price": "2,450,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3430 Barry Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3635",
+    "price": "2,600,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10526 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2875",
+    "price": "2,750,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2012 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2938",
+    "price": "2,365,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "664 Kingman Ave",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "3",
+    "baths": "2.00",
+    "sqft": "1336",
+    "price": "2,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9600 Beverlywood St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2926",
+    "price": "2,830,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1716 S Durango Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2811",
+    "price": "2,837,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "317 23Rd St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2996",
+    "price": "2,961,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1845 Mandeville Canyon Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "2650",
+    "price": "2,695,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2041 Desford Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.50",
+    "sqft": "3219",
+    "price": "2,676,755",
+    "status": "SOLD"
+  },
+  {
+    "address": "3604 Walnut Ave",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3249",
+    "price": "2,815,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10574 Bradbury Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3708",
+    "price": "2,825,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10546 Butterfield Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2425",
+    "price": "2,920,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2602 Aiken Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4640",
+    "price": "3,025,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10629 Blythe Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3100",
+    "price": "3,025,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10377 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "",
+    "price": "29,500,002,653,805",
+    "status": "SOLD"
+  },
+  {
+    "address": "2805 Mcconnell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "4693",
+    "price": "2,710,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10114 Lovelane Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.50",
+    "sqft": "4500",
+    "price": "2,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3100 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "3210",
+    "price": "3,117,500",
+    "status": "SOLD"
+  },
+  {
+    "address": "10359 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "2767",
+    "price": "3,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2700 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3426",
+    "price": "3,006,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2990 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2625",
+    "price": "2,866,425",
+    "status": "SOLD"
+  },
+  {
+    "address": "2852 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "3255",
+    "price": "2,850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2714 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3910",
+    "price": "3,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3571 Colonial Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "4225",
+    "price": "2,995,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "213 Rennie Ave",
+    "city": "Venice",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2373",
+    "price": "3,110,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3035 Queensbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4400",
+    "price": "2,400,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "500 Hanley Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "3.00",
+    "sqft": "2941",
+    "price": "2,585,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2880 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3660",
+    "price": "2,925,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10418 Dunleer Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "2869",
+    "price": "2,985,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2826 Medill Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3075",
+    "price": "2,924,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "12954 Magnolia Blvd",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "5000",
+    "price": "2,950,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3029 Motor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3010",
+    "price": "3,225,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3042 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2709",
+    "price": "3,049,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2737 Monte Mar Ter",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2446",
+    "price": "2,960,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3211 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2971",
+    "price": "3,095,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1145 Corsica Dr",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.50",
+    "sqft": "3652",
+    "price": "2,735,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1951 Kelton Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3802",
+    "price": "3,095,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3227 Shelby Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3875",
+    "price": "3,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10550 Rountree Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4518",
+    "price": "3,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3221 Provon Ln",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2830",
+    "price": "3,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3528 Walnut Ave",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2790",
+    "price": "3,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3211 Castle Heights Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2971",
+    "price": "3,226,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2762 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "4005",
+    "price": "3,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "515 Muskingum Ave",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "",
+    "price": "31,950,002,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3269 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "3766",
+    "price": "3,075,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2232 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.00",
+    "sqft": "5567",
+    "price": "3,080,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "663 Hanley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3674",
+    "price": "3,280,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2306 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.00",
+    "sqft": "4222",
+    "price": "3,210,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3118 Patricia Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4102",
+    "price": "3,240,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "25 S Venice Blvd",
+    "city": "Venice",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "4518",
+    "price": "3,100,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1920 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3358",
+    "price": "3,095,400",
+    "status": "SOLD"
+  },
+  {
+    "address": "10326 Walavista Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "4525",
+    "price": "3,135,750",
+    "status": "SOLD"
+  },
+  {
+    "address": "826 Leonard Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.50",
+    "sqft": "3982",
+    "price": "3,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2864 Mcconnell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "3670",
+    "price": "3,160,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "224 N Kenter Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4042",
+    "price": "3,005,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2306 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.00",
+    "sqft": "4482",
+    "price": "3,495,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "1613 Rexford Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.00",
+    "sqft": "3795",
+    "price": "3,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2815 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3497",
+    "price": "3,325,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2768 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2629",
+    "price": "3,570,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10392 Glenbarr Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.50",
+    "sqft": "4465",
+    "price": "3,375,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2764 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "3865",
+    "price": "3,350,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2235 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "4007",
+    "price": "3,566,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2839 Medill Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3703",
+    "price": "3,365,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2415 S Beverly Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3753",
+    "price": "3,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10646 Esther Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4378",
+    "price": "3,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3300 Mclaughlin Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4135",
+    "price": "3,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11830 Allaseba Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4208",
+    "price": "3,629,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2993 Haddington Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "3.00",
+    "sqft": "2774",
+    "price": "3,675,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3830 Encino Verde Pl",
+    "city": "Encino",
+    "state": "CA",
+    "beds": "7",
+    "baths": "11.00",
+    "sqft": "9527",
+    "price": "3,300,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3201 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "5525",
+    "price": "3,720,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2831 Malcolm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3450",
+    "price": "37,950,003,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9022 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "6.00",
+    "sqft": "",
+    "price": "37,950,003,563,482",
+    "status": "SOLD"
+  },
+  {
+    "address": "3087 Mcconnell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "6.00",
+    "sqft": "4205",
+    "price": "3,693,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2933 Danalda Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "",
+    "price": "3,799,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3226 Woodbine St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "3846",
+    "price": "3,695,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2713 S Canfield Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "3512",
+    "price": "3,950,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3925 Woodfield Dr",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "5794",
+    "price": "3,825,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2432 Bagley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4800",
+    "price": "3,468,350",
+    "status": "SOLD"
+  },
+  {
+    "address": "2811 Oakhurst Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "3842",
+    "price": "3,826,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "740 24Th St",
+    "city": "Santa Monica",
+    "state": "CA",
+    "beds": "4",
+    "baths": "2.00",
+    "sqft": "2079",
+    "price": "4,250,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3571 Colonial Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "4225",
+    "price": "4,150,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9320 Oakmore Rd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "5.00",
+    "sqft": "5400",
+    "price": "3,625,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2041 Desford Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3219",
+    "price": "3,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2463 Patricia Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "5458",
+    "price": "3,925,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3001 Dannyhill Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4599",
+    "price": "4,050,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10452 Lorenzo Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "4449",
+    "price": "4,145,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2715 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "8.00",
+    "sqft": "5024",
+    "price": "3,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9149 Cresta Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "2822",
+    "price": "3,850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9704 Cashio St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "3982",
+    "price": "4,230,575",
+    "status": "SOLD"
+  },
+  {
+    "address": "3021 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4600",
+    "price": "4,295,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "217 S Bentley Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4700",
+    "price": "4,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10259 Monte Mar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "",
+    "price": "4,399,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2971 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "6129",
+    "price": "4,250,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "11943 Victoria Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4600",
+    "price": "4,250,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "846 Warner Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "4422",
+    "price": "4,470,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2706 Club Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "4.00",
+    "sqft": "4173",
+    "price": "4,465,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "279 S Westgate Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "3",
+    "baths": "4.00",
+    "sqft": "3485",
+    "price": "5,244,900",
+    "status": "SOLD"
+  },
+  {
+    "address": "3043 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4868",
+    "price": "4,600,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "9124 Gibson St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4551",
+    "price": "4,825,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3142 Dannyhill Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4236",
+    "price": "4,850,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10452 Lorenzo Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "4449",
+    "price": "4,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10440 Lorenzo Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "4",
+    "baths": "5.00",
+    "sqft": "4585",
+    "price": "4,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "15921 Royal Oak Rd",
+    "city": "Encino",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "7886",
+    "price": "4,200,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2715 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "6402",
+    "price": "4,900,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2921 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "7.00",
+    "sqft": "5613",
+    "price": "4,950,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3267 Colby Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4410",
+    "price": "5,375,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2789 Mcconnell Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "4253",
+    "price": "5,718,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3001 Cavendish Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "7858",
+    "price": "5,600,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2771 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "6.00",
+    "sqft": "4473",
+    "price": "6,650,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2250 Guthrie Cir",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "8",
+    "baths": "10.00",
+    "sqft": "9068",
+    "price": "6,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "514 N Camden Dr",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "beds": "3",
+    "baths": "3.00",
+    "sqft": "2639",
+    "price": "7,060,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3062 Earlmar Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "9.00",
+    "sqft": "7001",
+    "price": "6,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "8 Oakmont Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "8",
+    "baths": "13.00",
+    "sqft": "11372",
+    "price": "6,800,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3062 Queensbury Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "5",
+    "baths": "7.00",
+    "sqft": "6995",
+    "price": "7,499,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2765 Anchor Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "7500",
+    "price": "7,700,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10422 Lorenzo Pl",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "",
+    "price": "7,995,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "2856 Forrester Dr",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "",
+    "price": "8,500,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "10394 Glenbarr Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "beds": "6",
+    "baths": "8.00",
+    "sqft": "6972",
+    "price": "9,000,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "17321 Rancho St",
+    "city": "Encino",
+    "state": "CA",
+    "beds": "7",
+    "baths": "12.00",
+    "sqft": "14129",
+    "price": "15,250,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "220 Larsson St",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "3356",
+    "price": "2,560,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "3604 Walnut Ave",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "beds": "5",
+    "baths": "5.00",
+    "sqft": "3249",
+    "price": "2,895,000",
+    "status": "SOLD"
+  },
+  {
+    "address": "17133 Avenida De La Herradura",
+    "city": "Pacific Palisades",
+    "state": "CA",
+    "beds": "5",
+    "baths": "4.00",
+    "sqft": "2961",
+    "price": "2,300,000",
+    "status": "SOLD"
+  }
+]
