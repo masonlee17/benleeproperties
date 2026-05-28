@@ -888,7 +888,7 @@
     "month": 3,
     "pdf": "documents/03-2018.pdf",
     "cover": "images/nl-covers/nl-2018-03.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/march-2018"
   },
   {
     "id": "nl-2018-02",
@@ -897,7 +897,7 @@
     "month": 2,
     "pdf": "documents/02-2018.pdf",
     "cover": "images/nl-covers/nl-2018-02.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/february-2018"
   },
   {
     "id": "nl-2018-01",
@@ -906,7 +906,7 @@
     "month": 1,
     "pdf": "documents/01-2018.pdf",
     "cover": "images/nl-covers/nl-2018-01.jpg",
-    "html_url": ""
+    "html_url": "/market-updates/january-2018"
   },
   {
     "id": "nl-2017-12",
