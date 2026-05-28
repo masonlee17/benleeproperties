@@ -472,8 +472,8 @@
     "label": "January 2022",
     "year": 2022,
     "month": 1,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/01-2022.pdf",
+    "cover": "images/nl-covers/nl-2022-01.jpg",
     "html_url": ""
   },
   {
@@ -481,8 +481,8 @@
     "label": "December 2021",
     "year": 2021,
     "month": 12,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/12-2021.pdf",
+    "cover": "images/nl-covers/nl-2021-12.jpg",
     "html_url": ""
   },
   {
@@ -490,8 +490,8 @@
     "label": "November 2021",
     "year": 2021,
     "month": 11,
-    "pdf": "",
-    "cover": "",
+    "pdf": "documents/11-2021.pdf",
+    "cover": "images/nl-covers/nl-2021-11.jpg",
     "html_url": ""
   },
   {
