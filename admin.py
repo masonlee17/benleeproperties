@@ -304,19 +304,31 @@ def build_newsletter_search_index():
                 beds  = s.get('beds', '').strip()
                 baths = s.get('baths', '').strip()
                 sqft  = s.get('sqft', '').strip()
+                nbhds = s.get('neighborhoods', [])
+                nbhd_names = {
+                    'santa-monica': 'Santa Monica', 'brentwood': 'Brentwood',
+                    'westwood': 'Westwood', 'bel-air': 'Bel Air',
+                    'beverly-hills': 'Beverly Hills', 'beverlywood': 'Beverlywood',
+                    'cheviot-hills': 'Cheviot Hills',
+                }
                 text_parts = [addr, city, 'CA', 'sold']
                 if beds:  text_parts.append(f'{beds} bedroom')
                 if baths: text_parts.append(f'{baths} bath')
                 if price: text_parts.append(price.replace(',', ''))
+                for n in nbhds:
+                    label = nbhd_names.get(n, '')
+                    if label and label.lower() not in ' '.join(text_parts).lower():
+                        text_parts.append(label)
                 sdocs.append({
-                    'type':    'sale',
-                    'address': addr,
-                    'city':    city,
-                    'price':   price,
-                    'beds':    beds,
-                    'baths':   baths,
-                    'sqft':    sqft,
-                    'text':    ' '.join(text_parts),
+                    'type':          'sale',
+                    'address':       addr,
+                    'city':          city,
+                    'price':         price,
+                    'beds':          beds,
+                    'baths':         baths,
+                    'sqft':          sqft,
+                    'neighborhoods': nbhds,
+                    'text':          ' '.join(text_parts),
                 })
             _sold_docs = sdocs
         except Exception:

@@ -9,7 +9,8 @@
     "price": "455,000",
     "status": "SOLD",
     "lat": 34.2076217,
-    "lng": -118.5135435
+    "lng": -118.5135435,
+    "neighborhoods": []
   },
   {
     "address": "8951 Hargis St",
@@ -21,7 +22,10 @@
     "price": "505,000",
     "status": "SOLD",
     "lat": 34.0356344,
-    "lng": -118.3885814
+    "lng": -118.3885814,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2641 S Harcourt Ave",
@@ -33,7 +37,8 @@
     "price": "500,000",
     "status": "SOLD",
     "lat": 34.0315172,
-    "lng": -118.3470247
+    "lng": -118.3470247,
+    "neighborhoods": []
   },
   {
     "address": "7168 Willoughby Ave",
@@ -45,7 +50,8 @@
     "price": "485,000",
     "status": "SOLD",
     "lat": 34.0870009,
-    "lng": -118.3456787
+    "lng": -118.3456787,
+    "neighborhoods": []
   },
   {
     "address": "9124 W 25Th St",
@@ -57,7 +63,10 @@
     "price": "539,000",
     "status": "SOLD",
     "lat": 34.039253,
-    "lng": -118.3907529
+    "lng": -118.3907529,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2481 Wellesley Ave",
@@ -69,7 +78,10 @@
     "price": "510,000",
     "status": "SOLD",
     "lat": 34.0263643,
-    "lng": -118.4503363
+    "lng": -118.4503363,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "2734 Veteran Ave",
@@ -81,7 +93,10 @@
     "price": "701,000",
     "status": "SOLD",
     "lat": 34.0334618,
-    "lng": -118.4266866
+    "lng": -118.4266866,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "8902 Guthrie Ave",
@@ -93,7 +108,10 @@
     "price": "641,000",
     "status": "SOLD",
     "lat": 34.0419967,
-    "lng": -118.3862297
+    "lng": -118.3862297,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "8821 David Ave",
@@ -105,7 +123,10 @@
     "price": "660,000",
     "status": "SOLD",
     "lat": 34.0391408,
-    "lng": -118.382711
+    "lng": -118.382711,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9048 Hargis St",
@@ -117,7 +138,10 @@
     "price": "655,000",
     "status": "SOLD",
     "lat": 34.0360479,
-    "lng": -118.3907599
+    "lng": -118.3907599,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "4140 Harter Ave",
@@ -129,7 +153,8 @@
     "price": "685,000",
     "status": "SOLD",
     "lat": 34.0076425,
-    "lng": -118.4091544
+    "lng": -118.4091544,
+    "neighborhoods": []
   },
   {
     "address": "3558 Barry Ave",
@@ -141,7 +166,8 @@
     "price": "725,000",
     "status": "SOLD",
     "lat": 34.012399,
-    "lng": -118.4295995
+    "lng": -118.4295995,
+    "neighborhoods": []
   },
   {
     "address": "10306 Seabury Ln",
@@ -153,7 +179,10 @@
     "price": "650,000",
     "status": "SOLD",
     "lat": 34.1097226,
-    "lng": -118.4459498
+    "lng": -118.4459498,
+    "neighborhoods": [
+      "bel-air"
+    ]
   },
   {
     "address": "1829 S Wooster St",
@@ -165,7 +194,10 @@
     "price": "720,000",
     "status": "SOLD",
     "lat": 34.0455916,
-    "lng": -118.3843341
+    "lng": -118.3843341,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1523 S Orange Dr",
@@ -177,7 +209,8 @@
     "price": "735,000",
     "status": "SOLD",
     "lat": 34.0466293,
-    "lng": -118.3475772
+    "lng": -118.3475772,
+    "neighborhoods": []
   },
   {
     "address": "7168 Willoughby Ave",
@@ -189,7 +222,8 @@
     "price": "675,000",
     "status": "SOLD",
     "lat": 34.0870009,
-    "lng": -118.3456787
+    "lng": -118.3456787,
+    "neighborhoods": []
   },
   {
     "address": "8951 Hargis St",
@@ -201,7 +235,10 @@
     "price": "758,000",
     "status": "SOLD",
     "lat": 34.0356344,
-    "lng": -118.3885814
+    "lng": -118.3885814,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9309 Cattaraugus Ave",
@@ -213,7 +250,10 @@
     "price": "715,000",
     "status": "SOLD",
     "lat": 34.0361431,
-    "lng": -118.39313
+    "lng": -118.39313,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2723 S Westgate Ave",
@@ -225,7 +265,8 @@
     "price": "740,000",
     "status": "SOLD",
     "lat": 34.0238151,
-    "lng": -118.4439287
+    "lng": -118.4439287,
+    "neighborhoods": []
   },
   {
     "address": "3988 Beverly Glen",
@@ -237,7 +278,8 @@
     "price": "749,000",
     "status": "SOLD",
     "lat": 34.1436389,
-    "lng": -118.4475705
+    "lng": -118.4475705,
+    "neighborhoods": []
   },
   {
     "address": "2701 4Th St",
@@ -249,7 +291,10 @@
     "price": "735,000",
     "status": "SOLD",
     "lat": 34.00274,
-    "lng": -118.480109
+    "lng": -118.480109,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "1435 Roxbury Dr",
@@ -261,7 +306,10 @@
     "price": "735,000",
     "status": "SOLD",
     "lat": 34.0531652,
-    "lng": -118.402001
+    "lng": -118.402001,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2601 S Halm Ave",
@@ -273,7 +321,10 @@
     "price": "740,000",
     "status": "SOLD",
     "lat": 34.037035,
-    "lng": -118.383332
+    "lng": -118.383332,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2713 Granville Ave",
@@ -285,7 +336,8 @@
     "price": "755,000",
     "status": "SOLD",
     "lat": 34.0245869,
-    "lng": -118.4424972
+    "lng": -118.4424972,
+    "neighborhoods": []
   },
   {
     "address": "8504 Walnut Dr",
@@ -297,7 +349,10 @@
     "price": "718,000",
     "status": "SOLD",
     "lat": 34.1046977,
-    "lng": -118.3766396
+    "lng": -118.3766396,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "12531 Rubens Ave",
@@ -309,7 +364,8 @@
     "price": "775,000",
     "status": "SOLD",
     "lat": 33.9888588,
-    "lng": -118.4241681
+    "lng": -118.4241681,
+    "neighborhoods": []
   },
   {
     "address": "2526 S Westgate Ave",
@@ -321,7 +377,10 @@
     "price": "799,000",
     "status": "SOLD",
     "lat": 34.0271809,
-    "lng": -118.4459306
+    "lng": -118.4459306,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "2708 Castle Heights Ave",
@@ -333,7 +392,10 @@
     "price": "799,000",
     "status": "SOLD",
     "lat": 34.0387299,
-    "lng": -118.3976159
+    "lng": -118.3976159,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "8963 W 25Th St",
@@ -345,7 +407,10 @@
     "price": "825,250",
     "status": "SOLD",
     "lat": 34.0388726,
-    "lng": -118.3871101
+    "lng": -118.3871101,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2514 S Bundy Dr",
@@ -357,7 +422,10 @@
     "price": "799,000",
     "status": "SOLD",
     "lat": 34.0266147,
-    "lng": -118.44787
+    "lng": -118.44787,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "2601 S Halm Ave",
@@ -369,7 +437,10 @@
     "price": "811,000",
     "status": "SOLD",
     "lat": 34.037035,
-    "lng": -118.383332
+    "lng": -118.383332,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1784 S Wooster St",
@@ -381,7 +452,10 @@
     "price": "820,000",
     "status": "SOLD",
     "lat": 34.046495,
-    "lng": -118.3838974
+    "lng": -118.3838974,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10501 Northvale Rd",
@@ -393,7 +467,11 @@
     "price": "750,000",
     "status": "SOLD",
     "lat": 34.034467,
-    "lng": -118.416509
+    "lng": -118.416509,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "8954 Helms Pl",
@@ -405,7 +483,10 @@
     "price": "850,000",
     "status": "SOLD",
     "lat": 34.033937,
-    "lng": -118.3884075
+    "lng": -118.3884075,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3047 Oakhurst Ave",
@@ -417,7 +498,10 @@
     "price": "875,000",
     "status": "SOLD",
     "lat": 34.0338029,
-    "lng": -118.3962519
+    "lng": -118.3962519,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9825 Altman Ave",
@@ -429,7 +513,10 @@
     "price": "882,000",
     "status": "SOLD",
     "lat": 34.0364926,
-    "lng": -118.3985319
+    "lng": -118.3985319,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9044 Hargis St",
@@ -441,7 +528,10 @@
     "price": "925,000",
     "status": "SOLD",
     "lat": 34.0359948,
-    "lng": -118.3906414
+    "lng": -118.3906414,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2713 Granville Ave",
@@ -453,7 +543,8 @@
     "price": "870,000",
     "status": "SOLD",
     "lat": 34.0245869,
-    "lng": -118.4424972
+    "lng": -118.4424972,
+    "neighborhoods": []
   },
   {
     "address": "3354 S Beverly Dr",
@@ -465,7 +556,10 @@
     "price": "850,000",
     "status": "SOLD",
     "lat": 34.0304468,
-    "lng": -118.3990087
+    "lng": -118.3990087,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9007 Larke Ellen Cir",
@@ -477,7 +571,10 @@
     "price": "910,000",
     "status": "SOLD",
     "lat": 34.0470911,
-    "lng": -118.386538
+    "lng": -118.386538,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1909 S Crest Dr",
@@ -489,7 +586,10 @@
     "price": "1,000,000",
     "status": "SOLD",
     "lat": 34.0449858,
-    "lng": -118.3882392
+    "lng": -118.3882392,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "11804 Washington Pl",
@@ -501,7 +601,8 @@
     "price": "924,000",
     "status": "SOLD",
     "lat": 34.0035773,
-    "lng": -118.4224856
+    "lng": -118.4224856,
+    "neighborhoods": []
   },
   {
     "address": "2731 Castle Heights Pl",
@@ -513,7 +614,10 @@
     "price": "1,020,000",
     "status": "SOLD",
     "lat": 34.0383365,
-    "lng": -118.3974759
+    "lng": -118.3974759,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9032 David Ave",
@@ -525,7 +629,10 @@
     "price": "975,000",
     "status": "SOLD",
     "lat": 34.0405233,
-    "lng": -118.3892774
+    "lng": -118.3892774,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "815 Coeur D Alene Ave",
@@ -537,7 +644,10 @@
     "price": "859,405",
     "status": "SOLD",
     "lat": 33.9900649,
-    "lng": -118.4535959
+    "lng": -118.4535959,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "10707 Esther Ave",
@@ -549,7 +659,10 @@
     "price": "850,000",
     "status": "SOLD",
     "lat": 34.0388739,
-    "lng": -118.4228361
+    "lng": -118.4228361,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9415 Kramerwood Pl",
@@ -561,7 +674,10 @@
     "price": "1,080,000",
     "status": "SOLD",
     "lat": 34.0357421,
-    "lng": -118.3947396
+    "lng": -118.3947396,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10636 Rountree Rd",
@@ -573,7 +689,10 @@
     "price": "950,000",
     "status": "SOLD",
     "lat": 34.0376684,
-    "lng": -118.4186929
+    "lng": -118.4186929,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9114 Hargis St",
@@ -585,7 +704,10 @@
     "price": "1,050,000",
     "status": "SOLD",
     "lat": 34.0361197,
-    "lng": -118.3912872
+    "lng": -118.3912872,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "11437 Clover Ave",
@@ -597,7 +719,10 @@
     "price": "1,052,000",
     "status": "SOLD",
     "lat": 34.0241183,
-    "lng": -118.4337289
+    "lng": -118.4337289,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10317 Dunleer Dr",
@@ -609,7 +734,11 @@
     "price": "1,039,000",
     "status": "SOLD",
     "lat": 34.0364501,
-    "lng": -118.4094051
+    "lng": -118.4094051,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2119 Linnington Ave",
@@ -621,7 +750,8 @@
     "price": "1,130,000",
     "status": "SOLD",
     "lat": 34.050959,
-    "lng": -118.4226323
+    "lng": -118.4226323,
+    "neighborhoods": []
   },
   {
     "address": "1415 N Kenter Ave",
@@ -633,7 +763,11 @@
     "price": "1,000,000",
     "status": "SOLD",
     "lat": 34.0800159,
-    "lng": -118.4941193
+    "lng": -118.4941193,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "10570 Tennessee Ave",
@@ -645,7 +779,8 @@
     "price": "1,085,000",
     "status": "SOLD",
     "lat": 34.0461695,
-    "lng": -118.4226224
+    "lng": -118.4226224,
+    "neighborhoods": []
   },
   {
     "address": "10314 Rossbury Pl",
@@ -657,7 +792,11 @@
     "price": "1,070,000",
     "status": "SOLD",
     "lat": 34.0371393,
-    "lng": -118.4091671
+    "lng": -118.4091671,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9402 Hargis St",
@@ -669,7 +808,10 @@
     "price": "1,105,000",
     "status": "SOLD",
     "lat": 34.0367953,
-    "lng": -118.3939356
+    "lng": -118.3939356,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9714 Beverlywood St",
@@ -681,7 +823,10 @@
     "price": "990,000",
     "status": "SOLD",
     "lat": 34.0395703,
-    "lng": -118.3984143
+    "lng": -118.3984143,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3131 Shelby Dr",
@@ -693,7 +838,10 @@
     "price": "1,075,000",
     "status": "SOLD",
     "lat": 34.0344414,
-    "lng": -118.4005457
+    "lng": -118.4005457,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2417 S Canfield Ave",
@@ -705,7 +853,10 @@
     "price": "1,085,000",
     "status": "SOLD",
     "lat": 34.0397497,
-    "lng": -118.391526
+    "lng": -118.391526,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9720 Beverlywood St",
@@ -717,7 +868,10 @@
     "price": "1,100,000",
     "status": "SOLD",
     "lat": 34.0395822,
-    "lng": -118.3986142
+    "lng": -118.3986142,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3257 Castle Heights Ave",
@@ -729,7 +883,10 @@
     "price": "1,095,000",
     "status": "SOLD",
     "lat": 34.0323494,
-    "lng": -118.39956
+    "lng": -118.39956,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3232 S Beverly Dr",
@@ -741,7 +898,10 @@
     "price": "1,162,500",
     "status": "SOLD",
     "lat": 34.0322847,
-    "lng": -118.3981123
+    "lng": -118.3981123,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2823 Wigtown Rd",
@@ -753,7 +913,11 @@
     "price": "1,030,000",
     "status": "SOLD",
     "lat": 34.0388591,
-    "lng": -118.4125035
+    "lng": -118.4125035,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "24745 Robert Guy Rd",
@@ -765,7 +929,8 @@
     "price": "1,160,000",
     "status": "SOLD",
     "lat": 34.161438,
-    "lng": -118.667354
+    "lng": -118.667354,
+    "neighborhoods": []
   },
   {
     "address": "2904 Oakhurst Ave",
@@ -777,7 +942,10 @@
     "price": "1,141,500",
     "status": "SOLD",
     "lat": 34.036182,
-    "lng": -118.3948924
+    "lng": -118.3948924,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2801 Dunleer Pl",
@@ -789,7 +957,10 @@
     "price": "1,100,000",
     "status": "SOLD",
     "lat": 34.035906,
-    "lng": -118.419212
+    "lng": -118.419212,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3380 Mandeville Canyon Rd",
@@ -801,7 +972,8 @@
     "price": "1,170,000",
     "status": "SOLD",
     "lat": 34.105127,
-    "lng": -118.503112
+    "lng": -118.503112,
+    "neighborhoods": []
   },
   {
     "address": "9029 Hargis St",
@@ -813,7 +985,10 @@
     "price": "1,150,000",
     "status": "SOLD",
     "lat": 34.0363214,
-    "lng": -118.3899651
+    "lng": -118.3899651,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "6404 W 85Th St",
@@ -825,7 +1000,8 @@
     "price": "1,200,000",
     "status": "SOLD",
     "lat": 33.9611073,
-    "lng": -118.3993408
+    "lng": -118.3993408,
+    "neighborhoods": []
   },
   {
     "address": "9031 David Ave",
@@ -837,7 +1013,10 @@
     "price": "1,175,000",
     "status": "SOLD",
     "lat": 34.0409854,
-    "lng": -118.3891115
+    "lng": -118.3891115,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9711 Cisco St",
@@ -849,7 +1028,10 @@
     "price": "1,350,000",
     "status": "SOLD",
     "lat": 34.0439616,
-    "lng": -118.3984681
+    "lng": -118.3984681,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2912 S Beverly Dr",
@@ -861,7 +1043,10 @@
     "price": "1,261,000",
     "status": "SOLD",
     "lat": 34.0363847,
-    "lng": -118.3965245
+    "lng": -118.3965245,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1952 S Garth Ave",
@@ -873,7 +1058,10 @@
     "price": "1,225,000",
     "status": "SOLD",
     "lat": 34.0417657,
-    "lng": -118.378731
+    "lng": -118.378731,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10525 Ayres Ave",
@@ -885,7 +1073,8 @@
     "price": "1,160,000",
     "status": "SOLD",
     "lat": 34.0438965,
-    "lng": -118.4194955
+    "lng": -118.4194955,
+    "neighborhoods": []
   },
   {
     "address": "13441 Cheltenham Dr",
@@ -897,7 +1086,8 @@
     "price": "1,160,000",
     "status": "SOLD",
     "lat": 34.1405701,
-    "lng": -118.4254731
+    "lng": -118.4254731,
+    "neighborhoods": []
   },
   {
     "address": "9436 Hargis St",
@@ -909,7 +1099,10 @@
     "price": "1,365,000",
     "status": "SOLD",
     "lat": 34.0370598,
-    "lng": -118.3950151
+    "lng": -118.3950151,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9112 Gibson St",
@@ -921,7 +1114,10 @@
     "price": "1,300,000",
     "status": "SOLD",
     "lat": 34.0377234,
-    "lng": -118.390714
+    "lng": -118.390714,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2801 Anchor Ave",
@@ -933,7 +1129,10 @@
     "price": "1,260,000",
     "status": "SOLD",
     "lat": 34.0397866,
-    "lng": -118.3999237
+    "lng": -118.3999237,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "620 Tuallitan Rd",
@@ -945,7 +1144,11 @@
     "price": "1,405,000",
     "status": "SOLD",
     "lat": 34.0692794,
-    "lng": -118.4842967
+    "lng": -118.4842967,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "3122 S Beverly Dr",
@@ -957,7 +1160,10 @@
     "price": "1,299,000",
     "status": "SOLD",
     "lat": 34.0334782,
-    "lng": -118.3976365
+    "lng": -118.3976365,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3043 Oakhurst Ave",
@@ -969,7 +1175,10 @@
     "price": "1,275,000",
     "status": "SOLD",
     "lat": 34.0339412,
-    "lng": -118.3962151
+    "lng": -118.3962151,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2562 Kelton Ave",
@@ -981,7 +1190,10 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.0373315,
-    "lng": -118.4285306
+    "lng": -118.4285306,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3036 S Beverly Dr",
@@ -993,7 +1205,10 @@
     "price": "1,452,000",
     "status": "SOLD",
     "lat": 34.0343864,
-    "lng": -118.397305
+    "lng": -118.397305,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3013 S Beverly Dr",
@@ -1005,7 +1220,10 @@
     "price": "1,299,000",
     "status": "SOLD",
     "lat": 34.0351644,
-    "lng": -118.3974909
+    "lng": -118.3974909,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9032 David Ave",
@@ -1017,7 +1235,10 @@
     "price": "1,451,000",
     "status": "SOLD",
     "lat": 34.0405233,
-    "lng": -118.3892774
+    "lng": -118.3892774,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9720 Beverlywood St",
@@ -1029,7 +1250,10 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.0395822,
-    "lng": -118.3986142
+    "lng": -118.3986142,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9110 David Ave",
@@ -1041,7 +1265,10 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0407087,
-    "lng": -118.3895259
+    "lng": -118.3895259,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1921 6Th St",
@@ -1053,7 +1280,10 @@
     "price": "1,300,000",
     "status": "SOLD",
     "lat": 34.010623,
-    "lng": -118.4844103
+    "lng": -118.4844103,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "10126 Lovelane Pl",
@@ -1065,7 +1295,11 @@
     "price": "1,319,000",
     "status": "SOLD",
     "lat": 34.0332082,
-    "lng": -118.4047846
+    "lng": -118.4047846,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9544 Cresta Dr",
@@ -1077,7 +1311,10 @@
     "price": "1,305,000",
     "status": "SOLD",
     "lat": 34.0467919,
-    "lng": -118.3959594
+    "lng": -118.3959594,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2209 S Beverly Dr",
@@ -1089,7 +1326,10 @@
     "price": "1,215,000",
     "status": "SOLD",
     "lat": 34.0433854,
-    "lng": -118.3952905
+    "lng": -118.3952905,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2922 Castle Heights Ave",
@@ -1101,7 +1341,10 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.0364834,
-    "lng": -118.3975543
+    "lng": -118.3975543,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9408 Kramerwood Pl",
@@ -1113,7 +1356,10 @@
     "price": "1,455,000",
     "status": "SOLD",
     "lat": 34.0353214,
-    "lng": -118.3947484
+    "lng": -118.3947484,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "6582 Kentwood Bluffs Dr",
@@ -1125,7 +1371,8 @@
     "price": "1,378,000",
     "status": "SOLD",
     "lat": 33.9797754,
-    "lng": -118.4019656
+    "lng": -118.4019656,
+    "neighborhoods": []
   },
   {
     "address": "2407 Bagley Ave",
@@ -1137,7 +1384,10 @@
     "price": "1,410,000",
     "status": "SOLD",
     "lat": 34.0402517,
-    "lng": -118.3922626
+    "lng": -118.3922626,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10860 Whitburn St",
@@ -1149,7 +1399,8 @@
     "price": "1,450,000",
     "status": "SOLD",
     "lat": 33.9982829,
-    "lng": -118.3910069
+    "lng": -118.3910069,
+    "neighborhoods": []
   },
   {
     "address": "2661 S Bedford St",
@@ -1161,7 +1412,10 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0368383,
-    "lng": -118.3845328
+    "lng": -118.3845328,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9906 Girla Way",
@@ -1173,7 +1427,10 @@
     "price": "1,350,000",
     "status": "SOLD",
     "lat": 34.0372676,
-    "lng": -118.3997897
+    "lng": -118.3997897,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3216 Earlmar Dr",
@@ -1185,7 +1442,11 @@
     "price": "1,395,000",
     "status": "SOLD",
     "lat": 34.0340285,
-    "lng": -118.4058217
+    "lng": -118.4058217,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "1578 Benedict Canyon Dr",
@@ -1197,7 +1458,10 @@
     "price": "1,249,235",
     "status": "SOLD",
     "lat": 34.0999278,
-    "lng": -118.4338838
+    "lng": -118.4338838,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "3100 Queensbury Dr",
@@ -1209,7 +1473,11 @@
     "price": "1,380,000",
     "status": "SOLD",
     "lat": 34.0352275,
-    "lng": -118.4073319
+    "lng": -118.4073319,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10371 Cheviot Dr",
@@ -1221,7 +1489,11 @@
     "price": "1,360,000",
     "status": "SOLD",
     "lat": 34.0385464,
-    "lng": -118.4105323
+    "lng": -118.4105323,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "11805 Hartsook St",
@@ -1233,7 +1505,8 @@
     "price": "1,420,505",
     "status": "SOLD",
     "lat": 34.1640549,
-    "lng": -118.3902053
+    "lng": -118.3902053,
+    "neighborhoods": []
   },
   {
     "address": "3009 Castle Heights Ave",
@@ -1245,7 +1518,10 @@
     "price": "1,420,000",
     "status": "SOLD",
     "lat": 34.0355275,
-    "lng": -118.3982559
+    "lng": -118.3982559,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2218 Malcolm Ave",
@@ -1257,7 +1533,10 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0446662,
-    "lng": -118.4295665
+    "lng": -118.4295665,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "2245 Hillsboro Ave",
@@ -1269,7 +1548,10 @@
     "price": "1,410,000",
     "status": "SOLD",
     "lat": 34.0412015,
-    "lng": -118.3884162
+    "lng": -118.3884162,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2235 S Beverly Dr",
@@ -1281,7 +1563,10 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.0453492,
-    "lng": -118.395156
+    "lng": -118.395156,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2041 Desford Dr",
@@ -1293,7 +1578,10 @@
     "price": "1,230,000",
     "status": "SOLD",
     "lat": 34.1084897,
-    "lng": -118.4189828
+    "lng": -118.4189828,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "3350 Barbydell Dr",
@@ -1305,7 +1593,11 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.031822,
-    "lng": -118.4034966
+    "lng": -118.4034966,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10436 Troon Ave",
@@ -1317,7 +1609,11 @@
     "price": "1,325,000",
     "status": "SOLD",
     "lat": 34.0393014,
-    "lng": -118.4118156
+    "lng": -118.4118156,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9914 Girla Way",
@@ -1329,7 +1625,10 @@
     "price": "1,275,000",
     "status": "SOLD",
     "lat": 34.0372976,
-    "lng": -118.399832
+    "lng": -118.399832,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9540 Bolton Rd",
@@ -1341,7 +1640,10 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.0452197,
-    "lng": -118.3958243
+    "lng": -118.3958243,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "11656 Ricasoli Way",
@@ -1353,7 +1655,8 @@
     "price": "1,400,000",
     "status": "SOLD",
     "lat": 34.2844653,
-    "lng": -118.5841599
+    "lng": -118.5841599,
+    "neighborhoods": []
   },
   {
     "address": "6632 Bedford Ave",
@@ -1365,7 +1668,8 @@
     "price": "1,475,000",
     "status": "SOLD",
     "lat": 33.978568,
-    "lng": -118.3816474
+    "lng": -118.3816474,
+    "neighborhoods": []
   },
   {
     "address": "9726 Holcomb St",
@@ -1377,7 +1681,10 @@
     "price": "1,460,000",
     "status": "SOLD",
     "lat": 34.0507474,
-    "lng": -118.3997824
+    "lng": -118.3997824,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3155 Shelby Dr",
@@ -1389,7 +1696,10 @@
     "price": "1,392,000",
     "status": "SOLD",
     "lat": 34.033911,
-    "lng": -118.400764
+    "lng": -118.400764,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3083 Patricia Ave",
@@ -1401,7 +1711,11 @@
     "price": "1,670,000",
     "status": "SOLD",
     "lat": 34.0349107,
-    "lng": -118.4108542
+    "lng": -118.4108542,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10552 Cheviot Dr",
@@ -1413,7 +1727,11 @@
     "price": "1,499,000",
     "status": "SOLD",
     "lat": 34.0365217,
-    "lng": -118.4159158
+    "lng": -118.4159158,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9100 Beverlywood St",
@@ -1425,7 +1743,10 @@
     "price": "1,650,000",
     "status": "SOLD",
     "lat": 34.0383958,
-    "lng": -118.3902238
+    "lng": -118.3902238,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3101 Barbara Ct",
@@ -1437,7 +1758,8 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.126293,
-    "lng": -118.348213
+    "lng": -118.348213,
+    "neighborhoods": []
   },
   {
     "address": "10290 Cheviot Dr",
@@ -1449,7 +1771,11 @@
     "price": "1,512,000",
     "status": "SOLD",
     "lat": 34.0371196,
-    "lng": -118.4081954
+    "lng": -118.4081954,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "912 Rose Ave",
@@ -1461,7 +1787,10 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0028518,
-    "lng": -118.4648141
+    "lng": -118.4648141,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "9044 Gibson St",
@@ -1473,7 +1802,10 @@
     "price": "1,539,000",
     "status": "SOLD",
     "lat": 34.0375911,
-    "lng": -118.390208
+    "lng": -118.390208,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2349 Castle Heights Ave",
@@ -1485,7 +1817,10 @@
     "price": "1,510,000",
     "status": "SOLD",
     "lat": 34.042377,
-    "lng": -118.397836
+    "lng": -118.397836,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2222 Malcolm Ave",
@@ -1497,7 +1832,10 @@
     "price": "1,775,000",
     "status": "SOLD",
     "lat": 34.0446138,
-    "lng": -118.4295213
+    "lng": -118.4295213,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "2637 Midvale Ave",
@@ -1509,7 +1847,10 @@
     "price": "1,521,130",
     "status": "SOLD",
     "lat": 34.0355951,
-    "lng": -118.4262368
+    "lng": -118.4262368,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "5025 Westwood",
@@ -1521,7 +1862,8 @@
     "price": "1,707,000",
     "status": "SOLD",
     "lat": 34.0052472,
-    "lng": -118.3980332
+    "lng": -118.3980332,
+    "neighborhoods": []
   },
   {
     "address": "3354 S Beverly Dr",
@@ -1533,7 +1875,10 @@
     "price": "1,420,000",
     "status": "SOLD",
     "lat": 34.0304468,
-    "lng": -118.3990087
+    "lng": -118.3990087,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10101 Rossbury Pl",
@@ -1545,7 +1890,11 @@
     "price": "1,420,000",
     "status": "SOLD",
     "lat": 34.0347404,
-    "lng": -118.4041881
+    "lng": -118.4041881,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10538 Butterfield Rd",
@@ -1557,7 +1906,11 @@
     "price": "1,520,000",
     "status": "SOLD",
     "lat": 34.0395416,
-    "lng": -118.4160134
+    "lng": -118.4160134,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3015 Cavendish Dr",
@@ -1569,7 +1922,11 @@
     "price": "1,535,000",
     "status": "SOLD",
     "lat": 34.0372882,
-    "lng": -118.4056152
+    "lng": -118.4056152,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9120 Gibson St",
@@ -1581,7 +1938,10 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0377585,
-    "lng": -118.3909718
+    "lng": -118.3909718,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10560 Ayres Ave",
@@ -1593,7 +1953,10 @@
     "price": "3,190,000",
     "status": "SOLD",
     "lat": 34.0429224,
-    "lng": -118.4208393
+    "lng": -118.4208393,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3232 S Beverly Dr",
@@ -1605,7 +1968,10 @@
     "price": "1,625,000",
     "status": "SOLD",
     "lat": 34.0322847,
-    "lng": -118.3981123
+    "lng": -118.3981123,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9124 Beverlywood St",
@@ -1617,7 +1983,10 @@
     "price": "1,550,000",
     "status": "SOLD",
     "lat": 34.0385308,
-    "lng": -118.3909473
+    "lng": -118.3909473,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "643 Muskingum Ave",
@@ -1629,7 +1998,8 @@
     "price": "2,100,000",
     "status": "SOLD",
     "lat": 34.0462225,
-    "lng": -118.5373898
+    "lng": -118.5373898,
+    "neighborhoods": []
   },
   {
     "address": "2700 Castle Heights Ave",
@@ -1641,7 +2011,10 @@
     "price": "1,625,000",
     "status": "SOLD",
     "lat": 34.03885,
-    "lng": -118.3976434
+    "lng": -118.3976434,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3060 Danalda Dr",
@@ -1653,7 +2026,11 @@
     "price": "1,430,141",
     "status": "SOLD",
     "lat": 34.0365099,
-    "lng": -118.4035199
+    "lng": -118.4035199,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "16572 Chattanooga Pl",
@@ -1665,7 +2042,8 @@
     "price": "1,500,000",
     "status": "SOLD",
     "lat": 34.0489489,
-    "lng": -118.5428203
+    "lng": -118.5428203,
+    "neighborhoods": []
   },
   {
     "address": "3002 Bagley Ave",
@@ -1677,7 +2055,10 @@
     "price": "1,750,000",
     "status": "SOLD",
     "lat": 34.0345681,
-    "lng": -118.3942989
+    "lng": -118.3942989,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10726 Cushdon Ave",
@@ -1689,7 +2070,10 @@
     "price": "1,701,000",
     "status": "SOLD",
     "lat": 34.0392612,
-    "lng": -118.4236361
+    "lng": -118.4236361,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "441 Westmount Dr",
@@ -1701,7 +2085,10 @@
     "price": "1,599,000",
     "status": "SOLD",
     "lat": 34.0794683,
-    "lng": -118.3775568
+    "lng": -118.3775568,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "3119 Queensbury Dr",
@@ -1713,7 +2100,11 @@
     "price": "1,560,000",
     "status": "SOLD",
     "lat": 34.0345714,
-    "lng": -118.4078192
+    "lng": -118.4078192,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9626 Oakmore Rd",
@@ -1725,7 +2116,10 @@
     "price": "1,790,000",
     "status": "SOLD",
     "lat": 34.047517,
-    "lng": -118.3972996
+    "lng": -118.3972996,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10595 Esther Ave",
@@ -1737,7 +2131,10 @@
     "price": "1,537,000",
     "status": "SOLD",
     "lat": 34.0402816,
-    "lng": -118.4203745
+    "lng": -118.4203745,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3043 Oakhurst Ave",
@@ -1749,7 +2146,10 @@
     "price": "1,615,000",
     "status": "SOLD",
     "lat": 34.0339412,
-    "lng": -118.3962151
+    "lng": -118.3962151,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10428 Lorenzo Pl",
@@ -1761,7 +2161,11 @@
     "price": "1,550,000",
     "status": "SOLD",
     "lat": 34.0401053,
-    "lng": -118.4120628
+    "lng": -118.4120628,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10289 Bannockburn Dr",
@@ -1773,7 +2177,11 @@
     "price": "1,550,000",
     "status": "SOLD",
     "lat": 34.0353234,
-    "lng": -118.4089819
+    "lng": -118.4089819,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2801 Anchor Ave",
@@ -1785,7 +2193,10 @@
     "price": "1,680,000",
     "status": "SOLD",
     "lat": 34.0397866,
-    "lng": -118.3999237
+    "lng": -118.3999237,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2526 5Th St",
@@ -1797,7 +2208,10 @@
     "price": "1,550,000",
     "status": "SOLD",
     "lat": 34.0051233,
-    "lng": -118.4813311
+    "lng": -118.4813311,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "1954 1/2 Manning Ave",
@@ -1809,7 +2223,8 @@
     "price": "1,649,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "1111 Berkeley Dr",
@@ -1821,7 +2236,8 @@
     "price": "1,697,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "2366 N Beverly Glen Blvd",
@@ -1833,7 +2249,10 @@
     "price": "1,766,430",
     "status": "SOLD",
     "lat": 34.1120792,
-    "lng": -118.4465852
+    "lng": -118.4465852,
+    "neighborhoods": [
+      "bel-air"
+    ]
   },
   {
     "address": "3635 Inglewood",
@@ -1845,7 +2264,8 @@
     "price": "1,550,000",
     "status": "SOLD",
     "lat": 34.0093672,
-    "lng": -118.4315804
+    "lng": -118.4315804,
+    "neighborhoods": []
   },
   {
     "address": "1565 Reeves St",
@@ -1857,7 +2277,10 @@
     "price": "1,675,000",
     "status": "SOLD",
     "lat": 34.0513916,
-    "lng": -118.3965325
+    "lng": -118.3965325,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2801 Dunleer Pl",
@@ -1869,7 +2292,10 @@
     "price": "1,777,000",
     "status": "SOLD",
     "lat": 34.035906,
-    "lng": -118.419212
+    "lng": -118.419212,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3064 Manning Ave",
@@ -1881,7 +2307,11 @@
     "price": "1,575,000",
     "status": "SOLD",
     "lat": 34.0348021,
-    "lng": -118.4119477
+    "lng": -118.4119477,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2351 N Mariscal Ln",
@@ -1893,7 +2323,8 @@
     "price": "1,690,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "9224 Monte Mar Dr",
@@ -1905,7 +2336,10 @@
     "price": "1,695,000",
     "status": "SOLD",
     "lat": 34.0482916,
-    "lng": -118.3908608
+    "lng": -118.3908608,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1478 Roxbury Dr",
@@ -1917,7 +2351,10 @@
     "price": "1,900,000",
     "status": "SOLD",
     "lat": 34.052396,
-    "lng": -118.4015564
+    "lng": -118.4015564,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3123 Queensbury Dr",
@@ -1929,7 +2366,11 @@
     "price": "1,765,000",
     "status": "SOLD",
     "lat": 34.034491,
-    "lng": -118.407853
+    "lng": -118.407853,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10645 Esther Ave",
@@ -1941,7 +2382,10 @@
     "price": "1,720,000",
     "status": "SOLD",
     "lat": 34.0396403,
-    "lng": -118.4214866
+    "lng": -118.4214866,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2750 Manning Ave",
@@ -1953,7 +2397,10 @@
     "price": "1,580,000",
     "status": "SOLD",
     "lat": 34.038248,
-    "lng": -118.418417
+    "lng": -118.418417,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10271 Bannockburn Dr",
@@ -1965,7 +2412,11 @@
     "price": "1,625,000",
     "status": "SOLD",
     "lat": 34.0351241,
-    "lng": -118.4086588
+    "lng": -118.4086588,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9832 Vicar St",
@@ -1977,7 +2428,10 @@
     "price": "1,750,000",
     "status": "SOLD",
     "lat": 34.0336239,
-    "lng": -118.3995897
+    "lng": -118.3995897,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "951 S Victoria Ave",
@@ -1989,7 +2443,8 @@
     "price": "1,590,000",
     "status": "SOLD",
     "lat": 34.056001,
-    "lng": -118.323758
+    "lng": -118.323758,
+    "neighborhoods": []
   },
   {
     "address": "2430 S Beverly Dr",
@@ -2001,7 +2456,10 @@
     "price": "1,650,000",
     "status": "SOLD",
     "lat": 34.0406754,
-    "lng": -118.395061
+    "lng": -118.395061,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2256 Guthrie Cir",
@@ -2013,7 +2471,10 @@
     "price": "1,740,000",
     "status": "SOLD",
     "lat": 34.0427008,
-    "lng": -118.3935311
+    "lng": -118.3935311,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2852 Motor Ave",
@@ -2025,7 +2486,11 @@
     "price": "1,749,000",
     "status": "SOLD",
     "lat": 34.0401218,
-    "lng": -118.4051219
+    "lng": -118.4051219,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9600 Bolton Rd",
@@ -2037,7 +2502,10 @@
     "price": "1,680,000",
     "status": "SOLD",
     "lat": 34.0449862,
-    "lng": -118.3965911
+    "lng": -118.3965911,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9413 Sawyer St",
@@ -2049,7 +2517,10 @@
     "price": "1,602,500",
     "status": "SOLD",
     "lat": 34.0461225,
-    "lng": -118.3933246
+    "lng": -118.3933246,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3128 Barbydell Dr",
@@ -2061,7 +2532,11 @@
     "price": "1,800,000",
     "status": "SOLD",
     "lat": 34.0332826,
-    "lng": -118.4033714
+    "lng": -118.4033714,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "483 Dalehurst Ave",
@@ -2073,7 +2548,10 @@
     "price": "1,872,000",
     "status": "SOLD",
     "lat": 34.0725417,
-    "lng": -118.4350766
+    "lng": -118.4350766,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "3257 Provon Ln",
@@ -2085,7 +2563,10 @@
     "price": "1,750,000",
     "status": "SOLD",
     "lat": 34.0321091,
-    "lng": -118.4006209
+    "lng": -118.4006209,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9124 Beverlywood St",
@@ -2097,7 +2578,10 @@
     "price": "1,942,000",
     "status": "SOLD",
     "lat": 34.0385308,
-    "lng": -118.3909473
+    "lng": -118.3909473,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3064 Motor Ave",
@@ -2109,7 +2593,11 @@
     "price": "1,900,000",
     "status": "SOLD",
     "lat": 34.0350257,
-    "lng": -118.4095538
+    "lng": -118.4095538,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10756 Ashby Ave",
@@ -2121,7 +2609,10 @@
     "price": "1,725,000",
     "status": "SOLD",
     "lat": 34.0376155,
-    "lng": -118.4230673
+    "lng": -118.4230673,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "11460 Thurston Cir",
@@ -2133,7 +2624,12 @@
     "price": "1,675,000",
     "status": "SOLD",
     "lat": 34.0755283,
-    "lng": -118.4668401
+    "lng": -118.4668401,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood",
+      "westwood"
+    ]
   },
   {
     "address": "24745 Robert Guy Rd",
@@ -2145,7 +2641,8 @@
     "price": "1,750,000",
     "status": "SOLD",
     "lat": 34.161438,
-    "lng": -118.667354
+    "lng": -118.667354,
+    "neighborhoods": []
   },
   {
     "address": "2907 Beverwil Dr",
@@ -2157,7 +2654,10 @@
     "price": "1,945,000",
     "status": "SOLD",
     "lat": 34.0372838,
-    "lng": -118.3988867
+    "lng": -118.3988867,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9030 Olin St",
@@ -2169,7 +2669,10 @@
     "price": "1,860,000",
     "status": "SOLD",
     "lat": 34.0367378,
-    "lng": -118.3900284
+    "lng": -118.3900284,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10728 Tabor St",
@@ -2181,7 +2684,10 @@
     "price": "1,809,000",
     "status": "SOLD",
     "lat": 34.0227819,
-    "lng": -118.411114
+    "lng": -118.411114,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9833 Vicar St",
@@ -2193,7 +2699,10 @@
     "price": "1,700,000",
     "status": "SOLD",
     "lat": 34.03378,
-    "lng": -118.3995266
+    "lng": -118.3995266,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3015 Earlmar Dr",
@@ -2205,7 +2714,11 @@
     "price": "1,700,000",
     "status": "SOLD",
     "lat": 34.0380194,
-    "lng": -118.4042369
+    "lng": -118.4042369,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3036 Danalda Dr",
@@ -2217,7 +2730,11 @@
     "price": "1,800,000",
     "status": "SOLD",
     "lat": 34.0370034,
-    "lng": -118.4033659
+    "lng": -118.4033659,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2700 Anchor Ave",
@@ -2229,7 +2746,10 @@
     "price": "1,900,000",
     "status": "SOLD",
     "lat": 34.0420675,
-    "lng": -118.3991876
+    "lng": -118.3991876,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "906 Nowita Pl",
@@ -2241,7 +2761,10 @@
     "price": "1,820,000",
     "status": "SOLD",
     "lat": 33.9952119,
-    "lng": -118.4591532
+    "lng": -118.4591532,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "13236 Dewey St",
@@ -2253,7 +2776,10 @@
     "price": "1,815,000",
     "status": "SOLD",
     "lat": 34.0101067,
-    "lng": -118.4547229
+    "lng": -118.4547229,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "9447 Beverlywood St",
@@ -2265,7 +2791,10 @@
     "price": "1,740,000",
     "status": "SOLD",
     "lat": 34.0396216,
-    "lng": -118.3942854
+    "lng": -118.3942854,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2939 Cavendish Dr",
@@ -2277,7 +2806,11 @@
     "price": "1,854,000",
     "status": "SOLD",
     "lat": 34.0382841,
-    "lng": -118.4052467
+    "lng": -118.4052467,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2400 S Beverly Dr",
@@ -2289,7 +2822,10 @@
     "price": "1,849,000",
     "status": "SOLD",
     "lat": 34.041504,
-    "lng": -118.3947954
+    "lng": -118.3947954,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10546 Butterfield Rd",
@@ -2301,7 +2837,11 @@
     "price": "1,890,800",
     "status": "SOLD",
     "lat": 34.0392431,
-    "lng": -118.4160879
+    "lng": -118.4160879,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3660 Beethoven St",
@@ -2313,7 +2853,8 @@
     "price": "1,870,000",
     "status": "SOLD",
     "lat": 34.0030212,
-    "lng": -118.443556
+    "lng": -118.443556,
+    "neighborhoods": []
   },
   {
     "address": "10342 Dunleer Dr",
@@ -2325,7 +2866,11 @@
     "price": "1,915,000",
     "status": "SOLD",
     "lat": 34.0364797,
-    "lng": -118.4100788
+    "lng": -118.4100788,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2407 Bagley Ave",
@@ -2337,7 +2882,10 @@
     "price": "1,848,000",
     "status": "SOLD",
     "lat": 34.0402517,
-    "lng": -118.3922626
+    "lng": -118.3922626,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3217 Castle Heights Ave",
@@ -2349,7 +2897,10 @@
     "price": "1,895,000",
     "status": "SOLD",
     "lat": 34.0331327,
-    "lng": -118.39924
+    "lng": -118.39924,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10313 Cheviot Dr",
@@ -2361,7 +2912,11 @@
     "price": "1,740,000",
     "status": "SOLD",
     "lat": 34.0378353,
-    "lng": -118.4084952
+    "lng": -118.4084952,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "4170 Commonwealth Ave",
@@ -2373,7 +2928,8 @@
     "price": "2,088,500",
     "status": "SOLD",
     "lat": 34.0065722,
-    "lng": -118.4105733
+    "lng": -118.4105733,
+    "neighborhoods": []
   },
   {
     "address": "2780 Club Dr",
@@ -2385,7 +2941,11 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 34.041151,
-    "lng": -118.404344
+    "lng": -118.404344,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10801 Ashby Ave",
@@ -2397,7 +2957,10 @@
     "price": "1,899,000",
     "status": "SOLD",
     "lat": 34.0376402,
-    "lng": -118.4240701
+    "lng": -118.4240701,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2629 S Beverly Dr",
@@ -2409,7 +2972,10 @@
     "price": "1,887,000",
     "status": "SOLD",
     "lat": 34.0390467,
-    "lng": -118.3960619
+    "lng": -118.3960619,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10559 Cheviot Dr",
@@ -2421,7 +2987,11 @@
     "price": "1,950,000",
     "status": "SOLD",
     "lat": 34.036457,
-    "lng": -118.4162072
+    "lng": -118.4162072,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "12035 Dewey St",
@@ -2433,7 +3003,8 @@
     "price": "1,935,000",
     "status": "SOLD",
     "lat": 34.0189492,
-    "lng": -118.4395922
+    "lng": -118.4395922,
+    "neighborhoods": []
   },
   {
     "address": "9991 Liebe Dr",
@@ -2445,7 +3016,10 @@
     "price": "2,200,000",
     "status": "SOLD",
     "lat": 34.1210745,
-    "lng": -118.4396736
+    "lng": -118.4396736,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "2782 Monte Mar Ter",
@@ -2457,7 +3031,10 @@
     "price": "1,995,000",
     "status": "SOLD",
     "lat": 34.0425137,
-    "lng": -118.4004243
+    "lng": -118.4004243,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3148 Club Dr",
@@ -2469,7 +3046,10 @@
     "price": "1,785,000",
     "status": "SOLD",
     "lat": 34.0348016,
-    "lng": -118.4010577
+    "lng": -118.4010577,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2229 Castilian Dr",
@@ -2481,7 +3061,8 @@
     "price": "1,975,000",
     "status": "SOLD",
     "lat": 34.1116091,
-    "lng": -118.3436211
+    "lng": -118.3436211,
+    "neighborhoods": []
   },
   {
     "address": "1929 Hillsboro Ave",
@@ -2493,7 +3074,10 @@
     "price": "1,848,000",
     "status": "SOLD",
     "lat": 34.0454465,
-    "lng": -118.3903665
+    "lng": -118.3903665,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10513 Blythe Ave",
@@ -2505,7 +3089,8 @@
     "price": "2,105,000",
     "status": "SOLD",
     "lat": 34.043451,
-    "lng": -118.4184702
+    "lng": -118.4184702,
+    "neighborhoods": []
   },
   {
     "address": "9319 Cattaraugus Ave",
@@ -2517,7 +3102,10 @@
     "price": "1,945,000",
     "status": "SOLD",
     "lat": 34.03627,
-    "lng": -118.3934443
+    "lng": -118.3934443,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "5571 Onacrest Dr",
@@ -2529,7 +3117,8 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 33.9896481,
-    "lng": -118.3549274
+    "lng": -118.3549274,
+    "neighborhoods": []
   },
   {
     "address": "2030 Castle Heights Ave",
@@ -2541,7 +3130,10 @@
     "price": "2,550,000",
     "status": "SOLD",
     "lat": 34.0453287,
-    "lng": -118.3978793
+    "lng": -118.3978793,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3126 Castle Heights Ave",
@@ -2553,7 +3145,10 @@
     "price": "2,325,000",
     "status": "SOLD",
     "lat": 34.033778,
-    "lng": -118.3986058
+    "lng": -118.3986058,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3421 Castlewoods Pl",
@@ -2565,7 +3160,8 @@
     "price": "1,885,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "10585 Butterfield Rd",
@@ -2577,7 +3173,11 @@
     "price": "2,050,000",
     "status": "SOLD",
     "lat": 34.0379748,
-    "lng": -118.4166063
+    "lng": -118.4166063,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10581 Butterfield Rd",
@@ -2589,7 +3189,11 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 34.0381005,
-    "lng": -118.416575
+    "lng": -118.416575,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2213 S Beverly Dr",
@@ -2601,7 +3205,10 @@
     "price": "1,864,000",
     "status": "SOLD",
     "lat": 34.0453546,
-    "lng": -118.3951659
+    "lng": -118.3951659,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9000 Phyllis Ave",
@@ -2613,7 +3220,10 @@
     "price": "1,930,000",
     "status": "SOLD",
     "lat": 34.0885759,
-    "lng": -118.3877897
+    "lng": -118.3877897,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "9417 Beverlywood St",
@@ -2625,7 +3235,10 @@
     "price": "1,985,000",
     "status": "SOLD",
     "lat": 34.0397115,
-    "lng": -118.3933605
+    "lng": -118.3933605,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2407 Bagley Ave",
@@ -2637,7 +3250,10 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 34.0402517,
-    "lng": -118.3922626
+    "lng": -118.3922626,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10832 Lawler St",
@@ -2649,7 +3265,10 @@
     "price": "2,200,000",
     "status": "SOLD",
     "lat": 34.0238071,
-    "lng": -118.4147548
+    "lng": -118.4147548,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10366 Lorenzo Dr",
@@ -2661,7 +3280,11 @@
     "price": "2,095,000",
     "status": "SOLD",
     "lat": 34.0407453,
-    "lng": -118.4091907
+    "lng": -118.4091907,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10367 Cheviot Dr",
@@ -2673,7 +3296,11 @@
     "price": "2,160,000",
     "status": "SOLD",
     "lat": 34.0385773,
-    "lng": -118.4104382
+    "lng": -118.4104382,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2927 Danalda Dr",
@@ -2685,7 +3312,11 @@
     "price": "2,062,498",
     "status": "SOLD",
     "lat": 34.0382561,
-    "lng": -118.402342
+    "lng": -118.402342,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "403 22Nd St",
@@ -2697,7 +3328,11 @@
     "price": "2,050,000",
     "status": "SOLD",
     "lat": 34.0430094,
-    "lng": -118.4920676
+    "lng": -118.4920676,
+    "neighborhoods": [
+      "brentwood",
+      "santa-monica"
+    ]
   },
   {
     "address": "3026 Kelton Ave",
@@ -2709,7 +3344,10 @@
     "price": "2,075,000",
     "status": "SOLD",
     "lat": 34.0293855,
-    "lng": -118.4222494
+    "lng": -118.4222494,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10585 Butterfield Rd",
@@ -2721,7 +3359,11 @@
     "price": "2,055,000",
     "status": "SOLD",
     "lat": 34.0379748,
-    "lng": -118.4166063
+    "lng": -118.4166063,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9139 Hargis St",
@@ -2733,7 +3375,10 @@
     "price": "2,149,000",
     "status": "SOLD",
     "lat": 34.0366961,
-    "lng": -118.3919291
+    "lng": -118.3919291,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3017 Bagley Ave",
@@ -2745,7 +3390,10 @@
     "price": "2,200,000",
     "status": "SOLD",
     "lat": 34.0342947,
-    "lng": -118.3950056
+    "lng": -118.3950056,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9700 Lockford St",
@@ -2757,7 +3405,10 @@
     "price": "2,350,000",
     "status": "SOLD",
     "lat": 34.0499694,
-    "lng": -118.3988816
+    "lng": -118.3988816,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2751 Motor Ave",
@@ -2769,7 +3420,11 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 34.0421627,
-    "lng": -118.4039794
+    "lng": -118.4039794,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3216 Earlmar Dr",
@@ -2781,7 +3436,11 @@
     "price": "2,175,000",
     "status": "SOLD",
     "lat": 34.0340285,
-    "lng": -118.4058217
+    "lng": -118.4058217,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3388 Manning Ct",
@@ -2793,7 +3452,11 @@
     "price": "2,100,000",
     "status": "SOLD",
     "lat": 34.031064,
-    "lng": -118.4046242
+    "lng": -118.4046242,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9500 Sawyer St",
@@ -2805,7 +3468,10 @@
     "price": "2,215,000",
     "status": "SOLD",
     "lat": 34.045922,
-    "lng": -118.395374
+    "lng": -118.395374,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9402 Hargis St",
@@ -2817,7 +3483,10 @@
     "price": "2,150,000",
     "status": "SOLD",
     "lat": 34.0367953,
-    "lng": -118.3939356
+    "lng": -118.3939356,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "4275 Corinth Ave",
@@ -2829,7 +3498,8 @@
     "price": "2,100,000",
     "status": "SOLD",
     "lat": 34.0019756,
-    "lng": -118.4128763
+    "lng": -118.4128763,
+    "neighborhoods": []
   },
   {
     "address": "10523 Dunleer Dr",
@@ -2841,7 +3511,11 @@
     "price": "2,400,000",
     "status": "SOLD",
     "lat": 34.0351613,
-    "lng": -118.4145969
+    "lng": -118.4145969,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9601 Cattaraugus Ave",
@@ -2853,7 +3527,10 @@
     "price": "1,959,750",
     "status": "SOLD",
     "lat": 34.0369074,
-    "lng": -118.395829
+    "lng": -118.395829,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "5025 Westwood Blvd",
@@ -2865,7 +3542,8 @@
     "price": "2,417,675",
     "status": "SOLD",
     "lat": 34.0052472,
-    "lng": -118.3980332
+    "lng": -118.3980332,
+    "neighborhoods": []
   },
   {
     "address": "3062 Earlmar Dr",
@@ -2877,7 +3555,11 @@
     "price": "2,200,000",
     "status": "SOLD",
     "lat": 34.0367703,
-    "lng": -118.4045465
+    "lng": -118.4045465,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10575 Cushdon Ave",
@@ -2889,7 +3571,10 @@
     "price": "2,180,000",
     "status": "SOLD",
     "lat": 34.0413965,
-    "lng": -118.4202375
+    "lng": -118.4202375,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10575 Bradbury Rd",
@@ -2901,7 +3586,11 @@
     "price": "2,296,580",
     "status": "SOLD",
     "lat": 34.0386003,
-    "lng": -118.4175451
+    "lng": -118.4175451,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "140 N Carson Rd",
@@ -2913,7 +3602,10 @@
     "price": "2,325,000",
     "status": "SOLD",
     "lat": 34.0673586,
-    "lng": -118.3793315
+    "lng": -118.3793315,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "10759 Rochester Ave",
@@ -2925,7 +3617,10 @@
     "price": "2,510,000",
     "status": "SOLD",
     "lat": 34.0576246,
-    "lng": -118.4378532
+    "lng": -118.4378532,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "10353 Monte Mar Dr",
@@ -2937,7 +3632,11 @@
     "price": "2,349,000",
     "status": "SOLD",
     "lat": 34.0417245,
-    "lng": -118.4085617
+    "lng": -118.4085617,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10542 Butterfield Rd",
@@ -2949,7 +3648,11 @@
     "price": "2,275,000",
     "status": "SOLD",
     "lat": 34.0393923,
-    "lng": -118.4160507
+    "lng": -118.4160507,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9906 Girla Way",
@@ -2961,7 +3664,10 @@
     "price": "2,400,000",
     "status": "SOLD",
     "lat": 34.0372676,
-    "lng": -118.3997897
+    "lng": -118.3997897,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3380 Mandeville Canyon Rd",
@@ -2973,7 +3679,8 @@
     "price": "2,050,000",
     "status": "SOLD",
     "lat": 34.105127,
-    "lng": -118.503112
+    "lng": -118.503112,
+    "neighborhoods": []
   },
   {
     "address": "10336 Dunleer Dr",
@@ -2985,7 +3692,11 @@
     "price": "2,150,000",
     "status": "SOLD",
     "lat": 34.0364208,
-    "lng": -118.4099415
+    "lng": -118.4099415,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2070 Kinclair Dr",
@@ -2997,7 +3708,8 @@
     "price": "2,300,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "1027 Ashland Ave",
@@ -3009,7 +3721,10 @@
     "price": "2,431,000",
     "status": "SOLD",
     "lat": 34.0057994,
-    "lng": -118.4722127
+    "lng": -118.4722127,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "2066 Prosser Ave",
@@ -3021,7 +3736,8 @@
     "price": "2,648,125",
     "status": "SOLD",
     "lat": 34.0499828,
-    "lng": -118.4261023
+    "lng": -118.4261023,
+    "neighborhoods": []
   },
   {
     "address": "1027 Ashland Ave",
@@ -3033,7 +3749,10 @@
     "price": "2,350,000",
     "status": "SOLD",
     "lat": 34.0058206,
-    "lng": -118.4721802
+    "lng": -118.4721802,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "10538 Bradbury Rd",
@@ -3045,7 +3764,11 @@
     "price": "2,350,000",
     "status": "SOLD",
     "lat": 34.0396092,
-    "lng": -118.4170912
+    "lng": -118.4170912,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10565 Bradbury Rd",
@@ -3057,7 +3780,11 @@
     "price": "2,195,000",
     "status": "SOLD",
     "lat": 34.0389029,
-    "lng": -118.4174697
+    "lng": -118.4174697,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "1710 Crisler Way",
@@ -3069,7 +3796,8 @@
     "price": "2,071,250",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "527 Muskingum Ave",
@@ -3081,7 +3809,8 @@
     "price": "2,337,500",
     "status": "SOLD",
     "lat": 34.043314,
-    "lng": -118.53892
+    "lng": -118.53892,
+    "neighborhoods": []
   },
   {
     "address": "9724 Oakmore Rd",
@@ -3093,7 +3822,10 @@
     "price": "2,374,190",
     "status": "SOLD",
     "lat": 34.0475699,
-    "lng": -118.3996745
+    "lng": -118.3996745,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10269 Dunleer Dr",
@@ -3105,7 +3837,11 @@
     "price": "2,350,000",
     "status": "SOLD",
     "lat": 34.0359843,
-    "lng": -118.4082014
+    "lng": -118.4082014,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "515 Muskingum Ave",
@@ -3117,7 +3853,8 @@
     "price": "2,325,000",
     "status": "SOLD",
     "lat": 34.0428751,
-    "lng": -118.5389704
+    "lng": -118.5389704,
+    "neighborhoods": []
   },
   {
     "address": "9029 Hargis St",
@@ -3129,7 +3866,10 @@
     "price": "2,561,250",
     "status": "SOLD",
     "lat": 34.0363214,
-    "lng": -118.3899651
+    "lng": -118.3899651,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3161 Ivy Glen Way",
@@ -3141,7 +3881,11 @@
     "price": "2,475,000",
     "status": "SOLD",
     "lat": 34.0333852,
-    "lng": -118.4147201
+    "lng": -118.4147201,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9701 Oakmore Rd",
@@ -3153,7 +3897,10 @@
     "price": "2,710,000",
     "status": "SOLD",
     "lat": 34.047904,
-    "lng": -118.3988736
+    "lng": -118.3988736,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2700 Midvale Ave",
@@ -3165,7 +3912,10 @@
     "price": "2,435,000",
     "status": "SOLD",
     "lat": 34.034558,
-    "lng": -118.425185
+    "lng": -118.425185,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10316 Bannockburn Dr",
@@ -3177,7 +3927,11 @@
     "price": "2,459,000",
     "status": "SOLD",
     "lat": 34.035475,
-    "lng": -118.409792
+    "lng": -118.409792,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10540 Tennessee Ave",
@@ -3189,7 +3943,8 @@
     "price": "2,537,576",
     "status": "SOLD",
     "lat": 34.046677,
-    "lng": -118.4218613
+    "lng": -118.4218613,
+    "neighborhoods": []
   },
   {
     "address": "2026 Malcolm Ave",
@@ -3201,7 +3956,10 @@
     "price": "2,585,000",
     "status": "SOLD",
     "lat": 34.0473779,
-    "lng": -118.431905
+    "lng": -118.431905,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "6305 Para Way",
@@ -3213,7 +3971,8 @@
     "price": "2,600,000",
     "status": "SOLD",
     "lat": 33.9717518,
-    "lng": -118.4232284
+    "lng": -118.4232284,
+    "neighborhoods": []
   },
   {
     "address": "3225 Club Dr",
@@ -3225,7 +3984,11 @@
     "price": "2,499,000",
     "status": "SOLD",
     "lat": 34.0339104,
-    "lng": -118.4023805
+    "lng": -118.4023805,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2816 Castle Heights Ave",
@@ -3237,7 +4000,10 @@
     "price": "2,125,000",
     "status": "SOLD",
     "lat": 34.0375684,
-    "lng": -118.3971141
+    "lng": -118.3971141,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1627 S Corning St",
@@ -3249,7 +4015,10 @@
     "price": "2,499,000",
     "status": "SOLD",
     "lat": 34.0488625,
-    "lng": -118.3782573
+    "lng": -118.3782573,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9826 Burgen Ave",
@@ -3261,7 +4030,10 @@
     "price": "2,350,000",
     "status": "SOLD",
     "lat": 34.0345363,
-    "lng": -118.3991208
+    "lng": -118.3991208,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "6617 Maryland Dr",
@@ -3273,7 +4045,10 @@
     "price": "2,487,381",
     "status": "SOLD",
     "lat": 34.0677826,
-    "lng": -118.3714228
+    "lng": -118.3714228,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "9833 Vicar St",
@@ -3285,7 +4060,10 @@
     "price": "2,436,000",
     "status": "SOLD",
     "lat": 34.03378,
-    "lng": -118.3995266
+    "lng": -118.3995266,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "220 Larsson St",
@@ -3297,7 +4075,8 @@
     "price": "2,560,000",
     "status": "SOLD",
     "lat": 33.8808303,
-    "lng": -118.3967943
+    "lng": -118.3967943,
+    "neighborhoods": []
   },
   {
     "address": "868 Leonard Rd",
@@ -3309,7 +4088,11 @@
     "price": "2,400,000",
     "status": "SOLD",
     "lat": 34.0739556,
-    "lng": -118.4876271
+    "lng": -118.4876271,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "3024 Glenn Ave",
@@ -3321,7 +4104,10 @@
     "price": "2,825,000",
     "status": "SOLD",
     "lat": 34.0052419,
-    "lng": -118.4696895
+    "lng": -118.4696895,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "3388 Manning Ct",
@@ -3333,7 +4119,11 @@
     "price": "2,805,000",
     "status": "SOLD",
     "lat": 34.031064,
-    "lng": -118.4046242
+    "lng": -118.4046242,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2238 Bagley Ave",
@@ -3345,7 +4135,10 @@
     "price": "2,000,000",
     "status": "SOLD",
     "lat": 34.0421225,
-    "lng": -118.3914965
+    "lng": -118.3914965,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3029 Cavendish Dr",
@@ -3357,7 +4150,11 @@
     "price": "2,377,886",
     "status": "SOLD",
     "lat": 34.0371072,
-    "lng": -118.40569
+    "lng": -118.40569,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9820 Burgen Ave",
@@ -3369,7 +4166,10 @@
     "price": "2,570,000",
     "status": "SOLD",
     "lat": 34.0345127,
-    "lng": -118.3990368
+    "lng": -118.3990368,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2742 Forrester Dr",
@@ -3381,7 +4181,10 @@
     "price": "2,450,000",
     "status": "SOLD",
     "lat": 34.0430501,
-    "lng": -118.4031665
+    "lng": -118.4031665,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3430 Barry Ave",
@@ -3393,7 +4196,8 @@
     "price": "2,600,000",
     "status": "SOLD",
     "lat": 34.014523,
-    "lng": -118.4313815
+    "lng": -118.4313815,
+    "neighborhoods": []
   },
   {
     "address": "10526 Butterfield Rd",
@@ -3405,7 +4209,11 @@
     "price": "2,750,000",
     "status": "SOLD",
     "lat": 34.0401471,
-    "lng": -118.4158627
+    "lng": -118.4158627,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2012 Castle Heights Ave",
@@ -3417,7 +4225,10 @@
     "price": "2,365,000",
     "status": "SOLD",
     "lat": 34.0459989,
-    "lng": -118.3979424
+    "lng": -118.3979424,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "664 Kingman Ave",
@@ -3429,7 +4240,11 @@
     "price": "2,500,000",
     "status": "SOLD",
     "lat": 34.0259,
-    "lng": -118.4792
+    "lng": -118.4792,
+    "neighborhoods": [
+      "brentwood",
+      "santa-monica"
+    ]
   },
   {
     "address": "9600 Beverlywood St",
@@ -3441,7 +4256,10 @@
     "price": "2,830,000",
     "status": "SOLD",
     "lat": 34.0399256,
-    "lng": -118.3957314
+    "lng": -118.3957314,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1716 S Durango Ave",
@@ -3453,7 +4271,10 @@
     "price": "2,837,500",
     "status": "SOLD",
     "lat": 34.0490384,
-    "lng": -118.3883734
+    "lng": -118.3883734,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "317 23Rd St",
@@ -3465,7 +4286,11 @@
     "price": "2,961,000",
     "status": "SOLD",
     "lat": 34.045217,
-    "lng": -118.4929071
+    "lng": -118.4929071,
+    "neighborhoods": [
+      "brentwood",
+      "santa-monica"
+    ]
   },
   {
     "address": "1845 Mandeville Canyon Rd",
@@ -3477,7 +4302,11 @@
     "price": "2,695,000",
     "status": "SOLD",
     "lat": 34.0679597,
-    "lng": -118.494142
+    "lng": -118.494142,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "2041 Desford Dr",
@@ -3489,7 +4318,10 @@
     "price": "2,676,755",
     "status": "SOLD",
     "lat": 34.1084897,
-    "lng": -118.4189828
+    "lng": -118.4189828,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "3604 Walnut Ave",
@@ -3501,7 +4333,8 @@
     "price": "2,815,000",
     "status": "SOLD",
     "lat": 33.9011513,
-    "lng": -118.3997004
+    "lng": -118.3997004,
+    "neighborhoods": []
   },
   {
     "address": "10574 Bradbury Rd",
@@ -3513,7 +4346,11 @@
     "price": "2,825,000",
     "status": "SOLD",
     "lat": 34.0385477,
-    "lng": -118.4173557
+    "lng": -118.4173557,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10546 Butterfield Rd",
@@ -3525,7 +4362,11 @@
     "price": "2,920,000",
     "status": "SOLD",
     "lat": 34.0392431,
-    "lng": -118.4160879
+    "lng": -118.4160879,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2602 Aiken Ave",
@@ -3537,7 +4378,11 @@
     "price": "3,025,000",
     "status": "SOLD",
     "lat": 34.0407278,
-    "lng": -118.416505
+    "lng": -118.416505,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10629 Blythe Ave",
@@ -3549,7 +4394,10 @@
     "price": "3,025,000",
     "status": "SOLD",
     "lat": 34.0412214,
-    "lng": -118.4223391
+    "lng": -118.4223391,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10377 Monte Mar Dr",
@@ -3561,7 +4409,11 @@
     "price": "29,500,002,653,805",
     "status": "SOLD",
     "lat": 34.0414096,
-    "lng": -118.4091363
+    "lng": -118.4091363,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2805 Mcconnell Dr",
@@ -3573,7 +4425,10 @@
     "price": "2,710,000",
     "status": "SOLD",
     "lat": 34.0409221,
-    "lng": -118.4013043
+    "lng": -118.4013043,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10114 Lovelane Pl",
@@ -3585,7 +4440,11 @@
     "price": "2,700,000",
     "status": "SOLD",
     "lat": 34.0331883,
-    "lng": -118.4047141
+    "lng": -118.4047141,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3100 Cavendish Dr",
@@ -3597,7 +4456,11 @@
     "price": "3,117,500",
     "status": "SOLD",
     "lat": 34.035915,
-    "lng": -118.405974
+    "lng": -118.405974,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10359 Monte Mar Dr",
@@ -3609,7 +4472,11 @@
     "price": "3,100,000",
     "status": "SOLD",
     "lat": 34.0415228,
-    "lng": -118.4089298
+    "lng": -118.4089298,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2700 Anchor Ave",
@@ -3621,7 +4488,10 @@
     "price": "3,006,000",
     "status": "SOLD",
     "lat": 34.0420675,
-    "lng": -118.3991876
+    "lng": -118.3991876,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2990 Club Dr",
@@ -3633,7 +4503,10 @@
     "price": "2,866,425",
     "status": "SOLD",
     "lat": 34.0364574,
-    "lng": -118.3996547
+    "lng": -118.3996547,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2852 Motor Ave",
@@ -3645,7 +4518,11 @@
     "price": "2,850,000",
     "status": "SOLD",
     "lat": 34.0401218,
-    "lng": -118.4051219
+    "lng": -118.4051219,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2714 Forrester Dr",
@@ -3657,7 +4534,10 @@
     "price": "3,000,000",
     "status": "SOLD",
     "lat": 34.043803,
-    "lng": -118.4040089
+    "lng": -118.4040089,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3571 Colonial Ave",
@@ -3669,7 +4549,8 @@
     "price": "2,995,000",
     "status": "SOLD",
     "lat": 34.0080085,
-    "lng": -118.4386457
+    "lng": -118.4386457,
+    "neighborhoods": []
   },
   {
     "address": "213 Rennie Ave",
@@ -3681,7 +4562,10 @@
     "price": "3,110,000",
     "status": "SOLD",
     "lat": 33.9995222,
-    "lng": -118.4748677
+    "lng": -118.4748677,
+    "neighborhoods": [
+      "santa-monica"
+    ]
   },
   {
     "address": "3035 Queensbury Dr",
@@ -3693,7 +4577,11 @@
     "price": "2,400,000",
     "status": "SOLD",
     "lat": 34.0361516,
-    "lng": -118.4071529
+    "lng": -118.4071529,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "500 Hanley Pl",
@@ -3705,7 +4593,11 @@
     "price": "2,585,000",
     "status": "SOLD",
     "lat": 34.068795,
-    "lng": -118.485115
+    "lng": -118.485115,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "2880 Motor Ave",
@@ -3717,7 +4609,11 @@
     "price": "2,925,000",
     "status": "SOLD",
     "lat": 34.0398499,
-    "lng": -118.406328
+    "lng": -118.406328,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10418 Dunleer Dr",
@@ -3729,7 +4625,11 @@
     "price": "2,985,000",
     "status": "SOLD",
     "lat": 34.0368715,
-    "lng": -118.4121649
+    "lng": -118.4121649,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2826 Medill Pl",
@@ -3741,7 +4641,10 @@
     "price": "2,924,000",
     "status": "SOLD",
     "lat": 34.0386951,
-    "lng": -118.40073
+    "lng": -118.40073,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "12954 Magnolia Blvd",
@@ -3753,7 +4656,8 @@
     "price": "2,950,000",
     "status": "SOLD",
     "lat": 34.164787,
-    "lng": -118.4149661
+    "lng": -118.4149661,
+    "neighborhoods": []
   },
   {
     "address": "3029 Motor Ave",
@@ -3765,7 +4669,11 @@
     "price": "3,225,000",
     "status": "SOLD",
     "lat": 34.0364425,
-    "lng": -118.4089271
+    "lng": -118.4089271,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3042 Cavendish Dr",
@@ -3777,7 +4685,11 @@
     "price": "3,049,000",
     "status": "SOLD",
     "lat": 34.036817,
-    "lng": -118.4055987
+    "lng": -118.4055987,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2737 Monte Mar Ter",
@@ -3789,7 +4701,10 @@
     "price": "2,960,000",
     "status": "SOLD",
     "lat": 34.0442916,
-    "lng": -118.4022142
+    "lng": -118.4022142,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3211 Castle Heights Ave",
@@ -3801,7 +4716,10 @@
     "price": "3,095,000",
     "status": "SOLD",
     "lat": 34.0332502,
-    "lng": -118.399192
+    "lng": -118.399192,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1145 Corsica Dr",
@@ -3813,7 +4731,10 @@
     "price": "2,735,000",
     "status": "SOLD",
     "lat": 34.0492089,
-    "lng": -118.5048949
+    "lng": -118.5048949,
+    "neighborhoods": [
+      "brentwood"
+    ]
   },
   {
     "address": "1951 Kelton Ave",
@@ -3825,7 +4746,10 @@
     "price": "3,095,000",
     "status": "SOLD",
     "lat": 34.0457189,
-    "lng": -118.4364149
+    "lng": -118.4364149,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "3227 Shelby Dr",
@@ -3837,7 +4761,10 @@
     "price": "3,300,000",
     "status": "SOLD",
     "lat": 34.0330412,
-    "lng": -118.4011232
+    "lng": -118.4011232,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10550 Rountree Rd",
@@ -3849,7 +4776,10 @@
     "price": "3,050,000",
     "status": "SOLD",
     "lat": 34.0394799,
-    "lng": -118.4181699
+    "lng": -118.4181699,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3221 Provon Ln",
@@ -3861,7 +4791,10 @@
     "price": "3,000,000",
     "status": "SOLD",
     "lat": 34.0326664,
-    "lng": -118.4003889
+    "lng": -118.4003889,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3528 Walnut Ave",
@@ -3873,7 +4806,8 @@
     "price": "3,000,000",
     "status": "SOLD",
     "lat": 33.9009006,
-    "lng": -118.3996689
+    "lng": -118.3996689,
+    "neighborhoods": []
   },
   {
     "address": "3211 Castle Heights Ave",
@@ -3885,7 +4819,10 @@
     "price": "3,226,000",
     "status": "SOLD",
     "lat": 34.0332502,
-    "lng": -118.399192
+    "lng": -118.399192,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2762 Forrester Dr",
@@ -3897,7 +4834,11 @@
     "price": "3,350,000",
     "status": "SOLD",
     "lat": 34.0424243,
-    "lng": -118.4024387
+    "lng": -118.4024387,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "515 Muskingum Ave",
@@ -3909,7 +4850,8 @@
     "price": "31,950,002,900,000",
     "status": "SOLD",
     "lat": 34.0428751,
-    "lng": -118.5389704
+    "lng": -118.5389704,
+    "neighborhoods": []
   },
   {
     "address": "3269 Earlmar Dr",
@@ -3921,7 +4863,11 @@
     "price": "3,075,000",
     "status": "SOLD",
     "lat": 34.0335211,
-    "lng": -118.4073697
+    "lng": -118.4073697,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2232 Bagley Ave",
@@ -3933,7 +4879,10 @@
     "price": "3,080,000",
     "status": "SOLD",
     "lat": 34.0422794,
-    "lng": -118.391534
+    "lng": -118.391534,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "663 Hanley Ave",
@@ -3945,7 +4894,11 @@
     "price": "3,280,000",
     "status": "SOLD",
     "lat": 34.0705624,
-    "lng": -118.4867692
+    "lng": -118.4867692,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "2306 Bagley Ave",
@@ -3957,7 +4910,10 @@
     "price": "3,210,000",
     "status": "SOLD",
     "lat": 34.0408995,
-    "lng": -118.3917208
+    "lng": -118.3917208,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3118 Patricia Ave",
@@ -3969,7 +4925,11 @@
     "price": "3,240,000",
     "status": "SOLD",
     "lat": 34.0344953,
-    "lng": -118.4095689
+    "lng": -118.4095689,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "25 S Venice Blvd",
@@ -3981,7 +4941,8 @@
     "price": "3,100,000",
     "status": "SOLD",
     "lat": 33.9841493,
-    "lng": -118.4703629
+    "lng": -118.4703629,
+    "neighborhoods": []
   },
   {
     "address": "1920 Bagley Ave",
@@ -3993,7 +4954,10 @@
     "price": "3,095,400",
     "status": "SOLD",
     "lat": 34.0458924,
-    "lng": -118.3910957
+    "lng": -118.3910957,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10326 Walavista Rd",
@@ -4005,7 +4969,11 @@
     "price": "3,135,750",
     "status": "SOLD",
     "lat": 34.0323294,
-    "lng": -118.411678
+    "lng": -118.411678,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "826 Leonard Rd",
@@ -4017,7 +4985,11 @@
     "price": "3,350,000",
     "status": "SOLD",
     "lat": 34.0730947,
-    "lng": -118.4883979
+    "lng": -118.4883979,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood"
+    ]
   },
   {
     "address": "2864 Mcconnell Dr",
@@ -4029,7 +5001,10 @@
     "price": "3,160,000",
     "status": "SOLD",
     "lat": 34.039332,
-    "lng": -118.401728
+    "lng": -118.401728,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "224 N Kenter Ave",
@@ -4041,7 +5016,10 @@
     "price": "3,005,000",
     "status": "SOLD",
     "lat": 34.0617499,
-    "lng": -118.4806781
+    "lng": -118.4806781,
+    "neighborhoods": [
+      "brentwood"
+    ]
   },
   {
     "address": "2306 Bagley Ave",
@@ -4053,7 +5031,10 @@
     "price": "3,495,000",
     "status": "SOLD",
     "lat": 34.0408995,
-    "lng": -118.3917208
+    "lng": -118.3917208,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "1613 Rexford Dr",
@@ -4065,7 +5046,10 @@
     "price": "3,350,000",
     "status": "SOLD",
     "lat": 34.0501547,
-    "lng": -118.394346
+    "lng": -118.394346,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2815 Club Dr",
@@ -4077,7 +5061,11 @@
     "price": "3,325,000",
     "status": "SOLD",
     "lat": 34.0395808,
-    "lng": -118.4039456
+    "lng": -118.4039456,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2768 Anchor Ave",
@@ -4089,7 +5077,10 @@
     "price": "3,570,000",
     "status": "SOLD",
     "lat": 34.0402261,
-    "lng": -118.3993762
+    "lng": -118.3993762,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10392 Glenbarr Ave",
@@ -4101,7 +5092,11 @@
     "price": "3,375,000",
     "status": "SOLD",
     "lat": 34.040346,
-    "lng": -118.4110253
+    "lng": -118.4110253,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2764 Club Dr",
@@ -4113,7 +5108,11 @@
     "price": "3,350,000",
     "status": "SOLD",
     "lat": 34.0417963,
-    "lng": -118.4049134
+    "lng": -118.4049134,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2235 S Beverly Dr",
@@ -4125,7 +5124,10 @@
     "price": "3,566,000",
     "status": "SOLD",
     "lat": 34.0453492,
-    "lng": -118.395156
+    "lng": -118.395156,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2839 Medill Pl",
@@ -4137,7 +5139,10 @@
     "price": "3,365,000",
     "status": "SOLD",
     "lat": 34.0385905,
-    "lng": -118.400976
+    "lng": -118.400976,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2415 S Beverly Dr",
@@ -4149,7 +5154,10 @@
     "price": "3,700,000",
     "status": "SOLD",
     "lat": 34.0411664,
-    "lng": -118.3954086
+    "lng": -118.3954086,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10646 Esther Ave",
@@ -4161,7 +5169,10 @@
     "price": "3,300,000",
     "status": "SOLD",
     "lat": 34.039484,
-    "lng": -118.4214115
+    "lng": -118.4214115,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3300 Mclaughlin Ave",
@@ -4173,7 +5184,8 @@
     "price": "3,800,000",
     "status": "SOLD",
     "lat": 34.018063,
-    "lng": -118.434346
+    "lng": -118.434346,
+    "neighborhoods": []
   },
   {
     "address": "11830 Allaseba Dr",
@@ -4185,7 +5197,8 @@
     "price": "3,629,000",
     "status": "SOLD",
     "lat": 34.0185561,
-    "lng": -118.4373987
+    "lng": -118.4373987,
+    "neighborhoods": []
   },
   {
     "address": "2993 Haddington Dr",
@@ -4197,7 +5210,11 @@
     "price": "3,675,000",
     "status": "SOLD",
     "lat": 34.0359565,
-    "lng": -118.4117168
+    "lng": -118.4117168,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3830 Encino Verde Pl",
@@ -4209,7 +5226,8 @@
     "price": "3,300,000",
     "status": "SOLD",
     "lat": 34.1399134,
-    "lng": -118.5039337
+    "lng": -118.5039337,
+    "neighborhoods": []
   },
   {
     "address": "3201 Club Dr",
@@ -4221,7 +5239,11 @@
     "price": "3,720,000",
     "status": "SOLD",
     "lat": 34.0344575,
-    "lng": -118.4020891
+    "lng": -118.4020891,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2831 Malcolm Ave",
@@ -4233,7 +5255,10 @@
     "price": "37,950,003,700,000",
     "status": "SOLD",
     "lat": 34.0338361,
-    "lng": -118.4212228
+    "lng": -118.4212228,
+    "neighborhoods": [
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9022 Monte Mar Dr",
@@ -4245,7 +5270,10 @@
     "price": "37,950,003,563,482",
     "status": "SOLD",
     "lat": 34.0468776,
-    "lng": -118.3870411
+    "lng": -118.3870411,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3087 Mcconnell Dr",
@@ -4257,7 +5285,10 @@
     "price": "3,693,000",
     "status": "SOLD",
     "lat": 34.0353086,
-    "lng": -118.4012091
+    "lng": -118.4012091,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2933 Danalda Dr",
@@ -4269,7 +5300,11 @@
     "price": "3,799,000",
     "status": "SOLD",
     "lat": 34.0382372,
-    "lng": -118.4023958
+    "lng": -118.4023958,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3226 Woodbine St",
@@ -4281,7 +5316,11 @@
     "price": "3,695,000",
     "status": "SOLD",
     "lat": 34.0336987,
-    "lng": -118.4039909
+    "lng": -118.4039909,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2713 S Canfield Ave",
@@ -4293,7 +5332,10 @@
     "price": "3,950,000",
     "status": "SOLD",
     "lat": 34.0377355,
-    "lng": -118.3920944
+    "lng": -118.3920944,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3925 Woodfield Dr",
@@ -4305,7 +5347,8 @@
     "price": "3,825,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "2432 Bagley Ave",
@@ -4317,7 +5360,10 @@
     "price": "3,468,350",
     "status": "SOLD",
     "lat": 34.0395138,
-    "lng": -118.3920846
+    "lng": -118.3920846,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2811 Oakhurst Ave",
@@ -4329,7 +5375,10 @@
     "price": "3,826,000",
     "status": "SOLD",
     "lat": 34.0380124,
-    "lng": -118.3939135
+    "lng": -118.3939135,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "740 24Th St",
@@ -4341,7 +5390,11 @@
     "price": "4,250,000",
     "status": "SOLD",
     "lat": 34.0407401,
-    "lng": -118.4862768
+    "lng": -118.4862768,
+    "neighborhoods": [
+      "brentwood",
+      "santa-monica"
+    ]
   },
   {
     "address": "3571 Colonial Ave",
@@ -4353,7 +5406,8 @@
     "price": "4,150,000",
     "status": "SOLD",
     "lat": 34.0080085,
-    "lng": -118.4386457
+    "lng": -118.4386457,
+    "neighborhoods": []
   },
   {
     "address": "9320 Oakmore Rd",
@@ -4365,7 +5419,10 @@
     "price": "3,625,000",
     "status": "SOLD",
     "lat": 34.0473454,
-    "lng": -118.3920061
+    "lng": -118.3920061,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2041 Desford Dr",
@@ -4377,7 +5434,10 @@
     "price": "3,900,000",
     "status": "SOLD",
     "lat": 34.1084897,
-    "lng": -118.4189828
+    "lng": -118.4189828,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "2463 Patricia Ave",
@@ -4389,7 +5449,10 @@
     "price": "3,925,000",
     "status": "SOLD",
     "lat": 34.043562,
-    "lng": -118.417845
+    "lng": -118.417845,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3001 Dannyhill Dr",
@@ -4401,7 +5464,10 @@
     "price": "4,050,000",
     "status": "SOLD",
     "lat": 34.0377134,
-    "lng": -118.4018706
+    "lng": -118.4018706,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10452 Lorenzo Pl",
@@ -4413,7 +5479,11 @@
     "price": "4,145,000",
     "status": "SOLD",
     "lat": 34.0397245,
-    "lng": -118.4127595
+    "lng": -118.4127595,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2715 Forrester Dr",
@@ -4425,7 +5495,10 @@
     "price": "3,800,000",
     "status": "SOLD",
     "lat": 34.0436964,
-    "lng": -118.4041676
+    "lng": -118.4041676,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9149 Cresta Dr",
@@ -4437,7 +5510,10 @@
     "price": "3,850,000",
     "status": "SOLD",
     "lat": 34.0463995,
-    "lng": -118.3891151
+    "lng": -118.3891151,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "9704 Cashio St",
@@ -4449,7 +5525,10 @@
     "price": "4,230,575",
     "status": "SOLD",
     "lat": 34.052138,
-    "lng": -118.3988471
+    "lng": -118.3988471,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3021 Club Dr",
@@ -4461,7 +5540,10 @@
     "price": "4,295,000",
     "status": "SOLD",
     "lat": 34.03575,
-    "lng": -118.4000085
+    "lng": -118.4000085,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "217 S Bentley Ave",
@@ -4473,7 +5555,12 @@
     "price": "4,000,000",
     "status": "SOLD",
     "lat": 34.0722845,
-    "lng": -118.4587232
+    "lng": -118.4587232,
+    "neighborhoods": [
+      "bel-air",
+      "brentwood",
+      "westwood"
+    ]
   },
   {
     "address": "10259 Monte Mar Dr",
@@ -4485,7 +5572,11 @@
     "price": "4,399,000",
     "status": "SOLD",
     "lat": 34.042531,
-    "lng": -118.406906
+    "lng": -118.406906,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2971 Club Dr",
@@ -4497,7 +5588,10 @@
     "price": "4,250,000",
     "status": "SOLD",
     "lat": 34.0368058,
-    "lng": -118.400164
+    "lng": -118.400164,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "11943 Victoria Ave",
@@ -4509,7 +5603,8 @@
     "price": "4,250,000",
     "status": "SOLD",
     "lat": 34.0088572,
-    "lng": -118.4294987
+    "lng": -118.4294987,
+    "neighborhoods": []
   },
   {
     "address": "846 Warner Ave",
@@ -4521,7 +5616,10 @@
     "price": "4,470,000",
     "status": "SOLD",
     "lat": 34.0669624,
-    "lng": -118.4332993
+    "lng": -118.4332993,
+    "neighborhoods": [
+      "westwood"
+    ]
   },
   {
     "address": "2706 Club Dr",
@@ -4533,7 +5631,11 @@
     "price": "4,465,000",
     "status": "SOLD",
     "lat": 34.0425385,
-    "lng": -118.4066843
+    "lng": -118.4066843,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "279 S Westgate Ave",
@@ -4545,7 +5647,10 @@
     "price": "5,244,900",
     "status": "SOLD",
     "lat": 34.058306,
-    "lng": -118.4714743
+    "lng": -118.4714743,
+    "neighborhoods": [
+      "brentwood"
+    ]
   },
   {
     "address": "3043 Earlmar Dr",
@@ -4557,7 +5662,11 @@
     "price": "4,600,000",
     "status": "SOLD",
     "lat": 34.0373223,
-    "lng": -118.4045266
+    "lng": -118.4045266,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "9124 Gibson St",
@@ -4569,7 +5678,10 @@
     "price": "4,825,000",
     "status": "SOLD",
     "lat": 34.0377915,
-    "lng": -118.3910783
+    "lng": -118.3910783,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3142 Dannyhill Dr",
@@ -4581,7 +5693,10 @@
     "price": "4,850,000",
     "status": "SOLD",
     "lat": 34.0349925,
-    "lng": -118.4019449
+    "lng": -118.4019449,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10452 Lorenzo Pl",
@@ -4593,7 +5708,11 @@
     "price": "4,700,000",
     "status": "SOLD",
     "lat": 34.0397245,
-    "lng": -118.4127595
+    "lng": -118.4127595,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10440 Lorenzo Pl",
@@ -4605,7 +5724,11 @@
     "price": "4,900,000",
     "status": "SOLD",
     "lat": 34.0399743,
-    "lng": -118.4123023
+    "lng": -118.4123023,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "15921 Royal Oak Rd",
@@ -4617,7 +5740,8 @@
     "price": "4,200,000",
     "status": "SOLD",
     "lat": 34.1433617,
-    "lng": -118.4796081
+    "lng": -118.4796081,
+    "neighborhoods": []
   },
   {
     "address": "2715 Forrester Dr",
@@ -4629,7 +5753,10 @@
     "price": "4,900,000",
     "status": "SOLD",
     "lat": 34.0436964,
-    "lng": -118.4041676
+    "lng": -118.4041676,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "2921 Cavendish Dr",
@@ -4641,7 +5768,11 @@
     "price": "4,950,000",
     "status": "SOLD",
     "lat": 34.0385313,
-    "lng": -118.4051993
+    "lng": -118.4051993,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "3267 Colby Ave",
@@ -4653,7 +5784,8 @@
     "price": "5,375,000",
     "status": "SOLD",
     "lat": 34.0207853,
-    "lng": -118.4321177
+    "lng": -118.4321177,
+    "neighborhoods": []
   },
   {
     "address": "2789 Mcconnell Dr",
@@ -4665,7 +5797,10 @@
     "price": "5,718,000",
     "status": "SOLD",
     "lat": 34.0416544,
-    "lng": -118.4014467
+    "lng": -118.4014467,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "3001 Cavendish Dr",
@@ -4677,7 +5812,11 @@
     "price": "5,600,000",
     "status": "SOLD",
     "lat": 34.0374693,
-    "lng": -118.4055404
+    "lng": -118.4055404,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2771 Forrester Dr",
@@ -4689,7 +5828,11 @@
     "price": "6,650,000",
     "status": "SOLD",
     "lat": 34.0421141,
-    "lng": -118.4024695
+    "lng": -118.4024695,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2250 Guthrie Cir",
@@ -4701,7 +5844,8 @@
     "price": "6,000,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "514 N Camden Dr",
@@ -4713,7 +5857,10 @@
     "price": "7,060,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": [
+      "beverly-hills"
+    ]
   },
   {
     "address": "3062 Earlmar Dr",
@@ -4725,7 +5872,11 @@
     "price": "6,800,000",
     "status": "SOLD",
     "lat": 34.03677,
-    "lng": -118.404546
+    "lng": -118.404546,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "8 Oakmont Dr",
@@ -4737,7 +5888,8 @@
     "price": "6,800,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "3062 Queensbury Dr",
@@ -4749,7 +5901,8 @@
     "price": "7,499,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "2765 Anchor Ave",
@@ -4761,7 +5914,10 @@
     "price": "7,700,000",
     "status": "SOLD",
     "lat": 34.040396,
-    "lng": -118.399856
+    "lng": -118.399856,
+    "neighborhoods": [
+      "beverlywood"
+    ]
   },
   {
     "address": "10422 Lorenzo Pl",
@@ -4773,7 +5929,11 @@
     "price": "7,995,000",
     "status": "SOLD",
     "lat": 34.040171,
-    "lng": -118.411943
+    "lng": -118.411943,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "2856 Forrester Dr",
@@ -4785,7 +5945,11 @@
     "price": "8,500,000",
     "status": "SOLD",
     "lat": 34.039341,
-    "lng": -118.404092
+    "lng": -118.404092,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "10394 Glenbarr Ave",
@@ -4797,7 +5961,11 @@
     "price": "9,000,000",
     "status": "SOLD",
     "lat": 34.040374,
-    "lng": -118.411125
+    "lng": -118.411125,
+    "neighborhoods": [
+      "beverlywood",
+      "cheviot-hills"
+    ]
   },
   {
     "address": "17321 Rancho St",
@@ -4809,7 +5977,8 @@
     "price": "15,250,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "220 Larsson St",
@@ -4821,7 +5990,8 @@
     "price": "2,560,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "3604 Walnut Ave",
@@ -4833,7 +6003,8 @@
     "price": "2,895,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   },
   {
     "address": "17133 Avenida De La Herradura",
@@ -4845,6 +6016,7 @@
     "price": "2,300,000",
     "status": "SOLD",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "neighborhoods": []
   }
 ]
