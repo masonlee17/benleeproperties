@@ -212,8 +212,9 @@ def build_newsletter_sections(newsletters):
 
 # ── Newsletter search index (BM25) ────────────────────────────────────────────
 
-_nl_docs = []   # [{slug, label, url, cover, text, paragraphs}, ...]
-_bm25    = None # BM25Okapi instance (None if rank_bm25 not installed)
+_nl_docs   = []   # [{slug, label, url, cover, text, paragraphs}, ...]
+_bm25      = None # BM25Plus instance (None if rank_bm25 not installed)
+_sold_docs = []   # [{type:'sale', address, city, price, beds, baths, sqft, text}, ...]
 
 def build_newsletter_search_index():
     """Scan market-updates/*.html, extract nl-text-body text, build BM25 index.
@@ -284,6 +285,42 @@ def build_newsletter_search_index():
         _bm25 = BM25Plus(tokenized)
     except ImportError:
         _bm25 = None  # graceful fallback to keyword search
+
+    # Load sold-history addresses into a parallel searchable list
+    global _sold_docs
+    sold_path = os.path.join(DATA_DIR, 'sold-history.json')
+    if not os.path.exists(sold_path):
+        sold_path = os.path.join(BASE_DIR, 'data', 'sold-history.json')
+    if os.path.exists(sold_path):
+        try:
+            sold_raw = json.load(open(sold_path, encoding='utf-8'))
+            sdocs = []
+            for s in sold_raw:
+                addr  = s.get('address', '').strip()
+                city  = s.get('city', '').strip()
+                if not addr:
+                    continue
+                price = s.get('price', '').strip()
+                beds  = s.get('beds', '').strip()
+                baths = s.get('baths', '').strip()
+                sqft  = s.get('sqft', '').strip()
+                text_parts = [addr, city, 'CA', 'sold']
+                if beds:  text_parts.append(f'{beds} bedroom')
+                if baths: text_parts.append(f'{baths} bath')
+                if price: text_parts.append(price.replace(',', ''))
+                sdocs.append({
+                    'type':    'sale',
+                    'address': addr,
+                    'city':    city,
+                    'price':   price,
+                    'beds':    beds,
+                    'baths':   baths,
+                    'sqft':    sqft,
+                    'text':    ' '.join(text_parts),
+                })
+            _sold_docs = sdocs
+        except Exception:
+            pass
 
 
 def _tokenize(text):
@@ -371,6 +408,22 @@ def newsletter_search(q, top_n=12):
         return results[:top_n]
 
 
+def sold_search(q, max_n=8):
+    """Return up to max_n sold properties whose text contains all query tokens (whole-word).
+    Simple linear scan over _sold_docs — fast enough for 404 short docs."""
+    if not _sold_docs or not q.strip():
+        return []
+    tokens = _tokenize(q)
+    if not tokens:
+        return []
+    results = []
+    for doc in _sold_docs:
+        text = doc['text']
+        if all(re.search(r'\b' + re.escape(t) + r'\b', text, re.IGNORECASE) for t in tokens):
+            results.append(doc)
+    return results[:max_n]
+
+
 def build_search_bar_html(q=''):
     """Render the search bar form with optional pre-filled query."""
     safe_q = _html.escape(q)
@@ -391,12 +444,40 @@ def build_search_bar_html(q=''):
     )
 
 
-def build_search_results_html(q):
-    """Render search results as a newsletter card grid."""
-    results = newsletter_search(q)
-    tokens  = q.lower().split()
+def _sale_card_html(s, tokens):
+    """Render a single sold-property search result card."""
+    addr  = _highlight_snippet(s.get('address', ''), tokens)
+    city  = _html.escape(s.get('city', ''))
+    price = s.get('price', '')
+    beds  = s.get('beds', '')
+    baths = s.get('baths', '').rstrip('0').rstrip('.')
+    sqft  = s.get('sqft', '')
+    meta_parts = []
+    if price: meta_parts.append(f'Sold ${price}')
+    if beds:  meta_parts.append(f'{beds} bd')
+    if baths: meta_parts.append(f'{baths} ba')
+    if sqft:  meta_parts.append(f'{sqft} sf')
+    meta = ' &nbsp;·&nbsp; '.join(meta_parts)
+    meta_line = f'<div style="font-size:0.82em;color:#27ae60;font-weight:600;margin-top:0.4em;">{meta}</div>' if meta else ''
+    return (
+        '              <div class="blp-sale-card" style="display:flex;flex-direction:column;'
+        'background:#f4f9f4;border:1px solid #cce5cc;border-radius:6px;padding:1em 1.25em;box-sizing:border-box;">\n'
+        '                <div style="font-size:0.63em;font-weight:700;letter-spacing:0.09em;'
+        'text-transform:uppercase;color:#27ae60;margin-bottom:0.35em;">Sold</div>\n'
+        f'                <div style="font-size:0.95em;font-weight:600;color:#1a1a1a;margin-bottom:0.1em;">{addr}</div>\n'
+        f'                <div style="font-size:0.82em;color:#666;">{city}, CA</div>\n'
+        f'                {meta_line}\n'
+        '              </div>'
+    )
 
-    if not results:
+
+def build_search_results_html(q):
+    """Render search results: sold property cards (green) then newsletter cards."""
+    nl_results   = newsletter_search(q)
+    sale_results = sold_search(q)
+    tokens       = _tokenize(q)
+
+    if not nl_results and not sale_results:
         safe_q = _html.escape(q)
         return (
             '      <section class="section white-border-bottom">\n'
@@ -414,7 +495,13 @@ def build_search_results_html(q):
     card_box = 'display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:100%;box-sizing:border-box;text-decoration:none;'
 
     cards = []
-    for r in results:
+
+    # Sold property cards come first (green badge, distinct style)
+    for s in sale_results:
+        cards.append(_sale_card_html(s, tokens))
+
+    # Newsletter cards follow
+    for r in nl_results:
         cover   = r.get('cover', '')
         label   = _html.escape(r.get('label', r['slug']))
         url     = r.get('url', '#')
@@ -428,8 +515,8 @@ def build_search_results_html(q):
             '              </a>'
         )
 
-    count = len(results)
-    word  = 'result' if count == 1 else 'results'
+    count  = len(nl_results) + len(sale_results)
+    word   = 'result' if count == 1 else 'results'
     safe_q = _html.escape(q)
 
     lines = [
