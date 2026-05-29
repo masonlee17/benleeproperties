@@ -404,8 +404,8 @@ def _highlight_snippet(snippet, tokens):
     return safe
 
 
-def newsletter_search(q, top_n=12):
-    """Return top_n newsletter dicts matching query q, each with a 'snippet' key.
+def newsletter_search(q):
+    """Return all newsletter dicts matching query q, ranked by BM25 score, each with a 'snippet' key.
     Results are filtered to only include newsletters where the best paragraph
     actually contains at least one query term (whole-word match)."""
     if not _nl_docs or not q.strip():
@@ -424,27 +424,21 @@ def newsletter_search(q, top_n=12):
         ranked = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)
         results = []
         for idx, score in ranked:
-            if len(results) >= top_n:
-                break
             doc = _nl_docs[idx]
-            # Hard filter: every query token must be present somewhere in the doc.
-            # This prevents "2765 anchor" returning all newsletters that mention
-            # "anchor" without the specific street number.
             if not _all_tokens_present(doc['text'], tokens):
                 continue
             snippet, hit_count = _best_snippet(doc['paragraphs'], tokens)
             if hit_count == 0:
-                continue  # no paragraph contains any token; skip
+                continue
             results.append({**doc, 'score': round(score, 3), 'snippet': snippet})
         return results
     else:
-        # Simple keyword fallback: all tokens must appear as whole words
         results = []
         for doc in _nl_docs:
             if _all_tokens_present(doc['text'], tokens):
                 snippet, _ = _best_snippet(doc['paragraphs'], tokens)
                 results.append({**doc, 'score': 1, 'snippet': snippet})
-        return results[:top_n]
+        return results
 
 
 def sold_search(q, max_n=8):
