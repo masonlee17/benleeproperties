@@ -43,6 +43,26 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="../images/webclip.png" rel="apple-touch-icon">
+  <style>
+    .nl-viewer {width:100%;background:#f5f5f5;padding:2em 0;}
+    .nl-viewer-inner {max-width:900px;margin:0 auto;padding:0 1em;}
+    .nl-viewer iframe {width:100%;height:85vh;min-height:600px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}
+    .nl-nav {display:flex;justify-content:space-between;align-items:center;padding:1.5em 0 0.5em;gap:1em;}
+    .nl-nav-link {display:inline-flex;align-items:center;gap:0.4em;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;color:#1a1a2e;text-decoration:none;transition:opacity 0.2s;}
+    .nl-nav-link:hover {opacity:0.6;}
+    .nl-nav-link.disabled {opacity:0.3;pointer-events:none;}
+    .nl-download-btn {display:inline-flex;align-items:center;gap:0.5em;background:#1a1a2e;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8em;letter-spacing:0.08em;text-transform:uppercase;padding:0.7em 1.4em;border-radius:2px;text-decoration:none;transition:opacity 0.2s;}
+    .nl-download-btn:hover {opacity:0.8;}
+    .nl-fallback {text-align:center;padding:3em 1em;font-family:'Montserrat',sans-serif;}
+    .nl-fallback p {margin-bottom:1em;color:#555;}
+    .nl-text-body {max-width:860px;margin:0 auto;padding:48px 24px 64px;font-family:'Montserrat',sans-serif;}
+    .nl-text-body h2 {font-size:1.1em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#07264b;margin:0 0 4px;}
+    .nl-text-body .nl-text-meta {font-size:0.78em;color:#888;letter-spacing:.06em;margin-bottom:28px;text-transform:uppercase;}
+    .nl-text-section-title {font-size:0.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3fa0;border-bottom:1px solid #e0e6f0;padding-bottom:4px;margin:32px 0 12px;}
+    .nl-text-body p {font-size:0.88em;line-height:1.85;color:#333;margin:0 0 10px;}
+    .nl-listing-card {background:#f6f8ff;border-left:3px solid #1d3fa0;padding:10px 14px;margin:10px 0;border-radius:0 4px 4px 0;}
+    .nl-listing-card p {font-size:0.84em !important;line-height:1.65 !important;color:#222 !important;margin:0 !important;}
+  </style>
 
   <script type="application/ld+json">
   {
@@ -58,72 +78,6 @@
     "isPartOf": {"@type": "Periodical", "name": "Ben Lee Real Estate Newsletter", "url": "https://www.benleeproperties.com/blog"}
   }
   </script>
-  <style>
-    .nl-viewer {
-      width: 100%;
-      background: #f5f5f5;
-      padding: 2em 0;
-    }
-    .nl-viewer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1em;
-    }
-    .nl-viewer iframe {
-      width: 100%;
-      height: 85vh;
-      min-height: 600px;
-      border: none;
-      border-radius: 4px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      display: block;
-    }
-    .nl-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5em 0 0.5em;
-      gap: 1em;
-    }
-    .nl-nav-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.85em;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #1a1a2e;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nl-nav-link:hover { opacity: 0.6; }
-    .nl-nav-link.disabled { opacity: 0.3; pointer-events: none; }
-    .nl-download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      background: #1a1a2e;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.8em;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.7em 1.4em;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nl-download-btn:hover { opacity: 0.8; }
-    .nl-fallback {
-      text-align: center;
-      padding: 3em 1em;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .nl-fallback p { margin-bottom: 1em; color: #555; }
-  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -233,14 +187,6 @@
         </div>
       </div>
 
-<style>
-.nl-text-body {max-width:860px;margin:0 auto;padding:48px 24px 64px;font-family:'Montserrat',sans-serif;}
-.nl-text-body h2 {font-size:1.1em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#07264b;margin:0 0 4px;}
-.nl-text-body .nl-text-meta {font-size:0.78em;color:#888;letter-spacing:.06em;margin-bottom:28px;text-transform:uppercase;}
-.nl-text-section-title {font-size:0.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3fa0;border-bottom:1px solid #e0e6f0;padding-bottom:4px;margin:28px 0 10px;}
-.nl-text-body p {font-size:0.88em;line-height:1.85;color:#333;margin:0 0 10px;}
-</style>
-
 <article class="nl-text-body" aria-label="Newsletter text content">
   <h2>Ben Lee Properties — April 2020 Newsletter</h2>
   <p class="nl-text-meta">Issue: April 2020 &nbsp;|&nbsp; Cheviot Hills &amp; Beverlywood, Los Angeles</p>
@@ -316,9 +262,8 @@
   <p>No one was permitted to go near the house.</p>
   <p>Unfortunately, Marshall was confined to a wheel chair for the rest of his life which was cut short by the infection.</p>
   <p>No other members of his family were infected and his brother Roger was later a star on the Hamilton High School baseball team and his father was well known in the film business but the fact of a quarantine because of a fearsome virus is history repeating itself.</p>
-  <p>Represented Seller 3217 Castle Heights Ave – $1,895,000 Represented Buyer 1954 1/2 Manning Ave – $1,649,000 Represented Seller 10637 Northvale Rd – $1,549,000 Represented Seller &amp; Buyer 9832 Vicar St – $1,699,000 Represented Seller 3118 Patricia Ave – $3,295,000 Represented Seller 2880 Motor Ave – $2,995,000 Represented Buyer 3049 Queensbury Dr – $2,149,000 Represented Seller &amp; Buyer 3062 Earlmar Dr – $2,575,000 Represented Seller &amp; Buyer 3225 Club Dr – $2,499,000 Represented Seller &amp; Buyer 3029 Cavendish Dr – $2,599,000 Represented Buyer 3043 Earlmar Dr – $4,795,000 Represented Seller &amp; Buyer 3001 Cavendish Dr – $5,999,000 Represented Seller 2751 Motor Ave – $3,675,000 Represented Seller 9833 Vicar St – $2,590,000</p>
   <p class="nl-text-section-title">Featured Listings</p>
-  <p>My featured listings Ben Lee Properties BEN LEE PROPERTIES – Real Estate Broker • Licensed Attorney – www.BenLeeProperties.com – (310) 858-5489 Ben Lee was ranked #8 out of 94,000 Coldwell Banker agents across America for 2019 thanks in large part to the residents of Cheviot Hills, who chose him to represent a stunning 58% of properties sold, per the MLS! Represented Seller 3217 Castle Heights Ave – $1,895,000 Represented Buyer 1954 1/2 Manning Ave – $1,649,000 Represented Seller 10637 Northvale Rd – $1,549,000 Represented Seller &amp; Buyer 9832 Vicar St – $1,699,000 Represented Seller 3118 Patricia Ave – $3,295,000 Represented Seller 2880 Motor Ave – $2,995,000 Represented Buyer 3049 Queensbury Dr – $2,149,000 Represented Seller &amp; Buyer 3062 Earlmar Dr – $2,575,000 Represented Seller &amp; Buyer 3225 Club Dr – $2,499,000 Represented Seller &amp; Buyer 3029 Cavendish Dr – $2,599,000 Represented Buyer 3043 Earlmar Dr – $4,795,000 Represented Seller &amp; Buyer 3001 Cavendish Dr – $5,999,000 Represented Seller 2751 Motor Ave – $3,675,000 Represented Seller 9833 Vicar St – $2,590,000</p>
+  <div class="nl-listing-card"><p>Ben Lee Properties BEN LEE PROPERTIES – Real Estate Broker • Licensed Attorney – www.BenLeeProperties.com – (310) 858-5489 Ben Lee was ranked #8 out of 94,000 Coldwell Banker agents across America for 2019 thanks in large part to the residents of Cheviot Hills, who chose him to represent a stunning 58% of properties sold, per the MLS! Represented Seller 3217 Castle Heights Ave – $1,895,000 Represented Buyer 1954 1/2 Manning Ave – $1,649,000 Represented Seller 10637 Northvale Rd – $1,549,000 Represented Seller &amp; Buyer 9832 Vicar St – $1,699,000 Represented Seller 3118 Patricia Ave – $3,295,000 Represented Seller 2880 Motor Ave – $2,995,000 Represented Buyer 3049 Queensbury Dr – $2,149,000 Represented Seller &amp; Buyer 3062 Earlmar Dr – $2,575,000 Represented Seller &amp; Buyer 3225 Club Dr – $2,499,000 Represented Seller &amp; Buyer 3029 Cavendish Dr – $2,599,000 Represented Buyer 3043 Earlmar Dr – $4,795,000 Represented Seller &amp; Buyer 3001 Cavendish Dr – $5,999,000 Represented Seller 2751 Motor Ave – $3,675,000 Represented Seller 9833 Vicar St – $2,590,000</p></div>
 </article>
 
       <section class="section grey-background">
