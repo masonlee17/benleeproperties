@@ -922,10 +922,13 @@ def build_property_detail_html(p):
     baths    = p.get('baths', '')
     sqft     = p.get('sqft', '')
     desc     = p.get('description', '')
-    images   = [p[k] for k in [f'image{i}' for i in range(1, 21)] if p.get(k)]
+    def _abs(path):
+        if not path: return path
+        return path if path.startswith(('/', 'http')) else '/' + path
+    images   = [_abs(p[k]) for k in [f'image{i}' for i in range(1, 21)] if p.get(k)]
 
     title    = f'{addr} | Ben Lee Properties'
-    og_img   = images[0] if images else ''
+    og_img   = ('https://www.benleeproperties.com' + images[0]) if images else ''
 
     slides_html = '\n'.join(
         f'            <div class="blp-pd-slide"><img src="{img}" alt="{addr}" loading="lazy"></div>'
