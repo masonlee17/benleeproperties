@@ -89,9 +89,29 @@ def is_junk(para: str) -> bool:
     return bool(JUNK_RE.search(para)) or len(para.strip()) < 25
 
 
+def _salvage(para: str) -> str:
+    """Strip all boilerplate occurrences from a paragraph, return the remainder.
+    Finds the last junk match and takes everything after it.
+    Returns empty string if nothing salvageable remains."""
+    last_end = 0
+    for m in JUNK_RE.finditer(para):
+        last_end = m.end()
+    if last_end == 0:
+        return para
+    remainder = para[last_end:].strip(' –-•|\n')
+    return remainder if len(remainder) > 40 else ''
+
+
 def _clean_paras(text: str, max_chars: int) -> list[str]:
     paras = split_paragraphs(text)
-    clean = [p for p in paras if not is_junk(p)]
+    clean = []
+    for p in paras:
+        if not is_junk(p):
+            clean.append(p)
+        else:
+            salvaged = _salvage(p)
+            if salvaged and not is_junk(salvaged):
+                clean.append(salvaged)
     result, total = [], 0
     for p in clean:
         if total + len(p) > max_chars:
