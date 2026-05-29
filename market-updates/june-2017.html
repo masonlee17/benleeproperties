@@ -43,6 +43,26 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="../images/webclip.png" rel="apple-touch-icon">
+  <style>
+    .nl-viewer {width:100%;background:#f5f5f5;padding:2em 0;}
+    .nl-viewer-inner {max-width:900px;margin:0 auto;padding:0 1em;}
+    .nl-viewer iframe {width:100%;height:85vh;min-height:600px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}
+    .nl-nav {display:flex;justify-content:space-between;align-items:center;padding:1.5em 0 0.5em;gap:1em;}
+    .nl-nav-link {display:inline-flex;align-items:center;gap:0.4em;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;color:#1a1a2e;text-decoration:none;transition:opacity 0.2s;}
+    .nl-nav-link:hover {opacity:0.6;}
+    .nl-nav-link.disabled {opacity:0.3;pointer-events:none;}
+    .nl-download-btn {display:inline-flex;align-items:center;gap:0.5em;background:#1a1a2e;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8em;letter-spacing:0.08em;text-transform:uppercase;padding:0.7em 1.4em;border-radius:2px;text-decoration:none;transition:opacity 0.2s;}
+    .nl-download-btn:hover {opacity:0.8;}
+    .nl-fallback {text-align:center;padding:3em 1em;font-family:'Montserrat',sans-serif;}
+    .nl-fallback p {margin-bottom:1em;color:#555;}
+    .nl-text-body {max-width:860px;margin:0 auto;padding:48px 24px 64px;font-family:'Montserrat',sans-serif;}
+    .nl-text-body h2 {font-size:1.1em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#07264b;margin:0 0 4px;}
+    .nl-text-body .nl-text-meta {font-size:0.78em;color:#888;letter-spacing:.06em;margin-bottom:28px;text-transform:uppercase;}
+    .nl-text-section-title {font-size:0.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3fa0;border-bottom:1px solid #e0e6f0;padding-bottom:4px;margin:32px 0 12px;}
+    .nl-text-body p {font-size:0.88em;line-height:1.85;color:#333;margin:0 0 10px;}
+    .nl-listing-card {background:#f6f8ff;border-left:3px solid #1d3fa0;padding:10px 14px;margin:10px 0;border-radius:0 4px 4px 0;}
+    .nl-listing-card p {font-size:0.84em !important;line-height:1.65 !important;color:#222 !important;margin:0 !important;}
+  </style>
 
   <script type="application/ld+json">
   {
@@ -58,72 +78,6 @@
     "isPartOf": {"@type": "Periodical", "name": "Ben Lee Real Estate Newsletter", "url": "https://www.benleeproperties.com/blog"}
   }
   </script>
-  <style>
-    .nl-viewer {
-      width: 100%;
-      background: #f5f5f5;
-      padding: 2em 0;
-    }
-    .nl-viewer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1em;
-    }
-    .nl-viewer iframe {
-      width: 100%;
-      height: 85vh;
-      min-height: 600px;
-      border: none;
-      border-radius: 4px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      display: block;
-    }
-    .nl-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5em 0 0.5em;
-      gap: 1em;
-    }
-    .nl-nav-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.85em;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #1a1a2e;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nl-nav-link:hover { opacity: 0.6; }
-    .nl-nav-link.disabled { opacity: 0.3; pointer-events: none; }
-    .nl-download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      background: #1a1a2e;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.8em;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.7em 1.4em;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nl-download-btn:hover { opacity: 0.8; }
-    .nl-fallback {
-      text-align: center;
-      padding: 3em 1em;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .nl-fallback p { margin-bottom: 1em; color: #555; }
-  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -233,14 +187,6 @@
         </div>
       </div>
 
-<style>
-.nl-text-body {max-width:860px;margin:0 auto;padding:48px 24px 64px;font-family:'Montserrat',sans-serif;}
-.nl-text-body h2 {font-size:1.1em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#07264b;margin:0 0 4px;}
-.nl-text-body .nl-text-meta {font-size:0.78em;color:#888;letter-spacing:.06em;margin-bottom:28px;text-transform:uppercase;}
-.nl-text-section-title {font-size:0.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3fa0;border-bottom:1px solid #e0e6f0;padding-bottom:4px;margin:28px 0 10px;}
-.nl-text-body p {font-size:0.88em;line-height:1.85;color:#333;margin:0 0 10px;}
-</style>
-
 <article class="nl-text-body" aria-label="Newsletter text content">
   <h2>Ben Lee Properties — June 2017 Newsletter</h2>
   <p class="nl-text-meta">Issue: June 2017 &nbsp;|&nbsp; Cheviot Hills &amp; Beverlywood, Los Angeles</p>
@@ -288,41 +234,9 @@
   <p>Free to the public and a great way to discover the local shops and businesses of this special boulevard, SORO also gives many local talented artists and performers the chance to take the stage and entertain the expected 8,000 guests who will be there.</p>
   <p>I hope you will be there, too, and take part in this unique neighborhood tradition!</p>
   <p>Please visit the website: www.sorofest.com for show schedule, updates and more information.</p>
-  <p>Soro Festival Dancers from DanceTree My featured listings Now is a good time to sell.</p>
-  <p>Please call me to find out how to prepare your home for market and learn how my team and I use the latest tools of technology to market your property better than anyone else working in real estate today.</p>
-  <p>Ft. 13,614 Sq. Ft. Lot T his unparalleled Spanish style estate is perched above one of the most desirable streets in Cheviot Hills w/ views to Downtown Los Angeles &amp; beyond!</p>
-  <p>The dramatic foyer offers two story ceilings and a spiral staircase.</p>
-  <p>The main level offers a large formal Living Room w/ fireplace,Formal Dining Room,Gourmet eat in kitchen w/ a large island &amp; built in appliances, Breakfast Nook, Family Room w/ fireplace &amp; a wet bar, laundry room w/ prep area, an office &amp; a powder room.</p>
-  <p>Downstairs is a small kitchenette, along with 2 bedrooms (one currently is being used as a media room), and 1 bath.</p>
-  <p>Upstairs offers 3 bedrooms (all w/ en-suite baths), including the large master bedroom, which boasts an exercise room &amp; secondary office, along with a cozy fireplace and dual balconies offering views to Downtown LA.</p>
-  <p>The lush, maturely landscaped backyard features luxurious swimming pool, large patio area for entertaining, and a giant grassy yard w/ an abundance of gorgeous trees.</p>
-  <p>Convenient to FOX studios, Beverly Hills, Century City and the award winning Castle Heights Elementary School, a must see!</p>
-  <p>W ith a beautiful view of the golf course beyond, this modern and minimalist 3 bedroom/3 bath home in Cheviot Hills embraces its inhabitants with both peace and tranquility.</p>
-  <p>The formal dining room has a balcony and view of the neighborhood’s treetops.</p>
-  <p>The unique, Poggenpohl designed kitchen utilizes all the stainless appliances an at-home chef has come to expect including Miele, Wolf and Subzero appliances, yet the aesthetics offered here are unique and all its own.Custom wood cabinetry,midnight black granite countertops,oversized island and window wrapped breakfast nook with banquette seating will make preparing and enjoying meals a welcome respite from restaurant dining.</p>
-  <p>This level of the home also has an additional bedroom, currently used as an office with a view.</p>
-  <p>Wholly private and impeccable mother-in-law’s suite complete with kitchenette, walk-in closet, storage room, bathroom and access to the two car garage with laundry facility.With a strong emphasis on style as much as function,this simply glorious home in the award winning Overland School District is precisely what you’ve been looking for!</p>
-  <p>A traditional 4 bedroom/2 bath house on a beautiful street in the heart of Beverlywood.</p>
-  <p>Delightful bits of character punctuate each room: intricate crowned moldings in the formal dining room, bay windows and hardwood floors in the living room, cozy fireplace in the family room.</p>
-  <p>One of the four bedrooms has been converted to a generously sized office with plenty of built in storage spaces and each of the three other bedrooms offers ample closets and plenty of light.</p>
-  <p>The bright and airy kitchen has stainless appliances, granite countertops, wood cabinetry and a separate breakfast nook with beautiful city views.</p>
-  <p>The private and secluded backyard is quite spacious and includes a covered patio for entertaining.</p>
-  <p>There is a storage room connected to the detatched, two-car garage and an enormous storage room under the house and a lower level apartment with its own separate entrance complete this sprawling property. 2971 Club Drive – $4,495,000 Cheviot Hills 3 Bed / 2 Bath W ith a nod to Mad Men, this 1960’s style stylish house has been fully remodeled to keep in step with today’s modern family.</p>
-  <p>Effortless flow, abundance of light and usable living spaces capitalize the home’s size and intelligence.</p>
-  <p>The open kitchen offers a dazzling array of tile work juxtaposed with stainless appliances including Wolf Range, Subzero refrigerator and super sized wine fridge.</p>
-  <p>There is access to the backyard and side patio from the formal dining room, allowing for great ease in entertaining.</p>
-  <p>The family room provides plenty of space for social togetherness and the formal living room is punctuated by the imposing and dramatic fireplace.</p>
-  <p>The three bedrooms are all cozy and comfortable and the master suite offers an enormous walk-in closet, beautiful bathroom with dual vanities and exquisite bedroom with a view of the neighborhood.</p>
-  <p>With a separate laundry room, loads of storage space, Nest temperature control, hardwood floors, two-car garage and situated in the award winning Castle Heights Elementary School district, this superb home should not be missed. 10271 Bannockburn Drive – $2,299,000 FLEXIBLE ALL CASH BUYER LOOKING FOR 8,000 SQFT+ LOT.</p>
-  <p>CALL BEN IF INTERESTED IN DISCUSSING!! Cheviot Hills – ACTIVE! 6 Bed/ 8 Bath 7,374 Sq.</p>
-  <p>Ft. 10,521 Sq. Ft. Lot C onsidered to be one of the most prestigious properties in all of Cheviot Hills, this impressive 7,374 square feet architectural masterpiece has many astounding attributes.</p>
-  <p>The Claes Oldenberg inspired sculpture of a giant flower pot sets the tone for this modern style estate, in which every square inch of livable space has been thoughtfully utilized in the most intelligent way.</p>
-  <p>An elevator and central staircase unites each of the four floors, harmonizing the living and recreational spaces with the 6 bedrooms, 8 bathrooms, two offices and professional grade gym.</p>
-  <p>Honey-hued hardwood floors, impossibly high ceilings, surroundsound speakers in every room, five separate zones for heating/air- every detail to the construction of this custom-designed home has been thoughtfully considered and executed with the highest quality craftsmanship.</p>
-  <p>Three car garage, two fireplaces and incomparably pristine city views, this is the absolute statement home of the neighborhood. 2788 Monte Mar Terrace – $6,495,000 NEW LISTING!</p>
-  <p>OPEN SUNDAY! 10377 Monte Mar – $3,395,000 Beverlywood 3 Bed/ 2 Bath 9110 David Avenue – $1,299,000 A darling, Spanish style home in one of the most desirable neighborhoods in Cheviot Hills, this 3 bedroom/2 bathroom house offers as much character as comfort.</p>
+  <p>Soro Festival Dancers from DanceTree</p>
   <p class="nl-text-section-title">Featured Listings</p>
-  <p>My featured listings Now is a good time to sell. Please call me to find out how to prepare your home for market and learn how my team and I use the latest tools of technology to market your property better than anyone else working in real estate today. BEN LEE - ESTATES SALES BEN LEE PROPERTIES – Real Estate Broker • Licensed Attorney – www.BenLeeProperties.com – (310) 858-5489 Cheviot Hills – ACTIVE! 5 Bed/ 5 Bath 6,129 Sq. Ft. 13,614 Sq. Ft. Lot T his unparalleled Spanish style estate is perched above one of the most desirable streets in Cheviot Hills w/ views to Downtown Los Angeles &amp; beyond! The dramatic foyer offers two story ceilings and a spiral staircase. The main level offers a large formal Living Room w/ fireplace,Formal Dining Room,Gourmet eat in kitchen w/ a large island &amp; built in appliances, Breakfast Nook, Family Room w/ fireplace &amp; a wet bar, laundry room w/ prep area, an office &amp; a powder room. Downstairs is a small kitchenette, along with 2 bedrooms (one currently is being used as a media room), and 1 bath. Upstairs offers 3 bedrooms (all w/ en-suite baths), including the large master bedroom, which boasts an exercise room &amp; secondary office, along with a cozy fireplace and dual balconies offering views to Downtown LA. The lush, maturely landscaped backyard features luxurious swimming pool, large patio area for entertaining, and a giant grassy yard w/ an abundance of gorgeous trees. Convenient to FOX studios, Beverly Hills, Century City and the award winning Castle Heights Elementary School, a must see! W ith a beautiful view of the golf course beyond, this modern and minimalist 3 bedroom/3 bath home in Cheviot Hills embraces its inhabitants with both peace and tranquility. The formal dining room has a balcony and view of the neighborhood’s treetops. The unique, Poggenpohl designed kitchen utilizes all the stainless appliances an at-home chef has come to expect including Miele, Wolf and Subzero appliances, yet the aesthetics offered here are unique and all its own.Custom wood cabinetry,midnight black granite countertops,oversized island and window wrapped breakfast nook with banquette seating will make preparing and enjoying meals a welcome respite from restaurant dining. This level of the home also has an additional bedroom, currently used as an office with a view. Wholly private and impeccable mother-in-law’s suite complete with kitchenette, walk-in closet, storage room, bathroom and access to the two car garage with laundry facility.With a strong emphasis on style as much as function,this simply glorious home in the award winning Overland School District is precisely what you’ve been looking for! A traditional 4 bedroom/2 bath house on a beautiful street in the heart of Beverlywood. Delightful bits of character punctuate each room: intricate crowned moldings in the formal dining room, bay windows and hardwood floors in the living room, cozy fireplace in the family room. One of the four bedrooms has been converted to a generously sized office with plenty of built in storage spaces and each of the three other bedrooms offers ample closets and plenty of light. The bright and airy kitchen has stainless appliances, granite countertops, wood cabinetry and a separate breakfast nook with beautiful city views. The private and secluded backyard is quite spacious and includes a covered patio for entertaining. There is a storage room connected to the detatched, two-car garage and an enormous storage room under the house and a lower level apartment with its own separate entrance complete this sprawling property. 2971 Club Drive – $4,495,000 Cheviot Hills 3 Bed / 2 Bath W ith a nod to Mad Men, this 1960’s style stylish house has been fully remodeled to keep in step with today’s modern family. Effortless flow, abundance of light and usable living spaces capitalize the home’s size and intelligence. The open kitchen offers a dazzling array of tile work juxtaposed with stainless appliances including Wolf Range, Subzero refrigerator and super sized wine fridge. There is access to the backyard and side patio from the formal dining room, allowing for great ease in entertaining. The family room provides plenty of space for social togetherness and the formal living room is punctuated by the imposing and dramatic fireplace. The three bedrooms are all cozy and comfortable and the master suite offers an enormous walk-in closet, beautiful bathroom with dual vanities and exquisite bedroom with a view of the neighborhood. With a separate laundry room, loads of storage space, Nest temperature control, hardwood floors, two-car garage and situated in the award winning Castle Heights Elementary School district, this superb home should not be missed. 10271 Bannockburn Drive – $2,299,000 FLEXIBLE ALL CASH BUYER LOOKING FOR 8,000 SQFT+ LOT. CALL BEN IF INTERESTED IN DISCUSSING!! Cheviot Hills – ACTIVE! 6 Bed/ 8 Bath 7,374 Sq. Ft. 10,521 Sq. Ft. Lot C onsidered to be one of the most prestigious properties in all of Cheviot Hills, this impressive 7,374 square feet architectural masterpiece has many astounding attributes. The Claes Oldenberg inspired sculpture of a giant flower pot sets the tone for this modern style estate, in which every square inch of livable space has been thoughtfully utilized in the most intelligent way. An elevator and central staircase unites each of the four floors, harmonizing the living and recreational spaces with the 6 bedrooms, 8 bathrooms, two offices and professional grade gym. Honey-hued hardwood floors, impossibly high ceilings, surroundsound speakers in every room, five separate zones for heating/air- every detail to the construction of this custom-designed home has been thoughtfully considered and executed with the highest quality craftsmanship. Three car garage, two fireplaces and incomparably pristine city views, this is the absolute statement home of the neighborhood. 2788 Monte Mar Terrace – $6,495,000 NEW LISTING! OPEN SUNDAY! 10377 Monte Mar – $3,395,000 Beverlywood 3 Bed/ 2 Bath 9110 David Avenue – $1,299,000 A darling, Spanish style home in one of the most desirable neighborhoods in Cheviot Hills, this 3 bedroom/2 bathroom house offers as much character as comfort. The stained glass detail in the front door, curved archways, dark hardwood floors, fireplace and pretty neighborhood views are just a few of the amenities. In addition to the three bedrooms and two bathrooms, there is a formal dining room, living room, breakfast nook with built-in butler’s pantry and laundry room. Coupled with the old world Spanish appeal are modern convenience updates: including dual pane windows, central air conditioning and a refreshed kitchen. Doors from two of the three bedrooms lead out to the tranquil and picturesque backyard garden complete with mature, manicured landscaping and storybook path that lead to the detached, two car garage. Offering an abundance of storage space,natural light,impeccable curb appeal and situated in the highly coveted Overland Elementary School District, this delightful house is ready for it’s next family to call it home. Cheviot Hills 3 Bed/ 2 Bath 10538 Butterfield Road – $1,625,000 IN ESCROW Rancho Park 3 Bed/ 2.5 Bath 2637 Midvale – $1,600,000 COMING SOON!! Cheviot Hills 2 Bed/ 2 Bath 10290 Cheviot Drive – $1,599,000 NEW LISTING! OPEN SUNDAY! IN ESCROW REDUCED BY OVER $1 MILLION!! Cheviot Hills 2789 McConnell – $5,999,000 5 Bed/ 6 Bath SOLD Cheviot Hills 10585 Butterfield – $2,149,000 4 Bed/ 4 Bath SOLD Cheviot Hills 2012 Castle Heights – $2,795,000 4 Bed/ 4 Bath PENDING Encino 15921 Royal Oak – $4,995,000 6 Bed/ 7 Bath PENDING Rancho Park 10645 Esther – $1,699,000 3 Bed/ 2 Bath SOLD Cheviot Hills 10574 Bradbury – $2,899,000 5 Bed/ 5 Bath SOLD Cheviot Hills 2764 Club Drive – $3,499,000 6 Bed/ 7 Bath SOLD Rancho Park 2801 Dunleer Place – $1,689,000 3 Bed/ 3 Bath SOLD Cheviot Hills 4 Bed/ 4 Bath 3,359 Sq.Ft., 8,707 Sq.Ft. Lot ACTIVE! NEW LISTING!</p>
+  <div class="nl-listing-card"><p>Now is a good time to sell. Please call me to find out how to prepare your home for market and learn how my team and I use the latest tools of technology to market your property better than anyone else working in real estate today. BEN LEE - ESTATES SALES BEN LEE PROPERTIES – Real Estate Broker • Licensed Attorney – www.BenLeeProperties.com – (310) 858-5489 Cheviot Hills – ACTIVE! 5 Bed/ 5 Bath 6,129 Sq. Ft. 13,614 Sq. Ft. Lot T his unparalleled Spanish style estate is perched above one of the most desirable streets in Cheviot Hills w/ views to Downtown Los Angeles &amp; beyond! The dramatic foyer offers two story ceilings and a spiral staircase. The main level offers a large formal Living Room w/ fireplace,Formal Dining Room,Gourmet eat in kitchen w/ a large island &amp; built in appliances, Breakfast Nook, Family Room w/ fireplace &amp; a wet bar, laundry room w/ prep area, an office &amp; a powder room. Downstairs is a small kitchenette, along with 2 bedrooms (one currently is being used as a media room), and 1 bath. Upstairs offers 3 bedrooms (all w/ en-suite baths), including the large master bedroom, which boasts an exercise room &amp; secondary office, along with a cozy fireplace and dual balconies offering views to Downtown LA. The lush, maturely landscaped backyard features luxurious swimming pool, large patio area for entertaining, and a giant grassy yard w/ an abundance of gorgeous trees. Convenient to FOX studios, Beverly Hills, Century City and the award winning Castle Heights Elementary School, a must see! W ith a beautiful view of the golf course beyond, this modern and minimalist 3 bedroom/3 bath home in Cheviot Hills embraces its inhabitants with both peace and tranquility. The formal dining room has a balcony and view of the neighborhood’s treetops. The unique, Poggenpohl designed kitchen utilizes all the stainless appliances an at-home chef has come to expect including Miele, Wolf and Subzero appliances, yet the aesthetics offered here are unique and all its own.Custom wood cabinetry,midnight black granite countertops,oversized island and window wrapped breakfast nook with banquette seating will make preparing and enjoying meals a welcome respite from restaurant dining. This level of the home also has an additional bedroom, currently used as an office with a view. Wholly private and impeccable mother-in-law’s suite complete with kitchenette, walk-in closet, storage room, bathroom and access to the two car garage with laundry facility.With a strong emphasis on style as much as function,this simply glorious home in the award winning Overland School District is precisely what you’ve been looking for! A traditional 4 bedroom/2 bath house on a beautiful street in the heart of Beverlywood. Delightful bits of character punctuate each room: intricate crowned moldings in the formal dining room, bay windows and hardwood floors in the living room, cozy fireplace in the family room. One of the four bedrooms has been converted to a generously sized office with plenty of built in storage spaces and each of the three other bedrooms offers ample closets and plenty of light. The bright and airy kitchen has stainless appliances, granite countertops, wood cabinetry and a separate breakfast nook with beautiful city views. The private and secluded backyard is quite spacious and includes a covered patio for entertaining. There is a storage room connected to the detatched, two-car garage and an enormous storage room under the house and a lower level apartment with its own separate entrance complete this sprawling property. 2971 Club Drive – $4,495,000 Cheviot Hills 3 Bed / 2 Bath W ith a nod to Mad Men, this 1960’s style stylish house has been fully remodeled to keep in step with today’s modern family. Effortless flow, abundance of light and usable living spaces capitalize the home’s size and intelligence. The open kitchen offers a dazzling array of tile work juxtaposed with stainless appliances including Wolf Range, Subzero refrigerator and super sized wine fridge. There is access to the backyard and side patio from the formal dining room, allowing for great ease in entertaining. The family room provides plenty of space for social togetherness and the formal living room is punctuated by the imposing and dramatic fireplace. The three bedrooms are all cozy and comfortable and the master suite offers an enormous walk-in closet, beautiful bathroom with dual vanities and exquisite bedroom with a view of the neighborhood. With a separate laundry room, loads of storage space, Nest temperature control, hardwood floors, two-car garage and situated in the award winning Castle Heights Elementary School district, this superb home should not be missed. 10271 Bannockburn Drive – $2,299,000 FLEXIBLE ALL CASH BUYER LOOKING FOR 8,000 SQFT+ LOT. CALL BEN IF INTERESTED IN DISCUSSING!! Cheviot Hills – ACTIVE! 6 Bed/ 8 Bath 7,374 Sq. Ft. 10,521 Sq. Ft. Lot C onsidered to be one of the most prestigious properties in all of Cheviot Hills, this impressive 7,374 square feet architectural masterpiece has many astounding attributes. The Claes Oldenberg inspired sculpture of a giant flower pot sets the tone for this modern style estate, in which every square inch of livable space has been thoughtfully utilized in the most intelligent way. An elevator and central staircase unites each of the four floors, harmonizing the living and recreational spaces with the 6 bedrooms, 8 bathrooms, two offices and professional grade gym. Honey-hued hardwood floors, impossibly high ceilings, surroundsound speakers in every room, five separate zones for heating/air- every detail to the construction of this custom-designed home has been thoughtfully considered and executed with the highest quality craftsmanship. Three car garage, two fireplaces and incomparably pristine city views, this is the absolute statement home of the neighborhood. 2788 Monte Mar Terrace – $6,495,000 NEW LISTING! OPEN SUNDAY! 10377 Monte Mar – $3,395,000 Beverlywood 3 Bed/ 2 Bath 9110 David Avenue – $1,299,000 A darling, Spanish style home in one of the most desirable neighborhoods in Cheviot Hills, this 3 bedroom/2 bathroom house offers as much character as comfort. The stained glass detail in the front door, curved archways, dark hardwood floors, fireplace and pretty neighborhood views are just a few of the amenities. In addition to the three bedrooms and two bathrooms, there is a formal dining room, living room, breakfast nook with built-in butler’s pantry and laundry room. Coupled with the old world Spanish appeal are modern convenience updates: including dual pane windows, central air conditioning and a refreshed kitchen. Doors from two of the three bedrooms lead out to the tranquil and picturesque backyard garden complete with mature, manicured landscaping and storybook path that lead to the detached, two car garage. Offering an abundance of storage space,natural light,impeccable curb appeal and situated in the highly coveted Overland Elementary School District, this delightful house is ready for it’s next family to call it home. Cheviot Hills 3 Bed/ 2 Bath 10538 Butterfield Road – $1,625,000 IN ESCROW Rancho Park 3 Bed/ 2.5 Bath 2637 Midvale – $1,600,000 COMING SOON!! Cheviot Hills 2 Bed/ 2 Bath 10290 Cheviot Drive – $1,599,000 NEW LISTING! OPEN SUNDAY! IN ESCROW REDUCED BY OVER $1 MILLION!! Cheviot Hills 2789 McConnell – $5,999,000 5 Bed/ 6 Bath SOLD Cheviot Hills 10585 Butterfield – $2,149,000 4 Bed/ 4 Bath SOLD Cheviot Hills 2012 Castle Heights – $2,795,000 4 Bed/ 4 Bath PENDING Encino 15921 Royal Oak – $4,995,000 6 Bed/ 7 Bath PENDING Rancho Park 10645 Esther – $1,699,000 3 Bed/ 2 Bath SOLD Cheviot Hills 10574 Bradbury – $2,899,000 5 Bed/ 5 Bath SOLD Cheviot Hills 2764 Club Drive – $3,499,000 6 Bed/ 7 Bath SOLD Rancho Park 2801 Dunleer Place – $1,689,000 3 Bed/ 3 Bath SOLD Cheviot Hills 4 Bed/ 4 Bath 3,359 Sq.Ft., 8,707 Sq.Ft. Lot ACTIVE! NEW LISTING!</p></div>
 </article>
 
       <section class="section grey-background">
