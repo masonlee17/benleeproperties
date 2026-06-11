@@ -644,6 +644,7 @@ figcaption {
   border: 1px solid #fff;
   flex: none;
   align-items: center;
+  justify-content: center;
   padding: 1.3em 2em;
   font-size: 1em;
   font-weight: 500;
@@ -1311,6 +1312,7 @@ figcaption {
   color: var(--white);
   font-size: 1em;
   line-height: 1.2em;
+  margin: 0;
   position: relative;
 }
 

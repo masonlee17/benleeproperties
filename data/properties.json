@@ -16,12 +16,14 @@
     "has_detail_page": true,
     "description": "A dazzling, brand new construction on a quarter acre lot south of Ventura Boulevard, this impeccably designed 5 bedroom/6.5 bathroom is luxury living at its finest. This 5,900 square ft home has everything a discerning buyer could want: vast, spacious living spaces; open floor plan, natural light, elegant landscaping, enormous backyard that includes a sparkling swimming pool and spa. The chef's kitchen offers top-of-the-line appliances and an abundance of space for entertaining. In addition to the elegant bedrooms and bathrooms, there is also a state-of-the-art theater, great room, living room, office and elevator to visit each floor with convenient ease. A certified Smart Home that offers all the latest in technological advancements, this isn't just a magnificent estate but a true architectural achievement.",
     "sections": [
-      "built_by_ben",
       "live_listings",
+      "built_by_ben",
       "homepage"
     ],
     "lat": 34.147307,
-    "lng": -118.501239
+    "lng": -118.501239,
+    "neighborhoods": [],
+    "sold_over_asking": true
   },
   {
     "id": "prop-2",
@@ -233,7 +235,7 @@
   },
   {
     "id": "deal-3388-manning",
-    "order": 30,
+    "order": 12,
     "address": "3388 Manning Ct",
     "city": "Los Angeles",
     "state": "CA",
@@ -258,7 +260,7 @@
   },
   {
     "id": "deal-1716-durango",
-    "order": 31,
+    "order": 13,
     "address": "1716 S. Durango Ave",
     "city": "Los Angeles",
     "state": "CA",
@@ -283,7 +285,7 @@
   },
   {
     "id": "deal-2831-malcolm",
-    "order": 32,
+    "order": 14,
     "address": "2831 Malcolm Avenue",
     "city": "Los Angeles",
     "state": "CA",
@@ -306,7 +308,7 @@
   },
   {
     "id": "deal-2700-anchor",
-    "order": 33,
+    "order": 15,
     "address": "2700 Anchor Avenue",
     "city": "Los Angeles",
     "state": "CA",
@@ -331,7 +333,7 @@
   },
   {
     "id": "deal-9124-beverlywood",
-    "order": 34,
+    "order": 16,
     "address": "9124 Beverlywood St",
     "city": "Los Angeles",
     "state": "CA",
@@ -356,7 +358,7 @@
   },
   {
     "id": "deal-3421-castlewoods",
-    "order": 35,
+    "order": 17,
     "address": "3421 Castlewoods Place",
     "city": "Sherman Oaks",
     "state": "CA",
@@ -379,7 +381,7 @@
   },
   {
     "id": "deal-9028-rangely",
-    "order": 36,
+    "order": 18,
     "address": "9028 Rangely Ave",
     "city": "West Hollywood",
     "state": "CA",
@@ -402,7 +404,7 @@
   },
   {
     "id": "deal-3571-colonial",
-    "order": 37,
+    "order": 19,
     "address": "3571 Colonial Avenue",
     "city": "Los Angeles",
     "state": "CA",
@@ -425,7 +427,7 @@
   },
   {
     "id": "deal-2803-cardiff",
-    "order": 38,
+    "order": 20,
     "address": "2803 Cardiff Avenue",
     "city": "Los Angeles",
     "state": "CA",
@@ -450,7 +452,7 @@
   },
   {
     "id": "listing-6",
-    "order": 6,
+    "order": 21,
     "address": "10359 Monte Mar",
     "city": "Los Angeles",
     "state": "CA",
@@ -476,7 +478,7 @@
   },
   {
     "id": "deal-2811-oakhurst",
-    "order": 39,
+    "order": 22,
     "address": "2811 Oakhurst Ave",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -500,7 +502,7 @@
   },
   {
     "id": "deal-3380-mandeville",
-    "order": 40,
+    "order": 23,
     "address": "3380 Mandeville Canyon",
     "neighborhood": "Mandeville Canyon",
     "city": "Los Angeles",
@@ -524,7 +526,7 @@
   },
   {
     "id": "deal-3211-castle-heights",
-    "order": 41,
+    "order": 24,
     "address": "3211 Castle Heights Ave",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -548,7 +550,7 @@
   },
   {
     "id": "deal-5025-westwood",
-    "order": 42,
+    "order": 25,
     "address": "5025 Westwood Blvd",
     "neighborhood": "Culver City",
     "city": "Culver City",
@@ -572,7 +574,7 @@
   },
   {
     "id": "deal-2852-motor",
-    "order": 43,
+    "order": 26,
     "address": "2852 Motor Ave",
     "neighborhood": "Culver City",
     "city": "Culver City",
@@ -596,7 +598,7 @@
   },
   {
     "id": "deal-3320-patricia",
-    "order": 44,
+    "order": 27,
     "address": "3320 Patricia Ave",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -620,7 +622,7 @@
   },
   {
     "id": "deal-10760-lawler",
-    "order": 45,
+    "order": 28,
     "address": "10760 Lawler Street #4",
     "neighborhood": "Culver City",
     "city": "Culver City",
@@ -644,7 +646,7 @@
   },
   {
     "id": "deal-2855-club",
-    "order": 46,
+    "order": 29,
     "address": "2855 Club Dr",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -668,7 +670,7 @@
   },
   {
     "id": "deal-2990-club",
-    "order": 47,
+    "order": 30,
     "address": "2990 Club Dr",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -692,7 +694,7 @@
   },
   {
     "id": "deal-740-24th",
-    "order": 48,
+    "order": 31,
     "address": "740 24th St",
     "neighborhood": "Santa Monica",
     "city": "Santa Monica",
@@ -716,7 +718,7 @@
   },
   {
     "id": "deal-2768-anchor",
-    "order": 49,
+    "order": 32,
     "address": "2768 Anchor Avenue",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -740,7 +742,7 @@
   },
   {
     "id": "deal-3354-s-beverly",
-    "order": 50,
+    "order": 33,
     "address": "3354 S. Beverly Drive",
     "neighborhood": "Beverlywood",
     "city": "Los Angeles",
@@ -764,7 +766,7 @@
   },
   {
     "id": "deal-10323-monte-mar",
-    "order": 51,
+    "order": 34,
     "address": "10323 Monte Mar Dr",
     "neighborhood": "Cheviot Hills",
     "city": "Los Angeles",
@@ -788,7 +790,7 @@
   },
   {
     "id": "deal-619-tuallitan",
-    "order": 52,
+    "order": 35,
     "address": "619 Tuallitan Rd",
     "neighborhood": "Brentwood",
     "city": "Los Angeles",
@@ -812,7 +814,7 @@
   },
   {
     "id": "deal-1478-roxbury",
-    "order": 53,
+    "order": 36,
     "address": "1478 Roxbury Dr",
     "neighborhood": "Los Angeles",
     "city": "Los Angeles",
@@ -836,7 +838,7 @@
   },
   {
     "id": "deal-2700-midvale",
-    "order": 54,
+    "order": 37,
     "address": "2700 Midvale Ave",
     "neighborhood": "Rancho Park",
     "city": "Los Angeles",
@@ -860,7 +862,7 @@
   },
   {
     "id": "deal-1135-chautaqua",
-    "order": 55,
+    "order": 38,
     "address": "1135 Chautaqua Blvd",
     "neighborhood": "Pacific Palisades",
     "city": "Pacific Palisades",
@@ -884,7 +886,7 @@
   },
   {
     "id": "deal-2623-s-beverly",
-    "order": 56,
+    "order": 39,
     "address": "2623 S. Beverly Drive",
     "neighborhood": "Beverlywood",
     "city": "Los Angeles",
@@ -908,7 +910,7 @@
   },
   {
     "id": "deal-664-kingman",
-    "order": 99,
+    "order": 40,
     "address": "664 Kingman Ave",
     "city": "Santa Monica",
     "state": "CA",

@@ -38,6 +38,17 @@ app = Flask(__name__, static_folder=None)
 app.secret_key = os.environ.get('SECRET_KEY', 'bl-dev-secret-change-in-prod')
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024 * 1024  # 64 MB
 
+# Local-review only: disable browser caching so CSS/JS/image edits show on a normal
+# reload. Stays OFF under gunicorn (production), where caching is desirable.
+DEV_MODE = False
+
+@app.after_request
+def _dev_no_cache(resp):
+    if DEV_MODE:
+        resp.headers['Cache-Control'] = 'no-store, max-age=0, must-revalidate'
+        resp.headers['Pragma'] = 'no-cache'
+    return resp
+
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -163,6 +174,17 @@ def price_block_html(status, price, rent, indent):
     return (f'{indent}<div class="property-detail-block-2">'
             f'<div class="property-status-2">{status}</div>'
             f'<div class="text-block-12">{ps}</div></div>')
+
+
+def over_asking_badge(p):
+    """Inline 'Sold Over Asking' badge for listing cards, or '' if the flag is off.
+    Uses inline styles so it renders consistently on every page without a CSS change."""
+    if not p.get('sold_over_asking'):
+        return ''
+    return ('<div style="width:100%;text-align:center;margin-top:6px;">'
+            '<span style="display:inline-block;background:#ed2227;color:#fff;font-size:10px;'
+            'font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;'
+            'border-radius:2em;">★ Sold Over Asking</span></div>')
 
 
 def build_newsletter_sections(newsletters):
@@ -610,7 +632,7 @@ def build_property_items(properties):
             f'                            <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                          </a>',
             '                          <div class="property-details">',
-            price_block_html(status, price, rent, '                            '),
+            price_block_html(status, price, rent, '                            ') + over_asking_badge(p),
             '                          </div>',
             '                          <div class="property-details">',
             '                            <div class="property-detail-block-3">',
@@ -673,7 +695,7 @@ def build_listing_items(listings):
             f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
             '                            </a>',
             '                            <div class="property-details">',
-            price_block_html(status, price, rent, '                              '),
+            price_block_html(status, price, rent, '                              ') + over_asking_badge(p),
             '                            </div>',
             '                            <div class="property-details">',
             '                              <div class="property-detail-block-3">',
@@ -736,7 +758,7 @@ def build_deals_items(listings):
             f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
             '                            </a>',
             '                            <div class="property-details">',
-            price_block_html(status, price, rent, '                              '),
+            price_block_html(status, price, rent, '                              ') + over_asking_badge(p),
             '                            </div>',
             '                            <div class="property-details">',
             '                              <div class="property-detail-block-3">',
@@ -821,7 +843,8 @@ def build_deals_map_html(listings):
             f'{img_tag}'
             f'<strong style="font-size:0.9em;">{addr}</strong><br>'
             f'<span style="color:{status_color};font-weight:600;">{status}</span>'
-            + (f' &nbsp;·&nbsp; {price_str}' if price_str else '') +
+            + (f' &nbsp;·&nbsp; {price_str}' if price_str else '')
+            + ('<br>' + over_asking_badge(p) if p.get('sold_over_asking') else '') +
             f'<br><a href="{detail_url}" style="color:#e74c3c;font-size:0.8em;">View details →</a>'
         )
         markers.append({'lat': lat, 'lng': lng, 'popup': popup_html, 'status': status})
@@ -832,7 +855,7 @@ def build_deals_map_html(listings):
     markers_js = _json.dumps(markers)
     return f"""      <section class="section" style="background:#f5f5f5;padding:2em 0;">
         <div class="container w-container">
-          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:0.3em;">404 Transactions — Map View</h2>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2em;text-align:center;margin-bottom:0.3em;">400+ Transactions — Map View</h2>
           <p style="text-align:center;color:#777;font-size:0.85em;margin-bottom:1em;">Every single-family property Ben Lee has sold, mapped.</p>
           <div id="blp-deals-map" style="width:100%;height:520px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);"></div>
         </div>
@@ -955,10 +978,16 @@ def build_property_detail_html(p):
 
     # Description paragraphs
     desc_html = ''.join(f'<p>{para.strip()}</p>' for para in desc.split('\n') if para.strip()) if desc else '<p><em>Description coming soon.</em></p>'
+    if p.get('sold_over_asking'):
+        desc_html = ('<p style="margin-bottom:1em;text-align:center"><span style="display:inline-block;background:#ed2227;color:#fff;'
+                     'font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;'
+                     'padding:4px 12px;border-radius:2em;">★ Sold Over Asking</span></p>' + desc_html)
 
     # Fact rows
     fact_rows = []
     fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Status</span><span class="blp-pd-fact-value">{status}</span></div>')
+    if p.get('sold_over_asking'):
+        fact_rows.append('<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">Sale Result</span><span class="blp-pd-fact-value" style="color:#ed2227;font-weight:700">Sold Over Asking</span></div>')
     if price and not is_lease:
         fact_rows.append(f'<div class="blp-pd-fact-row"><span class="blp-pd-fact-label">{"Sold Price" if is_sold else "Sale Price"}</span><span class="blp-pd-fact-value">${price}</span></div>')
     if rent and not is_sold:
@@ -1027,7 +1056,7 @@ def build_index_listing_items(listings):
             f'                          <div class="property-address"><p class="property-address-title">{addr}, {city}, {state}</p></div>',
             '                        </a>',
             '                        <div class="property-details">',
-            price_block_html(status, price, rent, '                          '),
+            price_block_html(status, price, rent, '                          ') + over_asking_badge(p),
             '                        </div>',
             '                        <div class="property-details">',
             '                          <div class="property-detail-block-3">',
@@ -1321,7 +1350,7 @@ def build_city_listing_items(listings):
             f'                              <div class="property-address"><p class="property-address-title">{addr}, {city}</p></div>',
             '                            </a>',
             '                            <div class="property-details">',
-            price_block_html(status, price, rent, '                              '),
+            price_block_html(status, price, rent, '                              ') + over_asking_badge(p),
             '                            </div>',
             '                            <div class="property-details">',
             '                              <div class="property-detail-block-3">',
@@ -1444,12 +1473,17 @@ def for_buyers():
 @app.route('/deals')
 @app.route('/deals.html')
 def deals_page():
-    former = [p for p in load('properties.json') if 'former_deals' in p.get('sections', [])]
+    props_all = load('properties.json')
+    former = [p for p in props_all if 'former_deals' in p.get('sections', [])]
+    # The map shows former deals plus anything explicitly flagged "Map" in the admin
+    # (any section), so admins can place any listing on the map with lat/lng.
+    mapped = [p for p in props_all
+              if 'map' in p.get('sections', []) or 'former_deals' in p.get('sections', [])]
     path   = os.path.join(BASE_DIR, 'deals.html')
     text   = open(path, encoding='utf-8').read()
     for marker, html in (
         ('DEALS',     build_deals_items(former)),
-        ('DEALS_MAP', build_deals_map_html(former)),
+        ('DEALS_MAP', build_deals_map_html(mapped)),
     ):
         pat = rf'<!-- ADMIN:{re.escape(marker)}:START -->.*?<!-- ADMIN:{re.escape(marker)}:END -->'
         rep = f'<!-- ADMIN:{marker}:START -->\n{html}\n<!-- ADMIN:{marker}:END -->'
@@ -1993,8 +2027,25 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
               <input type="checkbox" id="p-section-deals" style="width:16px;height:16px;cursor:pointer;accent-color:#ed2227"> Former Deals
             </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-section-map" style="width:16px;height:16px;cursor:pointer;accent-color:#2980b9"> Map (Deals page)
+            </label>
           </div>
-          <div class="hint">Controls which pages this property appears on. Homepage shows it in the featured section on the front page.</div>
+          <div class="hint">Controls which pages this property appears on. Homepage shows it in the featured section on the front page. <strong>Map</strong> pins it on the Former Deals map — requires latitude &amp; longitude below.</div>
+        </div>
+        <div class="frow" style="margin-top:4px">
+          <label>Map Location <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional — pin on the Former Deals map)</span></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:6px">
+            <div>
+              <label for="p-lat" style="font-size:12px;text-transform:none;letter-spacing:0">Latitude</label>
+              <input id="p-lat" type="text" placeholder="34.0481">
+            </div>
+            <div>
+              <label for="p-lng" style="font-size:12px;text-transform:none;letter-spacing:0">Longitude</label>
+              <input id="p-lng" type="text" placeholder="-118.5256">
+            </div>
+          </div>
+          <div class="hint">Only needed if <strong>Map</strong> is checked above. Don't know the coordinates? Look them up by address at <a href="https://www.latlong.net/" target="_blank" rel="noopener" style="color:#2980b9;font-weight:600;text-decoration:underline">latlong.net ↗</a> — type the address there, then copy the Latitude and Longitude it shows.</div>
         </div>
         <div class="frow" style="margin-top:4px">
           <label>City Pages <span style="color:#9ca3af;font-weight:500;text-transform:none;letter-spacing:0">(optional)</span></label>
@@ -2020,6 +2071,12 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
               <input type="checkbox" id="p-nbhd-santa-monica" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Santa Monica
             </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-pacific-palisades" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Pacific Palisades
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;cursor:pointer;color:#374151">
+              <input type="checkbox" id="p-nbhd-venice" style="width:16px;height:16px;cursor:pointer;accent-color:#be591f"> Venice
+            </label>
           </div>
           <div class="hint">Also show this listing on specific neighborhood pages. A property can appear on multiple city pages.</div>
         </div>
@@ -2029,6 +2086,13 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
             Enable Detail Page
           </label>
           <div class="hint" style="margin-top:6px">When enabled, clicking this property card opens a dedicated detail page instead of the contact form.</div>
+        </div>
+        <div class="frow" style="background:#e7f5ec;border-radius:6px;padding:14px 16px;border:1px solid #b6e0c6;margin-top:4px">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#1a7a44;letter-spacing:.04em;text-transform:uppercase">
+            <input type="checkbox" id="p-over-asking" style="width:17px;height:17px;cursor:pointer;accent-color:#1a7a44">
+            ★ Sold Over Asking
+          </label>
+          <div class="hint" style="margin-top:6px">Adds a green “Sold Over Asking” badge to this property's cards, detail page, and map pin.</div>
         </div>
       </form>
     </div>
@@ -2266,7 +2330,7 @@ $('#save-nl').addEventListener('click', async () => {
 });
 
 // ── Properties ─────────────────────────────────────────────────────────────────
-const CITY_SLUGS = ['cheviot-hills','beverlywood','beverly-hills','westwood','bel-air','brentwood','santa-monica'];
+const CITY_SLUGS = ['cheviot-hills','beverlywood','beverly-hills','westwood','bel-air','brentwood','santa-monica','pacific-palisades','venice'];
 let properties = [];
 let editingPropId = null;
 
@@ -2307,6 +2371,8 @@ function renderProperties() {
             ${(p.sections||[]).includes('built_by_ben') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#07264b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Built by Ben</span>' : ''}
             ${(p.sections||[]).includes('homepage') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#be591f;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Homepage</span>' : ''}
             ${(p.sections||[]).includes('former_deals') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#ed2227;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Deals</span>' : ''}
+            ${(p.sections||[]).includes('map') ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#2980b9;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Map</span>' : ''}
+            ${p.sold_over_asking ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#ed2227;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">★ Over Asking</span>' : ''}
             ${p.has_detail_page ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#7c3aed;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px">Detail Page</span>' : ''}
             ${(p.neighborhoods||[]).length ? `<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#0891b2;color:#fff;padding:1px 7px;border-radius:2em">${p.neighborhoods.length} City Page${p.neighborhoods.length>1?'s':''}</span>` : ''}
             ${!p.image1 ? '<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#f59e0b;color:#fff;padding:1px 7px;border-radius:2em;margin-right:4px" title="No image uploaded">⚠ No Image</span>' : ''}
@@ -2357,6 +2423,10 @@ function openEditProp(id) {
   $('#p-section-bbb').checked   = (p.sections || []).includes('built_by_ben');
   $('#p-section-home').checked  = (p.sections || []).includes('homepage');
   $('#p-section-deals').checked = (p.sections || []).includes('former_deals');
+  $('#p-section-map').checked   = (p.sections || []).includes('map');
+  $('#p-lat').value = (p.lat ?? '') === '' ? '' : p.lat;
+  $('#p-lng').value = (p.lng ?? '') === '' ? '' : p.lng;
+  $('#p-over-asking').checked   = !!p.sold_over_asking;
   CITY_SLUGS.forEach(slug => {
     const el = $(`#p-nbhd-${slug}`);
     if (el) el.checked = (p.neighborhoods || []).includes(slug);
@@ -2379,6 +2449,9 @@ $('#add-prop-btn').addEventListener('click', () => {
   $('#p-section-bbb').checked   = false;
   $('#p-section-home').checked  = false;
   $('#p-section-deals').checked = false;
+  $('#p-section-map').checked   = false;
+  $('#p-lat').value = ''; $('#p-lng').value = '';
+  $('#p-over-asking').checked   = false;
   CITY_SLUGS.forEach(slug => { const el = $(`#p-nbhd-${slug}`); if (el) el.checked = false; });
   syncPriceFields();
   $('#prop-modal').style.display = 'flex';
@@ -2436,8 +2509,12 @@ $('#save-prop').addEventListener('click', async () => {
       ...($('#p-section-bbb').checked   ? ['built_by_ben']  : []),
       ...($('#p-section-home').checked  ? ['homepage']      : []),
       ...($('#p-section-deals').checked ? ['former_deals']  : []),
+      ...($('#p-section-map').checked   ? ['map']           : []),
     ],
     neighborhoods: CITY_SLUGS.filter(slug => { const el = $(`#p-nbhd-${slug}`); return el && el.checked; }),
+    lat: $('#p-lat').value.trim() === '' ? '' : parseFloat($('#p-lat').value),
+    lng: $('#p-lng').value.trim() === '' ? '' : parseFloat($('#p-lng').value),
+    sold_over_asking: $('#p-over-asking').checked,
   };
   // Collect extra photos (slot 3 onward)
   document.querySelectorAll('#p-extra-imgs .p-extra-image').forEach((inp, idx) => {
@@ -2677,6 +2754,7 @@ init();
 
 
 if __name__ == '__main__':
+    DEV_MODE = True  # local review: serve assets with no-cache so edits show on reload
     os.makedirs(DATA_DIR, exist_ok=True)
     port = int(os.environ.get('PORT', 2004))
     print('\n  Ben Lee Properties Admin Server')

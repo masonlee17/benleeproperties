@@ -412,6 +412,126 @@ NEIGHBORHOODS = [
              "Yes. Ben Lee Properties covers the full Westside including Santa Monica. Ben's extensive database of Westside buyers and his monthly newsletter distribution mean Santa Monica listings get immediate, targeted exposure. Contact Ben at (310) 704-6580 or ben@benleeproperties.com."),
         ],
     },
+    {
+        "slug": "pacific-palisades",
+        "name": "Pacific Palisades",
+        "tagline": "Coastal Bluffs, Village Charm, and Westside Prestige",
+        "zip": "90272",
+        "geo_lat": 34.0481,
+        "geo_lon": -118.5256,
+        "hero_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Pacific_Palisades_Photo_D_Ramey_Logan.jpg/1280px-Pacific_Palisades_Photo_D_Ramey_Logan.jpg",
+        "hero_img_alt": "Aerial view of the Pacific Palisades coastline",
+        "meta_desc": "Pacific Palisades real estate guide from Ben Lee Properties. Ocean-view estates, the Palisades Village, top charter schools, and a resilient, rebuilding community. Expert buyer and seller representation.",
+        "og_desc": "Ben Lee Properties covers Pacific Palisades real estate, from the Riviera and the Alphabet Streets to the Huntington. Hyper-local market data and expert Westside representation.",
+        "median_price": "$3,750,000",
+        "price_trend": "Strong land and lot values",
+        "avg_dom": "48 days",
+        "price_note": "Single-family homes range from roughly $2.5M in the Alphabet Streets to $15M+ along the Riviera and the ocean bluffs. Following the January 2025 wildfires, land and rebuild-ready lots have drawn strong demand from owner-builders and developers.",
+        "about": (
+            "Pacific Palisades is one of Los Angeles' most coveted coastal communities, set between Santa Monica and Malibu where the "
+            "Santa Monica Mountains meet the Pacific. Known for its village atmosphere, ocean views, and top-rated schools, 'the Palisades' "
+            "has long attracted families, executives, and entertainment-industry leaders seeking space, privacy, and proximity to the coast."
+            "<br><br>"
+            "The community is made up of distinct pockets, the prestigious Riviera, the walkable Alphabet Streets, the Huntington, "
+            "Marquez Knolls, and the Highlands, each with its own character and price point. The reimagined Palisades Village retail "
+            "district anchors the town center with shops, dining, and a community gathering place."
+            "<br><br>"
+            "In January 2025, the Palisades wildfire deeply affected the community. Today the neighborhood is in an active period of "
+            "recovery and rebuilding, and demand for its land, views, and lifestyle remains among the strongest on the Westside. "
+            "Ben Lee is committed to supporting Palisades homeowners through every stage of that journey."
+        ),
+        "schools": [
+            ("Palisades Charter Elementary", "A highly regarded public charter elementary serving the Palisades community."),
+            ("Paul Revere Charter Middle School", "A large, well-rated public middle school drawing students from across the Westside."),
+            ("Palisades Charter High School ('Pali High')", "A nationally known public charter high school and a cornerstone of the community."),
+            ("Corpus Christi School", "A respected private Catholic elementary option in the Palisades."),
+        ],
+        "features": [
+            "Coastal setting between Santa Monica and Malibu",
+            "Prestigious sub-neighborhoods: the Riviera, Alphabet Streets, the Huntington, and Marquez Knolls",
+            "Palisades Village town center with shops and dining",
+            "Top-rated public charter schools, including Palisades Charter High School",
+            "Ocean and canyon views with hiking at Temescal and Will Rogers",
+            "An active rebuilding market with strong long-term land value following the 2025 fires",
+        ],
+        "ben_note": (
+            "The Palisades is a community in transition, and pricing land, rebuild-ready lots, and standing homes correctly right now "
+            "takes real local insight. Ben Lee combines deep Westside market knowledge with a network of qualified buyers, builders, and "
+            "advisors, helping Palisades owners make clear, well-informed decisions whether they choose to sell, rebuild, or hold."
+        ),
+        "faqs": [
+            ("What is the median home price in Pacific Palisades?",
+             "Single-family home prices in Pacific Palisades generally range from about $2.5M in the Alphabet Streets to $15M and above along the Riviera and the ocean bluffs, with a median near $3.75M. Following the January 2025 wildfires, rebuild-ready lots and land have become an especially active part of the market. Contact Ben Lee at (310) 704-6580 for a current, address-specific valuation."),
+            ("What are the best neighborhoods in Pacific Palisades?",
+             "The Riviera is the Palisades' most prestigious enclave, known for large estates and golf-course frontage. The Alphabet Streets offer a walkable, family-friendly grid near the village. The Huntington, Marquez Knolls, and the Highlands each provide ocean or canyon views at varying price points."),
+            ("What schools serve Pacific Palisades?",
+             "Pacific Palisades is served by sought-after public charter schools including Palisades Charter Elementary, Paul Revere Charter Middle School, and the nationally recognized Palisades Charter High School ('Pali High'). Private options such as Corpus Christi School are also available."),
+            ("How is the Pacific Palisades market recovering after the 2025 wildfires?",
+             "The January 2025 Palisades wildfire significantly impacted the community, and the neighborhood is now in an active recovery and rebuilding phase. Demand for the area's land, views, and coastal lifestyle remains strong, with notable interest in rebuild-ready lots from owner-builders and developers. Ben Lee works closely with Palisades homeowners navigating the rebuild, sale, or hold decision."),
+            ("Does Ben Lee cover Pacific Palisades?",
+             "Yes. Ben Lee Properties represents buyers and sellers throughout Pacific Palisades and the wider Westside. Ben's database of active buyers and his monthly newsletter give Palisades listings immediate, targeted exposure. Reach Ben at (310) 704-6580 or ben@benleeproperties.com."),
+        ],
+    },
+    {
+        "slug": "venice",
+        "name": "Venice",
+        "tagline": "Canals, Creativity, and Coastal Cool",
+        "zip": "90291",
+        "geo_lat": 33.9902,
+        "geo_lon": -118.4609,
+        "hero_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Los_Angeles_-_Venice_Canal_Historic_District_02.jpg/1280px-Los_Angeles_-_Venice_Canal_Historic_District_02.jpg",
+        "hero_img_alt": "The historic Venice Canals in Los Angeles, California",
+        "meta_desc": "Venice real estate guide from Ben Lee Properties. The historic canals, Abbot Kinney, walk streets, and beachfront living. Median home price near $2.1M. Expert buyer and seller representation.",
+        "og_desc": "Ben Lee Properties covers Venice real estate, from the canals and walk streets to Abbot Kinney and the boardwalk. Hyper-local data and expert Westside representation.",
+        "median_price": "$2,100,000",
+        "price_trend": "Up ~2% YoY",
+        "avg_dom": "45 days",
+        "price_note": "Homes range from roughly $1.3M for bungalows east of Lincoln to $6M+ for architectural homes on the canals and walk streets. Abbot Kinney-adjacent properties command a premium for walkability.",
+        "about": (
+            "Venice is one of Los Angeles' most distinctive coastal neighborhoods, a creative, design-forward beach community built around "
+            "Abbot Kinney's historic canals. Once a bohemian enclave, Venice has evolved into a hub for technology, design, and architecture "
+            "while keeping its independent, artistic spirit."
+            "<br><br>"
+            "The neighborhood's most coveted addresses include the Venice Canals, where homes line restored waterways and footbridges, and "
+            "the pedestrian-only walk streets, prized for their privacy and community feel. Abbot Kinney Boulevard, regularly named one of "
+            "America's coolest streets, anchors the area with boutiques, galleries, and acclaimed restaurants, while the beach and boardwalk "
+            "define Venice's western edge."
+            "<br><br>"
+            "Venice draws a wide range of buyers, from technology founders and creatives to families seeking a walkable, beach-close lifestyle. "
+            "Inventory is limited and architecturally diverse, which keeps well-positioned homes in strong demand."
+        ),
+        "schools": [
+            ("Coeur d'Alene Avenue Elementary", "A well-regarded public elementary school serving the Venice community."),
+            ("Westminster Avenue Elementary", "A historic public elementary near Abbot Kinney."),
+            ("Mark Twain Middle School", "Public middle school serving Venice and Mar Vista."),
+            ("Venice High School", "The area's comprehensive public high school, with a long local history."),
+        ],
+        "features": [
+            "The historic Venice Canals and pedestrian walk streets",
+            "Abbot Kinney Boulevard shopping, dining, and galleries",
+            "Beachfront and boardwalk living on the Pacific",
+            "A hub for technology, design, and architecture ('Silicon Beach')",
+            "Architecturally diverse housing, from bungalows to modern builds",
+            "Walkable, bike-friendly streets with a strong creative culture",
+        ],
+        "ben_note": (
+            "Venice rewards a broker who understands its micro-markets, the canals, the walk streets, the Abbot Kinney corridor, and the "
+            "blocks east of Lincoln each price very differently. Ben Lee's pricing precision and active Westside buyer network help Venice "
+            "sellers reach the right audience and help buyers move quickly when the right architectural or canal-front home appears."
+        ),
+        "faqs": [
+            ("What is the median home price in Venice?",
+             "The median single-family home price in Venice is approximately $2,100,000 as of early 2026. Prices range from around $1.3M for bungalows east of Lincoln Boulevard to $6M and above for architectural homes on the canals and walk streets. Contact Ben Lee at (310) 704-6580 for an address-specific valuation."),
+            ("What are the best areas in Venice?",
+             "The Venice Canals and the pedestrian walk streets are the neighborhood's most sought-after addresses, prized for their charm, privacy, and waterfront or garden settings. The blocks around Abbot Kinney command a premium for walkability, while areas east of Lincoln offer relatively more accessible entry points."),
+            ("What schools serve Venice?",
+             "Venice is served by Los Angeles Unified School District schools including Coeur d'Alene Avenue Elementary, Westminster Avenue Elementary, Mark Twain Middle School, and Venice High School. A number of private and charter options are also available nearby."),
+            ("Is Venice a good place to buy real estate?",
+             "Venice combines limited, architecturally distinctive inventory with beach proximity and a strong creative and technology economy ('Silicon Beach'). That mix has historically supported durable demand for well-located homes, particularly on the canals, walk streets, and near Abbot Kinney. As with any market, results depend on the specific property and timing."),
+            ("Does Ben Lee cover Venice?",
+             "Yes. Ben Lee Properties represents buyers and sellers throughout Venice and the wider Westside. Ben's active buyer database and monthly newsletter give Venice listings immediate, targeted exposure. Reach Ben at (310) 704-6580 or ben@benleeproperties.com."),
+        ],
+    },
 ]
 
 # ── Shared HTML components ────────────────────────────────────────────────────
@@ -479,6 +599,24 @@ NAVBAR = """    <div class="aside-menu">
               <a href="../for-buyers-3.html" class="dropdown-link w-dropdown-link">LIVE LISTINGS</a>
               <a href="../ben-lee-sold-properties.html" class="dropdown-link-2 w-dropdown-link">RECENT TRANSACTIONS</a>
               <a href="../current-listings.html" class="dropdown-link w-dropdown-link">BUILT BY BEN</a>
+            </nav>
+          </div>
+          <div data-hover="false" data-delay="0" class="dropdown-4 w-dropdown">
+            <div class="dropdown-toggle-2 w-dropdown-toggle">
+              <div class="icon-4 w-icon-dropdown-toggle"></div>
+              <div class="text-block-6">NEIGHBORHOODS</div>
+            </div>
+            <nav class="dropdown-list-4 w-dropdown-list">
+              <a href="/cities/santa-monica" class="dropdown-link w-dropdown-link">SANTA MONICA</a>
+              <a href="/cities/pacific-palisades" class="dropdown-link w-dropdown-link">PACIFIC PALISADES</a>
+              <a href="/cities/venice" class="dropdown-link w-dropdown-link">VENICE</a>
+              <a href="/cities/brentwood" class="dropdown-link w-dropdown-link">BRENTWOOD</a>
+              <a href="/cities/beverly-hills" class="dropdown-link w-dropdown-link">BEVERLY HILLS</a>
+              <a href="/cities/bel-air" class="dropdown-link w-dropdown-link">BEL AIR</a>
+              <a href="/cities/cheviot-hills" class="dropdown-link w-dropdown-link">CHEVIOT HILLS</a>
+              <a href="/cities/beverlywood" class="dropdown-link w-dropdown-link">BEVERLYWOOD</a>
+              <a href="/cities/westwood" class="dropdown-link w-dropdown-link">WESTWOOD</a>
+              <a href="/neighborhoods" class="dropdown-link w-dropdown-link">VIEW ALL →</a>
             </nav>
           </div>
           <a href="../about.html" class="nav-link-2 w-nav-link">Our team</a>

@@ -3,8 +3,18 @@ services:
     name: benleeproperties
     runtime: docker
     healthCheckPath: /
+    # Persistent disk so admin-created listings, contacts, and uploaded images
+    # survive redeploys. On first boot the app seeds it from the repo's data/.
+    # NOTE: persistent disks require a paid instance (Starter+); they are not
+    # available on Render's free tier. A disk-backed service runs a single instance.
+    disk:
+      name: blp-data
+      mountPath: /data
+      sizeGB: 1
     envVars:
       - key: ADMIN_PASSWORD
         sync: false
       - key: SECRET_KEY
         generateValue: true
+      - key: DATA_DIR
+        value: /data
