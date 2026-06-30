@@ -10021,7 +10021,7 @@ figcaption {
 
 /* 3) "Sold Over Asking" badge: always sit on its own centered line below the
    price, on every card type (single-status cards previously floated it right). */
-.property-details:has(.blp-oa-row) { flex-direction: column; align-items: stretch; }
+.property-details:has(.blp-oa-row) { flex-direction: column; align-items: flex-start; }
 
 /* 4) Header dropdowns (All Properties / Neighborhoods): clean white menu. */
 .dropdown-list-4 {
