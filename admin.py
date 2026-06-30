@@ -181,7 +181,7 @@ def over_asking_badge(p):
     Uses inline styles so it renders consistently on every page without a CSS change."""
     if not p.get('sold_over_asking'):
         return ''
-    return ('<div style="width:100%;text-align:center;margin-top:6px;">'
+    return ('<div class="blp-oa-row" style="width:100%;text-align:center;margin-top:6px;">'
             '<span style="display:inline-block;background:#ed2227;color:#fff;font-size:10px;'
             'font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;'
             'border-radius:2em;">★ Sold Over Asking</span></div>')

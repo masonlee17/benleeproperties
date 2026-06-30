@@ -6609,9 +6609,8 @@ figcaption {
   }
 
   .text-block-12 {
-    color: red;
+    color: #07264b;
     font-size: 20px;
-    font-style: italic;
     font-weight: 600;
   }
 }
@@ -10006,3 +10005,43 @@ figcaption {
     font-size: clamp(2rem, 7vw, 3rem);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Property-card + nav-dropdown fixes (June 2026)
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* 1) Keep the primary photo visible on hover. A leftover hover interaction
+   faded the first image to reveal a second photo; cards with a single image
+   turned white. Force the photo to stay opaque. */
+.property-image.is-1st { opacity: 1 !important; }
+
+/* 2) Don't clip the amenity tooltips ("Bedrooms", etc.). The card had
+   overflow:hidden; the image corners are still clipped by .property-image-grid. */
+.property-grid-item .property-link.with-radius,
+.property-grid-item-2 .property-link.with-radius { overflow: visible; }
+
+/* 3) "Sold Over Asking" badge: always sit on its own centered line below the
+   price, on every card type (single-status cards previously floated it right). */
+.property-details:has(.blp-oa-row) { flex-direction: column; align-items: stretch; }
+
+/* 4) Header dropdowns (All Properties / Neighborhoods): clean white menu. */
+.dropdown-list-4 {
+  background-color: #ffffff;
+  box-shadow: 0 12px 30px rgba(5, 18, 34, .18);
+  border: 1px solid #ece8e1;
+  border-radius: 6px;
+  padding: 6px 0;
+  min-width: 230px;
+}
+.dropdown-list-4.w--open { top: 90px !important; margin-top: 0 !important; }
+.dropdown-list-4 .dropdown-link,
+.dropdown-list-4 .dropdown-link-2 {
+  color: #07264b;
+  background-color: transparent;
+  padding: 9px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+.dropdown-list-4 .dropdown-link:hover,
+.dropdown-list-4 .dropdown-link-2:hover { background-color: #f4f1ec; color: #be591f; }
