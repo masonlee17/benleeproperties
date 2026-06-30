@@ -15,7 +15,7 @@ import html as _html
 from functools import wraps
 from werkzeug.utils import secure_filename
 import datetime
-from flask import Flask, request, jsonify, session, send_from_directory, Response, redirect
+from flask import Flask, request, jsonify, session, send_from_directory, Response, redirect, send_file
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -1257,6 +1257,33 @@ def delete_property(pid):
     return jsonify({'ok': True})
 
 
+# ── Backup / export ──────────────────────────────────────────────────────────
+
+@app.route('/api/backup')
+@login_required
+def backup():
+    """Download a single .zip of everything on the data disk — all listings,
+    contacts, newsletters, and uploaded photos/PDFs — so it can be kept off-disk."""
+    import io, zipfile
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, 'w', zipfile.ZIP_DEFLATED) as z:
+        for name in ('properties.json', 'contacts.json', 'newsletters.json',
+                     'listings.json', 'sold-history.json'):
+            p = os.path.join(DATA_DIR, name)
+            if os.path.exists(p):
+                z.write(p, name)
+        for label, base in (('images', VOL_IMGS_DIR), ('documents', VOL_DOCS_DIR)):
+            if os.path.isdir(base):
+                for root, _dirs, files in os.walk(base):
+                    for f in files:
+                        fp = os.path.join(root, f)
+                        z.write(fp, os.path.join(label, os.path.relpath(fp, base)))
+    buf.seek(0)
+    ts = datetime.datetime.utcnow().strftime('%Y%m%d-%H%M')
+    return send_file(buf, mimetype='application/zip', as_attachment=True,
+                     download_name=f'benlee-backup-{ts}.zip')
+
+
 # ── Image upload ───────────────────────────────────────────────────────────────
 
 @app.route('/api/upload/image', methods=['POST'])
@@ -1856,10 +1883,16 @@ input:focus,select:focus,textarea:focus{border-color:#0a223f}
           <span class="section-title">Properties</span>
           <span class="section-meta" id="prop-count"></span>
         </div>
-        <button class="add-btn" id="add-prop-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Property
-        </button>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button id="backup-btn" title="Download a .zip of all listings, contacts, and uploaded photos" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:#07264b;border:1.5px solid #c7d6f5;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Backup
+          </button>
+          <button class="add-btn" id="add-prop-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Property
+          </button>
+        </div>
       </div>
       <div id="prop-table" class="prop-table"></div>
     </div>
@@ -2435,6 +2468,11 @@ function openEditProp(id) {
   $('#prop-modal').style.display = 'flex';
   setTimeout(() => $('#p-address').focus(), 80);
 }
+
+$('#backup-btn').addEventListener('click', () => {
+  toast('Preparing backup… your download will start shortly.');
+  window.location = '/api/backup';
+});
 
 $('#add-prop-btn').addEventListener('click', () => {
   editingPropId = null;
