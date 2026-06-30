@@ -10010,10 +10010,9 @@ figcaption {
    Property-card + nav-dropdown fixes (June 2026)
    ───────────────────────────────────────────────────────────────────────── */
 
-/* 1) Keep the primary photo visible on hover. A leftover hover interaction
-   faded the first image to reveal a second photo; cards with a single image
-   turned white. Force the photo to stay opaque. */
-.property-image.is-1st { opacity: 1 !important; }
+/* 1) Hover image swap: the first photo fades to reveal a second. Single-image
+   cards now reuse photo 1 as the second image (see build_*_items), so the swap
+   is seamless instead of fading to white. (No opacity override needed.) */
 
 /* 2) Don't clip the amenity tooltips ("Bedrooms", etc.). The card had
    overflow:hidden; the image corners are still clipped by .property-image-grid. */

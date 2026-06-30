@@ -610,7 +610,7 @@ def build_property_items(properties):
         sqft   = p.get('sqft', '')
         status = p.get('status', 'FOR SALE')
         img1   = p.get('image1', '')
-        img2   = p.get('image2', '')
+        img2   = p.get('image2', '') or img1  # single-image cards reuse photo 1 on hover
         detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
 
         card = [
@@ -672,7 +672,7 @@ def build_listing_items(listings):
         sqft   = p.get('sqft', '')
         status = p.get('status', 'FOR SALE')
         img1   = p.get('image1', '')
-        img2   = p.get('image2', '')
+        img2   = p.get('image2', '') or img1  # single-image cards reuse photo 1 on hover
 
         detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
 
@@ -735,7 +735,7 @@ def build_deals_items(listings):
         sqft   = p.get('sqft', '')
         status = p.get('status', 'FOR SALE')
         img1   = p.get('image1', '')
-        img2   = p.get('image2', '')
+        img2   = p.get('image2', '') or img1  # single-image cards reuse photo 1 on hover
 
         detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
 
@@ -1033,7 +1033,7 @@ def build_index_listing_items(listings):
         sqft   = p.get('sqft', '')
         status = p.get('status', 'FOR SALE')
         img1   = p.get('image1', '')
-        img2   = p.get('image2', '')
+        img2   = p.get('image2', '') or img1  # single-image cards reuse photo 1 on hover
 
         detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else 'contact.html'
 
@@ -1355,7 +1355,7 @@ def build_city_listing_items(listings):
         sqft       = p.get('sqft', '')
         status     = p.get('status', 'FOR SALE')
         img1       = p.get('image1', '')
-        img2       = p.get('image2', '')
+        img2       = p.get('image2', '') or img1  # single-image cards reuse photo 1 on hover
         detail_url = f'/property/{p["id"]}' if p.get('has_detail_page') else '/contact.html'
 
         card = [
