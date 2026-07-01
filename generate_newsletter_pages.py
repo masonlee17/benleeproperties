@@ -353,8 +353,8 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
     .nl-text-body {{max-width:860px;margin:0 auto;padding:48px 24px 64px;font-family:'Montserrat',sans-serif;}}
     .nl-text-body h2 {{font-size:1.1em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#07264b;margin:0 0 4px;}}
     .nl-text-body .nl-text-meta {{font-size:0.78em;color:#888;letter-spacing:.06em;margin-bottom:28px;text-transform:uppercase;}}
-    .nl-text-section-title {{font-size:0.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3fa0;border-bottom:1px solid #e0e6f0;padding-bottom:4px;margin:32px 0 12px;}}
-    .nl-text-body p {{font-size:0.88em;line-height:1.85;color:#333;margin:0 0 10px;}}
+    .nl-text-section-title {{font-size:1.05em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#07264b;border-top:2px solid #1d3fa0;padding-top:22px;margin:46px 0 16px;}}
+    .nl-text-body p {{font-size:0.9em;line-height:1.75;color:#333;margin:0 0 17px;}}
     .nl-listing-card {{background:#f6f8ff;border-left:3px solid #1d3fa0;padding:10px 14px;margin:10px 0;border-radius:0 4px 4px 0;}}
     .nl-listing-card p {{font-size:0.84em !important;line-height:1.65 !important;color:#222 !important;margin:0 !important;}}
   </style>
