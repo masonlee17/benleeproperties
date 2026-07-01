@@ -34,6 +34,16 @@ ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'benlee2024')
 ALLOWED_PDF    = {'pdf'}
 ALLOWED_IMG    = {'png', 'jpg', 'jpeg', 'webp', 'gif'}
 
+# Email notification for new "Talk to Ben" inquiries. Also always saved to the
+# admin inbox. Sending activates once SMTP_USER + SMTP_PASS are set (e.g. a Gmail
+# app password); without them the form still works and still records to the inbox.
+MAIL_TO   = os.environ.get('MAIL_TO', 'masonflee17@gmail.com')
+SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
+SMTP_PORT = int(os.environ.get('SMTP_PORT', '587'))
+SMTP_USER = os.environ.get('SMTP_USER', '')
+SMTP_PASS = os.environ.get('SMTP_PASS', '')
+MAIL_FROM = os.environ.get('MAIL_FROM', '') or SMTP_USER
+
 app = Flask(__name__, static_folder=None)
 app.secret_key = os.environ.get('SECRET_KEY', 'bl-dev-secret-change-in-prod')
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024 * 1024  # 64 MB
@@ -1592,6 +1602,41 @@ def _save_contacts(data):
         json.dump(data, f, indent=2)
     os.replace(tmp, path)
 
+def _send_inquiry_email(entry):
+    """Email a new inquiry to MAIL_TO. Safe no-op (logged) if SMTP isn't configured,
+    so the contact form and admin inbox always keep working regardless."""
+    if not (SMTP_USER and SMTP_PASS and MAIL_TO):
+        print('[contact] email skipped — SMTP not configured', flush=True)
+        return
+    try:
+        import smtplib
+        from email.message import EmailMessage
+        msg = EmailMessage()
+        msg['Subject'] = f"New inquiry — {entry.get('name') or 'Website visitor'} ({entry.get('source_label', '')})"
+        msg['From']    = MAIL_FROM or SMTP_USER
+        msg['To']      = MAIL_TO
+        if entry.get('email'):
+            msg['Reply-To'] = entry['email']
+        body = (
+            f"Name:     {entry.get('name', '')}\n"
+            f"Email:    {entry.get('email', '')}\n"
+            f"Phone:    {entry.get('phone', '')}\n"
+            f"Type:     {entry.get('inquiry_type', '')}\n"
+            f"Property: {entry.get('property_address', '')}\n"
+            f"Source:   {entry.get('source_label', '')}\n"
+            f"Time:     {entry.get('timestamp', '')}\n\n"
+            f"Message:\n{entry.get('message', '')}\n\n"
+            "— Sent automatically from benleeproperties.com. Also saved in the admin inbox."
+        )
+        msg.set_content(body)
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as s:
+            s.starttls()
+            s.login(SMTP_USER, SMTP_PASS)
+            s.send_message(msg)
+        print(f'[contact] inquiry emailed to {MAIL_TO}', flush=True)
+    except Exception as e:
+        print(f'[contact] email send error: {e}', flush=True)
+
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
     is_ajax = request.headers.get('X-Requested-With') == 'fetch'
@@ -1618,6 +1663,8 @@ def contact_submit():
         if is_ajax:
             return jsonify({'ok': False}), 500
         return redirect('/contact.html')
+
+    _send_inquiry_email(entry)  # notify by email (no-op if SMTP not configured)
 
     if is_ajax:
         return jsonify({'ok': True})
