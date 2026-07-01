@@ -120,7 +120,7 @@ NEIGHBORHOODS = [
             ("Is Beverlywood a good investment?",
              "Beverlywood has shown strong long-term appreciation and is moving from a post-2022 correction into a phase of stabilization and moderate growth in 2026-2028. The combination of constrained supply, central Westside location, and top-rated schools makes it a reliable long-term hold."),
             ("Who is the best real estate agent in Beverlywood?",
-             "Ben Lee of Ben Lee Properties has covered Beverlywood as a primary service area for over 15 years. His monthly newsletter reaches Beverlywood households directly, and his consistent track record of above-asking sales in the neighborhood reflects deep roots in the local market."),
+             "Ben Lee of Ben Lee Properties has covered Beverlywood as a primary service area for over 20 years. His monthly newsletter reaches Beverlywood households directly, and his consistent track record of above-asking sales in the neighborhood reflects deep roots in the local market."),
         ],
     },
     {
@@ -177,7 +177,7 @@ NEIGHBORHOODS = [
             ("What neighborhoods make up Beverly Hills?",
              "The main residential areas include the Beverly Hills Flats (south of Sunset), the Trousdale Estates, and the hillside areas north of Sunset leading toward Bel Air. Together with Bel Air and Holmby Hills, Beverly Hills forms the Platinum Triangle."),
             ("Who is the best real estate broker in Beverly Hills?",
-             "Ben Lee of Ben Lee Properties is based at 9454 Wilshire Blvd in Beverly Hills. He is a licensed California broker and attorney with over 15 years serving Westside families. His legal background is a meaningful advantage in Beverly Hills negotiations, where deal complexity is above average."),
+             "Ben Lee of Ben Lee Properties is based at 9454 Wilshire Blvd in Beverly Hills. He is a licensed California broker and attorney with over 20 years serving Westside families. His legal background is a meaningful advantage in Beverly Hills negotiations, where deal complexity is above average."),
         ],
     },
     {
@@ -1009,7 +1009,7 @@ def build_page(n):
               <p class="city-section-label" style="color:#be591f;">Your Agent in {n["name"]}</p>
               <h2 style="font-family:Montserrat,sans-serif;font-size:1.8em;font-weight:400;color:#fff;margin-bottom:0.8em;">Ben Lee | Broker, Attorney, Westside Specialist</h2>
               <p>{n["ben_note"]}</p>
-              <p>Licensed California Broker (CalRE #01808926) and Attorney. 15+ years serving Westside families. Monthly newsletter reaching 9,000+ neighbors.</p>
+              <p>Licensed California Broker (CalRE #01808926) and Attorney. 20+ years serving Westside families. Monthly newsletter reaching 9,000+ neighbors.</p>
               <div style="margin-top:1.5em;display:flex;gap:1em;flex-wrap:wrap;">
                 <a href="../contact.html" class="button w-inline-block" style="display:inline-flex;align-items:center;">
                   <p class="button-paragraph">Get in Touch</p>
