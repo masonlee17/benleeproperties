@@ -222,11 +222,19 @@ def build_newsletter_sections(newsletters):
             if pdf == '#':
                 continue  # skip empty slots on public blog
             html_url = n.get('html_url', '')
-            href  = html_url if html_url else ('/' + pdf if pdf != '#' else '#')
+            # Prefer a generated text page whenever one exists — even if this data
+            # entry (e.g. an admin PDF upload on the disk) has no html_url set yet.
+            page_url = ''
+            if not html_url and n.get('year') and n.get('month'):
+                slug = f"{calendar.month_name[int(n['month'])].lower()}-{int(n['year'])}"
+                if os.path.exists(os.path.join(BASE_DIR, 'market-updates', f'{slug}.html')):
+                    page_url = f'/market-updates/{slug}'
+            link  = html_url or page_url
+            href  = link if link else ('/' + pdf if pdf != '#' else '#')
             cover = n.get('cover', '')
             raw_label = n.get('label', '')
             label = raw_label.replace(str(year), '').strip()
-            target = ' target="_blank"' if (not html_url and pdf != '#') else ''
+            target = ' target="_blank"' if (not link and pdf != '#') else ''
             img_tag = f'<img src="{cover}" loading="lazy" alt="" style="{img_self}">' if cover else ''
 
             lines += [
