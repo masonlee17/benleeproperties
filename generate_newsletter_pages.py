@@ -11,6 +11,8 @@ Resume: python3 generate_newsletter_pages.py --start 2019-03
 """
 import os, sys, re, json, calendar, html as _html, subprocess
 import fitz  # PyMuPDF
+# Block-aware article extraction (clean paragraphs, drop-cap fix, de-hyphenation)
+from fix_newsletter_text import flowing as _flow_page, paragraphs as _reflow
 
 BASE    = os.path.dirname(os.path.abspath(__file__))
 MU_DIR  = os.path.join(BASE, 'market-updates')
@@ -617,7 +619,10 @@ for nl in to_process:
     main_paras, community_paras, listings = [], [], []
     if pdf_path and os.path.exists(pdf_path):
         pages = extract_pdf_text(pdf_path)
-        main_paras, community_paras = extract_article_paragraphs(pages)
+        # Reflow main article (page 2) + community (page 4) with the block-aware
+        # extractor so generated pages match the reflowed archive.
+        main_paras = _reflow(_flow_page(pdf_path, 1))
+        community_paras = _reflow(_flow_page(pdf_path, 3))
         listings = extract_listings(pages)
         print(f'  Text: {len(main_paras)} article / {len(community_paras)} community / {len(listings)} listings')
     else:
