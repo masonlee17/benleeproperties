@@ -1555,5 +1555,14 @@
     "pdf": "",
     "cover": "",
     "html_url": ""
+  },
+  {
+    "id": "nl-2026-07",
+    "label": "July 2026",
+    "year": 2026,
+    "month": 7,
+    "pdf": "documents/Ben_Lee_070126_BEVERLYWOOD_8.5x11.pdf",
+    "cover": "images/nl-covers/nl-2026-07.jpg",
+    "html_url": "/market-updates/july-2026"
   }
 ]
