@@ -37,7 +37,7 @@ ALLOWED_IMG    = {'png', 'jpg', 'jpeg', 'webp', 'gif'}
 # Email notification for new "Talk to Ben" inquiries. Also always saved to the
 # admin inbox. Sending activates once SMTP_USER + SMTP_PASS are set (e.g. a Gmail
 # app password); without them the form still works and still records to the inbox.
-MAIL_TO   = os.environ.get('MAIL_TO', 'masonflee17@gmail.com')
+MAIL_TO   = os.environ.get('MAIL_TO', 'masonflee17@gmail.com, team@benleeproperties.com')  # comma-separated
 SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
 SMTP_PORT = int(os.environ.get('SMTP_PORT', '587'))
 SMTP_USER = os.environ.get('SMTP_USER', '')
@@ -1605,7 +1605,8 @@ def _save_contacts(data):
 def _send_inquiry_email(entry):
     """Email a new inquiry to MAIL_TO. Safe no-op (logged) if SMTP isn't configured,
     so the contact form and admin inbox always keep working regardless."""
-    if not (SMTP_USER and SMTP_PASS and MAIL_TO):
+    recipients = [a.strip() for a in MAIL_TO.split(',') if a.strip()]
+    if not (SMTP_USER and SMTP_PASS and recipients):
         print('[contact] email skipped — SMTP not configured', flush=True)
         return
     try:
@@ -1614,7 +1615,7 @@ def _send_inquiry_email(entry):
         msg = EmailMessage()
         msg['Subject'] = f"New inquiry — {entry.get('name') or 'Website visitor'} ({entry.get('source_label', '')})"
         msg['From']    = MAIL_FROM or SMTP_USER
-        msg['To']      = MAIL_TO
+        msg['To']      = ', '.join(recipients)
         if entry.get('email'):
             msg['Reply-To'] = entry['email']
         body = (
@@ -1633,7 +1634,7 @@ def _send_inquiry_email(entry):
             s.starttls()
             s.login(SMTP_USER, SMTP_PASS)
             s.send_message(msg)
-        print(f'[contact] inquiry emailed to {MAIL_TO}', flush=True)
+        print(f'[contact] inquiry emailed to {", ".join(recipients)}', flush=True)
     except Exception as e:
         print(f'[contact] email send error: {e}', flush=True)
 
