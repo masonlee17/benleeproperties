@@ -10,7 +10,7 @@ Reusable:
     python3 fix_newsletter_text.py 2025 2026     # specific years
     python3 fix_newsletter_text.py               # all newsletters with a local PDF
 """
-import fitz, re, json, html as H, os, sys
+import fitz, re, json, html as H, os, sys, subprocess
 
 def flowing(pdf, page_index):
     """Return the page's text as one clean flowing string (or '' if page absent)."""
@@ -68,9 +68,21 @@ SECTION = lambda title: re.compile(
 MAIN_RE = SECTION(r"This Month(?:&#x27;|')s Article")
 COMM_RE = SECTION(r"Community &amp; More")
 
-def run(years):
+def _push(files):
+    """Commit + push a batch of fixed files so progress is saved incrementally."""
+    if not files:
+        return
+    subprocess.run(['git', 'add', *files], check=True)
+    msg = (f"Newsletter text: reflow batch of {len(files)}\n\n"
+           "Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>")
+    subprocess.run(['git', 'commit', '-q', '-m', msg], check=True)
+    subprocess.run(['git', 'push', 'origin', 'main'], check=True)
+    print(f"  >>> pushed {len(files)} files")
+
+def run(years, push_every=0):
     nls = json.load(open('data/newsletters.json'))
     fixed = 0
+    batch = []
     for n in sorted(nls, key=lambda x: (x.get('year', 0), x.get('month', 0))):
         if years and n.get('year') not in years:
             continue
@@ -91,8 +103,16 @@ def run(years):
         if s != orig:
             open(f, 'w', encoding='utf-8').write(s)
             fixed += 1
+            batch.append(f)
             print(f"  {slug}: main={len(mp)}p  community={len(cp)}p")
+            if push_every and len(batch) >= push_every:
+                _push(batch); batch = []
+    if push_every:
+        _push(batch)
     print(f"Reflowed {fixed} newsletters.")
 
 if __name__ == '__main__':
-    run(set(int(a) for a in sys.argv[1:]) or None)
+    args = sys.argv[1:]
+    push_every = 10 if '--push' in args else 0
+    years = set(int(a) for a in args if a.isdigit()) or None
+    run(years, push_every)
