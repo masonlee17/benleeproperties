@@ -27,6 +27,7 @@ REPO_DATA_DIR = os.path.join(BASE_DIR, 'data')   # seeded fallback (read-only)
 # Uploaded files land on the Volume; repo copies remain for existing assets
 VOL_DOCS_DIR  = os.path.join(DATA_DIR, 'documents')
 VOL_IMGS_DIR  = os.path.join(DATA_DIR, 'images')
+VOL_MU_DIR    = os.path.join(DATA_DIR, 'market-updates')  # admin-generated newsletter pages
 REPO_DOCS_DIR = os.path.join(BASE_DIR, 'documents')
 REPO_IMGS_DIR = os.path.join(BASE_DIR, 'images')
 
@@ -1198,6 +1199,21 @@ def add_newsletter():
             'pdf': pdf_url, 'cover': cover_url,
         }
         newsletters.append(entry)
+
+    # Auto-build the text-version page onto the persistent disk, so uploading a PDF
+    # is all that's needed (no separate generator run). Served by /market-updates/<slug>.
+    if pdf_url:
+        try:
+            from generate_newsletter_pages import build_page_html, slug_for
+            slug = slug_for(year, month)
+            page = build_page_html(entry, newsletters, docs_dir=VOL_DOCS_DIR)
+            os.makedirs(VOL_MU_DIR, exist_ok=True)
+            with open(os.path.join(VOL_MU_DIR, f'{slug}.html'), 'w', encoding='utf-8') as fp:
+                fp.write(page)
+            entry['html_url'] = f'/market-updates/{slug}'
+        except Exception as e:
+            print(f'[newsletter] page generation failed: {e}', flush=True)
+
     save('newsletters.json', newsletters)
     return jsonify(entry), 201
 
@@ -1470,9 +1486,11 @@ def city_page(slug):
 
 @app.route('/market-updates/<slug>')
 def market_update(slug):
-    path = os.path.join(BASE_DIR, 'market-updates', f'{slug}.html')
-    if os.path.exists(path):
-        return open(path, encoding='utf-8').read()
+    # Disk (admin-generated) takes priority over the repo copy.
+    for base in (VOL_MU_DIR, os.path.join(BASE_DIR, 'market-updates')):
+        path = os.path.join(base, f'{slug}.html')
+        if os.path.exists(path):
+            return open(path, encoding='utf-8').read()
     return 'Not found', 404
 
 @app.route('/blog')

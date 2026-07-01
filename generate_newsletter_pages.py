@@ -566,105 +566,138 @@ def git_commit_push(slugs):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-start_key = None
-force_regen = '--force' in sys.argv
-if force_regen:
-    print('Force mode: regenerating all pages with PDFs.')
 
-if len(sys.argv) > 1 and '--start' in sys.argv[1]:
-    val = sys.argv[1].split('=')[-1] if '=' in sys.argv[1] else (sys.argv[2] if len(sys.argv) > 2 else '')
-    m = re.match(r'(\d{4})-(\d{2})', val)
-    if m:
-        start_key = (int(m.group(1)), int(m.group(2)))
-        print(f'Resuming from {val}')
-
-newsletters = load_newsletters()
-# Build chronological list of ALL newsletters with a pdf
-nl_with_pdf = sorted(
-    [n for n in newsletters if n.get('pdf')],
-    key=lambda n: (n['year'], n['month'])
-)
-# Index for prev/next lookup
-nl_by_key = {(n['year'], n['month']): n for n in nl_with_pdf}
-nl_sorted_keys = [(n['year'], n['month']) for n in nl_with_pdf]
-
-# Also include newsletters that already have html_url in the prev/next chain
-all_nl_sorted = sorted(newsletters, key=lambda n: (n['year'], n['month']))
-all_nl_keys = [(n['year'], n['month']) for n in all_nl_sorted if n.get('html_url') or n.get('pdf')]
-
-# Find newsletters needing HTML pages (or all, if --force)
-to_process = nl_with_pdf if force_regen else [n for n in nl_with_pdf if not n.get('html_url')]
-
-processed = 0
-batch_slugs = []
-
-for nl in to_process:
+def build_page_html(nl, newsletters, docs_dir=None):
+    """Build the full market-updates HTML for one newsletter entry. Reusable by
+    the CLI loop below and by the admin panel (pass docs_dir=VOL_DOCS_DIR)."""
+    dd = docs_dir or DOCS_DIR
     year, month = nl['year'], nl['month']
     key = (year, month)
-
-    if start_key and key < start_key:
-        continue
-
-    slug     = slug_for(year, month)
-    html_out = os.path.join(MU_DIR, f'{slug}.html')
-    html_url = f'/market-updates/{slug}'
-
-    label = nl.get('label', f'{MONTH_NAMES[month]} {year}')
     pdf_name = nl.get('pdf', '').replace('documents/', '', 1)
-    pdf_path = os.path.join(DOCS_DIR, pdf_name) if pdf_name else None
-
-    print(f'\n{nl["id"]}  {label}')
-
-    # Extract text
+    pdf_path = os.path.join(dd, pdf_name) if pdf_name else None
     main_paras, community_paras, listings = [], [], []
     if pdf_path and os.path.exists(pdf_path):
         pages = extract_pdf_text(pdf_path)
-        # Reflow main article (page 2) + community (page 4) with the block-aware
-        # extractor so generated pages match the reflowed archive.
         main_paras = _reflow(_flow_page(pdf_path, 1))
         community_paras = _reflow(_flow_page(pdf_path, 3))
         listings = extract_listings(pages)
-        print(f'  Text: {len(main_paras)} article / {len(community_paras)} community / {len(listings)} listings')
-    else:
-        print(f'  PDF not found: {pdf_path}')
-
-    # Prev/next: look up position in full sorted newsletter list
-    all_keys_with_url = [(n['year'], n['month']) for n in all_nl_sorted if n.get('html_url') or n.get('pdf')]
-    try:
-        pos = all_keys_with_url.index(key)
-        prev_key = all_keys_with_url[pos - 1] if pos > 0 else None
-        next_key = all_keys_with_url[pos + 1] if pos < len(all_keys_with_url) - 1 else None
-    except ValueError:
-        prev_key = next_key = None
-
-    # Only link to neighbors that have html_url (or will have one)
-    def has_or_will_have_url(k):
-        if k is None: return False
-        n = nl_by_key.get(k) or next((x for x in all_nl_sorted if (x['year'], x['month']) == k), None)
+    all_sorted = sorted(newsletters, key=lambda n: (n['year'], n['month']))
+    keys = [(n['year'], n['month']) for n in all_sorted if n.get('html_url') or n.get('pdf')]
+    by_key = {(n['year'], n['month']): n for n in all_sorted}
+    prev_key = next_key = None
+    if key in keys:
+        pos = keys.index(key)
+        prev_key = keys[pos - 1] if pos > 0 else None
+        next_key = keys[pos + 1] if pos < len(keys) - 1 else None
+    def _ok(k):
+        n = by_key.get(k) if k else None
         return bool(n and (n.get('html_url') or n.get('pdf')))
+    prev_slug = slug_for(*prev_key) if _ok(prev_key) else None
+    next_slug = slug_for(*next_key) if _ok(next_key) else None
+    return generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slug)
 
-    prev_slug_val = slug_for(*prev_key) if prev_key and has_or_will_have_url(prev_key) else None
-    next_slug_val = slug_for(*next_key) if next_key and has_or_will_have_url(next_key) else None
 
-    # Generate and write HTML
-    html_content = generate_html(nl, main_paras, community_paras, listings, prev_slug_val, next_slug_val)
-    with open(html_out, 'w', encoding='utf-8') as f:
-        f.write(html_content)
-    print(f'  Written → {slug}.html')
 
-    # Update json
-    nl['html_url'] = html_url
-    save_newsletters(newsletters)
+if __name__ == '__main__':
+    start_key = None
+    force_regen = '--force' in sys.argv
+    if force_regen:
+        print('Force mode: regenerating all pages with PDFs.')
 
-    processed += 1
-    batch_slugs.append(slug)
+    if len(sys.argv) > 1 and '--start' in sys.argv[1]:
+        val = sys.argv[1].split('=')[-1] if '=' in sys.argv[1] else (sys.argv[2] if len(sys.argv) > 2 else '')
+        m = re.match(r'(\d{4})-(\d{2})', val)
+        if m:
+            start_key = (int(m.group(1)), int(m.group(2)))
+            print(f'Resuming from {val}')
 
-    if len(batch_slugs) >= 3:
+    newsletters = load_newsletters()
+    # Build chronological list of ALL newsletters with a pdf
+    nl_with_pdf = sorted(
+        [n for n in newsletters if n.get('pdf')],
+        key=lambda n: (n['year'], n['month'])
+    )
+    # Index for prev/next lookup
+    nl_by_key = {(n['year'], n['month']): n for n in nl_with_pdf}
+    nl_sorted_keys = [(n['year'], n['month']) for n in nl_with_pdf]
+
+    # Also include newsletters that already have html_url in the prev/next chain
+    all_nl_sorted = sorted(newsletters, key=lambda n: (n['year'], n['month']))
+    all_nl_keys = [(n['year'], n['month']) for n in all_nl_sorted if n.get('html_url') or n.get('pdf')]
+
+    # Find newsletters needing HTML pages (or all, if --force)
+    to_process = nl_with_pdf if force_regen else [n for n in nl_with_pdf if not n.get('html_url')]
+
+    processed = 0
+    batch_slugs = []
+
+    for nl in to_process:
+        year, month = nl['year'], nl['month']
+        key = (year, month)
+
+        if start_key and key < start_key:
+            continue
+
+        slug     = slug_for(year, month)
+        html_out = os.path.join(MU_DIR, f'{slug}.html')
+        html_url = f'/market-updates/{slug}'
+
+        label = nl.get('label', f'{MONTH_NAMES[month]} {year}')
+        pdf_name = nl.get('pdf', '').replace('documents/', '', 1)
+        pdf_path = os.path.join(DOCS_DIR, pdf_name) if pdf_name else None
+
+        print(f'\n{nl["id"]}  {label}')
+
+        # Extract text
+        main_paras, community_paras, listings = [], [], []
+        if pdf_path and os.path.exists(pdf_path):
+            pages = extract_pdf_text(pdf_path)
+            # Reflow main article (page 2) + community (page 4) with the block-aware
+            # extractor so generated pages match the reflowed archive.
+            main_paras = _reflow(_flow_page(pdf_path, 1))
+            community_paras = _reflow(_flow_page(pdf_path, 3))
+            listings = extract_listings(pages)
+            print(f'  Text: {len(main_paras)} article / {len(community_paras)} community / {len(listings)} listings')
+        else:
+            print(f'  PDF not found: {pdf_path}')
+
+        # Prev/next: look up position in full sorted newsletter list
+        all_keys_with_url = [(n['year'], n['month']) for n in all_nl_sorted if n.get('html_url') or n.get('pdf')]
+        try:
+            pos = all_keys_with_url.index(key)
+            prev_key = all_keys_with_url[pos - 1] if pos > 0 else None
+            next_key = all_keys_with_url[pos + 1] if pos < len(all_keys_with_url) - 1 else None
+        except ValueError:
+            prev_key = next_key = None
+
+        # Only link to neighbors that have html_url (or will have one)
+        def has_or_will_have_url(k):
+            if k is None: return False
+            n = nl_by_key.get(k) or next((x for x in all_nl_sorted if (x['year'], x['month']) == k), None)
+            return bool(n and (n.get('html_url') or n.get('pdf')))
+
+        prev_slug_val = slug_for(*prev_key) if prev_key and has_or_will_have_url(prev_key) else None
+        next_slug_val = slug_for(*next_key) if next_key and has_or_will_have_url(next_key) else None
+
+        # Generate and write HTML
+        html_content = generate_html(nl, main_paras, community_paras, listings, prev_slug_val, next_slug_val)
+        with open(html_out, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        print(f'  Written → {slug}.html')
+
+        # Update json
+        nl['html_url'] = html_url
+        save_newsletters(newsletters)
+
+        processed += 1
+        batch_slugs.append(slug)
+
+        if len(batch_slugs) >= 3:
+            git_commit_push(batch_slugs)
+            batch_slugs = []
+
+    if batch_slugs:
         git_commit_push(batch_slugs)
-        batch_slugs = []
 
-if batch_slugs:
-    git_commit_push(batch_slugs)
-
-print(f'\nDone. Generated {processed} newsletter pages.')
-print('Rebuild search index by restarting the server (build_newsletter_search_index runs at startup).')
+    print(f'\nDone. Generated {processed} newsletter pages.')
+    print('Rebuild search index by restarting the server (build_newsletter_search_index runs at startup).')
