@@ -483,7 +483,7 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
       </div>
 
 <article class="nl-text-body" aria-label="Newsletter text content">
-  <h2>Ben Lee Properties — {_html.escape(label)} Newsletter</h2>
+  <h1>Ben Lee Properties — {_html.escape(label)} Newsletter</h1>
   <p class="nl-text-meta">Issue: {_html.escape(label)} &nbsp;|&nbsp; Cheviot Hills &amp; Beverlywood, Los Angeles</p>
 {main_html}{listings_section}{community_html}
 </article>

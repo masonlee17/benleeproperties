@@ -1660,6 +1660,13 @@ def api_contacts_delete(cid):
 
 @app.route('/<path:filename>')
 def serve_static(filename):
+    # Clean/extensionless URLs (e.g. /about, /contact, /for-sellers) map to their
+    # .html file — matches the canonical tags, the sitemap, and the old Webflow
+    # URLs so no indexed page 404s after the domain move.
+    if not os.path.isfile(os.path.join(BASE_DIR, filename)):
+        html = filename.rstrip('/') + '.html'
+        if os.path.isfile(os.path.join(BASE_DIR, html)):
+            return send_from_directory(BASE_DIR, html)
     return send_from_directory(BASE_DIR, filename)
 
 
