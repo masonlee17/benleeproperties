@@ -365,9 +365,9 @@
 
 })();
 
-/* Visible human-check on contact / tour forms — pairs with the server-side
-   honeypot + heuristics. Self-hosted signed math challenge; a real visitor just
-   answers one small sum. If it can't load, the server-side layers still apply. */
+/* Visible human-check on contact / tour forms — a simple "I'm not a robot" box.
+   The real filtering is server-side (honeypot + heuristics); this box is just the
+   light, low-friction gate. If it can't load, the server layers still apply. */
 (function () {
   function inject(form) {
     if (form.dataset.capReady) return;
@@ -378,12 +378,12 @@
         var wrap = document.createElement('div');
         wrap.className = 'form-block blp-captcha';
         wrap.innerHTML =
-          '<label class="form-label">Quick check &mdash; what is ' + d.question + '?</label>' +
-          '<input class="form-field" type="text" inputmode="numeric" autocomplete="off" ' +
-          'name="_cap_answer" placeholder="Type the answer" required>' +
+          '<label class="blp-cap-box" style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:inherit;font-size:.95em;">' +
+          '<input type="checkbox" name="_human" value="1" required style="width:18px;height:18px;flex:0 0 auto;cursor:pointer;">' +
+          '<span>I&#39;m not a robot</span></label>' +
           '<input type="hidden" name="_cap_token" value="' + d.token + '">' +
           '<div class="blp-cap-err" style="display:none;color:#c0392b;font-size:.85em;margin-top:6px">' +
-          'Please answer the quick math question above.</div>';
+          'Please check the box to confirm you&#39;re not a robot.</div>';
         var btn = form.querySelector('input[type="submit"], button[type="submit"], .submit-form, .submit-button');
         if (btn && btn.parentNode) btn.parentNode.insertBefore(wrap, btn);
         else form.appendChild(wrap);
@@ -395,13 +395,12 @@
     Array.prototype.forEach.call(forms, function (form) {
       inject(form);
       form.addEventListener('submit', function (e) {
-        var a = form.querySelector('[name="_cap_answer"]');
-        if (a && !/^\s*\d+\s*$/.test(a.value)) {
+        var box = form.querySelector('[name="_human"]');
+        if (box && !box.checked) {
           e.preventDefault();
           e.stopPropagation();
           var err = form.querySelector('.blp-cap-err');
           if (err) err.style.display = 'block';
-          a.focus();
         }
       }, true);
     });

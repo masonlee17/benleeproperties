@@ -1682,28 +1682,30 @@ def _spam_score(entry, honeypot):
     return score, reasons
 
 
-# ── Human-check captcha (self-hosted, HMAC-signed math challenge) ─────────────
-# No external service or keys: the server signs a challenge, the visitor answers a
-# one-step sum, and the answer is verified against the signature. Pairs with the
-# honeypot + heuristics; a wrong/missing answer only adds a spam signal (the lead
-# is still saved to the inbox), so a fumbled answer never silently loses a real lead.
+# ── Human-check ("I'm not a robot" box) ──────────────────────────────────────
+# No external service or keys. On page load the server issues a signed, timestamped
+# token; the visitor ticks one box. On submit the server checks the box is ticked,
+# the token is one we signed, and the submission wasn't instantaneous. The heavy
+# lifting is the honeypot + heuristics; a missing/failed box only adds a spam signal
+# (the lead is still saved to the inbox), so it never silently loses a real lead.
 _CAPTCHA_SECRET = (os.environ.get('CAPTCHA_SECRET')
                    or os.environ.get('ADMIN_PASSWORD') or 'blp-captcha-v1').encode()
 
 def _make_captcha():
-    a, b = random.randint(1, 9), random.randint(1, 9)
-    expiry = int(time.time()) + 3600
-    sig = hmac.new(_CAPTCHA_SECRET, f"{a + b}:{expiry}".encode(), hashlib.sha256).hexdigest()
-    return {'question': f"{a} + {b}", 'token': f"{expiry}.{sig}"}
+    issued = int(time.time())
+    sig = hmac.new(_CAPTCHA_SECRET, f"human:{issued}".encode(), hashlib.sha256).hexdigest()
+    return {'token': f"{issued}.{sig}"}
 
-def _verify_captcha(token, answer):
-    """True only if `answer` is the correct sum for a still-valid signed token."""
+def _verify_captcha(token, checked):
+    """True if the box is ticked, the token is one we signed, and timing looks human."""
     try:
-        expiry_s, sig = token.split('.', 1)
-        if int(expiry_s) < int(time.time()):
+        if str(checked).strip().lower() not in ('1', 'true', 'on', 'yes'):
             return False
-        ans = str(int(str(answer).strip()))
-        expected = hmac.new(_CAPTCHA_SECRET, f"{ans}:{expiry_s}".encode(),
+        issued_s, sig = token.split('.', 1)
+        age = int(time.time()) - int(issued_s)
+        if age < 1 or age > 7200:          # sub-second = bot; too old = stale
+            return False
+        expected = hmac.new(_CAPTCHA_SECRET, f"human:{issued_s}".encode(),
                             hashlib.sha256).hexdigest()
         return hmac.compare_digest(expected, sig)
     except Exception:
@@ -1773,7 +1775,7 @@ def contact_submit():
         hp = request.form.get('Website', '')          # honeypot — real users never fill it
         score, reasons = _spam_score(entry, hp)
         cap_token = request.form.get('_cap_token', '')
-        if cap_token and not _verify_captcha(cap_token, request.form.get('_cap_answer', '')):
+        if cap_token and not _verify_captcha(cap_token, request.form.get('_human', '')):
             score += 3; reasons.append('captcha')
         entry['spam'] = score >= 3
         if reasons:

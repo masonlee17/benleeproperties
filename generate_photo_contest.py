@@ -41,6 +41,7 @@ SUBMISSIONS = [
     {"name": "Judy & Gary Bratman", "imgs": ["images/photo-contest/10-judy-bratman-gary-bratman.jpg"]},
     {"name": "Jillian Harris",      "imgs": ["images/photo-contest/11-jillian-harris.jpg"]},
     {"name": "Katariina Kiuru",     "imgs": ["images/photo-contest/12-katariina-kiuru.jpg"]},
+    {"name": "Brenda Johnson",      "imgs": ["images/photo-contest/13-brenda-johnson.jpg"]},
 ]
 
 
