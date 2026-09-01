@@ -342,8 +342,8 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
   <link href="../images/webclip.png" rel="apple-touch-icon">
   <style>
     .nl-viewer {{width:100%;background:#f5f5f5;padding:2em 0;}}
-    .nl-viewer-inner {{max-width:900px;margin:0 auto;padding:0 1em;}}
-    .nl-viewer iframe {{width:100%;height:85vh;min-height:600px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}}
+    .nl-viewer-inner {{max-width:1040px;margin:0 auto;padding:0 1em;}}
+    .nl-viewer iframe {{width:100%;height:88vh;min-height:760px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}}
     .nl-nav {{display:flex;justify-content:space-between;align-items:center;padding:1.5em 0 0.5em;gap:1em;}}
     .nl-nav-link {{display:inline-flex;align-items:center;gap:0.4em;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;color:#1a1a2e;text-decoration:none;transition:opacity 0.2s;}}
     .nl-nav-link:hover {{opacity:0.6;}}
@@ -470,7 +470,7 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
             <img src="../images/arrow_right_black_24dp.svg" loading="lazy" alt="" class="breadcrumb-icon-right">
             <span style="font-family:'Montserrat',sans-serif;font-size:0.85em;color:#555;">{_html.escape(label)}</span>
           </div>
-          <iframe src="{pdf_path_rel}" title="{_html.escape(label)} Newsletter — Ben Lee Properties" loading="lazy">
+          <iframe src="{pdf_path_rel}#view=FitH&toolbar=1" title="{_html.escape(label)} Newsletter — Ben Lee Properties" loading="lazy">
             <div class="nl-fallback">
               <p>Your browser does not support embedded PDFs.</p>
               {dl_link}

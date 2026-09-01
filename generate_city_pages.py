@@ -1067,12 +1067,12 @@ def build_page(n):
 </html>"""
 
 
-for n in NEIGHBORHOODS:
-    html = build_page(n)
-    html = html.replace('../', '/')
-    path = os.path.join(CITIES_DIR, f"{n['slug']}.html")
-    with open(path, 'w') as f:
-        f.write(html)
-    print(f"  WROTE: cities/{n['slug']}.html")
-
-print(f"\nDone. Generated {len(NEIGHBORHOODS)} city pages.")
+if __name__ == '__main__':
+    for n in NEIGHBORHOODS:
+        html = build_page(n)
+        html = html.replace('../', '/')
+        path = os.path.join(CITIES_DIR, f"{n['slug']}.html")
+        with open(path, 'w') as f:
+            f.write(html)
+        print(f"  WROTE: cities/{n['slug']}.html")
+    print(f"\nDone. Generated {len(NEIGHBORHOODS)} city pages.")

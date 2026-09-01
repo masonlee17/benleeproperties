@@ -14,7 +14,7 @@ import json, os, re, uuid, calendar, glob
 import html as _html
 from functools import wraps
 from werkzeug.utils import secure_filename
-import datetime
+import datetime, time, hmac, hashlib, random
 from flask import Flask, request, jsonify, session, send_from_directory, Response, redirect, send_file
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -1628,6 +1628,88 @@ def _save_contacts(data):
         json.dump(data, f, indent=2)
     os.replace(tmp, path)
 
+# ── Bot-spam detection ───────────────────────────────────────────────────────
+# Conservative by design: a genuine lead scores 0. Only signals a human physically
+# cannot produce carry enough weight to flag on their own — a filled hidden field,
+# an email containing a space / invalid format, header-injection newlines, or an
+# extreme random-string name. Flagged submissions are still SAVED to the admin
+# inbox (just marked); we only suppress the email notification, so no lead is lost.
+_SPAM_KEYWORDS = (
+    'viagra', 'cialis', 'casino', 'bitcoin', 'crypto', 'forex', 'escort',
+    'backlink', 'seo service', 'seo services', 'rank your', 'loan offer',
+    'ai generated', 'ai-generated', 'payday', 'porn', 'xxx',
+)
+
+def _case_flips(t):
+    return sum(1 for i in range(1, len(t))
+               if t[i].isalpha() and t[i-1].isalpha()
+               and t[i].isupper() != t[i-1].isupper())
+
+def _gibberish(t, min_len=12, min_flips=5):
+    return len(t) >= min_len and t.isalpha() and _case_flips(t) >= min_flips
+
+def _spam_score(entry, honeypot):
+    """Return (score, reasons). score >= 3 => flag as spam and suppress the email."""
+    name  = (entry.get('name') or '').strip()
+    email = (entry.get('email') or '').strip()
+    phone = (entry.get('phone') or '')
+    blob  = f"{name} {entry.get('message') or ''}".lower()
+    toks  = name.split()
+    score, reasons = 0, []
+
+    # High-confidence — any single one is conclusive.
+    if honeypot.strip():
+        score += 3; reasons.append('honeypot')
+    if email and not re.match(r'^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$', email):
+        score += 3; reasons.append('bad-email')
+    if any(ch in (name + email + phone) for ch in ('\n', '\r')):
+        score += 3; reasons.append('header-injection')
+    if any(_gibberish(t, 14, 6) for t in toks):
+        score += 3; reasons.append('random-name')
+
+    # Weak signals — must add up (>= 3 total) to flag.
+    if len(toks) >= 2 and toks[0].lower() == toks[-1].lower() and len(toks[0]) > 2:
+        score += 1; reasons.append('doubled-name')
+    if any(_gibberish(t) for t in toks):
+        score += 1; reasons.append('gibberish-name')
+    if re.search(r'https?://|www\.|\[url', blob):
+        score += 1; reasons.append('link')
+    if any(k in blob for k in _SPAM_KEYWORDS):
+        score += 1; reasons.append('keyword')
+    if len(re.sub(r'\D', '', phone)) > 13:
+        score += 1; reasons.append('bad-phone')
+
+    return score, reasons
+
+
+# ── Human-check captcha (self-hosted, HMAC-signed math challenge) ─────────────
+# No external service or keys: the server signs a challenge, the visitor answers a
+# one-step sum, and the answer is verified against the signature. Pairs with the
+# honeypot + heuristics; a wrong/missing answer only adds a spam signal (the lead
+# is still saved to the inbox), so a fumbled answer never silently loses a real lead.
+_CAPTCHA_SECRET = (os.environ.get('CAPTCHA_SECRET')
+                   or os.environ.get('ADMIN_PASSWORD') or 'blp-captcha-v1').encode()
+
+def _make_captcha():
+    a, b = random.randint(1, 9), random.randint(1, 9)
+    expiry = int(time.time()) + 3600
+    sig = hmac.new(_CAPTCHA_SECRET, f"{a + b}:{expiry}".encode(), hashlib.sha256).hexdigest()
+    return {'question': f"{a} + {b}", 'token': f"{expiry}.{sig}"}
+
+def _verify_captcha(token, answer):
+    """True only if `answer` is the correct sum for a still-valid signed token."""
+    try:
+        expiry_s, sig = token.split('.', 1)
+        if int(expiry_s) < int(time.time()):
+            return False
+        ans = str(int(str(answer).strip()))
+        expected = hmac.new(_CAPTCHA_SECRET, f"{ans}:{expiry_s}".encode(),
+                            hashlib.sha256).hexdigest()
+        return hmac.compare_digest(expected, sig)
+    except Exception:
+        return False
+
+
 def _send_inquiry_email(entry):
     """Email a new inquiry to MAIL_TO. Safe no-op (logged) if SMTP isn't configured,
     so the contact form and admin inbox always keep working regardless."""
@@ -1664,6 +1746,12 @@ def _send_inquiry_email(entry):
     except Exception as e:
         print(f'[contact] email send error: {e}', flush=True)
 
+@app.route('/captcha')
+def captcha_new():
+    resp = jsonify(_make_captcha())
+    resp.headers['Cache-Control'] = 'no-store'
+    return resp
+
 @app.route('/contact-submit', methods=['POST'])
 def contact_submit():
     is_ajax = request.headers.get('X-Requested-With') == 'fetch'
@@ -1682,6 +1770,14 @@ def contact_submit():
             'property_address':  request.form.get('Property-Address', ''),
             'read':              False,
         }
+        hp = request.form.get('Website', '')          # honeypot — real users never fill it
+        score, reasons = _spam_score(entry, hp)
+        cap_token = request.form.get('_cap_token', '')
+        if cap_token and not _verify_captcha(cap_token, request.form.get('_cap_answer', '')):
+            score += 3; reasons.append('captcha')
+        entry['spam'] = score >= 3
+        if reasons:
+            entry['spam_reasons'] = reasons
         contacts = _load_contacts()
         contacts.insert(0, entry)
         _save_contacts(contacts)
@@ -1691,7 +1787,11 @@ def contact_submit():
             return jsonify({'ok': False}), 500
         return redirect('/contact.html')
 
-    _send_inquiry_email(entry)  # notify by email (no-op if SMTP not configured)
+    if entry.get('spam'):
+        print(f"[contact] spam suppressed [{', '.join(entry.get('spam_reasons', []))}] "
+              f"name={entry.get('name')!r} email={entry.get('email')!r}", flush=True)
+    else:
+        _send_inquiry_email(entry)  # notify by email (no-op if SMTP not configured)
 
     if is_ajax:
         return jsonify({'ok': True})
@@ -2776,7 +2876,7 @@ async function loadInbox() {
 
 async function loadInboxBadge() {
   const data = await api('GET', '/api/contacts') || [];
-  updateBadge(data.filter(c => !c.read).length);
+  updateBadge(data.filter(c => !c.read && !c.spam).length);
 }
 
 function updateBadge(count) {
@@ -2790,21 +2890,33 @@ function esc(s) {
 }
 
 function renderInbox() {
-  const unread = contacts.filter(c => !c.read).length;
+  const unread = contacts.filter(c => !c.read && !c.spam).length;
+  const spamCount = contacts.filter(c => c.spam).length;
   updateBadge(unread);
-  $('#inbox-count').textContent = `· ${contacts.length} total, ${unread} unread`;
+  $('#inbox-count').textContent =
+    `· ${contacts.length} total, ${unread} unread` + (spamCount ? `, ${spamCount} spam` : '');
 
   const list = $('#inbox-list');
-  if (!contacts.length) {
-    list.innerHTML = '<div class="inbox-empty">No messages yet.</div>';
+  const hideSpam = window.spamHidden !== false;   // default: hide flagged spam
+  const view = hideSpam ? contacts.filter(c => !c.spam) : contacts;
+  const toggle = spamCount
+    ? `<label style="display:flex;align-items:center;gap:7px;font-size:12px;color:#6b7280;margin:0 2px 6px;cursor:pointer">
+         <input type="checkbox" ${hideSpam ? '' : 'checked'} onchange="window.spamHidden=!this.checked;renderInbox()" style="cursor:pointer">
+         Show ${spamCount} likely-spam message${spamCount > 1 ? 's' : ''}</label>`
+    : '';
+
+  if (!view.length) {
+    list.innerHTML = toggle +
+      `<div class="inbox-empty">No messages${spamCount ? ' (spam hidden)' : ' yet'}.</div>`;
     return;
   }
 
-  list.innerHTML = contacts.map(c => `
+  list.innerHTML = toggle + view.map(c => `
     <div class="inbox-card ${c.read ? 'is-read' : 'is-unread'}" id="msg-${c.id}">
       <div class="inbox-card-hd" onclick="openMsg('${c.id}')">
         <div class="inbox-dot"></div>
         <div class="inbox-from">${esc(c.name || c.email || 'Anonymous')}</div>
+        ${c.spam ? '<div class="inbox-chip" style="background:#fee2e2;color:#dc2626">Spam</div>' : ''}
         <div class="inbox-chip">${esc(c.source_label || c.source || 'Contact')}</div>
         <div class="inbox-ts">${esc(c.timestamp)}</div>
       </div>
@@ -2816,6 +2928,7 @@ function renderInbox() {
         ${c.inquiry_type ? `<div class="inbox-field"><strong>Inquiry</strong>${esc(c.inquiry_type)}</div>` : ''}
         ${c.message ? `<div class="inbox-field"><strong>Message</strong>${esc(c.message)}</div>` : ''}
         <div class="inbox-field"><strong>Source</strong>${esc(c.source_label || c.source)}</div>
+        ${c.spam ? `<div class="inbox-field"><strong>Flagged as spam</strong>${esc((c.spam_reasons || []).join(', '))}</div>` : ''}
         <div class="inbox-card-actions">
           <button class="inbox-act-btn inbox-act-read" onclick="toggleRead('${c.id}',${c.read})">${c.read ? 'Mark unread' : 'Mark read'}</button>
           <button class="inbox-act-btn inbox-act-del" onclick="deleteMsg('${c.id}')">Delete</button>

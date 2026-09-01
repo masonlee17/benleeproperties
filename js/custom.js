@@ -364,3 +364,48 @@
   }
 
 })();
+
+/* Visible human-check on contact / tour forms — pairs with the server-side
+   honeypot + heuristics. Self-hosted signed math challenge; a real visitor just
+   answers one small sum. If it can't load, the server-side layers still apply. */
+(function () {
+  function inject(form) {
+    if (form.dataset.capReady) return;
+    form.dataset.capReady = '1';
+    fetch('/captcha', { headers: { 'X-Requested-With': 'fetch' } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var wrap = document.createElement('div');
+        wrap.className = 'form-block blp-captcha';
+        wrap.innerHTML =
+          '<label class="form-label">Quick check &mdash; what is ' + d.question + '?</label>' +
+          '<input class="form-field" type="text" inputmode="numeric" autocomplete="off" ' +
+          'name="_cap_answer" placeholder="Type the answer" required>' +
+          '<input type="hidden" name="_cap_token" value="' + d.token + '">' +
+          '<div class="blp-cap-err" style="display:none;color:#c0392b;font-size:.85em;margin-top:6px">' +
+          'Please answer the quick math question above.</div>';
+        var btn = form.querySelector('input[type="submit"], button[type="submit"], .submit-form, .submit-button');
+        if (btn && btn.parentNode) btn.parentNode.insertBefore(wrap, btn);
+        else form.appendChild(wrap);
+      })
+      .catch(function () {});
+  }
+  function ready() {
+    var forms = document.querySelectorAll('form[action="/contact-submit"]');
+    Array.prototype.forEach.call(forms, function (form) {
+      inject(form);
+      form.addEventListener('submit', function (e) {
+        var a = form.querySelector('[name="_cap_answer"]');
+        if (a && !/^\s*\d+\s*$/.test(a.value)) {
+          e.preventDefault();
+          e.stopPropagation();
+          var err = form.querySelector('.blp-cap-err');
+          if (err) err.style.display = 'block';
+          a.focus();
+        }
+      }, true);
+    });
+  }
+  if (document.readyState !== 'loading') ready();
+  else document.addEventListener('DOMContentLoaded', ready);
+})();

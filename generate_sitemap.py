@@ -25,6 +25,7 @@ ROOT_PAGES = [
     ("/testimonials",            "monthly", "0.6"),
     ("/social-media",            "monthly", "0.5"),
     ("/blog",                    "weekly",  "0.6"),
+    ("/summer-2026-photo-contest", "monthly", "0.5"),
     ("/amenities",               "monthly", "0.5"),
     ("/realtors",                "monthly", "0.5"),
     ("/states",                  "monthly", "0.5"),
