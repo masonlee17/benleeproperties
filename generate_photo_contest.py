@@ -42,6 +42,8 @@ SUBMISSIONS = [
     {"name": "Jillian Harris",      "imgs": ["images/photo-contest/11-jillian-harris.jpg"]},
     {"name": "Katariina Kiuru",     "imgs": ["images/photo-contest/12-katariina-kiuru.jpg"]},
     {"name": "Brenda Johnson",      "imgs": ["images/photo-contest/13-brenda-johnson.jpg"]},
+    {"name": "Mary Larkin & Michael Robarts", "imgs": ["images/photo-contest/14-mary-larkin-michael-robarts-0.jpg",
+                                                        "images/photo-contest/14-mary-larkin-michael-robarts-1.jpg"]},
 ]
 
 
