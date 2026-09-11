@@ -126,6 +126,59 @@ try:
 except OSError:
     pass  # volume not mounted yet; load() falls back to repo data
 
+
+def migrate_disk_newsletter_viewer():
+    """Bring admin-generated newsletter pages on the persistent disk up to the
+    current viewer: 100% zoom, taller window, a mobile 'open PDF' button, and clean
+    /market-updates/<slug> Prev/Next links. These disk copies are served before the
+    repo files, so repo edits don't reach them — this patches them in place.
+    Idempotent and safe when the volume is empty or unmounted."""
+    _NEW_IFRAME_CSS = ('.nl-viewer iframe {width:100%;height:90vh;min-height:900px;'
+                       'border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}')
+    _MOBILE_CSS = """
+    .nl-mobile-open {display:none;}
+    @media (max-width:768px) {
+      .nl-viewer {padding:1.2em 0;}
+      .nl-viewer iframe {display:none;}
+      .nl-mobile-open {display:flex;align-items:center;justify-content:center;gap:.55em;background:#07264b;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95em;text-align:center;line-height:1.35;padding:1.15em 1.2em;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(7,38,75,.16);}
+      .nl-nav {flex-wrap:wrap;gap:.6em;}
+    }"""
+    try:
+        files = glob.glob(os.path.join(VOL_MU_DIR, '*.html'))
+    except Exception:
+        return
+    for f in files:
+        try:
+            s = orig = open(f, encoding='utf-8').read()
+            if 'nl-mobile-open' in s and '#zoom=100' in s:
+                continue  # already up to date
+            add_media = 'nl-mobile-open' not in s
+            s = re.sub(r'\.nl-viewer iframe \{[^}]*\}',
+                       lambda m: _NEW_IFRAME_CSS + (_MOBILE_CSS if add_media else ''), s, count=1)
+            s = re.sub(r'(<iframe src="\.\./documents/[^"#]+\.pdf)(#[^"]*)?"', r'\1#zoom=100"', s)
+            if '<a class="nl-mobile-open"' not in s:
+                m = re.search(r'<iframe src="(\.\./documents/[^"#]+\.pdf)', s)
+                if m:
+                    pdf = m.group(1)
+                    btn = ('<a class="nl-mobile-open" href="%s" target="_blank" rel="noopener">'
+                           '&#128196; Tap to open the full newsletter (PDF)</a>' % pdf)
+                    s = re.sub(r'(\n)(\s*)(<div class="nl-nav">)',
+                               lambda mm: mm.group(1) + mm.group(2) + btn + mm.group(1) + mm.group(2) + mm.group(3),
+                               s, count=1)
+            s = re.sub(r'href="([a-z0-9-]+)\.html"(\s+class="nl-nav-link")', r'href="/market-updates/\1"\2', s)
+            if s != orig:
+                with open(f, 'w', encoding='utf-8') as fp:
+                    fp.write(s)
+                print(f"[migrate] newsletter viewer patched on disk: {os.path.basename(f)}", flush=True)
+        except Exception as e:
+            print(f"[migrate] skip {f}: {e}", flush=True)
+
+try:
+    migrate_disk_newsletter_viewer()
+except Exception as e:
+    print(f"[migrate] newsletter viewer migration error: {e}", flush=True)
+
+
 def migrate_homepage_section():
     """One-time migration: give every live_listings property the homepage section tag."""
     vol_path = os.path.join(DATA_DIR, 'properties.json')
