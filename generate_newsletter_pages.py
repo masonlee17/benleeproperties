@@ -280,11 +280,11 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
         community_html = f'\n  <p class="nl-text-section-title">Community &amp; More</p>\n{body}'
 
     # Prev/Next nav
-    prev_link = (f'<a href="{prev_slug}.html" class="nl-nav-link">'
+    prev_link = (f'<a href="/market-updates/{prev_slug}" class="nl-nav-link">'
                  f'<img src="../images/arrow_right_black_24dp.svg" loading="lazy" alt="" '
                  f'style="transform:rotate(180deg);width:18px;height:18px;"> Prev Issue</a>'
                  if prev_slug else '<span></span>')
-    next_link = (f'<a href="{next_slug}.html" class="nl-nav-link">Next Issue '
+    next_link = (f'<a href="/market-updates/{next_slug}" class="nl-nav-link">Next Issue '
                  f'<img src="../images/arrow_right_black_24dp.svg" loading="lazy" alt="" '
                  f'style="width:18px;height:18px;"></a>'
                  if next_slug else '<span></span>')
@@ -343,7 +343,14 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
   <style>
     .nl-viewer {{width:100%;background:#f5f5f5;padding:2em 0;}}
     .nl-viewer-inner {{max-width:1040px;margin:0 auto;padding:0 1em;}}
-    .nl-viewer iframe {{width:100%;height:88vh;min-height:760px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}}
+    .nl-viewer iframe {{width:100%;height:90vh;min-height:900px;border:none;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:block;}}
+    .nl-mobile-open {{display:none;}}
+    @media (max-width:768px) {{
+      .nl-viewer {{padding:1.2em 0;}}
+      .nl-viewer iframe {{display:none;}}
+      .nl-mobile-open {{display:flex;align-items:center;justify-content:center;gap:.55em;background:#07264b;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95em;text-align:center;line-height:1.35;padding:1.15em 1.2em;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(7,38,75,.16);}}
+      .nl-nav {{flex-wrap:wrap;gap:.6em;}}
+    }}
     .nl-nav {{display:flex;justify-content:space-between;align-items:center;padding:1.5em 0 0.5em;gap:1em;}}
     .nl-nav-link {{display:inline-flex;align-items:center;gap:0.4em;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;color:#1a1a2e;text-decoration:none;transition:opacity 0.2s;}}
     .nl-nav-link:hover {{opacity:0.6;}}
@@ -470,12 +477,13 @@ def generate_html(nl, main_paras, community_paras, listings, prev_slug, next_slu
             <img src="../images/arrow_right_black_24dp.svg" loading="lazy" alt="" class="breadcrumb-icon-right">
             <span style="font-family:'Montserrat',sans-serif;font-size:0.85em;color:#555;">{_html.escape(label)}</span>
           </div>
-          <iframe src="{pdf_path_rel}#view=FitH&toolbar=1" title="{_html.escape(label)} Newsletter — Ben Lee Properties" loading="lazy">
+          <iframe src="{pdf_path_rel}#zoom=100" title="{_html.escape(label)} Newsletter — Ben Lee Properties" loading="lazy">
             <div class="nl-fallback">
               <p>Your browser does not support embedded PDFs.</p>
               {dl_link}
             </div>
           </iframe>
+          <a class="nl-mobile-open" href="{pdf_path_rel}" target="_blank" rel="noopener">&#128196; Tap to open the full newsletter (PDF)</a>
           <div class="nl-nav">
             {prev_link}
             {dl_link}
