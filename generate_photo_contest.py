@@ -43,7 +43,12 @@ SUBMISSIONS = [
     {"name": "Katariina Kiuru",     "imgs": ["images/photo-contest/12-katariina-kiuru.jpg"]},
     {"name": "Brenda Johnson",      "imgs": ["images/photo-contest/13-brenda-johnson.jpg"]},
     {"name": "Mary Larkin & Michael Robarts", "imgs": ["images/photo-contest/14-mary-larkin-michael-robarts-0.jpg",
-                                                        "images/photo-contest/14-mary-larkin-michael-robarts-1.jpg"]},
+                                                        "images/photo-contest/14-mary-larkin-michael-robarts-1.jpg"],
+                                              "locs": ["Cappadocia, Turkey", "Ephesus, Turkey"]},
+    {"name": "Bonnie Davis & Tom Rooney", "imgs": ["images/photo-contest/15-bonnie-davis-tom-rooney-0.jpg",
+                                                   "images/photo-contest/15-bonnie-davis-tom-rooney-1.jpg",
+                                                   "images/photo-contest/15-bonnie-davis-tom-rooney-2.jpg"],
+                                          "locs": ["Salzburg, Austria", "Habitat for Humanity, Romania", "Dracula's Castle, Romania"]},
 ]
 
 
@@ -51,11 +56,17 @@ def gallery_tiles():
     out = []
     for s in SUBMISSIONS:
         name = html.escape(s["name"])
-        for src in s["imgs"]:
+        imgs = s["imgs"]
+        locs = s.get("locs") or [s.get("loc")] * len(imgs)   # per-image, else one, else none
+        for src, loc in zip(imgs, locs):
+            cap = f'<figcaption class="pc-cap">{name}'
+            if loc:
+                cap += f'<span class="pc-loc">{html.escape(loc)}</span>'
+            cap += '</figcaption>'
             out.append(
                 f'''          <figure class="pc-item">
             <img src="{src}" loading="lazy" alt="Photo contest submission by {name}">
-            <figcaption class="pc-cap">{name}</figcaption>
+            {cap}
           </figure>''')
     return "\n".join(out)
 
@@ -117,6 +128,7 @@ PAGE = f"""<!DOCTYPE html>
     .pc-item {{break-inside:avoid;margin:0 0 18px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid #ecebe4;box-shadow:0 4px 16px rgba(7,38,75,.07);}}
     .pc-item img {{width:100%;display:block;}}
     .pc-cap {{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.82em;color:#07264b;padding:12px 14px;letter-spacing:.02em;}}
+    .pc-loc {{display:block;font-weight:500;font-size:.9em;color:#8a8a8a;margin-top:3px;letter-spacing:.01em;}}
 
     @media (max-width:900px) {{
       .pc-winner-card {{grid-template-columns:1fr;}}
